@@ -1,6 +1,7 @@
 # Change Tracker
 
 ## Completed Fixes/Features
+- Replaced `Thread.sleep(1000)` with a `CountDownLatch`-based shutdown in `ClientUI.shutdownClient`.
 - Reduced test `maxHeapSize` in `cache/cache.gradle.kts` from `16192m` to `4g` to lower memory usage during testing.
 - Verified and corrected varbit values for Western Provinces diaries.
 - Added unit tests validating updated varbit IDs.
@@ -14,6 +15,7 @@
 - Investigate build failure in `injected-client:inject` task.
 
 ## Planned Enhancements
+- Monitor for additional graceful shutdown improvements.
 - Monitor build performance to ensure memory reduction does not cause failures.
 - Automate dependency version checks across all modules.
 - Add CI step for building and testing.

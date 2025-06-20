@@ -68,6 +68,8 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 import java.util.TreeSet;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -801,24 +803,52 @@ public class ClientUI
 		saveClientBoundsConfig();
 		ClientShutdown csev = new ClientShutdown();
 		eventBus.post(csev);
-		new Thread(() ->
-		{
-			csev.waitForAllConsumers(Duration.ofSeconds(10));
+                new Thread(() ->
+                {
+                        csev.waitForAllConsumers(Duration.ofSeconds(10));
 
-			// The client can call System.exit when it's done shutting down
-			// if it doesn't though, we want to exit anyway, so race it
-			((Client) client).stopNow();
+                        // The client can call System.exit when it's done shutting down
+                        // if it doesn't though, we want to exit anyway, so race it
+                        ((Client) client).stopNow();
 
-			try
-			{
-				Thread.sleep(1000);
-			}
-			catch (InterruptedException ignored)
-			{
-			}
-			System.exit(0);
-		}, "OpenOSRS Shutdown").start();
-	}
+                        Thread clientThread = ((Client) client).getClientThread();
+                        CountDownLatch latch = new CountDownLatch(1);
+
+                        if (clientThread != null)
+                        {
+                                new Thread(() ->
+                                {
+                                        try
+                                        {
+                                                clientThread.join();
+                                        }
+                                        catch (InterruptedException e)
+                                        {
+                                                Thread.currentThread().interrupt();
+                                        }
+                                        finally
+                                        {
+                                                latch.countDown();
+                                        }
+                                }, "Client Shutdown Waiter").start();
+                        }
+                        else
+                        {
+                                latch.countDown();
+                        }
+
+                        try
+                        {
+                                latch.await(5, TimeUnit.SECONDS);
+                        }
+                        catch (InterruptedException e)
+                        {
+                                Thread.currentThread().interrupt();
+                        }
+
+                        System.exit(0);
+                }, "OpenOSRS Shutdown").start();
+        }
 
 	/**
 	 * Paint this component to target graphics
