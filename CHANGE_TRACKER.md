@@ -1,10 +1,14 @@
 # Change Tracker
 
 ## Completed Fixes/Features
+- Verified and corrected varbit values for Western Provinces diaries.
+- Added unit tests validating updated varbit IDs.
 - Updated Logback dependency to version 1.2.13 in `runelite-client.gradle.kts` after verifying compatibility with SLF4J 1.7.32.
 - Enabled PMD task in `runelite-client.gradle.kts` to surface rule violations.
 
 ## Outstanding TODO Items and Stubs
+- Review other diary varbit constants for accuracy.
+- Expand unit test coverage for additional quest constants.
 - Review other dependencies for newer versions and potential security patches.
 - Investigate build failure in `injected-client:inject` task.
 
