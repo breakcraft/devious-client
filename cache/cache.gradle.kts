@@ -73,6 +73,6 @@ tasks {
     }
 
     test {
-        maxHeapSize = "16192m"
+        maxHeapSize = "4g"
     }
 }
