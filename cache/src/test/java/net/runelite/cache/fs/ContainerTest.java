@@ -27,8 +27,8 @@ package net.runelite.cache.fs;
 import java.io.IOException;
 import java.util.Random;
 import static net.runelite.cache.fs.jagex.CompressionType.GZ;
-import static org.junit.Assert.assertArrayEquals;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
 
 public class ContainerTest
 {

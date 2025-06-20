@@ -29,6 +29,7 @@ package net.runelite.client.eventbus;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Iterables;
+import com.google.common.annotations.VisibleForTesting;
 import java.lang.invoke.CallSite;
 import java.lang.invoke.LambdaMetafactory;
 import java.lang.invoke.MethodHandle;
@@ -38,6 +39,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Comparator;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.Collection;
 import javax.annotation.Nonnull;
 import javax.annotation.concurrent.ThreadSafe;
 import lombok.EqualsAndHashCode;
@@ -218,18 +221,32 @@ public class EventBus
 		));
 	}
 
-	public synchronized void unregister(Subscriber sub)
-	{
-		if (sub == null)
-		{
-			return;
-		}
+        public synchronized void unregister(Subscriber sub)
+        {
+                if (sub == null)
+                {
+                        return;
+                }
 
-		subscribers = ImmutableMultimap.copyOf(Iterables.filter(
-			subscribers.entries(),
-			e -> sub != e.getValue()
-		));
-	}
+                subscribers = ImmutableMultimap.copyOf(Iterables.filter(
+                        subscribers.entries(),
+                        e -> sub != e.getValue()
+                ));
+        }
+
+       public synchronized void unregisterIf(Predicate<Subscriber> filter)
+       {
+               subscribers = ImmutableMultimap.copyOf(Iterables.filter(
+                       subscribers.entries(),
+                       e -> !filter.test(e.getValue())
+               ));
+       }
+
+       @VisibleForTesting
+       public synchronized Collection<Subscriber> getSubscribers()
+       {
+               return subscribers.values();
+       }
 
 	/**
 	 * Posts provided event to all registered subscribers. Subscriber calls are invoked immediately,

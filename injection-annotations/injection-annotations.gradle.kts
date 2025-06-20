@@ -24,3 +24,13 @@
  */
 description = "Injection/Mapping annotations"
 version = "1.1"
+dependencies {
+    testImplementation(group = "junit", name = "junit", version = "4.12")
+}
+
+tasks {
+    test {
+        // remove default exclusion from root project
+        setExcludes(emptyList())
+    }
+}
