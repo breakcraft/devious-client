@@ -47,7 +47,7 @@ tasks {
         disableAutoTargetJvm()
     }
     withType<JavaCompile> {
-        options.compilerArgs.addAll(arrayOf("-g:source,vars,lines", "-Xlint:-unchecked"))
+        options.compilerArgs.addAll(arrayOf("-g:source,vars,lines", "-Xlint:-unchecked", "-parameters"))
     }
     register<JavaExec>("rsc-run") {
         group = "openosrs"
