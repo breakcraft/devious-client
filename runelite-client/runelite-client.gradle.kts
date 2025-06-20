@@ -59,7 +59,7 @@ dependencies {
 
     implementation(project(":http-api"))
     implementation(project(":runelite-jshell"))
-    implementation(group = "ch.qos.logback", name = "logback-classic", version = "1.2.9")
+    implementation(group = "ch.qos.logback", name = "logback-classic", version = "1.2.13")
     implementation(group = "com.google.code.gson", name = "gson", version = "2.8.5")
     implementation(group = "com.google.guava", name = "guava", version = "30.1.1-jre") {
         exclude(group = "com.google.code.findbugs", module = "jsr305")
@@ -128,7 +128,8 @@ dependencies {
     testImplementation(group = "com.google.inject.extensions", name = "guice-grapher", version = "4.1.0")
     testImplementation(group = "com.google.inject.extensions", name = "guice-testlib", version = "4.1.0")
     testImplementation(group = "org.hamcrest", name = "hamcrest-library", version = "1.3")
-    testImplementation(group = "junit", name = "junit", version = "4.12")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
     testImplementation(group = "org.mockito", name = "mockito-core", version = "3.1.0")
     testImplementation(group = "org.mockito", name = "mockito-inline", version = "3.1.0")
     testImplementation(group = "com.squareup.okhttp3", name = "mockwebserver", version = "4.9.1")
@@ -226,6 +227,10 @@ tasks {
         ruleSets = emptyList()
         ignoreFailures = false
         isConsoleOutput = true
-        enabled = false
+        enabled = true
+    }
+
+    test {
+        useJUnitPlatform()
     }
 }

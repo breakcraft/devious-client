@@ -40,7 +40,8 @@ dependencies {
     implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.32")
 
     testImplementation(group = "com.squareup.okhttp3", name = "mockwebserver", version = "4.9.1")
-    testImplementation(group = "junit", name = "junit", version = "4.12")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
     testImplementation(group = "org.slf4j", name = "slf4j-simple", version = "1.7.32")
 }
 
@@ -58,5 +59,9 @@ tasks {
             filter(ReplaceTokens::class, "tokens" to tokens)
             filteringCharset = "UTF-8"
         }
+    }
+
+    test {
+        useJUnitPlatform()
     }
 }

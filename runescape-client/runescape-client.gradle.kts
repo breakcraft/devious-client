@@ -34,7 +34,8 @@ dependencies {
     implementation(group = "org.bouncycastle", name = "bcprov-jdk15on", version = "1.52")
     implementation(group = "org.json", name = "json", version = "20231013")
 
-    testImplementation(group = "junit", name = "junit", version = "4.12")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
     testImplementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.32")
     testImplementation(group = "org.slf4j", name = "slf4j-simple", version = "1.7.32")
 }
@@ -56,5 +57,9 @@ tasks {
         enableAssertions = true
 
         mainClass.set("Main")
+    }
+
+    test {
+        useJUnitPlatform()
     }
 }

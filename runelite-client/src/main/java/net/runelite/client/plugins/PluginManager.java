@@ -81,6 +81,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 @Singleton
@@ -636,10 +637,41 @@ public class PluginManager
 		plugins.add(plugin);
 	}
 
-	public void remove(Plugin plugin)
-	{
-		plugins.remove(plugin);
-	}
+        public void remove(Plugin plugin)
+        {
+                plugins.remove(plugin);
+                cleanup(plugin.getClass().getClassLoader());
+        }
+
+       public void cleanup(ClassLoader classLoader)
+       {
+               if (classLoader == null)
+               {
+                       return;
+               }
+
+               for (ScheduledMethod method : new ArrayList<>(scheduler.getScheduledMethods()))
+               {
+                       Object obj = method.getObject();
+                       Runnable lambda = method.getLambda();
+                       if ((obj != null && obj.getClass().getClassLoader() == classLoader)
+                               || (lambda != null && lambda.getClass().getClassLoader() == classLoader)
+                               || (method.getMethod() != null && method.getMethod().getDeclaringClass().getClassLoader() == classLoader))
+                       {
+                               scheduler.removeScheduledMethod(method);
+                       }
+               }
+
+               eventBus.unregisterIf(sub ->
+               {
+                       Object obj = sub.getObject();
+                       Consumer<Object> lambda = sub.getLambda();
+                       Method method = sub.getMethod();
+                       return (obj != null && obj.getClass().getClassLoader() == classLoader)
+                               || (lambda != null && lambda.getClass().getClassLoader() == classLoader)
+                               || (method != null && method.getDeclaringClass().getClassLoader() == classLoader);
+               });
+       }
 
 	public Collection<Plugin> getPlugins()
 	{
