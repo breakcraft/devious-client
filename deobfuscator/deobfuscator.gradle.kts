@@ -55,13 +55,15 @@ dependencies {
 
     runtimeOnly(group = "org.slf4j", name = "slf4j-simple", version = "1.7.32")
 
-    testImplementation(group = "junit", name = "junit", version = "4.12")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
     testImplementation(group = "org.mockito", name = "mockito-core", version = "3.1.0")
 }
 
 tasks {
     test {
         exclude("**/*")
+        useJUnitPlatform()
     }
 
     val tokens = mapOf(
