@@ -42,6 +42,6 @@ tasks {
     }
 
     withType<JavaCompile> {
-        options.compilerArgs.addAll(arrayOf("-Xlint:-unchecked"))
+        options.compilerArgs.addAll(arrayOf("-Xlint:-unchecked", "-parameters"))
     }
 }
