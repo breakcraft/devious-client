@@ -53,7 +53,8 @@ dependencies {
 
     testCompileOnly(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)
 
-    testImplementation(group = "junit", name = "junit", version = "4.13.1")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
     testImplementation(group = "net.runelite.rs", name = "cache", version = "${ProjectVersions.cacheversion}")
 }
 
@@ -74,5 +75,6 @@ tasks {
 
     test {
         maxHeapSize = "16192m"
+        useJUnitPlatform()
     }
 }

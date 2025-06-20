@@ -158,6 +158,7 @@ subprojects {
     tasks {
         test {
             exclude("**/*")
+            useJUnitPlatform()
         }
 
         java {
