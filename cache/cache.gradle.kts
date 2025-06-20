@@ -32,37 +32,36 @@ plugins {
 description = "Cache"
 
 dependencies {
-    annotationProcessor(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)
+    annotationProcessor("org.projectlombok:lombok:${ProjectVersions.lombokVersion}")
 
     api(project(":http-api"))
 
-    compileOnly(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)
+    compileOnly("org.projectlombok:lombok:${ProjectVersions.lombokVersion}")
 
-    implementation(group = "com.google.code.gson", name = "gson", version = "2.8.5")
-    implementation(group = "com.google.guava", name = "guava", version = "30.1.1-jre")
-    implementation(group = "commons-cli", name = "commons-cli", version = "1.4")
-    implementation(group = "io.netty", name = "netty-buffer", version = "4.1.54.Final")
-    implementation(group = "com.squareup.okhttp3", name = "okhttp", version = "4.9.1")
-    implementation(group = "org.antlr", name = "antlr4-runtime", version = "4.13.1")
-    implementation(group = "org.apache.commons", name = "commons-compress", version = "1.21")
-    implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.32")
-    implementation(group = "org.slf4j", name = "slf4j-simple", version = "1.7.32")
-    implementation(group = "net.java.dev.jna", name = "jna", version = "5.9.0")
+    implementation("com.google.code.gson:gson:2.8.5")
+    implementation("com.google.guava:guava:30.1.1-jre")
+    implementation("commons-cli:commons-cli:1.4")
+    implementation("io.netty:netty-buffer:4.1.54.Final")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("org.antlr:antlr4-runtime:4.13.1")
+    implementation("org.apache.commons:commons-compress:1.21")
+    implementation("org.slf4j:slf4j-api:1.7.32")
+    implementation("org.slf4j:slf4j-simple:1.7.32")
+    implementation("net.java.dev.jna:jna:5.9.0")
 
-    testAnnotationProcessor(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)
+    testAnnotationProcessor("org.projectlombok:lombok:${ProjectVersions.lombokVersion}")
+    testCompileOnly("org.projectlombok:lombok:${ProjectVersions.lombokVersion}")
 
-    testCompileOnly(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)
-
-    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
-    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
-    testImplementation(group = "net.runelite.rs", name = "cache", version = "${ProjectVersions.cacheversion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    testImplementation("net.runelite.rs:cache:${ProjectVersions.cacheversion}")
 }
 
 tasks {
     processTestResources {
         val tokens = mapOf(
-                "rs.version" to ProjectVersions.rsversion.toString(),
-                "cache.version" to ProjectVersions.cacheversion.toString()
+            "rs.version" to ProjectVersions.rsversion.toString(),
+            "cache.version" to ProjectVersions.cacheversion.toString()
         )
 
         inputs.properties(tokens)
@@ -74,7 +73,7 @@ tasks {
     }
 
     test {
-        maxHeapSize = "16192m"
+        maxHeapSize = "4g" // Merged down from 16192m to avoid excessive memory usage
         useJUnitPlatform()
     }
 }
