@@ -56,6 +56,7 @@ import net.runelite.client.eventbus.EventBus;
 import okhttp3.OkHttpClient;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -67,6 +68,8 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.MockitoJUnitRunner;
+import net.runelite.client.plugins.cleanup.CleanupPlugin;
+import net.runelite.client.task.Scheduler;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PluginManagerTest
@@ -217,11 +220,11 @@ public class PluginManagerTest
 	}
 
 	@Test
-	public void testTopologicalSort()
-	{
-		MutableGraph<Integer> graph = GraphBuilder
-			.directed()
-			.build();
+        public void testTopologicalSort()
+        {
+                MutableGraph<Integer> graph = GraphBuilder
+                        .directed()
+                        .build();
 
 		graph.addNode(1);
 		graph.addNode(2);
@@ -233,6 +236,26 @@ public class PluginManagerTest
 		List<Integer> sorted = PluginManager.topologicalSort(graph);
 
 		assertTrue(sorted.indexOf(1) < sorted.indexOf(2));
-		assertTrue(sorted.indexOf(1) < sorted.indexOf(3));
-	}
+                assertTrue(sorted.indexOf(1) < sorted.indexOf(3));
+        }
+
+       @Test
+       public void testCleanupRemovesOrphans() throws Exception
+       {
+               EventBus eventBus = new EventBus();
+               Scheduler scheduler = new Scheduler();
+               PluginManager pm = new PluginManager(false, false, eventBus, scheduler, configManager, () -> null);
+               List<Plugin> plugins = pm.loadPlugins(List.of(CleanupPlugin.class), null);
+               Plugin plugin = plugins.get(0);
+
+               pm.startPlugin(plugin);
+               assertFalse(eventBus.getSubscribers().isEmpty());
+               assertFalse(scheduler.getScheduledMethods().isEmpty());
+
+               pm.stopPlugin(plugin);
+               pm.remove(plugin);
+
+               assertTrue(eventBus.getSubscribers().isEmpty());
+               assertTrue(scheduler.getScheduledMethods().isEmpty());
+       }
 }

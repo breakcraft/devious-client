@@ -113,11 +113,11 @@ public class CodeVisitor extends MethodVisitor
 		return annotation;
 	}
 
-	@Override
-	public void visitParameter(String name, int access)
-	{
-		method.getParameters().add(new Parameter(name, access));
-	}
+        @Override
+        public void visitParameter(String name, int access)
+        {
+                method.getParameters().add(new Parameter(name == null ? "" : name, access));
+        }
 
 	private Instruction createInstructionFromOpcode(int opcode)
 	{

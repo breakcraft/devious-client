@@ -36,10 +36,10 @@ public class Parameter
 		this.access = access;
 	}
 
-	public String getName()
-	{
-		return name;
-	}
+       public String getName()
+       {
+               return name == null ? "" : name;
+       }
 
 	public int getAccess()
 	{
