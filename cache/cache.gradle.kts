@@ -73,7 +73,7 @@ tasks {
     }
 
     test {
-        maxHeapSize = "4g" // Merged down from 16192m to avoid excessive memory usage
+        maxHeapSize = "2g" // Further reduce to limit memory footprint
         useJUnitPlatform()
     }
 }

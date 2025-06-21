@@ -211,6 +211,10 @@ subprojects {
     }
 
     configurations.compileOnly.get().extendsFrom(configurations["annotationProcessor"])
+
+    tasks.withType<JavaExec> {
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
+    }
 }
 
 application {

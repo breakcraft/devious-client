@@ -25,43 +25,11 @@
 
 package com.openosrs.client.game;
 
-import java.io.File;
 import java.net.URL;
-import lombok.EqualsAndHashCode;
-import lombok.SneakyThrows;
-import lombok.Value;
-import net.runelite.client.RuneLite;
 
 public abstract class Sound
 {
 	public abstract URL getPath();
 
-	// TODO: these inner classes should probably be removed
-
-	@Value
-	@EqualsAndHashCode(callSuper = true) // stop the warning
-	static class SoundJarResource extends Sound
-	{
-		String path;
-
-		@Override
-		public URL getPath()
-		{
-			return RuneLite.class.getResource(path);
-		}
-	}
-
-	@Value
-	@EqualsAndHashCode(callSuper = true) // stop the warning
-	static class SoundFileResource extends Sound
-	{
-		File file;
-
-		@Override
-		@SneakyThrows
-		public URL getPath()
-		{
-			return file.toURI().toURL();
-		}
-	}
+        // Implementations provided in separate classes
 }

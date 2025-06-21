@@ -17,12 +17,17 @@
 - Removed deprecated `EmptyControlStatement` rule from PMD ruleset.
 - Corrected `ignoredAnnotations` delimiter in `pmd-ruleset.xml` to use `|` and
   remove illegal Java binary name errors.
+- Added global `jvmArgs` for all `JavaExec` tasks.
+- Extracted `SoundJarResource` and `SoundFileResource` into standalone classes.
+- Documented stack allocation rationale in `Stack.java` and reduced cache tests heap size.
+- Expanded blocked domain list with comments.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.
 - Expand unit test coverage for additional quest constants.
 - Review other dependencies for newer versions and potential security patches.
 - Investigate build failure in `injected-client:inject` task.
+- Verify `resetCursor()` behavior on Linux and macOS.
 
 ## Planned Enhancements
 - Monitor for additional graceful shutdown improvements.

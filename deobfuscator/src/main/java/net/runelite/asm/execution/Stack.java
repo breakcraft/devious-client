@@ -35,10 +35,11 @@ public class Stack
 	private int size;
 	private final StackContext[] stack;
 
-	public Stack(int sz)
-	{
-		stack = new StackContext[sz * 2]; // XXX FIXME
-	}
+        public Stack(int sz)
+        {
+                // allocate double the requested size to avoid frequent reallocation
+                stack = new StackContext[sz * 2];
+        }
 
 	public Stack(Stack other)
 	{
