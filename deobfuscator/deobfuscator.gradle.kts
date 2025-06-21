@@ -96,6 +96,7 @@ tasks {
 
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.gamepack.Downloader")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
 
         // Check if gamepack.jar exists
         /*val gamepack = deobjars.find { it.name.startsWith("gamepack") }
@@ -111,6 +112,7 @@ tasks {
 
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.deob.Deob")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
         args = listOf(
             "${System.getProperty("user.home")}/gamepack/gamepack_"+ProjectVersions.rsversion.toString()+".jar",
             "$buildDir/libs/deobfuscated-$version.jar"
@@ -122,6 +124,7 @@ tasks {
 
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.deob.updater.UpdateMappings")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
         args = listOf(
             "${buildDir.toString().replace("deobfuscator", "runescape-client")}/libs/runescape-client-$version.jar",
             "$buildDir/libs/deobfuscated-$version.jar",
@@ -136,6 +139,7 @@ tasks {
 
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.deob.clientver.ClientVersionMain")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 }
 

@@ -20,7 +20,7 @@ Read this once, then ship code like a pro.
 
 ```bash
 # Fast sanity build – skips heavyweight stuff that CI handles
-./gradlew build --stacktrace -x test -x checkstyleMain -x checkstyleTest --console=plain
+./gradlew build --stacktrace -x checkstyleMain -x checkstyleTest --console=plain
 
 # Style gate
 ./gradlew checkstyleMain --console=plain

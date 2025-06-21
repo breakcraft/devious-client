@@ -35,9 +35,10 @@ public class Stack
 	private int size;
 	private final StackContext[] stack;
 
-	public Stack(int sz)
-	{
-		stack = new StackContext[sz * 2]; // XXX FIXME
+        public Stack(int sz)
+        {
+                // Reserve extra space for merged frames to prevent array growth
+                stack = new StackContext[sz * 2];
 	}
 
 	public Stack(Stack other)

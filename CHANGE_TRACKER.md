@@ -17,12 +17,20 @@
 - Removed deprecated `EmptyControlStatement` rule from PMD ruleset.
 - Corrected `ignoredAnnotations` delimiter in `pmd-ruleset.xml` to use `|` and
   remove illegal Java binary name errors.
+- Added `--add-opens` argument to every `JavaExec` task for reliability.
+- Removed `-x test` flags from CI and JitPack build commands.
+- Documented minimal build process in `README.md`.
+- Explained stack size multiplication logic in `Stack` class.
+- Commented blocked domain entries in `runelite.properties`.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.
 - Expand unit test coverage for additional quest constants.
 - Review other dependencies for newer versions and potential security patches.
 - Investigate build failure in `injected-client:inject` task.
+- Review GitHub workflow names for clarity.
+- Refresh dependency versions in `Dependencies.kt`.
+- Implement plugin unload cleanup.
 
 ## Planned Enhancements
 - Monitor for additional graceful shutdown improvements.

@@ -65,4 +65,14 @@ interaction settings can be customized.
 - The minimal environment may be ideal for people who want to run (multiple) script(s) and preserve cpu/ram usage.
 - Check out the discord to see how to build using the minimal environment.
 
+## Building
+
+Run `./gradlew build` to compile all modules and `./gradlew run` to start the client.
+
+For the minimal client pass `-Pminimal=true` during build:
+
+```bash
+./gradlew build -Pminimal=true
+```
+
 <br> There's much more that this fork offers which simply can't be fit into this small readme.
