@@ -22,3 +22,4 @@
 - Monitor build performance to ensure memory reduction does not cause failures.
 - Automate dependency version checks across all modules.
 - Add CI step for building and testing.
+- Documented workflow refactoring.
