@@ -49,6 +49,15 @@ repositories {
 
 apply<BootstrapPlugin>()
 
+sourceSets {
+    val annotationRetention by creating {
+        java.srcDir("src/annotationRetention/java")
+        resources.srcDir("src/annotationRetention/resources")
+        compileClasspath += sourceSets["test"].compileClasspath
+        runtimeClasspath += sourceSets["test"].runtimeClasspath
+    }
+}
+
 description = "RuneLite Client"
 
 dependencies {
@@ -234,6 +243,12 @@ tasks {
     }
 
     test {
+        useJUnitPlatform()
+    }
+
+    register<Test>("annotationRetentionTest") {
+        testClassesDirs = sourceSets["annotationRetention"].output.classesDirs
+        classpath = sourceSets["annotationRetention"].runtimeClasspath
         useJUnitPlatform()
     }
 }

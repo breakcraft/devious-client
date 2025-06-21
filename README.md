@@ -33,9 +33,11 @@ object (ex. ``NPC.interact("Attack")``)
 
 ### Definitions/Compositions
 - Methods such as getName(), getActions(), etc. of Items, TileObjects and NPCs rely on retrieving their composition
-from the client, which in some cases needs to be run on the client thread. 
-We have modified the client in such a way that compositions get cached, so that client thread lookups are only needed
-if the composition is not cached. This allows for stuff like Widget.isVisible() and TileObject.getName() to work off
+from the client, which in some cases needs to be run on the client thread.
+We have modified the client in such a way that compositions get cached, so that
+client thread lookups are only needed
+if the composition is not cached. This allows for stuff like Widget.isVisible()
+and TileObject.getName() to work off
 client thread.
 
 ### Packets
@@ -44,7 +46,7 @@ to the server. An example use case is stacking multiple npc dialogs in one tick 
 - These packets are very easy to use with our Packet api. (ex. ``ItemPackets.createFirstAction(widget, id, slot).send()``)
 
 ### Pathfinding
-- The client has a pathfinding api which covers the majority of the map. All collision data is crowdsourced using the 
+- The client has a pathfinding api which covers the majority of the map. All collision data is crowdsourced using the
 internal Regions plugin. The data can be accessed from our backend.
 - Besides walking, Transports and Teleports are also supported.
 
@@ -65,14 +67,21 @@ interaction settings can be customized.
 - The minimal environment may be ideal for people who want to run (multiple) script(s) and preserve cpu/ram usage.
 - Check out the discord to see how to build using the minimal environment.
 
-## Building and running
-This project uses Gradle for builds. Common tasks include:
+## Building the Client
 
+Build the standard client:
 ```bash
-./gradlew build --stacktrace --console=plain
-./gradlew :runelite-client:run
+./gradlew :runelite-client:build
 ```
 
-The first command compiles all modules while the second launches the client.
+For a minimal build:
+```bash
+./gradlew minimalRunelite --stacktrace
+```
+
+Launch the client with:
+```bash
+./gradlew run
+```
 
 <br> There's much more that this fork offers which simply can't be fit into this small readme.

@@ -10,9 +10,11 @@
 - Resolved missing PMD rule references, removed incompatible rules, and allowed build to succeed.
 - Consolidated CI workflows into `.github/workflows/ci.yml` and added reusable Gradle setup action.
 - Updated tab wrapping logic to handle varying tab widths and added UI tests for mixed-size tabs.
-- Added jvmArgs to all JavaExec tasks for reflective access.
-- Commented blocked domains list and renamed CI workflow.
-- Documented build and run commands in README.
+- Added JVM arguments to all JavaExec tasks for module access.
+- Introduced an `annotationRetention` test source set and task.
+- Removed `-x test` from CI build command and renamed workflow.
+- Fixed PMD ruleset issues and allowed build to complete.
+- Updated README with build instructions.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.
