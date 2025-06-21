@@ -1,13 +1,14 @@
 # Change Tracker
 
 ## Completed Fixes/Features
-- Consolidated all workflow files into `ci.yml` using modern `actions/setup-java` with Gradle caching.
 - Replaced `Thread.sleep(1000)` with a `CountDownLatch`-based shutdown in `ClientUI.shutdownClient`.
 - Reduced test `maxHeapSize` in `cache/cache.gradle.kts` from `16192m` to `4g` to lower memory usage during testing.
 - Verified and corrected varbit values for Western Provinces diaries.
 - Added unit tests validating updated varbit IDs.
 - Updated Logback dependency to version 1.2.13 in `runelite-client.gradle.kts` after verifying compatibility with SLF4J 1.7.32.
 - Enabled PMD task in `runelite-client.gradle.kts` to surface rule violations.
+- Consolidated CI workflows into `.github/workflows/ci.yml` and added reusable
+  Gradle setup action.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.
