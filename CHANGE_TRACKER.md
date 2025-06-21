@@ -9,6 +9,8 @@
 - Enabled PMD task in `runelite-client.gradle.kts` to surface rule violations.
 - Consolidated CI workflows into `.github/workflows/ci.yml` and added reusable
   Gradle setup action.
+- Updated tab wrapping logic to handle varying tab widths and added UI tests for
+  mixed-size tabs.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.

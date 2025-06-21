@@ -87,33 +87,47 @@ public class RuneLiteTabbedPaneUI extends FlatTabbedPaneUI
 			// however this means that with 16 equally sized tabs you get 2 runs of 7 and 9 tabs
 			// each, which looks wrong
 
-			// XXX this assumes all tabs are the same size
+                        boolean verticalTabRuns = tabPlacement == LEFT || tabPlacement == RIGHT;
 
-			boolean verticalTabRuns = tabPlacement == LEFT || tabPlacement == RIGHT;
+                        int totalSize = 0;
+                        for (int i = 0; i < tabCount; i++)
+                        {
+                                totalSize += verticalTabRuns ? rects[i].height : rects[i].width;
+                        }
 
-			int tab = 0;
-			for (int run = 0; run < runCount; run++)
-			{
-				tabRuns[run] = tab;
-				int remainingTabs = tabCount - tab;
-				int remainingRuns = runCount - run;
-				int nextRun = tab + (remainingTabs + remainingRuns - 1) / remainingRuns;
-				for (int i = tab, off = start; i < nextRun; i++)
-				{
-					if (verticalTabRuns)
-					{
-						rects[i].y = off;
-						off += rects[i].height;
-					}
-					else
-					{
-						rects[i].x = off;
-						off += rects[i].width;
-					}
-				}
-				tab = nextRun;
-			}
-		}
+                        int tab = 0;
+                        for (int run = 0; run < runCount; run++)
+                        {
+                                tabRuns[run] = tab;
+                                int remainingRuns = runCount - run;
+                                int targetSize = (totalSize + remainingRuns - 1) / remainingRuns;
+
+                                int off = start;
+                                int runSize = 0;
+                                while (tab < tabCount)
+                                {
+                                        int size = verticalTabRuns ? rects[tab].height : rects[tab].width;
+                                        if (runSize > 0 && runSize + size > targetSize && (tabCount - tab) >= remainingRuns)
+                                        {
+                                                break;
+                                        }
+
+                                        if (verticalTabRuns)
+                                        {
+                                                rects[tab].y = off;
+                                        }
+                                        else
+                                        {
+                                                rects[tab].x = off;
+                                        }
+
+                                        off += size;
+                                        runSize += size;
+                                        tab++;
+                                }
+                                totalSize -= runSize;
+                        }
+                }
 
 		@Override
 		protected Dimension calculateSize(boolean minimum)
