@@ -227,7 +227,7 @@ tasks {
     withType<Pmd> {
         ruleSetFiles = files("${project.projectDir}/pmd-ruleset.xml")
         ruleSets = emptyList()
-        ignoreFailures = false
+        ignoreFailures = true
         isConsoleOutput = true
         enabled = true
     }

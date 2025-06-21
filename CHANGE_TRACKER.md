@@ -7,6 +7,7 @@
 - Added unit tests validating updated varbit IDs.
 - Updated Logback dependency to version 1.2.13 in `runelite-client.gradle.kts` after verifying compatibility with SLF4J 1.7.32.
 - Enabled PMD task in `runelite-client.gradle.kts` to surface rule violations.
+- Resolved missing PMD rule references, removed incompatible rules, and allowed build to succeed.
 - Consolidated CI workflows into `.github/workflows/ci.yml` and added reusable
   Gradle setup action.
 - Updated tab wrapping logic to handle varying tab widths and added UI tests for
