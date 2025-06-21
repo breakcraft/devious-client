@@ -2,7 +2,7 @@ name: Devious Client CI/CD
 
 on:
   push:
-    branches: [master, development, experimental]
+    branches: [master, main, development, experimental]
   pull_request:
 
 jobs:
@@ -65,4 +65,3 @@ jobs:
         run: chmod +x ./gradlew
       - name: Checkstyle
         run: ./gradlew checkstyleMain --console=plain
-

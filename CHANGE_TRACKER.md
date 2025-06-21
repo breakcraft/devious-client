@@ -1,6 +1,7 @@
 # Change Tracker
 
 ## Completed Fixes/Features
+- Consolidated all workflow files into `ci.yml` using modern `actions/setup-java` with Gradle caching.
 - Replaced `Thread.sleep(1000)` with a `CountDownLatch`-based shutdown in `ClientUI.shutdownClient`.
 - Reduced test `maxHeapSize` in `cache/cache.gradle.kts` from `16192m` to `4g` to lower memory usage during testing.
 - Verified and corrected varbit values for Western Provinces diaries.
@@ -14,6 +15,7 @@
 - Expand unit test coverage for additional quest constants.
 - Review other dependencies for newer versions and potential security patches.
 - Investigate build failure in `injected-client:inject` task.
+- Address `pmdMain` rule error preventing local build.
 
 ## Planned Enhancements
 - Monitor for additional graceful shutdown improvements.
