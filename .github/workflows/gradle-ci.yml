@@ -2,16 +2,16 @@ name: Gradle CI
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [master, main, development, experimental]
   pull_request:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: ~/.gradle
-          key: gradle-${{ hashFiles('**/gradle*.properties') }}-${{ runner.os }}
-      # …rest of your Gradle build steps
+    uses: ./.github/workflows/reusable-gradle.yml
+    with:
+      tasks: build --stacktrace -x test -x checkstyleMain -x checkstyleTest
+
+  checkstyle:
+    uses: ./.github/workflows/reusable-gradle.yml
+    with:
+      tasks: checkstyleMain
