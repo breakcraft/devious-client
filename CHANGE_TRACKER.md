@@ -7,6 +7,7 @@
 - Added unit tests validating updated varbit IDs.
 - Updated Logback dependency to version 1.2.13 in `runelite-client.gradle.kts` after verifying compatibility with SLF4J 1.7.32.
 - Enabled PMD task in `runelite-client.gradle.kts` to surface rule violations.
+- Rewrote CI workflows into a single `ci.yml` using reusable Gradle steps and caching.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.
