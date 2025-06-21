@@ -11,8 +11,8 @@
   Gradle setup action.
 - Updated tab wrapping logic to handle varying tab widths and added UI tests for
   mixed-size tabs.
-- Fixed PMD build failure by configuring `toolVersion` 7.2.0 and adding
-  `pmd-ant` dependency.
+- Resolved PMD build failure by aligning toolVersion to 6.55.0 and pruning
+  unsupported rules.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.

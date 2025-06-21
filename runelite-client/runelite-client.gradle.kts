@@ -38,7 +38,7 @@ plugins {
 }
 
 pmd {
-    toolVersion = "7.2.0"
+    toolVersion = "6.55.0"
 }
 
 repositories {
@@ -104,10 +104,6 @@ dependencies {
     implementation(group = "org.lwjgl", name = "lwjgl-opengl")
     implementation(group = "org.lwjgl", name = "lwjgl-opencl")
 
-    implementation(group = "net.sourceforge.pmd", name = "pmd-core", version = "7.2.0")
-    implementation(group = "net.sourceforge.pmd", name = "pmd-java", version = "7.2.0")
-    implementation(group = "net.sourceforge.pmd", name = "pmd-ant", version = "7.2.0")
-    add("pmd", "net.sourceforge.pmd:pmd-ant:7.2.0")
 
     runtimeOnly(project(":runescape-api"))
     runtimeOnly(group = "net.runelite.jocl", name = "jocl", version = "1.0", classifier = "macos-x64")
