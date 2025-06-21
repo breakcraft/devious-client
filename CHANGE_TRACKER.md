@@ -15,6 +15,8 @@
 - Resolved PMD build failure by aligning toolVersion to 6.55.0 and pruning
   unsupported rules.
 - Removed deprecated `EmptyControlStatement` rule from PMD ruleset.
+- Corrected `ignoredAnnotations` delimiter in `pmd-ruleset.xml` to use `|` and
+  remove illegal Java binary name errors.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.

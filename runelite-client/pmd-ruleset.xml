@@ -43,8 +43,8 @@
 	<rule ref="category/java/bestpractices.xml/UnusedPrivateField"/>
 	<rule ref="category/java/bestpractices.xml/UnusedPrivateMethod">
 		<properties>
-			<property name="ignoredAnnotations"
-					  value="net.runelite.client.eventbus.Subscribe,com.google.inject.Provides"/>
+                        <property name="ignoredAnnotations"
+                                          value="net.runelite.client.eventbus.Subscribe|com.google.inject.Provides"/>
 		</properties>
 	</rule>
 	<rule ref="category/java/bestpractices.xml/UseTryWithResources"/>
