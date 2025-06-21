@@ -25,12 +25,14 @@
 description = "Injection/Mapping annotations"
 version = "1.1"
 dependencies {
-    testImplementation(group = "junit", name = "junit", version = "4.12")
+    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
+    testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
 }
 
 tasks {
     test {
         // remove default exclusion from root project
         setExcludes(emptyList())
+        useJUnitPlatform()
     }
 }

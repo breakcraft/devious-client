@@ -171,7 +171,7 @@ public class JagexColorTest
 			{
 				int rgb = JagexColor.HSLtoRGB((short) i, brightness);
 				int crgb = colorPalette[i];
-				assertEquals("idx " + i + " brightness " + brightness, crgb, rgb);
+                                assertEquals(crgb, rgb, "idx " + i + " brightness " + brightness);
 			}
 		}
 	}

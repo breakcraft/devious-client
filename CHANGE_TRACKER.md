@@ -15,6 +15,8 @@
 - Removed `-x test` from CI build command and renamed workflow.
 - Fixed PMD ruleset issues and allowed build to complete.
 - Updated README with build instructions.
+- Added JUnit 4 and Vintage dependencies so legacy tests execute under JUnit 5.
+- Migrated `AnnotationRetentionTest` to JUnit Jupiter and corrected argument ordering.
 
 ## Outstanding TODO Items and Stubs
 - Review other diary varbit constants for accuracy.
@@ -22,6 +24,10 @@
 - Review other dependencies for newer versions and potential security patches.
 - Investigate build failure in `injected-client:inject` task.
 - Verify cross-platform cursor reset behaviour.
+- Review GitHub workflow names for clarity.
+- Refresh dependency versions in `Dependencies.kt`.
+- Implement plugin unload cleanup.
+- Convert remaining JUnit 4 tests to JUnit Jupiter.
 
 ## Planned Enhancements
 - Monitor for additional graceful shutdown improvements.

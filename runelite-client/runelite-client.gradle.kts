@@ -141,6 +141,8 @@ dependencies {
     testImplementation(group = "org.hamcrest", name = "hamcrest-library", version = "1.3")
     testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
     testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
+    testImplementation(group = "junit", name = "junit", version = "4.13.2")
+    testRuntimeOnly(group = "org.junit.vintage", name = "junit-vintage-engine", version = "5.7.0")
     testImplementation(group = "org.mockito", name = "mockito-core", version = "3.1.0")
     testImplementation(group = "org.mockito", name = "mockito-inline", version = "3.1.0")
     testImplementation(group = "com.squareup.okhttp3", name = "mockwebserver", version = "4.9.1")

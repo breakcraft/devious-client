@@ -57,6 +57,8 @@ dependencies {
 
     testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
     testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
+    testImplementation(group = "junit", name = "junit", version = "4.13.2")
+    testRuntimeOnly(group = "org.junit.vintage", name = "junit-vintage-engine", version = "5.7.0")
     testImplementation(group = "org.mockito", name = "mockito-core", version = "3.1.0")
 }
 

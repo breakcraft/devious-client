@@ -44,6 +44,8 @@ dependencies {
 
     testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-api", version = "5.7.0")
     testRuntimeOnly(group = "org.junit.jupiter", name = "junit-jupiter-engine", version = "5.7.0")
+    testImplementation(group = "junit", name = "junit", version = "4.13.2")
+    testRuntimeOnly(group = "org.junit.vintage", name = "junit-vintage-engine", version = "5.7.0")
 
     testAnnotationProcessor(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)
     testCompileOnly(group = "org.projectlombok", name = "lombok", version = ProjectVersions.lombokVersion)

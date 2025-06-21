@@ -21,24 +21,24 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AnnotationRetentionTest
 {
     private static void assertRuntimeRetention(Class<?> clazz)
     {
         Retention r = clazz.getAnnotation(Retention.class);
-        assertNotNull("Missing Retention on " + clazz.getSimpleName(), r);
+        assertNotNull(r, "Missing Retention on " + clazz.getSimpleName());
         assertEquals(RetentionPolicy.RUNTIME, r.value());
     }
 
     private static void assertTargets(Class<?> clazz, ElementType... expected)
     {
         Target t = clazz.getAnnotation(Target.class);
-        assertNotNull("Missing Target on " + clazz.getSimpleName(), t);
-        assertArrayEquals("Wrong targets on " + clazz.getSimpleName(), expected, t.value());
+        assertNotNull(t, "Missing Target on " + clazz.getSimpleName());
+        assertArrayEquals(expected, t.value(), "Wrong targets on " + clazz.getSimpleName());
     }
 
     @Test
