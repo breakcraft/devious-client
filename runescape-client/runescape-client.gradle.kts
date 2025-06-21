@@ -57,6 +57,7 @@ tasks {
         enableAssertions = true
 
         mainClass.set("Main")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 
     test {

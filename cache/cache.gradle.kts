@@ -73,7 +73,7 @@ tasks {
     }
 
     test {
-        maxHeapSize = "2g" // Further reduce to limit memory footprint
+        maxHeapSize = "2g" // Lower memory usage for CI environments
         useJUnitPlatform()
     }
 }

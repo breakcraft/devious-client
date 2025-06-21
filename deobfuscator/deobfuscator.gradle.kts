@@ -96,6 +96,7 @@ tasks {
 
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.gamepack.Downloader")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
 
         // Check if gamepack.jar exists
         /*val gamepack = deobjars.find { it.name.startsWith("gamepack") }
@@ -115,6 +116,7 @@ tasks {
             "${System.getProperty("user.home")}/gamepack/gamepack_"+ProjectVersions.rsversion.toString()+".jar",
             "$buildDir/libs/deobfuscated-$version.jar"
         )
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 
     register<JavaExec>("UpdateMappings\$main()") {
@@ -127,6 +129,7 @@ tasks {
             "$buildDir/libs/deobfuscated-$version.jar",
             "$buildDir/libs/updated-$version.jar"
         )
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 
     // Run with --args
@@ -136,6 +139,7 @@ tasks {
 
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.deob.clientver.ClientVersionMain")
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 }
 

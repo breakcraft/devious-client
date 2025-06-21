@@ -61,8 +61,18 @@ interaction settings can be customized.
   (ex. ``Inventory.getFirst("Coins")`` ``NPCs.getNearest("Goblin")`` ``Magic.cast("Wind strike")`` etc.)
 
 ### Minimal environment
-- The client can also be built as a typical (unethical) third party client, meaning without all the RuneLite stuff such as plugins. 
+- The client can also be built as a typical (unethical) third party client, meaning without all the RuneLite stuff such as plugins.
 - The minimal environment may be ideal for people who want to run (multiple) script(s) and preserve cpu/ram usage.
 - Check out the discord to see how to build using the minimal environment.
+
+## Building and running
+This project uses Gradle for builds. Common tasks include:
+
+```bash
+./gradlew build --stacktrace --console=plain
+./gradlew :runelite-client:run
+```
+
+The first command compiles all modules while the second launches the client.
 
 <br> There's much more that this fork offers which simply can't be fit into this small readme.

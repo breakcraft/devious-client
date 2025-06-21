@@ -51,6 +51,7 @@ tasks {
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.data.App")
         args(listOf("npcStats", rootProject.file("./runelite-client/src/main/resources/").absolutePath))
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 
     register<JavaExec>("itemStatsScrape") {
@@ -59,6 +60,7 @@ tasks {
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.data.App")
         args(listOf("itemStats", rootProject.file("./runelite-client/src/main/resources/").absolutePath))
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 
     register<JavaExec>("itemLimitsScrape") {
@@ -67,5 +69,6 @@ tasks {
         classpath = project.sourceSets.main.get().runtimeClasspath
         mainClass.set("net.runelite.data.App")
         args(listOf("itemLimits", rootProject.file("./runelite-client/src/main/resources/").absolutePath))
+        jvmArgs("--add-opens=java.base/java.lang.reflect=ALL-UNNAMED")
     }
 }

@@ -57,8 +57,8 @@
 	<rule ref="category/java/codestyle.xml/ForLoopShouldBeWhileLoop"/>
 	<rule ref="category/java/codestyle.xml/IdenticalCatchBranches"/>
 	<rule ref="category/java/codestyle.xml/PackageCase"/>
-       <rule ref="category/java/codestyle.xml/UnnecessaryCast"/>
-	<rule ref="category/java/codestyle.xml/UnnecessaryConstructor"/>
+        <rule ref="category/java/codestyle.xml/UnnecessaryCast"/>
+        <rule ref="category/java/codestyle.xml/UnnecessaryConstructor"/>
         <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName" />
 	<rule ref="category/java/codestyle.xml/UnnecessaryImport" />
 	<rule ref="category/java/codestyle.xml/UnnecessaryModifier"/>

@@ -1,4 +1,4 @@
-name: Devious Client CI
+name: Devious Client Build
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
       - uses: ./.github/actions/setup-gradle
         with:
           arguments: >-
-            build --stacktrace -x test -x checkstyleMain -x checkstyleTest -x pmdMain -x pmdTest --console=plain
+            build --stacktrace -x checkstyleMain -x checkstyleTest -x pmdMain -x pmdTest --console=plain
 
   checkstyle:
     runs-on: ubuntu-latest
