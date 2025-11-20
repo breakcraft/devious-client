@@ -58,6 +58,8 @@ import net.runelite.api.Scene;
 import net.runelite.api.Tile;
 import net.runelite.api.TileItem;
 import net.runelite.api.TileObject;
+import net.runelite.api.WorldEntity;
+import net.runelite.api.WorldView;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.widgets.Widget;
@@ -139,6 +141,11 @@ class DevToolsOverlay extends Overlay
 		if (plugin.getTileFlags().isActive())
 		{
 			renderTileFlags(graphics);
+		}
+
+		if (plugin.getWorldEntities().isActive())
+		{
+			renderWorldEntities(graphics);
 		}
 
 		return null;
@@ -526,6 +533,26 @@ class DevToolsOverlay extends Overlay
 			if (textLocation != null)
 			{
 				OverlayUtil.renderTextLocation(graphics, textLocation, infoString, Color.WHITE);
+			}
+		}
+	}
+
+	private void renderWorldEntities(Graphics2D graphics)
+	{
+		WorldView toplevel = client.getTopLevelWorldView();
+		for (WorldEntity we : toplevel.worldEntities())
+		{
+			if (we.isHiddenForOverlap())
+			{
+				continue;
+			}
+
+			LocalPoint location = we.getLocalLocation();
+			String text = "ID: " + we.getWorldView().getId() + " Type: " + we.getConfig().getId();
+			Point p = Perspective.getCanvasTextLocation(client, graphics, location, text, 0);
+			if (p != null)
+			{
+				OverlayUtil.renderTextLocation(graphics, p, text, Color.BLUE);
 			}
 		}
 	}
