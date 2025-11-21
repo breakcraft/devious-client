@@ -29,7 +29,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	@ObfuscatedSignature(
 		descriptor = "Lhv;"
 	)
-	public class207 field5538;
+	@Export("worldEntityConfig")
+	public WorldEntityConfig worldEntityConfig;
 	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "[Lto;"
@@ -155,7 +156,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		if (var1) {
 			this.worldView.scene.field2872 = -1200;
 			this.worldView.scene.Scene_scale = 0.01F;
-			int var11 = this.field5538.method4658();
+			int var11 = this.worldEntityConfig.method4658();
 			ModelColorOverride var13 = this.worldView.scene.modelColorOverride;
 			byte var12 = (byte)(var11 >> 10 & 63);
 			byte var8 = (byte)(var11 >> 7 & 7);
@@ -211,8 +212,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		descriptor = "(Lhv;I)V",
 		garbageValue = "-369965370"
 	)
-	public void method10494(class207 var1) {
-		this.field5538 = var1;
+	public void method10494(WorldEntityConfig var1) {
+		this.worldEntityConfig = var1;
 		this.worldView.scene.field2941 = var1.method4628();
 		this.worldView.scene.field2873 = var1.method4617();
 		this.method10527(var1.method4618());
@@ -233,7 +234,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "733677757"
 	)
 	public class406 method10496(boolean var1) {
-		return var1 ? class406.field4905 : this.field5538.method4620();
+		return var1 ? class406.field4905 : this.worldEntityConfig.method4620();
 	}
 
 	@ObfuscatedName("au")
@@ -273,7 +274,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "-1489131279"
 	)
 	public int method10552() {
-		return this.worldView.sizeX * 64 + this.field5538.method4628();
+		return this.worldView.sizeX * 64 + this.worldEntityConfig.method4628();
 	}
 
 	@ObfuscatedName("as")
@@ -282,7 +283,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "2131959522"
 	)
 	public int method10508() {
-		return this.worldView.sizeY * 64 + this.field5538.method4617();
+		return this.worldView.sizeY * 64 + this.worldEntityConfig.method4617();
 	}
 
 	@ObfuscatedName("ac")

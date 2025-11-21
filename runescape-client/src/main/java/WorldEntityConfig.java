@@ -1,9 +1,12 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
 @ObfuscatedName("hv")
-public class class207 extends DualNode {
+@Implements("WorldEntityConfig")
+public class WorldEntityConfig extends DualNode {
 	@ObfuscatedName("am")
 	@ObfuscatedSignature(
 		descriptor = "Lmc;"
@@ -74,7 +77,8 @@ public class class207 extends DualNode {
 	@ObfuscatedGetter(
 		intValue = 1496622753
 	)
-	int field2245;
+	@Export("id")
+	int id;
 	@ObfuscatedName("bt")
 	@ObfuscatedGetter(
 		intValue = 2058769091
@@ -106,7 +110,7 @@ public class class207 extends DualNode {
 		field2248 = new EvictingDualNodeHashTable(64);
 	}
 
-	class207() {
+	WorldEntityConfig() {
 		this.field2233 = "null";
 		this.field2234 = new String[5];
 		this.field2227 = false;
@@ -118,7 +122,7 @@ public class class207 extends DualNode {
 		this.field2241 = 0;
 		this.field2242 = -1;
 		this.field2244 = new class564[4];
-		this.field2245 = -1;
+		this.id = -1;
 		this.field2224 = 0;
 		this.field2247 = class406.field4908;
 		this.field2246 = class386.field4427;
@@ -132,7 +136,7 @@ public class class207 extends DualNode {
 		garbageValue = "113503557"
 	)
 	public int method4610() {
-		return this.field2245;
+		return this.id;
 	}
 
 	@ObfuscatedName("ag")

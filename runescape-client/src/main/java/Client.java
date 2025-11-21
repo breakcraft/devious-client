@@ -3735,9 +3735,9 @@ public final class Client extends GameEngine implements Usernamed, OAuthApi, cla
 																	}
 
 																	if (field412) {
-																		UserComparator10.method3733(class207.field2252, class414.field4955, RouteStrategy.field3280);
+																		UserComparator10.method3733(WorldEntityConfig.field2252, class414.field4955, RouteStrategy.field3280);
 																		class282.method6403(AsyncHttpResponse.field68, class300.field3420);
-																		if (SpriteBufferProperties.cameraX == class207.field2252 && ScriptFrame.cameraY == class414.field4955 && class528.cameraZ == RouteStrategy.field3280 && GraphicsObject.cameraPitch == AsyncHttpResponse.field68 && class300.field3420 == WorldMapData_0.cameraYaw) {
+																		if (SpriteBufferProperties.cameraX == WorldEntityConfig.field2252 && ScriptFrame.cameraY == class414.field4955 && class528.cameraZ == RouteStrategy.field3280 && GraphicsObject.cameraPitch == AsyncHttpResponse.field68 && class300.field3420 == WorldMapData_0.cameraYaw) {
 																			field412 = false;
 																			isCameraLocked = false;
 																			field494 = false;
@@ -6542,7 +6542,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthApi, cla
 						class141.runScriptEvent(var8);
 					}
 
-					if (draggedOnWidget != null && class207.method4626(clickedWidget) != null) {
+					if (draggedOnWidget != null && WorldEntityConfig.method4626(clickedWidget) != null) {
 						PacketBufferNode var9 = ReflectionCheck.getPacketBufferNode(ClientPacket.OPHELDD, packetWriter.isaacCipher);
 						var9.packetBuffer.writeShortLE(draggedOnWidget.itemId);
 						var9.packetBuffer.writeIntLE(draggedOnWidget.id);

@@ -75,12 +75,12 @@ public class class212 extends DualNode {
 							label105:
 							while (true) {
 								if (var8 >= var0.field1130.method10038()) {
-									Bounds var12 = DefaultsGroup.method10775(var4.worldEntityCoord, var4.field5538.method4619());
+									Bounds var12 = DefaultsGroup.method10775(var4.worldEntityCoord, var4.worldEntityConfig.method4619());
 
 									for (int var9 = 0; var9 < var0.field1148.method10038(); ++var9) {
 										WorldEntity var10 = (WorldEntity)var0.worldEntities.get((long)var0.field1148.method10037(var9));
 										if (var10 != null && var10 != var4 && var10.worldView.scene.cycle == Client.cycle) {
-											Bounds var11 = DefaultsGroup.method10775(var10.worldEntityCoord, var10.field5538.method4619());
+											Bounds var11 = DefaultsGroup.method10775(var10.worldEntityCoord, var10.worldEntityConfig.method4619());
 											if (var12.method9238(var11)) {
 												var12.method9263();
 												var11.method9263();

@@ -154,7 +154,7 @@ public class class222 {
 					if (var10 != null) {
 						var11 = var10.getX() / 32 - Client.field468 / 32;
 						var31 = var10.getY() / 32 - Client.field512 / 32;
-						var32 = var10.field5538.method4640();
+						var32 = var10.worldEntityConfig.method4640();
 						var34 = 1;
 						if (!var10.method10502()) {
 							var35 = 2047 - var10.method10529() + 1024;

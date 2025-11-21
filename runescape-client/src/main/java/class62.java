@@ -223,15 +223,15 @@ public class class62 {
 					if (var18 == Client.currentWorldViewId) {
 						var22 = var20.plane;
 					} else if (Client.currentWorldViewId == -1) {
-						var22 = var19.field5538.method4615();
+						var22 = var19.worldEntityConfig.method4615();
 					} else {
 						var23 = Client.worldViewManager.method2411();
 						WorldView var24 = var23.worldView;
-						if (var24.plane == var23.field5538.method4615()) {
+						if (var24.plane == var23.worldEntityConfig.method4615()) {
 							if (var18 == -1) {
 								var22 = var23.getPlane();
 							} else {
-								var22 = var19.field5538.method4615();
+								var22 = var19.worldEntityConfig.method4615();
 							}
 						}
 					}
@@ -426,7 +426,7 @@ public class class62 {
 						if (var15 == 4) {
 							var23 = (WorldEntity)var20.worldEntities.get((long)var17);
 							if (var23 != null) {
-								class207 var44 = var23.field5538;
+								WorldEntityConfig var44 = var23.worldEntityConfig;
 								if (Client.isItemSelected == 1) {
 									ClanChannel.insertMenuItem("Use", Client.field485 + " " + "->" + " " + class144.colorStartTag(15574765) + var44.field2233, 61, var17, var12, var14, -1, false, var18);
 								} else if (!Client.isSpellSelected) {
