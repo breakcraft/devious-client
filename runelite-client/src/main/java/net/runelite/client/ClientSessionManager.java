@@ -48,13 +48,15 @@ public class ClientSessionManager
 	private final Client client;
 	private final SessionClient sessionClient;
 	private final UnethicaliteConfig unethicaliteConfig;
+	private static final UUID sessionId = UUID.randomUUID();
 
 	private ScheduledFuture<?> scheduledFuture;
 
 	@Inject
 	ClientSessionManager(ScheduledExecutorService executorService,
-						 @Nullable Client client,
-						 SessionClient sessionClient, UnethicaliteConfig unethicaliteConfig)
+		@Nullable Client client,
+		SessionClient sessionClient,
+		UnethicaliteConfig unethicaliteConfig)
 	{
 		this.executorService = executorService;
 		this.client = client;
