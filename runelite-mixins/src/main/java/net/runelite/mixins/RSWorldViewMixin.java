@@ -93,6 +93,13 @@ public abstract class RSWorldViewMixin implements RSWorldView
 	}
 
 	@Inject
+	@Override
+	public int[][] getXteaKeys()
+	{
+		return client.getXteaKeys();
+	}
+
+	@Inject
 	@MethodHook(value = "createObjectSound", end = true)
 	public void onAmbientSoundEffect(int var0, int var1, int var2, ObjectComposition var3, int var4)
 	{
