@@ -21,4 +21,10 @@ public interface RSWorldEntity extends WorldEntity, RSCameraFocusableEntity
 	@Import("worldEntityConfig")
 	@Override
 	RSWorldEntityConfig getConfig();
+
+	@Override
+	default int getOwnerType()
+	{
+		return 2;
+	}
 }
