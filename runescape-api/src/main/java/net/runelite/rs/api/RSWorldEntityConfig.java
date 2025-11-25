@@ -8,10 +8,4 @@ public interface RSWorldEntityConfig extends WorldEntityConfig
 	@Import("id")
 	@Override
 	int getId();
-
-	@Override
-	default int getCategory()
-	{
-		return -1;
-	}
 }

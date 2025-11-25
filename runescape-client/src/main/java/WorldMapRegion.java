@@ -930,7 +930,7 @@ public class WorldMapRegion {
 			var1 = new WorldEntityConfig();
 			var1.id = var0;
 			if (var2 != null) {
-				var1.method4611(new Buffer(var2));
+				var1.decode(new Buffer(var2));
 			}
 
 			var1.method4613();

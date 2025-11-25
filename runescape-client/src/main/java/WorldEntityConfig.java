@@ -144,14 +144,15 @@ public class WorldEntityConfig extends DualNode {
 		descriptor = "(Lxa;I)V",
 		garbageValue = "-1035328937"
 	)
-	void method4611(Buffer var1) {
+	@Export("decode")
+	void decode(Buffer var1) {
 		while (true) {
 			int var2 = var1.readUnsignedByte();
 			if (var2 == 0) {
 				return;
 			}
 
-			this.method4645(var1, var2);
+			this.decodeNext(var1, var2);
 		}
 	}
 
@@ -160,7 +161,8 @@ public class WorldEntityConfig extends DualNode {
 		descriptor = "(Lxa;II)V",
 		garbageValue = "-1948815390"
 	)
-	void method4645(Buffer var1, int var2) {
+	@Export("decodeNext")
+	void decodeNext(Buffer var1, int var2) {
 		switch(var2) {
 		case 2:
 			this.field2224 = var1.readUnsignedByte();
