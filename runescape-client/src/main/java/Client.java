@@ -5366,7 +5366,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthApi, cla
 					var16 = var71 - var112.baseX;
 					var17 = var72 - var112.baseY;
 					if (var16 >= 0 && var17 >= 0 && var16 < var112.sizeX && var17 < var112.sizeY) {
-						class519.method10567(var112, var12, var16, var17, var24, var11, var9, var27, var22, var10, var74);
+						WorldEntityCoordSnapshot.method10567(var112, var12, var16, var17, var24, var11, var9, var27, var22, var10, var74);
 					}
 
 					var1.serverPacket = null;

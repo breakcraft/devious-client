@@ -35,12 +35,14 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	@ObfuscatedSignature(
 		descriptor = "[Lto;"
 	)
-	class519[] field5530;
+	@Export("worldEntityCoordSnapshots")
+	WorldEntityCoordSnapshot[] worldEntityCoordSnapshots;
 	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
 		intValue = -535483495
 	)
-	int field5531;
+	@Export("worldEntityCoordSnapshotIdx")
+	int worldEntityCoordSnapshotIdx;
 	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
 		intValue = 965183031
@@ -85,8 +87,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	public WorldEntity(int var1, WorldView var2) {
 		this.worldEntityCoord = new WorldEntityCoord();
 		this.plane = 0;
-		this.field5530 = new class519[10];
-		this.field5531 = 0;
+		this.worldEntityCoordSnapshots = new WorldEntityCoordSnapshot[10];
+		this.worldEntityCoordSnapshotIdx = 0;
 		this.field5535 = -1;
 		this.field5532 = class400.field4844;
 		this.field5534 = 31;
@@ -97,10 +99,10 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		this.field5523 = 0;
 		this.plane = var1;
 		this.worldView = var2;
-		this.field5531 = 0;
+		this.worldEntityCoordSnapshotIdx = 0;
 
 		for (int var3 = 0; var3 < 10; ++var3) {
-			this.field5530[var3] = new class519();
+			this.worldEntityCoordSnapshots[var3] = new WorldEntityCoordSnapshot();
 		}
 
 	}
@@ -195,7 +197,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "32"
 	)
 	public int method10529() {
-		return this.worldEntityCoord.getCurrentRotationAngle();
+		return this.worldEntityCoord.getOrientation();
 	}
 
 	@ObfuscatedName("ak")
@@ -204,7 +206,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "-1008881917"
 	)
 	public WorldEntityCoord method10562() {
-		return this.field5531 == 0 ? this.worldEntityCoord : this.field5530[0].field5545;
+		return this.worldEntityCoordSnapshotIdx == 0 ? this.worldEntityCoord : this.worldEntityCoordSnapshots[0].worldEntityCoord;
 	}
 
 	@ObfuscatedName("aw")
@@ -311,8 +313,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	)
 	@Export("setPosition")
 	public void setPosition(int var1, int var2) {
-		for (int var3 = 0; var3 < this.field5530.length; ++var3) {
-			this.field5530[var3].field5545.setDirection(var1, var2);
+		for (int var3 = 0; var3 < this.worldEntityCoordSnapshots.length; ++var3) {
+			this.worldEntityCoordSnapshots[var3].worldEntityCoord.setDirection(var1, var2);
 		}
 
 		this.worldEntityCoord.setDirection(var1, var2);
@@ -328,8 +330,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		int var2 = var1.getTileX();
 		int var3 = var1.getTileY();
 		if (var2 >= 0 && var2 < 104 && var3 >= 0 && var3 < 104) {
-			int var4 = var1.getX() - this.field5530[0].field5545.getX();
-			int var5 = var1.getY() - this.field5530[0].field5545.getY();
+			int var4 = var1.getX() - this.worldEntityCoordSnapshots[0].worldEntityCoord.getX();
+			int var5 = var1.getY() - this.worldEntityCoordSnapshots[0].worldEntityCoord.getY();
 			this.method10558(var1, Math.abs(var4), Math.abs(var5));
 		} else {
 			this.method10506(var1);
@@ -344,8 +346,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	)
 	public void method10506(WorldEntityCoord var1) {
 		this.worldEntityCoord.method6455(var1);
-		this.field5530[0].field5545.method6455(var1);
-		this.field5531 = 0;
+		this.worldEntityCoordSnapshots[0].worldEntityCoord.method6455(var1);
+		this.worldEntityCoordSnapshotIdx = 0;
 		this.field5536 = false;
 	}
 
@@ -355,18 +357,18 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "248"
 	)
 	void method10558(WorldEntityCoord var1, int var2, int var3) {
-		if (this.field5531 < 9) {
-			++this.field5531;
+		if (this.worldEntityCoordSnapshotIdx < 9) {
+			++this.worldEntityCoordSnapshotIdx;
 		}
 
-		for (int var4 = this.field5531; var4 > 0; --var4) {
-			class519 var5 = this.field5530[var4];
-			this.field5530[var4] = this.field5530[var4 - 1];
-			this.field5530[var4 - 1] = var5;
+		for (int var4 = this.worldEntityCoordSnapshotIdx; var4 > 0; --var4) {
+			WorldEntityCoordSnapshot var5 = this.worldEntityCoordSnapshots[var4];
+			this.worldEntityCoordSnapshots[var4] = this.worldEntityCoordSnapshots[var4 - 1];
+			this.worldEntityCoordSnapshots[var4 - 1] = var5;
 		}
 
-		this.field5530[0].field5545.method6455(var1);
-		this.field5530[0].field5542 = Client.cycle;
+		this.worldEntityCoordSnapshots[0].worldEntityCoord.method6455(var1);
+		this.worldEntityCoordSnapshots[0].field5542 = Client.cycle;
 	}
 
 	@ObfuscatedName("af")
@@ -375,16 +377,16 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		garbageValue = "-84"
 	)
 	public final void method10492(int var1) {
-		if (this.field5531 == 0) {
-			this.method10506(this.field5530[0].field5545);
+		if (this.worldEntityCoordSnapshotIdx == 0) {
+			this.method10506(this.worldEntityCoordSnapshots[0].worldEntityCoord);
 		} else {
 			if (!this.field5536) {
-				this.field5527.vmethod10584(this.worldEntityCoord, this.field5530[0], var1);
+				this.field5527.vmethod10584(this.worldEntityCoord, this.worldEntityCoordSnapshots[0], var1);
 				this.field5536 = true;
 			}
 
-			if (this.field5527.vmethod10595(this.worldEntityCoord, var1, this.field5531)) {
-				--this.field5531;
+			if (this.field5527.vmethod10595(this.worldEntityCoord, var1, this.worldEntityCoordSnapshotIdx)) {
+				--this.worldEntityCoordSnapshotIdx;
 				this.field5536 = false;
 			}
 
@@ -399,7 +401,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	public ProjectionCoord method10509(int var1, int var2) {
 		class456 var3 = BuddyRankComparator.method3741();
 		TransformationMatrix var4 = SecureUrlRequester.method3659();
-		var3.field5219.method9367(class6.method44(this.worldEntityCoord.getCurrentRotationAngle()), 0.0F, 0.0F);
+		var3.field5219.method9367(class6.method44(this.worldEntityCoord.getOrientation()), 0.0F, 0.0F);
 		var3.field5215.method9296((float)this.worldEntityCoord.getX(), 0.0F, (float)this.worldEntityCoord.getY());
 		var1 -= this.method10552();
 		var2 -= this.method10508();
@@ -419,7 +421,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	public ProjectionCoord getProjectionCoord(int var1, int var2) {
 		class456 var3 = BuddyRankComparator.method3741();
 		TransformationMatrix var4 = SecureUrlRequester.method3659();
-		var3.field5219.method9367(class6.method44(this.worldEntityCoord.getCurrentRotationAngle()), 0.0F, 0.0F);
+		var3.field5219.method9367(class6.method44(this.worldEntityCoord.getOrientation()), 0.0F, 0.0F);
 		var3.field5215.method9296((float)this.worldEntityCoord.getX(), 0.0F, (float)this.worldEntityCoord.getY());
 		var4.method9427(var3);
 		var4.method9431();

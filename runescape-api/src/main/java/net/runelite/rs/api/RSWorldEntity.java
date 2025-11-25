@@ -27,4 +27,10 @@ public interface RSWorldEntity extends WorldEntity, RSCameraFocusableEntity
 	{
 		return 2;
 	}
+
+	@Import("worldEntityCoordSnapshots")
+	RSWorldEntityCoordSnapshot[] getWorldEntityCoordSnapshots();
+
+	@Import("worldEntityCoordSnapshotIdx")
+	int getWorldEntityCoordSnapshotIdx();
 }
