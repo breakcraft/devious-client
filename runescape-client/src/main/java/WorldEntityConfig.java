@@ -42,22 +42,26 @@ public class WorldEntityConfig extends DualNode {
 	@ObfuscatedGetter(
 		intValue = 420693345
 	)
-	int field2238;
+	@Export("boundsX")
+	int boundsX;
 	@ObfuscatedName("bs")
 	@ObfuscatedGetter(
 		intValue = -2043328725
 	)
-	int field2232;
+	@Export("boundsY")
+	int boundsY;
 	@ObfuscatedName("bz")
 	@ObfuscatedGetter(
 		intValue = -1708957505
 	)
-	int field2240;
+	@Export("boundsWidth")
+	int boundsWidth;
 	@ObfuscatedName("bk")
 	@ObfuscatedGetter(
 		intValue = -1934803429
 	)
-	int field2241;
+	@Export("boundsHeight")
+	int boundsHeight;
 	@ObfuscatedName("bb")
 	@ObfuscatedGetter(
 		intValue = -1402587353
@@ -116,10 +120,10 @@ public class WorldEntityConfig extends DualNode {
 		this.field2227 = false;
 		this.field2235 = 0;
 		this.field2236 = 0;
-		this.field2238 = 0;
-		this.field2232 = 0;
-		this.field2240 = 0;
-		this.field2241 = 0;
+		this.boundsX = 0;
+		this.boundsY = 0;
+		this.boundsWidth = 0;
+		this.boundsHeight = 0;
 		this.field2242 = -1;
 		this.field2244 = new class564[4];
 		this.id = -1;
@@ -181,16 +185,16 @@ public class WorldEntityConfig extends DualNode {
 			this.field2236 = var1.readShort();
 			break;
 		case 6:
-			this.field2238 = var1.readShort();
+			this.boundsX = var1.readShort();
 			break;
 		case 7:
-			this.field2232 = var1.readShort();
+			this.boundsY = var1.readShort();
 			break;
 		case 8:
-			this.field2240 = var1.readUnsignedShort();
+			this.boundsWidth = var1.readUnsignedShort();
 			break;
 		case 9:
-			this.field2241 = var1.readUnsignedShort();
+			this.boundsHeight = var1.readUnsignedShort();
 			break;
 		case 12:
 			this.field2233 = var1.readStringCp1252NullTerminated();
@@ -238,7 +242,7 @@ public class WorldEntityConfig extends DualNode {
 		garbageValue = "-521677348"
 	)
 	void method4613() {
-		this.field2243 = new class564(this.field2240, this.field2241, this.field2238, this.field2232);
+		this.field2243 = new class564(this.boundsWidth, this.boundsHeight, this.boundsX, this.boundsY);
 		this.method4614();
 	}
 
@@ -249,11 +253,11 @@ public class WorldEntityConfig extends DualNode {
 	)
 	void method4614() {
 		short var1 = 256;
-		this.field2244[0] = new class564(var1 + this.field2240, var1 + this.field2241, this.field2238, this.field2232);
+		this.field2244[0] = new class564(var1 + this.boundsWidth, var1 + this.boundsHeight, this.boundsX, this.boundsY);
 		var1 = 362;
-		this.field2244[2] = new class564(var1 + this.field2240, var1 + this.field2241, this.field2238, this.field2232);
+		this.field2244[2] = new class564(var1 + this.boundsWidth, var1 + this.boundsHeight, this.boundsX, this.boundsY);
 		var1 = 334;
-		this.field2244[1] = new class564(var1 + this.field2240, var1 + this.field2241, this.field2238, this.field2232);
+		this.field2244[1] = new class564(var1 + this.boundsWidth, var1 + this.boundsHeight, this.boundsX, this.boundsY);
 		this.field2244[3] = this.field2244[1];
 	}
 

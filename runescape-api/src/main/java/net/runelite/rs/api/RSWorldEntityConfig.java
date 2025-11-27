@@ -8,4 +8,20 @@ public interface RSWorldEntityConfig extends WorldEntityConfig
 	@Import("id")
 	@Override
 	int getId();
+
+	@Import("boundsX")
+	@Override
+	int getBoundsX();
+
+	@Import("boundsY")
+	@Override
+	int getBoundsY();
+
+	@Import("boundsWidth")
+	@Override
+	int getBoundsWidth();
+
+	@Import("boundsHeight")
+	@Override
+	int getBoundsHeight();
 }
