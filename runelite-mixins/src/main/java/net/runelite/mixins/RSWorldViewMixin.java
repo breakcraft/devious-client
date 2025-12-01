@@ -18,6 +18,7 @@ import net.runelite.api.mixins.Mixin;
 import net.runelite.api.mixins.Shadow;
 import net.runelite.rs.api.RSClient;
 import net.runelite.rs.api.RSObjectSound;
+import net.runelite.rs.api.RSPendingSpawn;
 import net.runelite.rs.api.RSProjection;
 import net.runelite.rs.api.RSScene;
 import net.runelite.rs.api.RSTile;
@@ -156,5 +157,34 @@ public abstract class RSWorldViewMixin implements RSWorldView
 	public Projection getCanvasProjection()
 	{
 		return canvasProjection;
+	}
+
+	@Inject
+	@Override
+	public RSPendingSpawn getPendingSpawn(long hash)
+	{
+		assert client.isClientThread() : "getPendingSpawn must be called on client thread";
+
+		if ((hash >> 16 & 7L) != 2L)
+		{
+			return null;
+		}
+		else
+		{
+			int x = (int) (hash >> 0 & 127L);
+			int y = (int) (hash >> 7 & 127L);
+			int plane = (int) (hash >> 14 & 3L);
+			int id = (int) (hash >> 20 & 4294967295L);
+
+			for (RSPendingSpawn pendingSpawn = (RSPendingSpawn) this.getPendingSpawns().last(); pendingSpawn != null; pendingSpawn = (RSPendingSpawn) this.getPendingSpawns().previous())
+			{
+				if (id == pendingSpawn.getObjectId2() && plane == pendingSpawn.getPlane() && x == pendingSpawn.getX() && y == pendingSpawn.getY())
+				{
+					return pendingSpawn;
+				}
+			}
+
+			return null;
+		}
 	}
 }

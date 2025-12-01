@@ -253,7 +253,7 @@ public class class62 {
 							PendingSpawn var38 = null;
 
 							for (PendingSpawn var25 = (PendingSpawn)var20.pendingSpawns.last(); var25 != null; var25 = (PendingSpawn)var20.pendingSpawns.previous()) {
-								if (var22 == var25.plane && var12 == var25.x && var14 == var25.y && var17 == var25.field998) {
+								if (var22 == var25.plane && var12 == var25.x && var14 == var25.y && var17 == var25.objectId2) {
 									var38 = var25;
 									break;
 								}
@@ -269,10 +269,10 @@ public class class62 {
 								var42 = var36.actions;
 								if (var42 != null) {
 									for (var26 = 4; var26 >= 0; --var26) {
-										if (!ApproximateRouteStrategy.field226 && (var38 == null || var38.method2473(var26))) {
+										if (!ApproximateRouteStrategy.field226 && (var38 == null || var38.isOpShown(var26))) {
 											String var27 = var42[var26];
 											if (var38 != null && var38.method2459(var26)) {
-												var27 = var38.method2460(var26);
+												var27 = var38.getOpOverride(var26);
 											}
 
 											if (var27 != null) {
