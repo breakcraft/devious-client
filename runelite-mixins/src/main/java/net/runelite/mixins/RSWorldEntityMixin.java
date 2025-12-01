@@ -117,4 +117,11 @@ public abstract class RSWorldEntityMixin implements RSWorldEntity
 		}
 		return false;
 	}
+
+	@Inject
+	@Override
+	public int getOwnerType()
+	{
+		return this.getWorldEntityOwnerType().getType();
+	}
 }

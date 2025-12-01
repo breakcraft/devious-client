@@ -48,7 +48,7 @@ public class class212 extends DualNode {
 		descriptor = "(Ldd;Lpw;B)V",
 		garbageValue = "27"
 	)
-	static void method4683(WorldView var0, class400 var1) {
+	static void method4683(WorldView var0, WorldEntityOwnerType var1) {
 		int var2 = 0;
 
 		for (int var3 = 0; var3 < var0.field1148.method10038(); ++var3) {
@@ -58,7 +58,7 @@ public class class212 extends DualNode {
 				if (var5) {
 					++var2;
 					boolean var6 = false;
-					if (var1 == class400.field4843) {
+					if (var1 == WorldEntityOwnerType.field4843) {
 						boolean var7;
 						label122: {
 							int var8;

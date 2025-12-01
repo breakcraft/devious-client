@@ -52,7 +52,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 	@ObfuscatedSignature(
 		descriptor = "Lpw;"
 	)
-	class400 field5532;
+	@Export("worldEntityOwnerType")
+	WorldEntityOwnerType worldEntityOwnerType;
 	@ObfuscatedName("az")
 	@ObfuscatedGetter(
 		intValue = -572910741
@@ -90,7 +91,7 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		this.worldEntityCoordSnapshots = new WorldEntityCoordSnapshot[10];
 		this.worldEntityCoordSnapshotIdx = 0;
 		this.field5535 = -1;
-		this.field5532 = class400.field4844;
+		this.worldEntityOwnerType = WorldEntityOwnerType.field4844;
 		this.field5534 = 31;
 		this.field5527 = new class521();
 		this.field5536 = false;
@@ -226,8 +227,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		descriptor = "(S)Lpw;",
 		garbageValue = "300"
 	)
-	public class400 method10495() {
-		return this.field5532;
+	public WorldEntityOwnerType method10495() {
+		return this.worldEntityOwnerType;
 	}
 
 	@ObfuscatedName("ay")
@@ -244,8 +245,8 @@ public class WorldEntity extends Node implements CameraFocusableEntity {
 		descriptor = "(Lpw;I)V",
 		garbageValue = "641407105"
 	)
-	public void method10497(class400 var1) {
-		this.field5532 = var1;
+	public void method10497(WorldEntityOwnerType var1) {
+		this.worldEntityOwnerType = var1;
 	}
 
 	@ObfuscatedName("az")
