@@ -16,6 +16,7 @@ import net.runelite.api.mixins.Inject;
 import net.runelite.api.mixins.MethodHook;
 import net.runelite.api.mixins.Mixin;
 import net.runelite.api.mixins.Shadow;
+import net.runelite.rs.api.RSClickAction;
 import net.runelite.rs.api.RSClient;
 import net.runelite.rs.api.RSObjectSound;
 import net.runelite.rs.api.RSPendingSpawn;
@@ -186,5 +187,15 @@ public abstract class RSWorldViewMixin implements RSWorldView
 
 			return null;
 		}
+	}
+
+	@Inject
+	@Override
+	public int getYellowClickAction()
+	{
+		assert client.isClientThread() : "getYellowClickAction must be called on client thread";
+
+		final RSClickAction clickAction = client.getWorldViewManager().getClickAction(this.getId());
+		return clickAction.getAction();
 	}
 }

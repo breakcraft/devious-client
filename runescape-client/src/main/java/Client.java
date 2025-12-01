@@ -4676,7 +4676,7 @@ public final class Client extends GameEngine implements Usernamed, OAuthApi, cla
 
 				if (ServerPacket.MINIMAP_TOGGLE == var1.serverPacket) {
 					var22 = var3.readShort();
-					class526 var87 = (class526)GrandExchangeOffer.findEnumerated(class164.method4141(), var3.readUnsignedByte());
+					ClickAction var87 = (ClickAction)GrandExchangeOffer.findEnumerated(class164.method4141(), var3.readUnsignedByte());
 					class524 var101 = (class524)GrandExchangeOffer.findEnumerated(WorldMapSprite.method7016(), var3.readUnsignedByte());
 					if (var22 == -2) {
 						worldViewManager.method2395(var87, var101);

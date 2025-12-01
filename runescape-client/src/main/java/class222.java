@@ -242,7 +242,7 @@ public class class222 {
 					SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var9, var33, var5, class217.mapDotSprites[0], var4);
 				}
 
-				if (Client.worldViewManager.method2398(-1) == class526.field5580 && class217.mapDotSprites.length >= 4) {
+				if (Client.worldViewManager.getClickAction(-1) == ClickAction.field5580 && class217.mapDotSprites.length >= 4) {
 					var9 = var4.width / 2 + var1;
 					var33 = var4.height / 2 + var2;
 					if (var4.contains(MouseHandler.MouseHandler_x - var1, MouseHandler.MouseHandler_y - var2)) {
