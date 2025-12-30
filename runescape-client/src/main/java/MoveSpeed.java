@@ -1,34 +1,45 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("kt")
+@ObfuscatedName("lz")
 @Implements("MoveSpeed")
 public enum MoveSpeed implements Enum {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lkt;"
+		descriptor = "Llz;"
 	)
-	field3121((byte)-1),
-	@ObfuscatedName("aj")
+	field3300((byte)-1),
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lkt;"
+		descriptor = "Llz;"
 	)
-	field3117((byte)0),
+	field3299((byte)0),
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Llz;"
+	)
+	field3304((byte)1),
 	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lkt;"
+		descriptor = "Llz;"
 	)
-	field3118((byte)1),
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lkt;"
-	)
-	field3119((byte)2);
+	field3301((byte)2);
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("di")
+	@ObfuscatedSignature(
+		descriptor = "[Lxm;"
+	)
+	@Export("worldSelectArrows")
+	static IndexedSprite[] worldSelectArrows;
+	@ObfuscatedName("ul")
+	@ObfuscatedGetter(
+		intValue = 1002672777
+	)
+	static int field3305;
+	@ObfuscatedName("ae")
 	@Export("id")
 	final byte id;
 
@@ -36,89 +47,39 @@ public enum MoveSpeed implements Enum {
 		this.id = var3;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "26"
+		garbageValue = "20"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
 		return this.id;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)Lcr;",
-		garbageValue = "-1036430378"
+		descriptor = "(IIII)I",
+		garbageValue = "-1707581112"
 	)
-	@Export("getWorldMapScript")
-	static Script getWorldMapScript(int var0, int var1, int var2) {
-		int var3 = LoginPacket.method3651(var1, var0);
-		Script var4 = UserComparator10.getScript(var3, var0);
-		if (var4 != null) {
-			return var4;
-		} else {
-			var3 = WorldMapIcon_0.method6537(var2, var0);
-			var4 = UserComparator10.getScript(var3, var0);
-			if (var4 != null) {
-				return var4;
-			} else {
-				int var5 = var0 + -512;
-				var4 = UserComparator10.getScript(var5, var0);
-				return var4 != null ? var4 : null;
-			}
-		}
-	}
-
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;B)Ljava/lang/String;",
-		garbageValue = "1"
-	)
-	public static String method6102(String var0) {
-		int var1 = var0.length();
-		char[] var2 = new char[var1];
-		byte var3 = 2;
-
-		for (int var4 = 0; var4 < var1; ++var4) {
-			char var5 = var0.charAt(var4);
-			if (var3 == 0) {
-				var5 = Character.toLowerCase(var5);
-			} else if (var3 == 2 || Character.isUpperCase(var5)) {
-				var5 = TaskHandler.method4700(var5);
-			}
-
-			if (Character.isLetter(var5)) {
-				var3 = 0;
-			} else if (var5 != '.' && var5 != '?' && var5 != '!') {
-				if (Character.isSpaceChar(var5)) {
-					if (var3 != 2) {
-						var3 = 1;
-					}
-				} else {
-					var3 = 1;
-				}
-			} else {
-				var3 = 2;
-			}
-
-			var2[var4] = var5;
+	static int method6513(int var0, int var1, int var2) {
+		if (var2 > 179) {
+			var1 /= 2;
 		}
 
-		return new String(var2);
-	}
-
-	@ObfuscatedName("bu")
-	@ObfuscatedSignature(
-		descriptor = "(ILcr;ZI)I",
-		garbageValue = "1771448669"
-	)
-	static int method6101(int var0, Script var1, boolean var2) {
-		if (var0 == ScriptOpcodes.LOGOUT) {
-			Client.logoutTimer = 250;
-			return 1;
-		} else {
-			return 2;
+		if (var2 > 192) {
+			var1 /= 2;
 		}
+
+		if (var2 > 217) {
+			var1 /= 2;
+		}
+
+		if (var2 > 243) {
+			var1 /= 2;
+		}
+
+		int var3 = (var1 / 32 << 7) + (var0 / 4 << 10) + var2 / 2;
+		return var3;
 	}
 }

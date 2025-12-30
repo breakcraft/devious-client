@@ -7,37 +7,40 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("tl")
+@ObfuscatedName("tg")
 @Implements("BufferedSource")
 public class BufferedSource implements Runnable {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aw")
+	@Export("SpriteBuffer_spritePalette")
+	public static int[] SpriteBuffer_spritePalette;
+	@ObfuscatedName("av")
 	@Export("thread")
 	Thread thread;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("inputStream")
 	InputStream inputStream;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -585014971
+		intValue = -195486255
 	)
 	@Export("capacity")
 	int capacity;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@Export("buffer")
 	byte[] buffer;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = -543114165
+		intValue = -1136848575
 	)
 	@Export("position")
 	int position;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -291311871
+		intValue = 381894067
 	)
 	@Export("limit")
 	int limit;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@Export("exception")
 	IOException exception;
 
@@ -52,10 +55,10 @@ public class BufferedSource implements Runnable {
 		this.thread.start();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(II)Z",
-		garbageValue = "-1875704805"
+		garbageValue = "-495509101"
 	)
 	@Export("isAvailable")
 	boolean isAvailable(int var1) throws IOException {
@@ -86,10 +89,10 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "1370488548"
+		garbageValue = "1345943148"
 	)
 	@Export("available")
 	int available() throws IOException {
@@ -110,15 +113,15 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-1339112877"
+		garbageValue = "286363924"
 	)
 	@Export("readUnsignedByte")
 	int readUnsignedByte() throws IOException {
 		synchronized(this) {
-			if (this.limit == this.position) {
+			if (this.position == this.limit) {
 				if (this.exception != null) {
 					throw new IOException(this.exception.toString());
 				} else {
@@ -133,10 +136,10 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "([BIIB)I",
-		garbageValue = "-12"
+		descriptor = "([BIII)I",
+		garbageValue = "1513667819"
 	)
 	@Export("read")
 	int read(byte[] var1, int var2, int var3) throws IOException {
@@ -174,10 +177,10 @@ public class BufferedSource implements Runnable {
 		}
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "58065257"
+		garbageValue = "97621868"
 	)
 	@Export("close")
 	void close() {
@@ -241,6 +244,51 @@ public class BufferedSource implements Runnable {
 			synchronized(this) {
 				this.limit = (var7 + this.limit) % this.capacity;
 			}
+		}
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "([BIIB)Ljava/lang/String;",
+		garbageValue = "69"
+	)
+	public static String method10458(byte[] var0, int var1, int var2) {
+		StringBuilder var3 = new StringBuilder();
+
+		for (int var4 = var1; var4 < var2 + var1; var4 += 3) {
+			int var5 = var0[var4] & 255;
+			var3.append(class452.field5202[var5 >>> 2]);
+			if (var4 < var2 - 1) {
+				int var6 = var0[var4 + 1] & 255;
+				var3.append(class452.field5202[(var5 & 3) << 4 | var6 >>> 4]);
+				if (var4 < var2 - 2) {
+					int var7 = var0[var4 + 2] & 255;
+					var3.append(class452.field5202[(var6 & 15) << 2 | var7 >>> 6]).append(class452.field5202[var7 & 63]);
+				} else {
+					var3.append(class452.field5202[(var6 & 15) << 2]).append("=");
+				}
+			} else {
+				var3.append(class452.field5202[(var5 & 3) << 4]).append("==");
+			}
+		}
+
+		return var3.toString();
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "([BZB)Ljava/lang/Object;",
+		garbageValue = "0"
+	)
+	public static Object method10439(byte[] var0, boolean var1) {
+		if (var0 == null) {
+			return null;
+		} else if (var0.length > 136) {
+			DirectByteArrayCopier var2 = new DirectByteArrayCopier();
+			var2.set(var0);
+			return var2;
+		} else {
+			return var0;
 		}
 	}
 }

@@ -9,12 +9,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.Base64;
 import java.util.Properties;
-import net.runelite.api.mixins.Copy;
 import net.runelite.api.mixins.Inject;
 import net.runelite.api.mixins.MethodHook;
 import net.runelite.api.mixins.Mixin;
-import net.runelite.api.mixins.Replace;
 import net.runelite.api.mixins.Shadow;
+import net.runelite.rs.api.RSBuffer;
 import net.runelite.rs.api.RSClient;
 
 @Mixin(RSClient.class)
@@ -106,20 +105,22 @@ public abstract class DRSCachedRandomDatMixin implements RSClient
 			return;
 		}
 
-		client.getLogger().info("Saving new random.dat data {} for user {}", newRandomDatData, client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
-		client.writeCachedRandomDatData(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId(), newRandomDatData);
+		client.getLogger().info("Saving new random.dat data {} for user {}", newRandomDatData, client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername());
+		client.writeCachedRandomDatData(client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername(), newRandomDatData);
 	}
 
-	@Copy("randomDatData2")
-	@Replace("randomDatData2")
-	public static byte[] copy$RandomDatData2()
+	@Inject
+	private static String lastUser;
+
+	@Inject
+	private static void setRSCachedRandomDatData()
 	{
 		if (!client.useCachedRandomDat())
 		{
-			return copy$RandomDatData2();
+			return;
 		}
 
-		byte[] cachedData = client.getCachedRandomDatData(client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
+		byte[] cachedData = client.getCachedRandomDatData(client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername());
 		if (cachedData == null)
 		{
 			cachedData = new byte[24];
@@ -128,7 +129,48 @@ public abstract class DRSCachedRandomDatMixin implements RSClient
 				cachedData[i] = -1;
 			}
 		}
-		client.getLogger().info("Using cached random.dat {} for user {}", cachedData, client.getUsername() != null && !client.getUsername().isEmpty() ? client.getUsername() : client.getCharacterId());
-		return cachedData;
+		client.setRSRandomDat(cachedData);
+		if (lastUser == null || !lastUser.equalsIgnoreCase(client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername()))
+		{
+			lastUser = client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername();
+			client.getLogger().info("Using cached random.dat {} for user {}", cachedData, client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername());
+		}
+	}
+
+	@MethodHook("doCycleLoggedOut")
+	@Inject
+	public void onDoCycleLoggedOut()
+	{
+		setRSCachedRandomDatData();
+	}
+
+	@MethodHook("performLoginRequest")
+	@Inject
+	public static void onPerformLoginRequest()
+	{
+		setRSCachedRandomDatData();
+	}
+
+	//@Copy("randomDatData2")
+	//@Replace("randomDatData2")
+	public static void copy$RandomDatData2(RSBuffer buffer, int offset)
+	{
+		if (!client.useCachedRandomDat())
+		{
+			copy$RandomDatData2(buffer, offset);
+			return;
+		}
+
+		byte[] cachedData = client.getCachedRandomDatData(client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername());
+		if (cachedData == null)
+		{
+			cachedData = new byte[24];
+			for (byte i = 0; i < 24; i++)
+			{
+				cachedData[i] = -1;
+			}
+		}
+		buffer.writeBytes(cachedData, offset, cachedData.length);
+		client.getLogger().info("Using cached random.dat {} for user {}", cachedData, client.getLauncherDisplayName() != null ? client.getLauncherDisplayName() : client.getUsername());
 	}
 }

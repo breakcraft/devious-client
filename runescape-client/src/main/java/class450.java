@@ -1,33 +1,35 @@
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ry")
-public class class450 extends RuntimeException {
-	public class450(String var1, Object[] var2) {
-		super(String.format(var1, var2));
-	}
-
-	@ObfuscatedName("an")
+@ObfuscatedName("re")
+public final class class450 {
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "-1183707887"
+		descriptor = "(IIB)I",
+		garbageValue = "90"
 	)
-	static int method8904(int var0, int var1) {
-		ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
-		if (var2 == null) {
-			return 0;
-		} else if (var1 == -1) {
-			return 0;
-		} else {
-			int var3 = 0;
-
-			for (int var4 = 0; var4 < var2.quantities.length; ++var4) {
-				if (var2.ids[var4] == var1) {
-					var3 += var2.quantities[var4];
-				}
+	static int method9119(int var0, int var1) {
+		for (int var2 = 0; var2 < 8; ++var2) {
+			if (var1 <= var0 + 30) {
+				return var2;
 			}
 
-			return var3;
+			var0 += 30;
+			var0 += var2 != 1 && var2 != 3 ? 5 : 20;
 		}
+
+		return 0;
+	}
+
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(III)I",
+		garbageValue = "-1019309288"
+	)
+	static final int method9120(int var0, int var1) {
+		int var2 = var0 + var1 * 57;
+		var2 ^= var2 << 13;
+		int var3 = var2 * (var2 * var2 * 15731 + 789221) + 1376312589 & Integer.MAX_VALUE;
+		return var3 >> 19 & 255;
 	}
 }

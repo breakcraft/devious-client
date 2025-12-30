@@ -1,118 +1,109 @@
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
-import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("ih")
+@ObfuscatedName("iq")
 @Implements("HitSplatDefinition")
 public class HitSplatDefinition extends DualNode {
-	@ObfuscatedName("am")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
-	)
-	@Export("HitSplatDefinition_fontsArchive")
-	public static AbstractArchive HitSplatDefinition_fontsArchive;
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("HitSplatDefinition_cached")
 	public static EvictingDualNodeHashTable HitSplatDefinition_cached;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("HitSplatDefinition_cachedSprites")
 	public static EvictingDualNodeHashTable HitSplatDefinition_cachedSprites;
 	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("HitSplatDefinition_cachedFonts")
 	public static EvictingDualNodeHashTable HitSplatDefinition_cachedFonts;
-	@ObfuscatedName("pj")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 357621527
-	)
-	static int field2180;
-	@ObfuscatedName("ar")
-	@ObfuscatedGetter(
-		intValue = -1041678753
+		intValue = 1274906953
 	)
 	@Export("fontId")
 	int fontId;
 	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = 1809117071
+		intValue = -705101241
 	)
 	@Export("textColor")
 	public int textColor;
-	@ObfuscatedName("af")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 1800299179
+		intValue = -332979161
 	)
-	public int field2188;
-	@ObfuscatedName("ak")
-	@ObfuscatedGetter(
-		intValue = -1777542159
-	)
-	int field2189;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = 323586839
-	)
-	int field2190;
-	@ObfuscatedName("aw")
-	@ObfuscatedGetter(
-		intValue = 2068008965
-	)
-	int field2201;
-	@ObfuscatedName("at")
-	@ObfuscatedGetter(
-		intValue = 1359412997
-	)
-	int field2192;
-	@ObfuscatedName("ae")
-	@ObfuscatedGetter(
-		intValue = -2086507751
-	)
-	public int field2193;
-	@ObfuscatedName("av")
-	@ObfuscatedGetter(
-		intValue = -801235683
-	)
-	public int field2198;
-	@ObfuscatedName("ao")
-	@ObfuscatedGetter(
-		intValue = 1840156253
-	)
-	public int field2197;
+	public int field2309;
 	@ObfuscatedName("as")
-	String field2204;
-	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = -457678273
+		intValue = 252963427
 	)
-	public int field2194;
+	int field2310;
+	@ObfuscatedName("ac")
+	@ObfuscatedGetter(
+		intValue = -1234102639
+	)
+	int field2304;
 	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -2107838053
+		intValue = -110763737
 	)
-	public int field2187;
-	@ObfuscatedName("aq")
+	int field2312;
+	@ObfuscatedName("ax")
+	@ObfuscatedGetter(
+		intValue = 1157763487
+	)
+	int field2313;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = -1382939459
+	)
+	public int field2314;
+	@ObfuscatedName("ah")
+	@ObfuscatedGetter(
+		intValue = 191702075
+	)
+	public int field2321;
+	@ObfuscatedName("al")
+	@ObfuscatedGetter(
+		intValue = -1970524731
+	)
+	public int field2316;
+	@ObfuscatedName("af")
+	String field2317;
+	@ObfuscatedName("am")
+	@ObfuscatedGetter(
+		intValue = 375984523
+	)
+	public int field2318;
+	@ObfuscatedName("ao")
+	@ObfuscatedGetter(
+		intValue = 1090496625
+	)
+	public int field2301;
+	@ObfuscatedName("aa")
 	@Export("transforms")
 	public int[] transforms;
-	@ObfuscatedName("ay")
+	@ObfuscatedName("aq")
 	@ObfuscatedGetter(
-		intValue = -217857945
+		intValue = 1798362831
 	)
 	@Export("transformVarbit")
 	int transformVarbit;
-	@ObfuscatedName("ba")
+	@ObfuscatedName("be")
 	@ObfuscatedGetter(
-		intValue = 105354307
+		intValue = -1567049985
 	)
 	@Export("transformVarp")
 	int transformVarp;
@@ -126,25 +117,25 @@ public class HitSplatDefinition extends DualNode {
 	HitSplatDefinition() {
 		this.fontId = -1;
 		this.textColor = 16777215;
-		this.field2188 = 70;
-		this.field2189 = -1;
-		this.field2190 = -1;
-		this.field2201 = -1;
-		this.field2192 = -1;
-		this.field2193 = 0;
-		this.field2198 = 0;
-		this.field2197 = -1;
-		this.field2204 = "";
-		this.field2194 = -1;
-		this.field2187 = 0;
+		this.field2309 = 70;
+		this.field2310 = -1;
+		this.field2304 = -1;
+		this.field2312 = -1;
+		this.field2313 = -1;
+		this.field2314 = 0;
+		this.field2321 = 0;
+		this.field2316 = -1;
+		this.field2317 = "";
+		this.field2318 = -1;
+		this.field2301 = 0;
 		this.transformVarbit = -1;
 		this.transformVarp = -1;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-2094286848"
+		descriptor = "(Lxa;I)V",
+		garbageValue = "-1961180523"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -160,8 +151,8 @@ public class HitSplatDefinition extends DualNode {
 
 	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;II)V",
-		garbageValue = "762285835"
+		descriptor = "(Lxa;IB)V",
+		garbageValue = "119"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -170,29 +161,29 @@ public class HitSplatDefinition extends DualNode {
 		} else if (var2 == 2) {
 			this.textColor = var1.readMedium();
 		} else if (var2 == 3) {
-			this.field2189 = var1.readNullableLargeSmart();
+			this.field2310 = var1.readNullableLargeSmart();
 		} else if (var2 == 4) {
-			this.field2201 = var1.readNullableLargeSmart();
+			this.field2312 = var1.readNullableLargeSmart();
 		} else if (var2 == 5) {
-			this.field2190 = var1.readNullableLargeSmart();
+			this.field2304 = var1.readNullableLargeSmart();
 		} else if (var2 == 6) {
-			this.field2192 = var1.readNullableLargeSmart();
+			this.field2313 = var1.readNullableLargeSmart();
 		} else if (var2 == 7) {
-			this.field2193 = var1.readShort();
+			this.field2314 = var1.readShort();
 		} else if (var2 == 8) {
-			this.field2204 = var1.readStringCp1252NullCircumfixed();
+			this.field2317 = var1.readStringCp1252NullCircumfixed();
 		} else if (var2 == 9) {
-			this.field2188 = var1.readUnsignedShort();
+			this.field2309 = var1.readUnsignedShort();
 		} else if (var2 == 10) {
-			this.field2198 = var1.readShort();
+			this.field2321 = var1.readShort();
 		} else if (var2 == 11) {
-			this.field2197 = 0;
+			this.field2316 = 0;
 		} else if (var2 == 12) {
-			this.field2194 = var1.readUnsignedByte();
+			this.field2318 = var1.readUnsignedByte();
 		} else if (var2 == 13) {
-			this.field2187 = var1.readShort();
+			this.field2301 = var1.readShort();
 		} else if (var2 == 14) {
-			this.field2197 = var1.readUnsignedShort();
+			this.field2316 = var1.readUnsignedShort();
 		} else if (var2 == 17 || var2 == 18) {
 			this.transformVarbit = var1.readUnsignedShort();
 			if (this.transformVarbit == 65535) {
@@ -227,16 +218,16 @@ public class HitSplatDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lih;",
-		garbageValue = "-2116527306"
+		descriptor = "(I)Liq;",
+		garbageValue = "-345323327"
 	)
 	@Export("transform")
 	public final HitSplatDefinition transform() {
 		int var1 = -1;
 		if (this.transformVarbit != -1) {
-			var1 = class4.getVarbit(this.transformVarbit);
+			var1 = WorldMapData_1.getVarbit(this.transformVarbit);
 		} else if (this.transformVarp != -1) {
 			var1 = Varps.Varps_main[this.transformVarp];
 		}
@@ -248,17 +239,17 @@ public class HitSplatDefinition extends DualNode {
 			var2 = this.transforms[this.transforms.length - 1];
 		}
 
-		return var2 != -1 ? ClientPreferences.method2477(var2) : null;
+		return var2 != -1 ? class159.method4033(var2) : null;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(II)Ljava/lang/String;",
-		garbageValue = "636756587"
+		garbageValue = "1113141895"
 	)
 	@Export("getString")
 	public String getString(int var1) {
-		String var2 = this.field2204;
+		String var2 = this.field2317;
 
 		while (true) {
 			int var3 = var2.indexOf("%1");
@@ -266,26 +257,26 @@ public class HitSplatDefinition extends DualNode {
 				return var2;
 			}
 
-			var2 = var2.substring(0, var3) + UrlRequest.intToString(var1, false) + var2.substring(var3 + 2);
+			var2 = var2.substring(0, var3) + Tile.intToString(var1, false) + var2.substring(var3 + 2);
 		}
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lwd;",
-		garbageValue = "-28"
+		descriptor = "(I)Lxt;",
+		garbageValue = "-1264574950"
 	)
-	public SpritePixels method4362() {
-		if (this.field2189 < 0) {
+	public SpritePixels method4766() {
+		if (this.field2310 < 0) {
 			return null;
 		} else {
-			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2189);
+			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2310);
 			if (var1 != null) {
 				return var1;
 			} else {
-				var1 = IntHashTable.SpriteBuffer_getSprite(class452.field5016, this.field2189, 0);
+				var1 = class387.SpriteBuffer_getSprite(class573.field5890, this.field2310, 0);
 				if (var1 != null) {
-					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2189);
+					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2310);
 				}
 
 				return var1;
@@ -293,22 +284,22 @@ public class HitSplatDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lwd;",
-		garbageValue = "-234045725"
+		descriptor = "(I)Lxt;",
+		garbageValue = "1606238880"
 	)
-	public SpritePixels method4392() {
-		if (this.field2190 < 0) {
+	public SpritePixels method4760() {
+		if (this.field2304 < 0) {
 			return null;
 		} else {
-			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2190);
+			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2304);
 			if (var1 != null) {
 				return var1;
 			} else {
-				var1 = IntHashTable.SpriteBuffer_getSprite(class452.field5016, this.field2190, 0);
+				var1 = class387.SpriteBuffer_getSprite(class573.field5890, this.field2304, 0);
 				if (var1 != null) {
-					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2190);
+					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2304);
 				}
 
 				return var1;
@@ -316,22 +307,22 @@ public class HitSplatDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lwd;",
-		garbageValue = "-48"
+		descriptor = "(I)Lxt;",
+		garbageValue = "-565447237"
 	)
-	public SpritePixels method4366() {
-		if (this.field2201 < 0) {
+	public SpritePixels method4743() {
+		if (this.field2312 < 0) {
 			return null;
 		} else {
-			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2201);
+			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2312);
 			if (var1 != null) {
 				return var1;
 			} else {
-				var1 = IntHashTable.SpriteBuffer_getSprite(class452.field5016, this.field2201, 0);
+				var1 = class387.SpriteBuffer_getSprite(class573.field5890, this.field2312, 0);
 				if (var1 != null) {
-					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2201);
+					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2312);
 				}
 
 				return var1;
@@ -339,22 +330,22 @@ public class HitSplatDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lwd;",
-		garbageValue = "1925709809"
+		descriptor = "(I)Lxt;",
+		garbageValue = "1935060474"
 	)
-	public SpritePixels method4367() {
-		if (this.field2192 < 0) {
+	public SpritePixels method4744() {
+		if (this.field2313 < 0) {
 			return null;
 		} else {
-			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2192);
+			SpritePixels var1 = (SpritePixels)HitSplatDefinition_cachedSprites.get((long)this.field2313);
 			if (var1 != null) {
 				return var1;
 			} else {
-				var1 = IntHashTable.SpriteBuffer_getSprite(class452.field5016, this.field2192, 0);
+				var1 = class387.SpriteBuffer_getSprite(class573.field5890, this.field2313, 0);
 				if (var1 != null) {
-					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2192);
+					HitSplatDefinition_cachedSprites.put(var1, (long)this.field2313);
 				}
 
 				return var1;
@@ -362,10 +353,10 @@ public class HitSplatDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lrf;",
-		garbageValue = "118"
+		descriptor = "(I)Lsu;",
+		garbageValue = "-1980771566"
 	)
 	@Export("getFont")
 	public Font getFont() {
@@ -376,71 +367,116 @@ public class HitSplatDefinition extends DualNode {
 			if (var1 != null) {
 				return var1;
 			} else {
-				var1 = class384.method7944(class452.field5016, HitSplatDefinition_fontsArchive, this.fontId, 0);
-				if (var1 != null) {
-					HitSplatDefinition_cachedFonts.put(var1, (long)this.fontId);
+				AbstractArchive var3 = class573.field5890;
+				AbstractArchive var4 = class228.HitSplatDefinition_fontsArchive;
+				int var5 = this.fontId;
+				Font var2;
+				if (!FloorOverlayDefinition.method4919(var3, var5, 0)) {
+					var2 = null;
+				} else {
+					var2 = class181.method4292(var4.takeFile(var5, 0));
 				}
 
-				return var1;
+				if (var2 != null) {
+					HitSplatDefinition_cachedFonts.put(var2, (long)this.fontId);
+				}
+
+				return var2;
 			}
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I[BLtb;I)V",
-		garbageValue = "-1395466821"
+		descriptor = "(Lqm;III)Lxm;",
+		garbageValue = "-1268219190"
 	)
-	static void method4397(int var0, byte[] var1, ArchiveDisk var2) {
-		ArchiveDiskAction var3 = new ArchiveDiskAction();
-		var3.type = 0;
-		var3.key = (long)var0;
-		var3.data = var1;
-		var3.archiveDisk = var2;
-		synchronized(ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue) {
-			ArchiveDiskActionHandler.ArchiveDiskActionHandler_requestQueue.addFirst(var3);
-		}
-
-		class137.method3553();
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(ILcr;ZB)I",
-		garbageValue = "-8"
-	)
-	static int method4396(int var0, Script var1, boolean var2) {
-		Widget var3 = var2 ? class539.scriptDotWidget : Huffman.scriptActiveWidget;
-		if (var0 == ScriptOpcodes.CC_GETX) {
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.x;
-			return 1;
-		} else if (var0 == ScriptOpcodes.CC_GETY) {
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.y;
-			return 1;
-		} else if (var0 == ScriptOpcodes.CC_GETWIDTH) {
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.width * -1805166981;
-			return 1;
-		} else if (var0 == ScriptOpcodes.CC_GETHEIGHT) {
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.height * -2133353239;
-			return 1;
-		} else if (var0 == ScriptOpcodes.CC_GETHIDE) {
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.isHidden ? 1 : 0;
-			return 1;
-		} else if (var0 == ScriptOpcodes.CC_GETLAYER) {
-			Interpreter.Interpreter_intStack[++Interpreter.Interpreter_intStackSize - 1] = var3.parentId;
-			return 1;
+	static IndexedSprite method4769(AbstractArchive var0, int var1, int var2) {
+		if (!FloorOverlayDefinition.method4919(var0, var1, var2)) {
+			return null;
 		} else {
-			return 2;
+			IndexedSprite var4 = new IndexedSprite();
+			var4.width = class208.SpriteBuffer_spriteWidth;
+			var4.height = class144.SpriteBuffer_spriteHeight;
+			var4.xOffset = class615.SpriteBuffer_xOffsets[0];
+			var4.yOffset = class615.SpriteBuffer_yOffsets[0];
+			var4.subWidth = IntHashTable.SpriteBuffer_spriteWidths[0];
+			var4.subHeight = class615.SpriteBuffer_spriteHeights[0] * 449044205;
+			var4.palette = BufferedSource.SpriteBuffer_spritePalette;
+			var4.pixels = class320.SpriteBuffer_pixels[0];
+			class615.SpriteBuffer_xOffsets = null;
+			class615.SpriteBuffer_yOffsets = null;
+			IntHashTable.SpriteBuffer_spriteWidths = null;
+			class615.SpriteBuffer_spriteHeights = null;
+			BufferedSource.SpriteBuffer_spritePalette = null;
+			class320.SpriteBuffer_pixels = null;
+			return var4;
 		}
 	}
 
-	@ObfuscatedName("nj")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "650338321"
+		descriptor = "(II)I",
+		garbageValue = "1402352388"
 	)
-	static final int method4398() {
-		float var0 = 200.0F * ((float)ClientPacket.clientPreferences.getBrightness() - 0.5F);
-		return 100 - Math.round(var0);
+	public static int method4740(int var0) {
+		class146 var2 = (class146)SequenceDefinition.SequenceDefinition_cachedModel.get((long)var0);
+		class146 var1;
+		if (var2 != null) {
+			var1 = var2;
+		} else {
+			AbstractArchive var4 = WorldMapData_0.SequenceDefinition_skeletonsArchive;
+			AbstractArchive var5 = WorldMapIcon_0.SpotAnimationDefinition_archive;
+			boolean var6 = WorldMapSectionType.method6969(var4, var5, var0);
+			class146 var3;
+			if (!var6) {
+				var3 = null;
+			} else {
+				if (class146.field1722 == null) {
+					class146.field1720 = Runtime.getRuntime().availableProcessors();
+					class146.field1722 = new ThreadPoolExecutor(0, class146.field1720, 0L, TimeUnit.MILLISECONDS, new ArrayBlockingQueue(class146.field1720 * 100 + 100), new class177());
+				}
+
+				try {
+					var3 = new class146(var4, var5, var0);
+				} catch (Exception var8) {
+					var3 = null;
+				}
+			}
+
+			if (var3 != null) {
+				SequenceDefinition.SequenceDefinition_cachedModel.put(var3, (long)var0);
+			}
+
+			var1 = var3;
+		}
+
+		if (var1 == null) {
+			return 2;
+		} else {
+			return var1.method3905() ? 0 : 1;
+		}
+	}
+
+	@ObfuscatedName("hl")
+	@ObfuscatedSignature(
+		descriptor = "(Lcf;I)V",
+		garbageValue = "-1588353637"
+	)
+	static void method4773(class69 var0) {
+		if (Client.field550 != var0) {
+			Client.field550 = var0;
+		}
+	}
+
+	@ObfuscatedName("pe")
+	@ObfuscatedSignature(
+		descriptor = "(Lxa;II)V",
+		garbageValue = "936123719"
+	)
+	@Export("randomDatData2")
+	static void randomDatData2(Buffer var0, int var1) {
+		HttpQueryParams.method10854(var0.array, var1);
+		class180.method4288(var0, var1);
 	}
 }

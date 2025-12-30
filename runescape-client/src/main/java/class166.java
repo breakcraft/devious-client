@@ -1,121 +1,139 @@
+import java.awt.Image;
+import java.util.HashMap;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gg")
-public class class166 {
-	@ObfuscatedName("nu")
-	static boolean field1835;
-	@ObfuscatedName("ac")
-	@ObfuscatedGetter(
-		longValue = -8742692319367184903L
-	)
-	long field1830;
-	@ObfuscatedName("aa")
-	@ObfuscatedGetter(
-		longValue = 3274406513398282671L
-	)
-	public long field1832;
-	@ObfuscatedName("am")
+@ObfuscatedName("gj")
+public class class166 extends class151 {
+	@ObfuscatedName("af")
+	static Image field1876;
+	@ObfuscatedName("gq")
 	@ObfuscatedSignature(
-		descriptor = "Lqh;"
+		descriptor = "Ldj;"
 	)
-	IterableNodeDeque field1833;
+	@Export("varcs")
+	static Varcs varcs;
+	@ObfuscatedName("qr")
+	@ObfuscatedSignature(
+		descriptor = "Lky;"
+	)
+	static Model field1882;
+	@ObfuscatedName("av")
+	@ObfuscatedGetter(
+		longValue = -5037811622651568387L
+	)
+	long field1879;
+	@ObfuscatedName("at")
+	String field1877;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -2115333599
+	)
+	int field1878;
+	// $FF: synthetic field
+	@ObfuscatedSignature(
+		descriptor = "Lfc;"
+	)
+	final class154 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;)V"
+		descriptor = "(Lfc;)V"
 	)
-	public class166(Buffer var1) {
-		this.field1832 = -1L;
-		this.field1833 = new IterableNodeDeque();
-		this.method3853(var1);
+	class166(class154 var1) {
+		this.this$0 = var1;
+		this.field1879 = -1L;
+		this.field1877 = null;
+		this.field1878 = 0;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "1564800486"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "-11"
 	)
-	void method3853(Buffer var1) {
-		this.field1830 = var1.readLong();
-		this.field1832 = var1.readLong();
-
-		for (int var2 = var1.readUnsignedByte(); var2 != 0; var2 = var1.readUnsignedByte()) {
-			Object var3;
-			if (var2 == 1) {
-				var3 = new class161(this);
-			} else if (var2 == 4) {
-				var3 = new class172(this);
-			} else if (var2 == 3) {
-				var3 = new class157(this);
-			} else if (var2 == 2) {
-				var3 = new class155(this);
-			} else {
-				if (var2 != 5) {
-					throw new RuntimeException("");
-				}
-
-				var3 = new class162(this);
-			}
-
-			((class165)var3).vmethod3902(var1);
-			this.field1833.addFirst((Node)var3);
+	void vmethod4235(Buffer var1) {
+		if (var1.readUnsignedByte() != 255) {
+			var1.offset -= 1741769013;
+			this.field1879 = var1.readLong();
 		}
 
+		this.field1877 = var1.readStringCp1252NullTerminatedOrNull();
+		this.field1878 = var1.readUnsignedShort();
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lgd;I)V",
-		garbageValue = "1556211735"
+		descriptor = "(Lgs;B)V",
+		garbageValue = "-98"
 	)
-	public void method3858(ClanChannel var1) {
-		if (var1.key == this.field1830 && var1.field1849 == this.field1832) {
-			for (class165 var2 = (class165)this.field1833.last(); var2 != null; var2 = (class165)this.field1833.previous()) {
-				var2.vmethod3908(var1);
-			}
+	void vmethod4241(ClanSettings var1) {
+		var1.method4057(this.field1879, this.field1877, this.field1878);
+	}
 
-			++var1.field1849;
-		} else {
-			throw new RuntimeException("");
+	@ObfuscatedName("mu")
+	@ObfuscatedSignature(
+		descriptor = "(III)V",
+		garbageValue = "-1997342808"
+	)
+	static final void method4157(int var0, int var1) {
+		int[] var2 = new int[Client.worldViewManager.method2387()];
+		float[] var3 = new float[Client.worldViewManager.method2387()];
+		int var4 = 0;
+
+		for (Iterator var5 = Client.worldViewManager.iterator(); var5.hasNext(); ++var4) {
+			WorldView var24 = (WorldView)var5.next();
+			var2[var4] = var24.id;
+			var3[var4] = var24.scene.field2877;
 		}
-	}
 
-	@ObfuscatedName("mh")
-	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIII)V",
-		garbageValue = "1720191634"
-	)
-	@Export("drawWidgets")
-	static final void drawWidgets(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-		if (ClientPreferences.widgetDefinition.loadInterface(var0)) {
-			Renderable.field2813 = null;
-			class171.drawInterface(ClientPreferences.widgetDefinition.Widget_interfaceComponents[var0], 0, ClientPreferences.widgetDefinition.Widget_interfaceComponents[var0].length - 1, -1, -1, var1, var2, var3, var4, var5, var6, var7);
-			if (Renderable.field2813 != null) {
-				class171.drawInterface(Renderable.field2813, 0, Renderable.field2813.length - 1, -1412584499, -1412584499, var1, var2, var3, var4, class469.field5099, class330.field3668, var7);
-				Renderable.field2813 = null;
-			}
+		class144.method3897(var3, var2);
+		HashMap var25 = new HashMap();
 
-		} else {
-			if (var7 != -1) {
-				Client.validRootWidgets[var7] = true;
-			} else {
-				for (int var8 = 0; var8 < 100; ++var8) {
-					Client.validRootWidgets[var8] = true;
+		for (var4 = var2.length - 1; var4 >= 0; --var4) {
+			if (var3[var4] > 0.0F || var2[var4] == -1) {
+				class526 var26 = Client.worldViewManager.method2398(var2[var4]);
+				if (!var25.containsKey(var26)) {
+					var25.put(var26, var2[var4]);
 				}
 			}
-
 		}
-	}
 
-	@ObfuscatedName("oq")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-984632497"
-	)
-	static final void method3857() {
-		Client.field548 = Client.cycleCntr;
-		class159.ClanChat_inClanChat = true;
+		for (var4 = 0; var4 < var2.length; ++var4) {
+			int var6 = var2[var4];
+			class526 var7 = Client.worldViewManager.method2398(var6);
+			Integer var8 = (Integer)var25.get(var7);
+			if (var8 != null && var8.equals(var6)) {
+				if (var7 == class526.field5582) {
+					ClanChannel.insertMenuItem("Walk here", "", 23, 0, var0, var1, 0, false, var6);
+				} else if (var7 == class526.field5580) {
+					int var9 = Client.viewportWidth / 2;
+					int var10 = Client.viewportHeight / 2;
+					int var11 = Client.viewportZoom;
+					ProjectionCoord var12 = class210.method4667(Occluder.topLevelWorldView.scene, Client.field469, SpriteBufferProperties.cameraX, ScriptFrame.cameraY, class528.cameraZ, var9, var10, var11);
+					if (var12 != null) {
+						ProjectionCoord var13 = FaceNormal.method5848((float)Client.field468, (float)Client.field469, (float)Client.field512);
+						ProjectionCoord var15 = class30.method486(var12);
+						var15.method9293(var13);
+						ProjectionCoord var16 = class451.method9146(ProjectionCoord.field5234, var15);
+						ProjectionCoord var18 = ProjectionCoord.field5240;
+						float var17 = var16.method9303(var18);
+						ProjectionCoord var21 = ProjectionCoord.field5234;
+						float var20 = var21.method9303(var15);
+						float var22 = (float)Math.atan2((double)var17, (double)var20);
+						int var23 = class311.method7022(var22);
+						var23 = class169.method4184(var23);
+						ClanChannel.insertMenuItem("Set heading", "", 60, var23, 0, 0, 0, false, var6);
+						var13.release();
+						var15.release();
+						var16.release();
+						var12.release();
+					}
+				}
+			}
+		}
+
 	}
 }

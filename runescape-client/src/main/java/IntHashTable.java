@@ -1,23 +1,15 @@
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sz")
+@ObfuscatedName("sn")
 @Implements("IntHashTable")
 public class IntHashTable {
-	@ObfuscatedName("be")
-	@ObfuscatedGetter(
-		intValue = 1605146791
-	)
-	static int field5140;
-	@ObfuscatedName("vg")
-	@ObfuscatedGetter(
-		intValue = 182673155
-	)
-	static int field5141;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aj")
+	@Export("SpriteBuffer_spriteWidths")
+	public static int[] SpriteBuffer_spriteWidths;
+	@ObfuscatedName("av")
 	@Export("array")
 	int[] array;
 
@@ -43,10 +35,10 @@ public class IntHashTable {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(II)I",
-		garbageValue = "-2005026269"
+		garbageValue = "1123379343"
 	)
 	@Export("get")
 	public int get(int var1) {
@@ -67,22 +59,29 @@ public class IntHashTable {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "97"
+		descriptor = "(Lut;IIIII)V",
+		garbageValue = "1461486816"
 	)
-	static int method9453(int var0) {
-		return (var0 >> 7) + 1;
-	}
+	public static void method10049(DynamicArray var0, int var1, int var2, int var3, int var4) {
+		ArchiveDiskActionHandler.method8530(var0, class586.field5937);
+		if (var3 < 0) {
+			var3 = 0;
+		}
 
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "(Lps;IIB)Lwd;",
-		garbageValue = "99"
-	)
-	@Export("SpriteBuffer_getSprite")
-	public static SpritePixels SpriteBuffer_getSprite(AbstractArchive var0, int var1, int var2) {
-		return !class167.method3865(var0, var1, var2) ? null : MilliClock.method4750();
+		int var5 = var3 + var4;
+		if (var4 < 0 || var5 < 0 || var5 > var0.method10652()) {
+			var5 = var0.method10652();
+		}
+
+		int[] var6 = var0.method10650();
+		int var7 = var1;
+
+		for (int var8 = var3; var8 < var5; ++var8) {
+			var6[var8] = var7;
+			var7 += var2;
+		}
+
 	}
 }

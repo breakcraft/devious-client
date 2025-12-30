@@ -3,37 +3,25 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nd")
+@ObfuscatedName("ov")
 @Implements("Varps")
 public class Varps {
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@Export("Varps_temp")
 	public static int[] Varps_temp;
-	@ObfuscatedName("an")
+	@ObfuscatedName("at")
 	@Export("Varps_main")
 	public static int[] Varps_main;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ag")
 	@Export("Varps_masks")
 	static int[] Varps_masks;
-	@ObfuscatedName("al")
-	@Export("SpriteBuffer_yOffsets")
-	static int[] SpriteBuffer_yOffsets;
-	@ObfuscatedName("ql")
+	@ObfuscatedName("kf")
 	@ObfuscatedSignature(
-		descriptor = "[Lwd;"
+		descriptor = "Lqn;"
 	)
-	@Export("headIconHintSprites")
-	static SpritePixels[] headIconHintSprites;
-	@ObfuscatedName("wt")
-	@ObfuscatedSignature(
-		descriptor = "Ltb;"
-	)
-	@Export("masterDisk")
-	static ArchiveDisk masterDisk;
+	static Archive field4092;
 
 	static {
-		Varps_temp = new int[5000];
-		Varps_main = new int[5000];
 		Varps_masks = new int[32];
 		int var0 = 2;
 
@@ -44,22 +32,37 @@ public class Varps {
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "1"
+		descriptor = "(I)[Lmm;",
+		garbageValue = "-532511595"
 	)
-	public static void method7213(int var0, int var1) {
-		VarbitComposition var2 = Interpreter.method1757(var0);
-		int var3 = var2.baseVar;
-		int var4 = var2.startBit;
-		int var5 = var2.endBit;
-		int var6 = Varps_masks[var5 - var4];
-		if (var1 < 0 || var1 > var6) {
-			var1 = 0;
+	public static class334[] method7670() {
+		return new class334[]{class334.field3687, class334.field3686, class334.field3698, class334.field3688, class334.field3689, class334.field3690, class334.field3699, class334.field3692, class334.field3693, class334.field3694, class334.field3695, class334.field3696, class334.field3697};
+	}
+
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(I)[Lpq;",
+		garbageValue = "-1075935156"
+	)
+	@Export("PlayerType_values")
+	public static PlayerType[] PlayerType_values() {
+		return new PlayerType[]{PlayerType.field4888, PlayerType.field4889, PlayerType.field4891, PlayerType.field4884, PlayerType.PlayerType_normal, PlayerType.field4887, PlayerType.field4883, PlayerType.field4882, PlayerType.PlayerType_ultimateIronman, PlayerType.field4881, PlayerType.PlayerType_hardcoreIronman, PlayerType.field4885, PlayerType.PlayerType_playerModerator, PlayerType.field4892, PlayerType.PlayerType_jagexModerator, PlayerType.field4886, PlayerType.PlayerType_ironman};
+	}
+
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "(JII)V",
+		garbageValue = "-1692751389"
+	)
+	static final void method7665(long var0, int var2) {
+		if (ViewportMouse.field3116[ViewportMouse.ViewportMouse_entityCount] != Integer.MAX_VALUE && var0 != ViewportMouse.ViewportMouse_entityTags[ViewportMouse.ViewportMouse_entityCount]) {
+			++ViewportMouse.ViewportMouse_entityCount;
+			ViewportMouse.field3116[ViewportMouse.ViewportMouse_entityCount] = Integer.MAX_VALUE;
 		}
 
-		var6 <<= var4;
-		Varps_main[var3] = Varps_main[var3] & ~var6 | var1 << var4 & var6;
+		ViewportMouse.ViewportMouse_entityTags[ViewportMouse.ViewportMouse_entityCount] = var0;
+		ViewportMouse.field3116[ViewportMouse.ViewportMouse_entityCount] = Math.min(ViewportMouse.field3116[ViewportMouse.ViewportMouse_entityCount], var2);
 	}
 }

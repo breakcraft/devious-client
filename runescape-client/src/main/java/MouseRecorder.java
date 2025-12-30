@@ -1,36 +1,35 @@
+import java.util.ArrayList;
+import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ct")
+@ObfuscatedName("cp")
 @Implements("MouseRecorder")
 public class MouseRecorder implements Runnable {
-	@ObfuscatedName("oo")
-	@ObfuscatedSignature(
-		descriptor = "Lii;"
-	)
-	static Task field909;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ac")
+	static int[][] field868;
+	@ObfuscatedName("av")
 	@Export("isRunning")
 	boolean isRunning;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("lock")
 	Object lock;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -546749483
+		intValue = 847414097
 	)
 	@Export("index")
 	int index;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@Export("xs")
 	int[] xs;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("ys")
 	int[] ys;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@Export("millis")
 	long[] millis;
 
@@ -44,7 +43,7 @@ public class MouseRecorder implements Runnable {
 	}
 
 	public void run() {
-		for (; this.isRunning; UserComparator8.method3393(50L)) {
+		for (; this.isRunning; LoginState.method841(50L)) {
 			synchronized(this.lock) {
 				if (this.index < 500) {
 					this.xs[this.index] = MouseHandler.MouseHandler_x;
@@ -57,80 +56,94 @@ public class MouseRecorder implements Runnable {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(I)[Ltk;",
-		garbageValue = "149666851"
+		descriptor = "(I)[Ldc;",
+		garbageValue = "1642043640"
 	)
-	static class514[] method2126() {
-		return new class514[]{class514.field5329, class514.field5330, class514.field5332, class514.field5331};
+	static AttackOption[] method2193() {
+		return new AttackOption[]{AttackOption.AttackOption_alwaysRightClick, AttackOption.field1186, AttackOption.AttackOption_dependsOnCombatLevels, AttackOption.field1188, AttackOption.AttackOption_hidden};
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "805476268"
+		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
+		garbageValue = "1286111589"
 	)
-	@Export("focusPasswordWhenUsernameFilled")
-	static void focusPasswordWhenUsernameFilled() {
-		if (Client.Login_isUsernameRemembered && Login.Login_username != null && !Login.Login_username.isEmpty()) {
-			Login.currentLoginField = 1;
-		} else {
-			Login.currentLoginField = 0;
+	public static String method2195(String var0) {
+		StringBuilder var1 = new StringBuilder(var0.length());
+		int var2 = 0;
+		int var3 = -1;
+
+		for (int var4 = 0; var4 < var0.length(); ++var4) {
+			char var5 = var0.charAt(var4);
+			if (var5 == '<') {
+				var1.append(var0.substring(var2, var4));
+				var3 = var4;
+			} else if (var5 == '>' && var3 != -1) {
+				String var6 = var0.substring(var3 + 1, var4);
+				var3 = -1;
+				if (var6.equals("lt")) {
+					var1.append("<");
+				} else if (var6.equals("gt")) {
+					var1.append(">");
+				} else if (var6.equals("br")) {
+					var1.append("\n");
+				}
+
+				var2 = var4 + 1;
+			}
 		}
 
+		if (var2 < var0.length()) {
+			var1.append(var0.substring(var2, var0.length()));
+		}
+
+		return var1.toString();
 	}
 
-	@ObfuscatedName("ir")
+	@ObfuscatedName("io")
 	@ObfuscatedSignature(
 		descriptor = "(III)V",
-		garbageValue = "425190326"
+		garbageValue = "-2084071294"
 	)
-	static final void method2130(int var0, int var1) {
-		if (var0 < 128) {
-			var0 = 128;
-		} else if (var0 > 383) {
-			var0 = 383;
+	static void method2194(int var0, int var1) {
+		if (class468.clientPreferences.getMusicVolume() != 0 && var0 != -1) {
+			ArrayList var2 = new ArrayList();
+			var2.add(new MidiRequest(UserComparator4.archive6, var0, 0, class468.clientPreferences.getMusicVolume(), false));
+			class113.method3574(var2, 0, 0, 0, 0, true);
+			Client.playingJingle = true;
 		}
 
-		if (WorldMapData_1.cameraPitch < var0) {
-			WorldMapData_1.cameraPitch = (var0 - WorldMapData_1.cameraPitch) * HealthBarUpdate.field1090 / 1000 + WorldMapData_1.cameraPitch + IntHashTable.field5141;
-			if (WorldMapData_1.cameraPitch > var0) {
-				WorldMapData_1.cameraPitch = var0;
+	}
+
+	@ObfuscatedName("ob")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "994891367"
+	)
+	static final void method2189() {
+		Iterator var0 = Client.worldViewManager.iterator();
+
+		while (var0.hasNext()) {
+			WorldView var1 = (WorldView)var0.next();
+
+			for (int var2 = 0; var2 < Client.playerUpdateManager.playerCount; ++var2) {
+				Player var3 = (Player)Occluder.topLevelWorldView.players.get((long)Client.playerUpdateManager.playerIndices[var2]);
+				if (var3 != null) {
+					var3.clearIsInFriendsChat();
+				}
 			}
-		} else if (WorldMapData_1.cameraPitch > var0) {
-			WorldMapData_1.cameraPitch -= (WorldMapData_1.cameraPitch - var0) * HealthBarUpdate.field1090 / 1000 + IntHashTable.field5141;
-			if (WorldMapData_1.cameraPitch < var0) {
-				WorldMapData_1.cameraPitch = var0;
-			}
 		}
 
-		var1 &= 2047;
-		int var2 = var1 - class455.cameraYaw;
-		if (var2 > 1024) {
-			var2 -= 2048;
-		} else if (var2 < -1024) {
-			var2 += 2048;
-		}
+	}
 
-		if (var2 > 0) {
-			class455.cameraYaw = var2 * HealthBarUpdate.field1090 / 1000 + class455.cameraYaw + IntHashTable.field5141;
-			class455.cameraYaw &= 2047;
-		} else if (var2 < 0) {
-			class455.cameraYaw -= -var2 * HealthBarUpdate.field1090 / 1000 + IntHashTable.field5141;
-			class455.cameraYaw &= 2047;
-		}
-
-		int var3 = var1 - class455.cameraYaw;
-		if (var3 > 1024) {
-			var3 -= 2048;
-		} else if (var3 < -1024) {
-			var3 += 2048;
-		}
-
-		if (var3 < 0 && var2 > 0 || var3 > 0 && var2 < 0) {
-			class455.cameraYaw = var1;
-		}
-
+	@ObfuscatedName("pr")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "-204048001"
+	)
+	static void method2196(int var0) {
+		Client.oculusOrbState = var0;
 	}
 }

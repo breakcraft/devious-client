@@ -44,7 +44,6 @@ import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.ActorDeath;
-import net.runelite.api.events.AnimationChanged;
 import net.runelite.api.events.GraphicChanged;
 import net.runelite.api.events.HealthBarUpdated;
 import net.runelite.api.events.HitsplatApplied;
@@ -76,6 +75,13 @@ public abstract class RSActorMixin implements RSActor
 
 	@Inject
 	private boolean dead;
+
+	@MethodHook(value = "<init>", end = true)
+	@Inject
+	private void rl$init(int var0)
+	{
+		this.getAnimationSequence().setActor(this);
+	}
 
 	@Inject
 	private Actor lastInteracting = null;
@@ -194,23 +200,23 @@ public abstract class RSActorMixin implements RSActor
 
 	@Inject
 	@Override
-	public Point getCanvasTextLocation(Graphics2D graphics, String text, int zOffset)
+	public Point getCanvasTextLocation(Graphics2D graphics, String text, int heightOffset)
 	{
-		return Perspective.getCanvasTextLocation(client, graphics, getLocalLocation(), text, zOffset);
+		return Perspective.getCanvasTextLocation(client, graphics, getLocalLocation(), text, heightOffset);
 	}
 
 	@Inject
 	@Override
-	public Point getCanvasImageLocation(BufferedImage image, int zOffset)
+	public Point getCanvasImageLocation(BufferedImage image, int heightOffset)
 	{
-		return Perspective.getCanvasImageLocation(client, getLocalLocation(), image, zOffset);
+		return Perspective.getCanvasImageLocation(client, getLocalLocation(), image, heightOffset);
 	}
 
 	@Inject
 	@Override
-	public Point getCanvasSpriteLocation(SpritePixels spritePixels, int zOffset)
+	public Point getCanvasSpriteLocation(SpritePixels spritePixels, int heightOffset)
 	{
-		return Perspective.getCanvasSpriteLocation(client, getLocalLocation(), spritePixels, zOffset);
+		return Perspective.getCanvasSpriteLocation(client, getLocalLocation(), spritePixels, heightOffset);
 	}
 
 	@Inject
@@ -218,32 +224,6 @@ public abstract class RSActorMixin implements RSActor
 	public Point getMinimapLocation()
 	{
 		return Perspective.localToMinimap(client, getLocalLocation());
-	}
-
-	@FieldHook("sequence")
-	@Inject
-	public void animationChanged(int idx)
-	{
-		/*if (this instanceof RSNPC)
-		{
-			int id = ((RSNPC) this).getId();
-			switch (id)
-			{
-				case 8615:
-				case 8616:
-				case 8617:
-				case 8618:
-				case 8619:
-				case 8620:
-				case 8621:
-				case 8622:
-					return;
-			}
-		}*/
-
-		AnimationChanged animationChanged = new AnimationChanged();
-		animationChanged.setActor(this);
-		client.getCallbacks().post(animationChanged);
 	}
 
 	@MethodHook(value = "clearSpotAnimations", end = true)
@@ -284,7 +264,7 @@ public abstract class RSActorMixin implements RSActor
 				frame = -1;
 			}
 
-			spotAnims.put(newActorSpotAnim(spotAnimId, height, client.getGameCycle() + delay, frame), (long) id);
+			spotAnims.put(newActorSpotAnim(spotAnimId, height, client.getGameCycle() + delay), (long) id);
 			this.setGraphicsCount(getGraphicsCount() + 1);
 		}
 	}
@@ -485,7 +465,7 @@ public abstract class RSActorMixin implements RSActor
 			}
 			else
 			{
-				ActorSpotAnim actorSpotAnim = this.newActorSpotAnim(id, 0, 0, 0);
+				ActorSpotAnim actorSpotAnim = this.newActorSpotAnim(id, 0, 0);
 				this.getSpotAnims().put(actorSpotAnim, 0L);
 				this.setGraphicsCount(getGraphicsCount() + 1);
 			}
@@ -568,45 +548,97 @@ public abstract class RSActorMixin implements RSActor
 	@Override
 	public int getAnimation()
 	{
-		int animation = getRSAnimation();
-		switch (animation)
-		{
-			/*case 7592:
-			case 7593:
-			case 7949:
-			case 7950:
-			case 7951:
-			case 7952:
-			case 7957:
-			case 7960:
-			case 8059:
-			case 8123:
-			case 8124:
-			case 8125:
-			case 8126:
-			case 8127:
-			case 8234:
-			case 8235:
-			case 8236:
-			case 8237:
-			case 8238:
-			case 8241:
-			case 8242:
-			case 8243:
-			case 8244:
-			case 8245:
-			case 8248:
-			case 8249:
-			case 8250:
-			case 8251:
-			case 8252:
-			case 8255:
-			case 8256:
-			case 8257:
-			case 8258:
-				return -1;*/
-			default:
-				return animation;
-		}
+		return this.getAnimationSequence().getId();
+	}
+
+	@Inject
+	@Override
+	public void setAnimation(int animationId)
+	{
+		this.getAnimationSequence().setId(animationId);
+	}
+
+	@Inject
+	@Override
+	public int getAnimationFrame()
+	{
+		return this.getAnimationSequence().getFrame();
+	}
+
+	@Inject
+	@Override
+	public void setAnimationFrame(int animationFrame)
+	{
+		this.getAnimationSequence().setFrame(animationFrame);
+	}
+
+	@Inject
+	@Override
+	public int getActionFrame()
+	{
+		return this.getAnimationSequence().getFrame();
+	}
+
+	@Inject
+	@Override
+	public void setActionFrame(int actionFrame)
+	{
+		this.getAnimationSequence().setFrame(actionFrame);
+	}
+
+	@Inject
+	@Override
+	public int getActionFrameCycle()
+	{
+		return this.getAnimationSequence().getFrameCycle();
+	}
+
+	@Inject
+	@Override
+	public int getPoseAnimation()
+	{
+		return this.getPoseAnimationSequence().getId();
+	}
+
+	@Inject
+	@Override
+	public void setPoseAnimation(int animationId)
+	{
+		this.getPoseAnimationSequence().setId(animationId);
+	}
+
+	@Inject
+	@Override
+	public int getPoseAnimationFrame()
+	{
+		return this.getPoseAnimationSequence().getFrame();
+	}
+
+	@Inject
+	@Override
+	public int getPoseFrame()
+	{
+		return this.getPoseAnimationSequence().getFrame();
+	}
+
+	@Inject
+	@Override
+	public void setPoseFrame(int frame)
+	{
+		this.getPoseAnimationSequence().setFrame(frame);
+	}
+
+	@Inject
+	@Override
+	public int getPoseFrameCycle()
+	{
+		return this.getPoseAnimationSequence().getFrameCycle();
+	}
+
+	@Inject
+	@Override
+	public LocalPoint getCameraFocus()
+	{
+		return getLocalLocation();
 	}
 }

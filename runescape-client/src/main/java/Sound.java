@@ -3,95 +3,159 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gr")
+@ObfuscatedName("gm")
 @Implements("Sound")
-public class Sound extends class149 {
-	@ObfuscatedName("fc")
-	@ObfuscatedSignature(
-		descriptor = "Ldl;"
-	)
-	@Export("topLevelWorldView")
-	public static WorldView topLevelWorldView;
-	@ObfuscatedName("ap")
-	boolean field1767;
-	@ObfuscatedName("aj")
-	byte field1764;
+public class Sound extends class151 {
+	@ObfuscatedName("ow")
+	static int[][] field1803;
+	@ObfuscatedName("av")
+	boolean field1804;
+	@ObfuscatedName("at")
+	byte field1802;
+	@ObfuscatedName("ag")
+	byte field1801;
 	@ObfuscatedName("an")
-	byte field1762;
-	@ObfuscatedName("ai")
-	byte field1763;
-	@ObfuscatedName("al")
-	byte field1761;
+	byte field1806;
+	@ObfuscatedName("ae")
+	byte field1805;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfp;"
+		descriptor = "Lfc;"
 	)
-	final class152 this$0;
+	final class154 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfp;)V"
+		descriptor = "(Lfc;)V"
 	)
-	Sound(class152 var1) {
+	Sound(class154 var1) {
 		this.this$0 = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1635342078"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "-11"
 	)
-	void vmethod3913(Buffer var1) {
-		this.field1767 = var1.readUnsignedByte() == 1;
-		this.field1764 = var1.readByte();
-		this.field1762 = var1.readByte();
-		this.field1763 = var1.readByte();
-		this.field1761 = var1.readByte();
+	void vmethod4235(Buffer var1) {
+		this.field1804 = var1.readUnsignedByte() == 1;
+		this.field1802 = var1.readByte();
+		this.field1801 = var1.readByte();
+		this.field1806 = var1.readByte();
+		this.field1805 = var1.readByte();
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lgu;I)V",
-		garbageValue = "-1572789515"
+		descriptor = "(Lgs;B)V",
+		garbageValue = "-98"
 	)
-	void vmethod3914(ClanSettings var1) {
-		var1.allowGuests = this.field1767;
-		var1.field1800 = this.field1764;
-		var1.field1806 = this.field1762;
-		var1.field1789 = this.field1763;
-		var1.field1792 = this.field1761;
+	void vmethod4241(ClanSettings var1) {
+		var1.allowGuests = this.field1804;
+		var1.field1831 = this.field1802;
+		var1.field1835 = this.field1801;
+		var1.field1833 = this.field1806;
+		var1.field1834 = this.field1805;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(II)Lhs;",
-		garbageValue = "-1184987531"
+		descriptor = "(CB)B",
+		garbageValue = "20"
 	)
-	public static HealthBarDefinition method3719(int var0) {
-		HealthBarDefinition var1 = (HealthBarDefinition)HealthBarDefinition.HealthBarDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = HealthBarDefinition.HealthBarDefinition_archive.takeFile(33, var0);
-			var1 = new HealthBarDefinition();
-			var1.field1961 = var0;
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
+	@Export("charToByteCp1252")
+	public static byte charToByteCp1252(char var0) {
+		byte var1;
+		if ((var0 <= 0 || var0 >= 128) && (var0 < 160 || var0 > 255)) {
+			if (var0 == 8364) {
+				var1 = -128;
+			} else if (var0 == 8218) {
+				var1 = -126;
+			} else if (var0 == 402) {
+				var1 = -125;
+			} else if (var0 == 8222) {
+				var1 = -124;
+			} else if (var0 == 8230) {
+				var1 = -123;
+			} else if (var0 == 8224) {
+				var1 = -122;
+			} else if (var0 == 8225) {
+				var1 = -121;
+			} else if (var0 == 710) {
+				var1 = -120;
+			} else if (var0 == 8240) {
+				var1 = -119;
+			} else if (var0 == 352) {
+				var1 = -118;
+			} else if (var0 == 8249) {
+				var1 = -117;
+			} else if (var0 == 338) {
+				var1 = -116;
+			} else if (var0 == 381) {
+				var1 = -114;
+			} else if (var0 == 8216) {
+				var1 = -111;
+			} else if (var0 == 8217) {
+				var1 = -110;
+			} else if (var0 == 8220) {
+				var1 = -109;
+			} else if (var0 == 8221) {
+				var1 = -108;
+			} else if (var0 == 8226) {
+				var1 = -107;
+			} else if (var0 == 8211) {
+				var1 = -106;
+			} else if (var0 == 8212) {
+				var1 = -105;
+			} else if (var0 == 732) {
+				var1 = -104;
+			} else if (var0 == 8482) {
+				var1 = -103;
+			} else if (var0 == 353) {
+				var1 = -102;
+			} else if (var0 == 8250) {
+				var1 = -101;
+			} else if (var0 == 339) {
+				var1 = -100;
+			} else if (var0 == 382) {
+				var1 = -98;
+			} else if (var0 == 376) {
+				var1 = -97;
+			} else {
+				var1 = 63;
 			}
-
-			HealthBarDefinition.HealthBarDefinition_cached.put(var1, (long)var0);
-			return var1;
+		} else {
+			var1 = (byte)var0;
 		}
+
+		return var1;
 	}
 
-	@ObfuscatedName("of")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "86"
+		descriptor = "(II)Z",
+		garbageValue = "370508977"
 	)
-	@Export("Clan_leaveChat")
-	static final void Clan_leaveChat() {
-		PacketBufferNode var0 = class139.getPacketBufferNode(ClientPacket.FRIEND_CHAT_JOIN_LEAVE, Client.packetWriter.isaacCipher);
-		var0.packetBuffer.writeByte(0);
-		Client.packetWriter.addNode(var0);
+	@Export("isWorldMapEvent")
+	public static boolean isWorldMapEvent(int var0) {
+		return var0 == 10 || var0 == 11 || var0 == 12 || var0 == 13 || var0 == 14 || var0 == 15 || var0 == 16 || var0 == 17;
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(CI)C",
+		garbageValue = "-2129166637"
+	)
+	static char method4019(char var0) {
+		if (var0 == 198) {
+			return 'E';
+		} else if (var0 == 230) {
+			return 'e';
+		} else if (var0 == 223) {
+			return 's';
+		} else if (var0 == 338) {
+			return 'E';
+		} else {
+			return (char)(var0 == 339 ? 'e' : '\u0000');
+		}
 	}
 }

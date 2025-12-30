@@ -4,68 +4,70 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("qt")
+@ObfuscatedName("qd")
 @Implements("Language")
 public class Language implements Enum {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_EN")
 	public static final Language Language_EN;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_DE")
 	static final Language Language_DE;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_FR")
 	public static final Language Language_FR;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_PT")
 	static final Language Language_PT;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_NL")
 	static final Language Language_NL;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_ES")
 	public static final Language Language_ES;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+		descriptor = "Lqd;"
 	)
 	@Export("Language_ES_MX")
 	static final Language Language_ES_MX;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "[Lqt;"
+		descriptor = "[Lqd;"
 	)
 	@Export("Language_valuesOrdered")
 	public static final Language[] Language_valuesOrdered;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = -1685787363
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "Lqm;"
 	)
-	static int field4892;
-	@ObfuscatedName("am")
-	final String field4887;
-	@ObfuscatedName("ag")
+	@Export("ItemDefinition_modelArchive")
+	public static AbstractArchive ItemDefinition_modelArchive;
+	@ObfuscatedName("aw")
+	final String field5149;
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -433478557
+		intValue = 1526259553
 	)
 	@Export("id")
 	final int id;
@@ -74,14 +76,14 @@ public class Language implements Enum {
 	final String language;
 
 	static {
-		Language_EN = new Language("EN", "en", "English", ModeWhere.field4909, 0, "GB");
-		Language_DE = new Language("DE", "de", "German", ModeWhere.field4909, 1, "DE");
-		Language_FR = new Language("FR", "fr", "French", ModeWhere.field4909, 2, "FR");
-		Language_PT = new Language("PT", "pt", "Portuguese", ModeWhere.field4909, 3, "BR");
-		Language_NL = new Language("NL", "nl", "Dutch", ModeWhere.field4896, 4, "NL");
-		Language_ES = new Language("ES", "es", "Spanish", ModeWhere.field4896, 5, "ES");
-		Language_ES_MX = new Language("ES_MX", "es-mx", "Spanish (Latin American)", ModeWhere.field4909, 6, "MX");
-		Language[] var0 = method8377();
+		Language_EN = new Language("EN", "en", "English", ModeWhere.field5178, 0, "GB");
+		Language_DE = new Language("DE", "de", "German", ModeWhere.field5178, 1, "DE");
+		Language_FR = new Language("FR", "fr", "French", ModeWhere.field5178, 2, "FR");
+		Language_PT = new Language("PT", "pt", "Portuguese", ModeWhere.field5178, 3, "BR");
+		Language_NL = new Language("NL", "nl", "Dutch", ModeWhere.field5166, 4, "NL");
+		Language_ES = new Language("ES", "es", "Spanish", ModeWhere.field5166, 5, "ES");
+		Language_ES_MX = new Language("ES_MX", "es-mx", "Spanish (Latin American)", ModeWhere.field5178, 6, "MX");
+		Language[] var0 = method8934();
 		Language_valuesOrdered = new Language[var0.length];
 		Language[] var1 = var0;
 
@@ -97,10 +99,10 @@ public class Language implements Enum {
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lqm;ILjava/lang/String;)V"
+		descriptor = "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lqa;ILjava/lang/String;)V"
 	)
 	Language(String var1, String var2, String var3, ModeWhere var4, int var5, String var6) {
-		this.field4887 = var1;
+		this.field5149 = var1;
 		this.language = var2;
 		this.id = var5;
 		if (var6 != null) {
@@ -111,20 +113,20 @@ public class Language implements Enum {
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "26"
+		garbageValue = "20"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
 		return this.id;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "1662937496"
+		garbageValue = "1737140580"
 	)
 	@Export("getLanguage")
 	String getLanguage() {
@@ -135,35 +137,66 @@ public class Language implements Enum {
 		return this.getLanguage().toLowerCase(Locale.ENGLISH);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(B)[Lqt;",
-		garbageValue = "-16"
+		descriptor = "(I)[Lqd;",
+		garbageValue = "694448490"
 	)
-	static Language[] method8377() {
-		return new Language[]{Language_FR, Language_DE, Language_ES_MX, Language_EN, Language_PT, Language_ES, Language_NL};
+	static Language[] method8934() {
+		return new Language[]{Language_ES, Language_NL, Language_ES_MX, Language_FR, Language_PT, Language_DE, Language_EN};
 	}
 
-	@ObfuscatedName("cl")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(ILcr;ZB)I",
-		garbageValue = "-1"
+		descriptor = "(ILcu;ZI)I",
+		garbageValue = "-857343037"
 	)
-	static int method8369(int var0, Script var1, boolean var2) {
-		return 2;
+	static int method8940(int var0, Script var1, boolean var2) {
+		Widget var3 = var2 ? UserComparator3.scriptDotWidget : class222.scriptActiveWidget;
+		if (var0 == ScriptOpcodes.CC_GETTARGETMASK) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = LoginPacket.Widget_unpackTargetMask(class191.getWidgetFlags(var3));
+			return 1;
+		} else if (var0 != ScriptOpcodes.CC_GETOP) {
+			if (var0 == ScriptOpcodes.CC_GETOPBASE) {
+				if (var3.dataText == null) {
+					Interpreter.Interpreter_objectStack[++SecureRandomFuture.Interpreter_objectStackSize - 1] = "";
+				} else {
+					Interpreter.Interpreter_objectStack[++SecureRandomFuture.Interpreter_objectStackSize - 1] = var3.dataText;
+				}
+
+				return 1;
+			} else {
+				return 2;
+			}
+		} else {
+			int var4 = Interpreter.Interpreter_intStack[--class408.Interpreter_intStackSize];
+			--var4;
+			if (var3.actions != null && var4 < var3.actions.length && var3.actions[var4] != null) {
+				Interpreter.Interpreter_objectStack[++SecureRandomFuture.Interpreter_objectStackSize - 1] = var3.actions[var4];
+			} else {
+				Interpreter.Interpreter_objectStack[++SecureRandomFuture.Interpreter_objectStackSize - 1] = "";
+			}
+
+			return 1;
+		}
 	}
 
-	@ObfuscatedName("lq")
+	@ObfuscatedName("mk")
 	@ObfuscatedSignature(
-		descriptor = "(IIIII)V",
-		garbageValue = "659903836"
+		descriptor = "(ILjava/lang/String;Ljava/lang/String;IIIIIII)V",
+		garbageValue = "1976279533"
 	)
-	public static final void method8379(int var0, int var1, int var2, int var3) {
-		for (int var4 = 0; var4 < Client.rootWidgetCount; ++var4) {
-			if (Client.rootWidgetXs[var4] + Client.rootWidgetWidths[var4] > var0 && Client.rootWidgetXs[var4] < var0 + var2 && Client.rootWidgetHeights[var4] + Client.rootWidgetYs[var4] > var1 && Client.rootWidgetYs[var4] < var3 + var1) {
-				Client.validRootWidgets[var4] = true;
+	static final void method8932(int var0, String var1, String var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+		if (!Client.isMenuOpen) {
+			if (HttpRequestTask.method288(var8, var3)) {
+				if (var0 >= 0 && var0 < Client.menu.subMenus.length) {
+					if (Client.menu.subMenus[var0] == null) {
+						Client.menu.subMenus[var0] = new Menu(false);
+					}
+
+					Client.menu.subMenus[var0].insertMenuItem(var1, var2, var3, var4, var5, var6, var7, false, var8);
+				}
 			}
 		}
-
 	}
 }

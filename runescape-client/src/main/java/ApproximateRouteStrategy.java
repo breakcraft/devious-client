@@ -3,70 +3,73 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bs")
+@ObfuscatedName("ba")
 @Implements("ApproximateRouteStrategy")
 public class ApproximateRouteStrategy extends RouteStrategy {
-	@ObfuscatedName("cf")
+	@ObfuscatedName("nq")
+	static boolean field226;
+	@ObfuscatedName("nn")
 	@ObfuscatedSignature(
-		descriptor = "Lwy;"
+		descriptor = "Luw;"
 	)
-	static IndexedSprite field270;
-	@ObfuscatedName("jb")
-	static String field267;
+	static GraphicsDefaults field225;
 
 	ApproximateRouteStrategy() {
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(IIILkf;I)Z",
-		garbageValue = "-1878565050"
+		descriptor = "(IIILkk;B)Z",
+		garbageValue = "64"
 	)
 	@Export("hasArrived")
 	protected boolean hasArrived(int var1, int var2, int var3, CollisionMap var4) {
 		return var2 == super.approxDestinationX && var3 == super.approxDestinationY;
 	}
 
-	@ObfuscatedName("ld")
-	@ObfuscatedSignature(
-		descriptor = "(Lbh;III)V",
-		garbageValue = "899467936"
-	)
-	static final void method741(MenuAction var0, int var1, int var2) {
-		if (var0 != null) {
-			PlayerType.menuAction(var0.param0, var0.param1, var0.opcode, var0.identifier, var0.itemId, var0.worldViewId, var0.action, var0.target, var1, var2);
-		}
+	@ObfuscatedName("at")
+	public static String method782(long var0) {
+		if (var0 > 0L && var0 < 6582952005840035281L) {
+			if (0L == var0 % 37L) {
+				return null;
+			} else {
+				int var2 = 0;
 
+				for (long var3 = var0; var3 != 0L; var3 /= 37L) {
+					++var2;
+				}
+
+				StringBuilder var5 = new StringBuilder(var2);
+
+				while (0L != var0) {
+					long var6 = var0;
+					var0 /= 37L;
+					var5.append(class455.base37Table[(int)(var6 - 37L * var0)]);
+				}
+
+				return var5.reverse().toString();
+			}
+		} else {
+			return null;
+		}
 	}
 
-	@ObfuscatedName("nr")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(Lcz;ZB)V",
-		garbageValue = "0"
+		descriptor = "(I)[Lcz;",
+		garbageValue = "549661167"
 	)
-	@Export("closeInterface")
-	static final void closeInterface(InterfaceParent var0, boolean var1) {
-		int var2 = var0.group;
-		int var3 = (int)var0.key;
-		var0.remove();
-		if (var1) {
-			ClientPreferences.widgetDefinition.method7289(var2);
-		}
+	static class67[] method785() {
+		return new class67[]{class67.field895, class67.field891, class67.field888, class67.field894, class67.field887, class67.field885, class67.field886};
+	}
 
-		for (WidgetConfigNode var4 = (WidgetConfigNode)Client.widgetFlags.first(); var4 != null; var4 = (WidgetConfigNode)Client.widgetFlags.next()) {
-			if ((long)var2 == (var4.key >> 48 & 65535L)) {
-				var4.remove();
-			}
-		}
-
-		Widget var5 = ClientPreferences.widgetDefinition.method7286(var3);
-		if (var5 != null) {
-			ScriptFrame.invalidateWidget(var5);
-		}
-
-		if (Client.rootInterface != -1) {
-			UserComparator10.runIntfCloseListeners(Client.rootInterface, 1);
-		}
-
+	@ObfuscatedName("nn")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "10"
+	)
+	static final int method784() {
+		float var0 = 200.0F * ((float)class468.clientPreferences.getBrightness() - 0.5F);
+		return 100 - Math.round(var0);
 	}
 }

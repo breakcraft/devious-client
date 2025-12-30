@@ -7,130 +7,130 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uf")
+@ObfuscatedName("vn")
 @Implements("PlatformInfo")
-public class PlatformInfo extends Node implements class117 {
-	@ObfuscatedName("bn")
+public class PlatformInfo extends Node implements class119 {
+	@ObfuscatedName("bw")
 	@ObfuscatedGetter(
-		intValue = 1028583515
+		intValue = -208903543
 	)
 	@Export("os")
 	public int os;
-	@ObfuscatedName("bc")
+	@ObfuscatedName("bf")
 	@Export("arch64")
 	boolean arch64;
-	@ObfuscatedName("bg")
+	@ObfuscatedName("bn")
 	@ObfuscatedGetter(
-		intValue = 22067297
+		intValue = -1081993137
 	)
 	@Export("osVersion")
 	int osVersion;
-	@ObfuscatedName("bb")
+	@ObfuscatedName("bd")
 	@ObfuscatedGetter(
-		intValue = -1279617321
+		intValue = -639246517
 	)
 	@Export("vendor")
 	int vendor;
-	@ObfuscatedName("bu")
+	@ObfuscatedName("br")
 	@ObfuscatedGetter(
-		intValue = 1028465611
+		intValue = 448210999
 	)
 	@Export("javaMajor")
 	int javaMajor;
-	@ObfuscatedName("bz")
+	@ObfuscatedName("bh")
 	@ObfuscatedGetter(
-		intValue = 1754381841
+		intValue = 132591797
 	)
 	@Export("javaMinor")
 	int javaMinor;
-	@ObfuscatedName("by")
+	@ObfuscatedName("bl")
 	@ObfuscatedGetter(
-		intValue = 1475696803
+		intValue = -478159607
 	)
 	@Export("javaPatch")
 	int javaPatch;
-	@ObfuscatedName("br")
+	@ObfuscatedName("bc")
 	@Export("field4524")
 	boolean field4524;
-	@ObfuscatedName("bk")
+	@ObfuscatedName("bq")
 	@ObfuscatedGetter(
-		intValue = 611880807
+		intValue = -600139767
 	)
 	@Export("maxMemory")
 	int maxMemory;
-	@ObfuscatedName("bh")
+	@ObfuscatedName("bx")
 	@ObfuscatedGetter(
-		intValue = 813821463
+		intValue = -1718995343
 	)
 	@Export("cpuCores")
 	int cpuCores;
-	@ObfuscatedName("bp")
+	@ObfuscatedName("bv")
 	@ObfuscatedGetter(
-		intValue = -1238253601
+		intValue = -1423069925
 	)
 	@Export("field5105")
 	int field5105;
-	@ObfuscatedName("ck")
+	@ObfuscatedName("ch")
 	@ObfuscatedGetter(
-		intValue = 435629421
+		intValue = 701611621
 	)
 	@Export("clockSpeed")
 	int clockSpeed;
-	@ObfuscatedName("cy")
+	@ObfuscatedName("ce")
 	@Export("field4536")
 	String field4536;
-	@ObfuscatedName("ca")
+	@ObfuscatedName("cu")
 	@Export("field4541")
 	String field4541;
-	@ObfuscatedName("cr")
+	@ObfuscatedName("ct")
 	@Export("field5103")
 	String field5103;
-	@ObfuscatedName("cu")
+	@ObfuscatedName("cm")
 	@Export("field5110")
 	String field5110;
-	@ObfuscatedName("cd")
+	@ObfuscatedName("cb")
 	@ObfuscatedGetter(
-		intValue = 1300908459
+		intValue = -1613592189
 	)
 	@Export("field4512")
 	int field4512;
-	@ObfuscatedName("cl")
+	@ObfuscatedName("ck")
 	@ObfuscatedGetter(
-		intValue = -760539031
+		intValue = 980285567
 	)
 	@Export("field5112")
 	int field5112;
-	@ObfuscatedName("cq")
+	@ObfuscatedName("cc")
 	@ObfuscatedGetter(
-		intValue = -1164372705
+		intValue = -1928072387
 	)
 	@Export("field5089")
 	int field5089;
-	@ObfuscatedName("ci")
+	@ObfuscatedName("cs")
 	@ObfuscatedGetter(
-		intValue = -384712833
+		intValue = 1643159983
 	)
 	@Export("field5114")
 	int field5114;
-	@ObfuscatedName("cg")
+	@ObfuscatedName("cn")
 	@Export("field4537")
 	String field4537;
-	@ObfuscatedName("cx")
+	@ObfuscatedName("co")
 	@Export("field5116")
 	String field5116;
-	@ObfuscatedName("cw")
+	@ObfuscatedName("cx")
 	@Export("field4539")
 	int[] field4539;
-	@ObfuscatedName("cz")
+	@ObfuscatedName("cg")
 	@ObfuscatedGetter(
-		intValue = 150299823
+		intValue = 1210319985
 	)
 	@Export("field4540")
 	int field4540;
-	@ObfuscatedName("cs")
+	@ObfuscatedName("cp")
 	@Export("field5119")
 	String field5119;
-	@ObfuscatedName("ct")
+	@ObfuscatedName("cd")
 	@Export("field5120")
 	String field5120;
 
@@ -164,10 +164,10 @@ public class PlatformInfo extends Node implements class117 {
 		this.field5120 = var26;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;S)V",
-		garbageValue = "233"
+		descriptor = "(Lxa;I)V",
+		garbageValue = "709577415"
 	)
 	@Export("write")
 	public void write(Buffer var1) {
@@ -204,45 +204,29 @@ public class PlatformInfo extends Node implements class117 {
 		var1.writeStringCp1252NullCircumfixed(this.field5120);
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "734745187"
+		descriptor = "(B)I",
+		garbageValue = "61"
 	)
 	@Export("size")
 	public int size() {
 		byte var1 = 39;
-		String var4 = this.field4536;
-		int var3 = var4.length() + 2;
-		int var26 = var1 + var3;
-		String var7 = this.field4541;
-		int var6 = var7.length() + 2;
-		var26 += var6;
-		String var10 = this.field5103;
-		int var9 = var10.length() + 2;
-		var26 += var9;
-		String var13 = this.field5110;
-		int var12 = var13.length() + 2;
-		var26 += var12;
-		String var16 = this.field4537;
-		int var15 = var16.length() + 2;
-		var26 += var15;
-		String var19 = this.field5116;
-		int var18 = var19.length() + 2;
-		var26 += var18;
-		String var22 = this.field5119;
-		int var21 = var22.length() + 2;
-		var26 += var21;
-		String var25 = this.field5120;
-		int var24 = var25.length() + 2;
-		var26 += var24;
-		return var26;
+		int var2 = var1 + class169.method4186(this.field4536);
+		var2 += class169.method4186(this.field4541);
+		var2 += class169.method4186(this.field5103);
+		var2 += class169.method4186(this.field5110);
+		var2 += class169.method4186(this.field4537);
+		var2 += class169.method4186(this.field5116);
+		var2 += class169.method4186(this.field5119);
+		var2 += class169.method4186(this.field5120);
+		return var2;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(II)Ljava/lang/String;",
-		garbageValue = "-2060155674"
+		garbageValue = "168937541"
 	)
 	@Export("getDeviceId")
 	public String getDeviceId(int var1) {
@@ -306,5 +290,147 @@ public class PlatformInfo extends Node implements class117 {
 		}
 
 		return var3;
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/CharSequence;Lwc;B)Ljava/lang/String;",
+		garbageValue = "-6"
+	)
+	public static String method10936(CharSequence var0, LoginType var1) {
+		if (var0 == null) {
+			return null;
+		} else {
+			int var2 = 0;
+
+			int var3;
+			for (var3 = var0.length(); var2 < var3 && class143.method3890(var0.charAt(var2)); ++var2) {
+			}
+
+			while (var3 > var2 && class143.method3890(var0.charAt(var3 - 1))) {
+				--var3;
+			}
+
+			int var4 = var3 - var2;
+			if (var4 >= 1) {
+				byte var6;
+				if (var1 == null) {
+					var6 = 12;
+				} else {
+					switch(var1.field5900) {
+					case 2:
+						var6 = 20;
+						break;
+					default:
+						var6 = 12;
+					}
+				}
+
+				if (var4 <= var6) {
+					StringBuilder var10 = new StringBuilder(var4);
+
+					for (int var11 = var2; var11 < var3; ++var11) {
+						char var7 = var0.charAt(var11);
+						if (class406.method8492(var7)) {
+							char var8;
+							switch(var7) {
+							case ' ':
+							case '-':
+							case '_':
+							case ' ':
+								var8 = '_';
+								break;
+							case '#':
+							case '[':
+							case ']':
+								var8 = var7;
+								break;
+							case 'À':
+							case 'Á':
+							case 'Â':
+							case 'Ã':
+							case 'Ä':
+							case 'à':
+							case 'á':
+							case 'â':
+							case 'ã':
+							case 'ä':
+								var8 = 'a';
+								break;
+							case 'Ç':
+							case 'ç':
+								var8 = 'c';
+								break;
+							case 'È':
+							case 'É':
+							case 'Ê':
+							case 'Ë':
+							case 'è':
+							case 'é':
+							case 'ê':
+							case 'ë':
+								var8 = 'e';
+								break;
+							case 'Í':
+							case 'Î':
+							case 'Ï':
+							case 'í':
+							case 'î':
+							case 'ï':
+								var8 = 'i';
+								break;
+							case 'Ñ':
+							case 'ñ':
+								var8 = 'n';
+								break;
+							case 'Ò':
+							case 'Ó':
+							case 'Ô':
+							case 'Õ':
+							case 'Ö':
+							case 'ò':
+							case 'ó':
+							case 'ô':
+							case 'õ':
+							case 'ö':
+								var8 = 'o';
+								break;
+							case 'Ù':
+							case 'Ú':
+							case 'Û':
+							case 'Ü':
+							case 'ù':
+							case 'ú':
+							case 'û':
+							case 'ü':
+								var8 = 'u';
+								break;
+							case 'ß':
+								var8 = 'b';
+								break;
+							case 'ÿ':
+							case 'Ÿ':
+								var8 = 'y';
+								break;
+							default:
+								var8 = Character.toLowerCase(var7);
+							}
+
+							if (var8 != 0) {
+								var10.append(var8);
+							}
+						}
+					}
+
+					if (var10.length() == 0) {
+						return null;
+					}
+
+					return var10.toString();
+				}
+			}
+
+			return null;
+		}
 	}
 }

@@ -30,6 +30,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.primitives.Doubles;
 import net.runelite.api.Actor;
 import net.runelite.api.Animation;
+import net.runelite.api.CameraFocusableEntity;
 import net.runelite.api.ChatMessageType;
 import net.runelite.api.EnumComposition;
 import net.runelite.api.FriendContainer;
@@ -111,7 +112,6 @@ import net.runelite.api.mixins.Shadow;
 import net.runelite.api.overlay.OverlayIndex;
 import net.runelite.api.vars.AccountType;
 import net.runelite.api.widgets.Widget;
-import net.runelite.api.widgets.WidgetConfig;
 import net.runelite.api.widgets.WidgetConfigNode;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.api.widgets.WidgetItem;
@@ -120,6 +120,7 @@ import net.runelite.api.widgets.WidgetUtil;
 import net.runelite.rs.api.RSAbstractArchive;
 import net.runelite.rs.api.RSArchive;
 import net.runelite.rs.api.RSBuffer;
+import net.runelite.rs.api.RSCameraFocusableEntity;
 import net.runelite.rs.api.RSChatChannel;
 import net.runelite.rs.api.RSClanChannel;
 import net.runelite.rs.api.RSClient;
@@ -134,6 +135,7 @@ import net.runelite.rs.api.RSFloorOverlayDefinition;
 import net.runelite.rs.api.RSFont;
 import net.runelite.rs.api.RSFriendSystem;
 import net.runelite.rs.api.RSGameEngine;
+import net.runelite.rs.api.RSHintArrow;
 import net.runelite.rs.api.RSIndexedObjectSet;
 import net.runelite.rs.api.RSIndexedSprite;
 import net.runelite.rs.api.RSInterfaceParent;
@@ -159,6 +161,7 @@ import net.runelite.rs.api.RSTile;
 import net.runelite.rs.api.RSTileItem;
 import net.runelite.rs.api.RSUsername;
 import net.runelite.rs.api.RSWidget;
+import net.runelite.rs.api.RSWidgetConfigNode;
 import net.runelite.rs.api.RSWorld;
 import net.runelite.rs.api.RSWorldView;
 import com.google.common.primitives.Ints;
@@ -658,7 +661,7 @@ public abstract class RSClientMixin implements RSClient
 	}
 
 	@Inject
-	public MessageNode addChatMessage(ChatMessageType type, String name, String message, String sender, boolean postEvent)
+	public MessageNode addChatMessage(ChatMessageType type, @Nonnull String name, String message, String sender, boolean postEvent)
 	{
 		assert this.isClientThread() : "addChatMessage must be called on client thread";
 
@@ -700,7 +703,7 @@ public abstract class RSClientMixin implements RSClient
 
 	@Inject
 	@Override
-	public MessageNode addChatMessage(ChatMessageType type, String name, String message, String sender)
+	public MessageNode addChatMessage(ChatMessageType type, @Nonnull String name, String message, String sender)
 	{
 		return addChatMessage(type, name, message, sender, true);
 	}
@@ -1293,7 +1296,7 @@ public abstract class RSClientMixin implements RSClient
 	public RSSpritePixels createItemSprite(int itemId, int quantity, int border, int shadowColor, int stackable, boolean noted)
 	{
 		assert isClientThread() : "createItemSprite must be called on client thread";
-		return createRSItemSprite(itemId, quantity, border, shadowColor, stackable, noted);
+		return createRSItemSprite(itemId, quantity, border, shadowColor, stackable, noted, 36, 32);
 	}
 
 	@Inject
@@ -1541,6 +1544,11 @@ public abstract class RSClientMixin implements RSClient
 	@Inject
 	public static void settingsChanged(int idx)
 	{
+		if (idx == -1)
+		{
+			return;
+		}
+
 		// Varp changed
 		VarbitChanged varbitChanged = new VarbitChanged();
 		varbitChanged.setVarpId(idx);
@@ -1622,18 +1630,6 @@ public abstract class RSClientMixin implements RSClient
 		client.getCallbacks().post(new CanvasSizeChanged());
 	}
 
-	@FieldHook("hintArrowPlayerIndex")
-	@Inject
-	public static void hintPlayerChanged(int ignored)
-	{
-		// Setting the localInteractingIndex (aka player target index, it only applies to players)
-		// causes that player to get priority over others when rendering/menus are added
-		if (client.getVar(VarPlayer.ATTACKING_PLAYER) == -1)
-		{
-			client.setLocalInteractingIndex(client.getHintArrowPlayerTargetIdx() & 2047);
-		}
-	}
-
 	@FieldHook("combatTargetPlayerIndex")
 	@Inject
 	public static void combatPlayerTargetChanged(int ignored)
@@ -1652,14 +1648,14 @@ public abstract class RSClientMixin implements RSClient
 	@Override
 	public boolean hasHintArrow()
 	{
-		return client.getHintArrowTargetType() != HintArrowType.NONE;
+		return client.getHintArrow().getTargetType() != HintArrowType.NONE;
 	}
 
 	@Inject
 	@Override
 	public int getHintArrowType()
 	{
-		int type = client.getHintArrowTargetType();
+		int type = client.getHintArrow().getTargetType();
 		if (type == HintArrowType.NPC)
 		{
 			return HintArrowType.NPC;
@@ -1682,48 +1678,58 @@ public abstract class RSClientMixin implements RSClient
 	@Override
 	public void clearHintArrow()
 	{
-		client.setHintArrowTargetType(HintArrowType.NONE);
+		client.getHintArrow().setTargetType(HintArrowType.NONE);
 	}
 
 	@Inject
 	@Override
 	public void setHintArrow(NPC npc)
 	{
-		client.setHintArrowTargetType(HintArrowType.NPC);
-		client.setHintArrowNpcTargetIdx(npc.getIndex());
+		final RSHintArrow hintArrow = client.getHintArrow();
+		hintArrow.setTargetType(HintArrowType.NPC);
+		hintArrow.setTargetIndex(npc.getIndex());
 	}
 
 	@Inject
 	@Override
 	public void setHintArrow(Player player)
 	{
-		client.setHintArrowTargetType(HintArrowType.PLAYER);
-		client.setHintArrowPlayerTargetIdx(((RSPlayer) player).getId());
-		hintPlayerChanged(-1);
+		final RSHintArrow hintArrow = client.getHintArrow();
+		hintArrow.setTargetType(HintArrowType.PLAYER);
+		hintArrow.setTargetIndex(((RSPlayer) player).getId());
+
+		// Setting the localInteractingIndex (aka player target index, it only applies to players)
+		// causes that player to get priority over others when rendering/menus are added
+		if (client.getVar(VarPlayer.ATTACKING_PLAYER) == -1)
+		{
+			client.setLocalInteractingIndex(hintArrow.getTargetIndex() & 2047);
+		}
 	}
 
 	@Inject
 	@Override
 	public void setHintArrow(WorldPoint point)
 	{
-		client.setHintArrowTargetType(HintArrowType.COORDINATE);
-		client.setHintArrowX(point.getX());
-		client.setHintArrowY(point.getY());
+		final RSHintArrow hintArrow = client.getHintArrow();
+		hintArrow.setTargetType(HintArrowType.COORDINATE);
+		hintArrow.setX(point.getX());
+		hintArrow.setY(point.getY());
 		// position the arrow in center of the tile
-		client.setHintArrowOffsetX(LOCAL_TILE_SIZE / 2);
-		client.setHintArrowOffsetY(LOCAL_TILE_SIZE / 2);
+		hintArrow.setOffsetX(LOCAL_TILE_SIZE / 2);
+		hintArrow.setOffsetY(LOCAL_TILE_SIZE / 2);
 	}
 
 	@Inject
 	@Override
 	public void setHintArrow(LocalPoint point)
 	{
-		client.setHintArrowTargetType(HintArrowType.COORDINATE);
-		client.setHintArrowX(point.getX());
-		client.setHintArrowY(point.getY());
+		final RSHintArrow hintArrow = client.getHintArrow();
+		hintArrow.setTargetType(HintArrowType.COORDINATE);
+		hintArrow.setX(point.getX());
+		hintArrow.setY(point.getY());
 		// position the arrow in center of the tile
-		client.setHintArrowOffsetX(LOCAL_TILE_SIZE / 2);
-		client.setHintArrowOffsetY(LOCAL_TILE_SIZE / 2);
+		hintArrow.setOffsetX(LOCAL_TILE_SIZE / 2);
+		hintArrow.setOffsetY(LOCAL_TILE_SIZE / 2);
 	}
 
 	@Inject
@@ -1732,8 +1738,9 @@ public abstract class RSClientMixin implements RSClient
 	{
 		if (getHintArrowType() == HintArrowType.COORDINATE)
 		{
-			int x = client.getHintArrowX();
-			int y = client.getHintArrowY();
+			final RSHintArrow hintArrow = client.getHintArrow();
+			int x = hintArrow.getX();
+			int y = hintArrow.getY();
 			return new WorldPoint(x, y, client.getPlane());
 		}
 
@@ -1745,7 +1752,7 @@ public abstract class RSClientMixin implements RSClient
 	public Player getHintArrowPlayer()
 	{
 		return this.getHintArrowType() == HintArrowType.PLAYER
-			? (Player) client.getTopLevelWorldView().getRSPlayers().get(client.getHintArrowPlayerTargetIdx())
+			? (Player) client.getTopLevelWorldView().getRSPlayers().get(client.getHintArrow().getTargetIndex())
 			: null;
 	}
 
@@ -1754,7 +1761,7 @@ public abstract class RSClientMixin implements RSClient
 	public NPC getHintArrowNpc()
 	{
 		return this.getHintArrowType() == HintArrowType.NPC
-			? (NPC) client.getTopLevelWorldView().getRSNpcs().get(client.getHintArrowNpcTargetIdx())
+			? (NPC) client.getTopLevelWorldView().getRSNpcs().get(client.getHintArrow().getTargetIndex())
 			: null;
 	}
 
@@ -2354,7 +2361,7 @@ public abstract class RSClientMixin implements RSClient
 		}
 	}
 
-	@Replace("getWidgetFlags")
+	/*@Replace("getWidgetFlags")
 	public static int getWidgetFlags(Widget widget)
 	{
 		WidgetConfigNode widgetConfigNode = (WidgetConfigNode) client.getWidgetFlags().get(((long) widget.getId() << 32) + (long) widget.getIndex());
@@ -2376,6 +2383,25 @@ public abstract class RSClientMixin implements RSClient
 		}
 
 		return widgetClickMask;
+	}*/
+
+	@Inject
+	@Override
+	@Nullable
+	public WidgetConfigNode getWidgetConfig(Widget w)
+	{
+		final RSWidgetConfigNode rsWidgetConfigNode = (RSWidgetConfigNode) client.getWidgetFlags().get((long) w.getId());
+		final int idx = w.getIndex();
+
+		for (RSWidgetConfigNode wcNode = rsWidgetConfigNode; wcNode != null; wcNode = wcNode.getNextWidgetConfigNode())
+		{
+			if (idx >= wcNode.getStart() && idx <= wcNode.getEnd())
+			{
+				return wcNode;
+			}
+		}
+
+		return null;
 	}
 
 	@Inject
@@ -2846,16 +2872,30 @@ public abstract class RSClientMixin implements RSClient
 
 	@Inject
 	@Override
-	public RSModelData mergeModels(ModelData[] var0, int var1)
+	public RSModelData mergeModels(ModelData[] models, int length)
 	{
-		return newModelData(Arrays.copyOf(var0, var1, getModelDataArray().getClass()), var1);
+		return newModelData(Arrays.copyOf(models, length, getModelDataArray().getClass()), length);
 	}
 
 	@Inject
 	@Override
-	public RSModelData mergeModels(ModelData... var0)
+	public RSModelData mergeModels(ModelData... models)
 	{
-		return mergeModels(var0, var0.length);
+		return mergeModels(models, models.length);
+	}
+
+	@Inject
+	@Override
+	public RSModel mergeModels(Model[] models, int length)
+	{
+		return newModel((RSModel[]) models, length);
+	}
+
+	@Inject
+	@Override
+	public RSModel mergeModels(Model... models)
+	{
+		return mergeModels(models, models.length);
 	}
 
 	@Inject
@@ -2960,6 +3000,13 @@ public abstract class RSClientMixin implements RSClient
 		}
 
 		return null;
+	}
+
+	@Inject
+	@Override
+	public Widget getFocusedInputFieldWidget()
+	{
+		return getWidgetFocusedInputManager().getInputField();
 	}
 
 	@Inject
@@ -3093,6 +3140,16 @@ public abstract class RSClientMixin implements RSClient
 
 			return field;
 		}
+	}
+
+	@Inject
+	@Override
+	public List getDBTableRows(int table)
+	{
+		assert this.isClientThread() : "getDBTableRows must be called on client thread";
+
+		final RSDbTable dbTable = client.getDbTable2(table);
+		return (List) ((Map) dbTable.getColumns().get(0)).get(0);
 	}
 
 	@Inject
@@ -3326,7 +3383,7 @@ public abstract class RSClientMixin implements RSClient
 
 	@Copy("openURL")
 	@Replace("openURL")
-	public static void copy$openURL(String url, boolean var1, boolean var2)
+	public static void copy$openURL(String url)
 	{
 		try
 		{
@@ -3354,9 +3411,44 @@ public abstract class RSClientMixin implements RSClient
 			targetIndex = -(((Player) target).getId() + 1);
 		}
 
-		final RSProjectile projectile = this.newProjectile(plane, startX >> 7, startY >> 7, startZ, 0, plane, targetX >> 7, targetY >> 7, 0, targetIndex, id, startCycle, slope, startHeight, endHeight);
+		final WorldPoint sourcePoint = WorldPoint.fromLocal(client, startX, startY, plane);
+		final WorldPoint targetPoint = WorldPoint.fromLocal(client, targetX, targetY, plane);
+		final RSProjectile projectile = this.newProjectile(plane, sourcePoint.getX(), sourcePoint.getY(), startZ, 0, plane, targetPoint.getX(), targetPoint.getY(), 0, targetIndex, id, startCycle, endCycle, slope, 0);
 		projectile.setWorldView(getTopLevelWorldView());
 		this.getProjectiles().addFirst(projectile);//projectile.setDestination(targetX, targetY, Perspective.getTileHeight(client, new LocalPoint(targetX, targetY, this), plane), startCycle);
+		return projectile;
+	}
+
+	@Inject
+	@Override
+	public Projectile createProjectile(int spotanimId,
+		WorldPoint source, int sourceHeightOffset, @Nullable Actor sourceActor,
+		WorldPoint target, int targetHeightOffset, @Nullable Actor targetActor,
+		int startCycle, int endCycle, int slope, int startPos)
+	{
+		int sourceIndex = 0;
+		if (sourceActor instanceof RSNPC)
+		{
+			sourceIndex = ((RSNPC) sourceActor).getIndex() + 1;
+		}
+		else if (sourceActor instanceof RSPlayer)
+		{
+			sourceIndex = -(((RSPlayer) sourceActor).getId() + 1);
+		}
+
+		int targetIndex = 0;
+		if (targetActor instanceof RSNPC)
+		{
+			targetIndex = ((RSNPC) targetActor).getIndex() + 1;
+		}
+		else if (targetActor instanceof RSPlayer)
+		{
+			targetIndex = -(((RSPlayer) targetActor).getId() + 1);
+		}
+
+		final RSProjectile projectile = this.newProjectile(source.getPlane(), source.getX(), source.getY(), sourceHeightOffset, sourceIndex, target.getPlane(), target.getX(), target.getY(), targetHeightOffset, targetIndex, spotanimId, startCycle, endCycle, slope, startPos);
+		projectile.setWorldView(getTopLevelWorldView());
+		this.getProjectiles().addFirst(projectile);
 		return projectile;
 	}
 
@@ -3445,5 +3537,43 @@ public abstract class RSClientMixin implements RSClient
 				.collect(Collectors.toList());
 		}
 		return cachedNpcs;
+	}
+
+	@Inject
+	@Override
+	public CameraFocusableEntity getCameraFocusEntity()
+	{
+		RSWorldView wv = getWorldViewManager().getWorldView(client.getCameraWorldViewId());
+		if (wv == null)
+		{
+			wv = getTopLevelWorldView();
+		}
+
+		Object cameraFocusableEntity = null;
+		switch (client.getCameraViewMode().getMode())
+		{
+			case 0:
+				cameraFocusableEntity = (RSCameraFocusableEntity) wv.getRSPlayers().get((long) client.getCameraTargetIndex());
+				break;
+			case 1:
+				cameraFocusableEntity = (RSCameraFocusableEntity) wv.getRSNpcs().get((long) client.getCameraTargetIndex());
+				break;
+			case 2:
+				cameraFocusableEntity = (RSCameraFocusableEntity) wv.getRSWorldEntities().get((long) client.getCameraTargetIndex());
+		}
+
+		if (cameraFocusableEntity == null)
+		{
+			cameraFocusableEntity = getLocalPlayer();
+		}
+
+		return (RSCameraFocusableEntity) cameraFocusableEntity;
+	}
+
+	@Inject
+	@Override
+	public WorldView findWorldViewFromWorldPoint(WorldPoint point)
+	{
+		return client.getWorldViewManager().getWorldViewFromWorldPoint(point.getX(), point.getY());
 	}
 }

@@ -3,10 +3,10 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lj")
+@ObfuscatedName("lu")
 @Implements("WorldMapSprite")
 public final class WorldMapSprite {
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("tileColors")
 	final int[] tileColors;
 
@@ -18,82 +18,63 @@ public final class WorldMapSprite {
 		this.tileColors = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)I",
-		garbageValue = "81"
+		descriptor = "(III)I",
+		garbageValue = "1807549016"
 	)
 	@Export("getTileColor")
 	final int getTileColor(int var1, int var2) {
 		return this.tileColors[var2 * 64 + var1];
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Ltp;Ljava/lang/Object;III)I",
-		garbageValue = "607543817"
+		descriptor = "(Ldd;IIILoz;I)V",
+		garbageValue = "-1045900274"
 	)
-	public static int method6620(class509 var0, Object var1, int var2, int var3) {
-		if (var2 < 0) {
-			var2 = 0;
-		}
+	static void method7012(WorldView var0, int var1, int var2, int var3, SpriteMask var4) {
+		int var5 = Client.playerUpdateManager.playerCount;
+		int[] var6 = Client.playerUpdateManager.playerIndices;
 
-		if (var3 < 0 || var3 > var0.method9937()) {
-			var3 = var0.method9937();
-		}
-
-		int var4 = 0;
-		int var6;
-		if (var0.field5288 == class563.field5600) {
-			int[] var5 = var0.method9965();
-			var6 = (Integer)var1;
-
-			for (int var7 = var2; var7 < var3; ++var7) {
-				if (var6 == var5[var7]) {
-					++var4;
+		for (int var7 = 0; var7 < var5; ++var7) {
+			Player var8 = (Player)var0.players.get((long)var6[var7]);
+			if (var8 != null && var8.isVisible() && !var8.isHidden) {
+				ProjectionCoord var9 = class86.method2932(var0, var8.x, var8.y);
+				int var10 = (int)var9.x;
+				int var11 = (int)var9.y;
+				var9.release();
+				int var12 = var10 / 32 - Client.field468 / 32;
+				int var13 = var11 / 32 - Client.field512 / 32;
+				if (var8 == Client.worldViewManager.method2390()) {
+					int var14 = Rasterizer3D.Rasterizer3D_sine[var3];
+					int var15 = Rasterizer3D.Rasterizer3D_cosine[var3];
+					int var16 = var15 * var12 + var14 * var13 >> 16;
+					int var17 = var15 * var13 - var14 * var12 >> 16;
+					class39.field239 = var16;
+					class39.Players_count = var17;
+				} else if (var8.isFriend()) {
+					SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var12, var13, var3, class579.field5923[3], var4);
+				} else if (class330.localPlayer.team != 0 && var8.team != 0 && var8.team == class330.localPlayer.team) {
+					SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var12, var13, var3, class579.field5923[4], var4);
+				} else if (var8.isFriendsChatMember()) {
+					SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var12, var13, var3, class579.field5923[5], var4);
+				} else if (var8.isClanMember()) {
+					SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var12, var13, var3, class579.field5923[6], var4);
+				} else {
+					SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var12, var13, var3, class579.field5923[2], var4);
 				}
 			}
-		} else if (var0.field5288 == class563.field5594) {
-			long[] var11 = var0.method9973();
-			long var9 = (Long)var1;
-
-			for (int var8 = var2; var8 < var3; ++var8) {
-				if (var9 == var11[var8]) {
-					++var4;
-				}
-			}
-		} else {
-			Object[] var12 = var0.method9936();
-
-			for (var6 = var2; var6 < var3; ++var6) {
-				if (var12[var6] == var1 || var12[var6] != null && var12[var6].equals(var1)) {
-					++var4;
-				}
-			}
-		}
-
-		return var4;
-	}
-
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIII)V",
-		garbageValue = "2142649332"
-	)
-	static void method6619(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7) {
-		if (ClientPacket.clientPreferences.getAreaSoundEffectsVolume() != 0 && var6 > 0 && class58.soundEffectCount < 50) {
-			IntProjection.method5097(class330.worldView.id, var1, var2, var3, var4, var5, var6, var7, false);
 		}
 
 	}
 
-	@ObfuscatedName("na")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-260512572"
+		descriptor = "(B)[Luf;",
+		garbageValue = "-26"
 	)
-	static final void method6621(int var0) {
-		var0 = Math.min(Math.max(var0, 0), 127);
-		ClientPacket.clientPreferences.updateSoundEffectVolume(var0);
+	public static class524[] method7016() {
+		return new class524[]{class524.field5563, class524.field5562, class524.field5564, class524.field5569};
 	}
 }

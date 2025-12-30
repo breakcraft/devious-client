@@ -4,51 +4,86 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cz")
+@ObfuscatedName("cx")
 @Implements("InterfaceParent")
 public class InterfaceParent extends Node {
-	@ObfuscatedName("cx")
+	@ObfuscatedName("vi")
 	@ObfuscatedSignature(
-		descriptor = "Lwd;"
+		descriptor = "Ltf;"
 	)
-	@Export("leftTitleSprite")
-	static SpritePixels leftTitleSprite;
-	@ObfuscatedName("ap")
+	@Export("masterDisk")
+	static ArchiveDisk masterDisk;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = -450283911
+		intValue = -1385287145
 	)
 	@Export("group")
 	int group;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = -2106237637
+		intValue = -953539367
 	)
 	@Export("type")
 	int type;
-	@ObfuscatedName("an")
-	boolean field886;
+	@ObfuscatedName("ag")
+	boolean field843;
 
 	InterfaceParent() {
-		this.field886 = false;
+		this.field843 = false;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)[Lfx;",
-		garbageValue = "785229831"
+		descriptor = "(I)V",
+		garbageValue = "-1775805783"
 	)
-	static class138[] method2107() {
-		return new class138[]{class138.field1648, class138.field1631, class138.field1632, class138.field1646, class138.field1651, class138.field1635, class138.field1636, class138.field1637, class138.field1638, class138.field1639, class138.field1643, class138.field1641, class138.field1642, class138.field1633, class138.field1644, class138.field1645, class138.field1630};
+	static void method2179() {
+		class33.Tiles_underlays = null;
+		class623.Tiles_overlays = null;
+		class200.Tiles_shapes = null;
+		HttpRequest.field49 = null;
+		class148.field1747 = null;
+		Tiles.Tiles_underlays2 = null;
+		MouseRecorder.field868 = null;
+		WorldMapSectionType.Tiles_hue = null;
+		class565.Tiles_saturation = null;
+		class67.Tiles_lightness = null;
+		class161.Tiles_hueMultiplier = null;
+		class154.field1785 = null;
 	}
 
-	@ObfuscatedName("hh")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lce;I)V",
-		garbageValue = "-1451334217"
+		descriptor = "(I)V",
+		garbageValue = "-568794256"
 	)
-	static void method2108(class70 var0) {
-		if (Client.field392 != var0) {
-			Client.field392 = var0;
+	public static void method2180() {
+		WorldMapElement.HitSplatDefinition_cached.clear();
+	}
+
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "([FI)V",
+		garbageValue = "788950813"
+	)
+	static void method2181(float[] var0) {
+		if (class135.field1605 + var0[0] < 1.3333334F) {
+			float var1 = var0[0] - 2.0F;
+			float var2 = var0[0] - 1.0F;
+			float var3 = (float)Math.sqrt((double)(var1 * var1 - var2 * 4.0F * var2));
+			float var4 = (var3 + -var1) * 0.5F;
+			if (class135.field1605 + var0[1] > var4) {
+				var0[1] = var4 - class135.field1605;
+			} else {
+				var4 = 0.5F * (-var1 - var3);
+				if (var0[1] < var4 + class135.field1605) {
+					var0[1] = class135.field1605 + var4;
+				}
+			}
+		} else {
+			var0[0] = 1.3333334F - class135.field1605;
+			var0[1] = 0.33333334F - class135.field1605;
 		}
+
 	}
 }

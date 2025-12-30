@@ -1,41 +1,62 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("tn")
-public class class499 {
-	@ObfuscatedName("ag")
+@ObfuscatedName("tt")
+public final class class499 implements Comparable {
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(Ltp;II)V",
-		garbageValue = "1749663243"
+		descriptor = "[Lxm;"
 	)
-	public static void method9798(class509 var0, int var1) {
-		class573.method10775(var0);
-		int var2 = var0.method9937();
-		if (var2 > 1) {
-			var1 %= var2;
-			if (var1 != 0) {
-				if (var1 < 0) {
-					var1 += var2;
-				}
+	@Export("mapSceneSprites")
+	static IndexedSprite[] mapSceneSprites;
+	@ObfuscatedName("av")
+	Object field5443;
+	@ObfuscatedName("at")
+	Object field5444;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		longValue = 2286872270706208031L
+	)
+	long field5445;
+	@ObfuscatedName("an")
+	@ObfuscatedGetter(
+		longValue = -2975702961368216467L
+	)
+	long field5446;
 
-				if (var0.field5288 == class563.field5600) {
-					int[] var3 = var0.method9965();
-					class182.method3997(var3, 0, var2 - 1);
-					class182.method3997(var3, 0, var1 - 1);
-					class182.method3997(var3, var1, var2 - 1);
-				} else if (var0.field5288 == class563.field5594) {
-					long[] var4 = var0.method9973();
-					class177.method3966(var4, 0, var2 - 1);
-					class177.method3966(var4, 0, var1 - 1);
-					class177.method3966(var4, var1, var2 - 1);
-				} else {
-					Object[] var5 = var0.method9936();
-					World.method1454(var5, 0, var2 - 1);
-					World.method1454(var5, 0, var1 - 1);
-					World.method1454(var5, var1, var2 - 1);
-				}
+	class499(Object var1, Object var2) {
+		this.field5443 = var1;
+		this.field5444 = var2;
+	}
 
-			}
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(Ltt;B)I",
+		garbageValue = "-4"
+	)
+	int method10144(class499 var1) {
+		if (this.field5446 < var1.field5446) {
+			return -1;
+		} else {
+			return this.field5446 > var1.field5446 ? 1 : 0;
+		}
+	}
+
+	public int hashCode() {
+		return this.field5444.hashCode();
+	}
+
+	public int compareTo(Object var1) {
+		return this.method10144((class499)var1);
+	}
+
+	public boolean equals(Object var1) {
+		if (var1 instanceof class499) {
+			return this.field5444.equals(((class499)var1).field5444);
+		} else {
+			throw new IllegalArgumentException();
 		}
 	}
 }

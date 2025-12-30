@@ -4,139 +4,139 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ne")
+@ObfuscatedName("nd")
 @Implements("MusicPatchNode")
 public class MusicPatchNode extends Node {
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 1968669737
+		intValue = 591677655
 	)
-	int field3784;
-	@ObfuscatedName("an")
+	int field4016;
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "Lnw;"
 	)
 	@Export("table")
 	MusicPatch table;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lds;"
+		descriptor = "Ldq;"
 	)
 	@Export("rawSound")
 	RawSound rawSound;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lmu;"
+		descriptor = "Lng;"
 	)
-	MusicPatchNode2 field3787;
-	@ObfuscatedName("ac")
+	MusicPatchNode2 field4022;
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 378013839
+		intValue = 35559339
 	)
-	int field3788;
-	@ObfuscatedName("aa")
-	@ObfuscatedGetter(
-		intValue = -1408115263
-	)
-	int field3789;
-	@ObfuscatedName("am")
-	@ObfuscatedGetter(
-		intValue = 296524513
-	)
-	int field3791;
-	@ObfuscatedName("ah")
-	@ObfuscatedGetter(
-		intValue = -306849179
-	)
-	int field3801;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = -1293769207
-	)
-	int field3786;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		intValue = 859449435
-	)
-	int field3793;
-	@ObfuscatedName("ar")
-	@ObfuscatedGetter(
-		intValue = 1834476335
-	)
-	int field3799;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 1292821123
-	)
-	int field3795;
-	@ObfuscatedName("af")
-	@ObfuscatedGetter(
-		intValue = 1723395239
-	)
-	int field3796;
+	int field4021;
 	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -1191774798
+		intValue = 1059417007
 	)
-	int field3797;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = -2063857771
-	)
-	int field3798;
+	int field4019;
 	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = -1703808465
+		intValue = 399647583
 	)
-	int field3783;
-	@ObfuscatedName("at")
+	int field4018;
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1267098585
+		intValue = 1053004281
 	)
-	int field3790;
-	@ObfuscatedName("ae")
+	int field4023;
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 1863995301
+		intValue = 1025719767
 	)
-	int field3794;
-	@ObfuscatedName("av")
+	int field4024;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		intValue = 1520153051
+	)
+	int field4025;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = 643864511
+	)
+	int field4026;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = -1323950597
+	)
+	int field4020;
+	@ObfuscatedName("ai")
+	@ObfuscatedGetter(
+		intValue = -1387418467
+	)
+	int field4033;
+	@ObfuscatedName("as")
+	@ObfuscatedGetter(
+		intValue = 2068959101
+	)
+	int field4017;
+	@ObfuscatedName("ac")
+	@ObfuscatedGetter(
+		intValue = 498415289
+	)
+	int field4030;
+	@ObfuscatedName("ab")
+	@ObfuscatedGetter(
+		intValue = -1743855771
+	)
+	int field4031;
+	@ObfuscatedName("ax")
+	@ObfuscatedGetter(
+		intValue = -1992283931
+	)
+	int field4032;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = 1962630943
+	)
+	int field4029;
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "Ldw;"
+		descriptor = "Ldk;"
 	)
 	@Export("stream")
 	RawPcmStream stream;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = -1638674219
+		intValue = 67522799
 	)
-	int field3803;
-	@ObfuscatedName("as")
+	int field4035;
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = -1474220555
+		intValue = 408960161
 	)
-	int field3804;
+	int field4036;
 
 	MusicPatchNode() {
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "0"
+		descriptor = "(I)V",
+		garbageValue = "198556087"
 	)
-	void method7146() {
+	void method7595() {
 		this.table = null;
 		this.rawSound = null;
-		this.field3787 = null;
+		this.field4022 = null;
 		this.stream = null;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(IIIII)I",
-		garbageValue = "1007476321"
+		descriptor = "(B)[Lpf;",
+		garbageValue = "40"
 	)
-	static final int method7149(int var0, int var1, int var2, int var3) {
-		return var2 * var1 - var3 * var0 >> 16;
+	public static class403[] method7598() {
+		return new class403[]{class403.field4870, class403.field4874, class403.field4873, class403.field4872};
 	}
 }

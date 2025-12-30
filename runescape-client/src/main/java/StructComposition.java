@@ -1,30 +1,32 @@
-import java.io.File;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("he")
+@ObfuscatedName("it")
 @Implements("StructComposition")
 public class StructComposition extends DualNode {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
+		descriptor = "Lqm;"
 	)
 	@Export("StructDefinition_archive")
-	public static AbstractArchive StructDefinition_archive;
-	@ObfuscatedName("aj")
+	static AbstractArchive StructDefinition_archive;
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("StructDefinition_cached")
 	static EvictingDualNodeHashTable StructDefinition_cached;
-	@ObfuscatedName("at")
-	@Export("cacheDir")
-	static File cacheDir;
-	@ObfuscatedName("an")
+	@ObfuscatedName("jt")
 	@ObfuscatedSignature(
-		descriptor = "Lqp;"
+		descriptor = "Lqn;"
+	)
+	@Export("archive2")
+	static Archive archive2;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lql;"
 	)
 	@Export("params")
 	IterableNodeHashTable params;
@@ -39,16 +41,16 @@ public class StructComposition extends DualNode {
 	@ObfuscatedName("an")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1708629111"
+		garbageValue = "-1154847614"
 	)
 	@Export("postDecode")
 	void postDecode() {
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1994852952"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "0"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -62,110 +64,45 @@ public class StructComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;IB)V",
-		garbageValue = "1"
+		descriptor = "(Lxa;II)V",
+		garbageValue = "-376922019"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
 		if (var2 == 249) {
-			this.params = UrlRequester.readStringIntParameters(var1, this.params);
+			this.params = class406.readStringIntParameters(var1, this.params);
 		}
 
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(III)I",
-		garbageValue = "-2087359290"
+		garbageValue = "1630908785"
 	)
 	@Export("getIntParam")
 	public int getIntParam(int var1, int var2) {
-		return ObjectSound.method1601(this.params, var1, var2);
+		return class108.method3518(this.params, var1, var2);
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;I)Ljava/lang/String;",
-		garbageValue = "-1013723568"
+		descriptor = "(ILjava/lang/String;B)Ljava/lang/String;",
+		garbageValue = "0"
 	)
 	@Export("getStringParam")
 	public String getStringParam(int var1, String var2) {
-		return TaskHandler.method4701(this.params, var1, var2);
+		return Projectile.method2008(this.params, var1, var2);
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;ZB)[B",
-		garbageValue = "-68"
+		descriptor = "(I)V",
+		garbageValue = "-690020777"
 	)
-	public static byte[] method4358(Object var0, boolean var1) {
-		if (var0 == null) {
-			return null;
-		} else if (var0 instanceof byte[]) {
-			byte[] var6 = (byte[])((byte[])var0);
-			if (var1) {
-				int var4 = var6.length;
-				byte[] var5 = new byte[var4];
-				System.arraycopy(var6, 0, var5, 0, var4);
-				return var5;
-			} else {
-				return var6;
-			}
-		} else if (var0 instanceof AbstractByteArrayCopier) {
-			AbstractByteArrayCopier var2 = (AbstractByteArrayCopier)var0;
-			return var2.get();
-		} else {
-			throw new IllegalArgumentException();
-		}
-	}
-
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "-87947730"
-	)
-	static final int method4357(int var0, int var1) {
-		if (var0 == -2) {
-			return 12345678;
-		} else if (var0 == -1) {
-			if (var1 < 2) {
-				var1 = 2;
-			} else if (var1 > 126) {
-				var1 = 126;
-			}
-
-			return var1;
-		} else {
-			var1 = (var0 & 127) * var1 / 128;
-			if (var1 < 2) {
-				var1 = 2;
-			} else if (var1 > 126) {
-				var1 = 126;
-			}
-
-			return (var0 & 65408) + var1;
-		}
-	}
-
-	@ObfuscatedName("jr")
-	@ObfuscatedSignature(
-		descriptor = "(Lcp;I)Z",
-		garbageValue = "905001027"
-	)
-	static boolean method4351(Player var0) {
-		if (Client.drawPlayerNames == 0) {
-			return false;
-		} else {
-			boolean var1;
-			if (class152.localPlayer != var0) {
-				var1 = (Client.drawPlayerNames & 4) != 0;
-				return var1 || UserComparator3.method3412() && var0.isFriend() || Widget.method7751() && var0.isFriendsChatMember();
-			} else {
-				var1 = (Client.drawPlayerNames & 8) != 0;
-				return var1;
-			}
-		}
+	public static void method4736() {
+		class203.field2022.clear();
 	}
 }

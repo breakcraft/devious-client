@@ -4,39 +4,39 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oa")
+@ObfuscatedName("pv")
 @Implements("GameBuild")
 public class GameBuild {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Lpv;"
 	)
 	@Export("LIVE")
 	static final GameBuild LIVE;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Lpv;"
 	)
 	@Export("BUILDLIVE")
 	static final GameBuild BUILDLIVE;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Lpv;"
 	)
 	@Export("RC")
 	static final GameBuild RC;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Loa;"
+		descriptor = "Lpv;"
 	)
 	@Export("WIP")
 	static final GameBuild WIP;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("name")
 	public final String name;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1227870063
+		intValue = -1357192003
 	)
 	@Export("buildId")
 	public final int buildId;
@@ -53,21 +53,35 @@ public class GameBuild {
 		this.buildId = var2;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ia")
 	@ObfuscatedSignature(
-		descriptor = "(IIIII)Lrv;",
-		garbageValue = "-1376096067"
+		descriptor = "(Lcr;B)V",
+		garbageValue = "111"
 	)
-	public static Bounds method7927(int var0, int var1, int var2, int var3) {
-		synchronized(Bounds.field4953) {
-			if (Bounds.field4954 == 0) {
-				return new Bounds(var0, var1, var2, var3);
+	static final void method8376(Actor var0) {
+		boolean var1 = var0.field1057 == Client.cycle || !var0.method2484();
+		if (!var1) {
+			SequenceDefinition var2 = var0.animationSequence.getSequenceDefinition();
+			if (var2 != null && !var2.isCachedModelIdSet()) {
+				var1 = var0.animationSequence.getFrameCycle() + 1 > var2.frameLengths[var0.animationSequence.getFrame()];
 			} else {
-				--Bounds.field4954;
-				Bounds.field4953[Bounds.field4954].setLow(var0, var1);
-				Bounds.field4953[Bounds.field4954].setHigh(var2, var3);
-				return Bounds.field4953[Bounds.field4954];
+				var1 = true;
 			}
 		}
+
+		if (var1) {
+			int var8 = var0.field1057 - var0.spotAnimation;
+			int var3 = Client.cycle - var0.spotAnimation;
+			int var4 = var0.size * -767295488 + var0.field1059 * 128;
+			int var5 = var0.size * -767295488 + var0.field1061 * 128;
+			int var6 = var0.size * -767295488 + var0.field1060 * 128;
+			int var7 = var0.size * -767295488 + var0.field1062 * 128;
+			var0.x = (var6 * var3 + var4 * (var8 - var3)) / var8;
+			var0.y = (var7 * var3 + var5 * (var8 - var3)) / var8;
+		}
+
+		var0.field1074 = 0;
+		var0.orientation = var0.field1021;
+		var0.rotation = var0.orientation;
 	}
 }

@@ -4,55 +4,77 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("of")
+@ObfuscatedName("oe")
 @Implements("WidgetConfigNode")
 public class WidgetConfigNode extends Node {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ci")
+	@ObfuscatedSignature(
+		descriptor = "Lxm;"
+	)
+	@Export("options_buttons_2Sprite")
+	static IndexedSprite options_buttons_2Sprite;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 841739245
+		intValue = -1247489297
+	)
+	@Export("start")
+	final int start;
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = 1508033891
+	)
+	@Export("end")
+	final int end;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = 1825652171
 	)
 	@Export("clickMask")
 	final int clickMask;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 1616303513
+		intValue = 2063023149
 	)
 	@Export("opMask")
 	final int opMask;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Loe;"
+	)
+	@Export("nextWidgetConfigNode")
+	WidgetConfigNode nextWidgetConfigNode;
 
-	public WidgetConfigNode(int var1, int var2) {
-		this.clickMask = var1;
-		this.opMask = var2;
+	WidgetConfigNode(int var1, int var2, int var3, int var4) {
+		this.start = var1;
+		this.end = var2;
+		this.clickMask = var3;
+		this.opMask = var4;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "290260604"
+		garbageValue = "-2140075893"
 	)
-	public int method7725() {
+	public int method7744() {
 		return this.clickMask;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "-71"
+		garbageValue = "68"
 	)
-	public int method7726() {
+	public int method7745() {
 		return this.opMask;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("lm")
 	@ObfuscatedSignature(
-		descriptor = "(Lps;Lps;ZLrf;B)V",
-		garbageValue = "23"
+		descriptor = "(B)Z",
+		garbageValue = "-9"
 	)
-	public static void method7730(AbstractArchive var0, AbstractArchive var1, boolean var2, Font var3) {
-		Decimator.ItemDefinition_archive = var0;
-		FadeInTask.ItemDefinition_modelArchive = var1;
-		Script.ItemDefinition_inMembersWorld = var2;
-		class550.ItemDefinition_fileCount = Decimator.ItemDefinition_archive.getGroupFileCount(10);
-		class603.ItemDefinition_fontPlain11 = var3;
+	static final boolean method7755() {
+		return Client.isMenuOpen;
 	}
 }

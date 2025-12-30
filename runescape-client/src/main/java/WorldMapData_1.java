@@ -4,36 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lu")
+@ObfuscatedName("lt")
 @Implements("WorldMapData_1")
 public class WorldMapData_1 extends AbstractWorldMapData {
-	@ObfuscatedName("mp")
-	@ObfuscatedGetter(
-		intValue = -53317489
+	@ObfuscatedName("cx")
+	@ObfuscatedSignature(
+		descriptor = "Lxt;"
 	)
-	@Export("cameraPitch")
-	static int cameraPitch;
-	@ObfuscatedName("ap")
+	@Export("rightTitleSprite")
+	static SpritePixels rightTitleSprite;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 541915447
+		intValue = -557316011
 	)
 	@Export("chunkXLow")
 	int chunkXLow;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 494197731
+		intValue = 1457663191
 	)
 	@Export("chunkYLow")
 	int chunkYLow;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -1990878815
+		intValue = -472280825
 	)
 	@Export("chunkX")
 	int chunkX;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = -117555121
+		intValue = 1442319505
 	)
 	@Export("chunkY")
 	int chunkY;
@@ -41,20 +41,20 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 	WorldMapData_1() {
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;B)V",
-		garbageValue = "-103"
+		descriptor = "(Lxa;I)V",
+		garbageValue = "-1934724914"
 	)
 	@Export("init")
 	void init(Buffer var1) {
 		int var2 = var1.readUnsignedByte();
-		if (var2 != WorldMapID.field3308.value) {
+		if (var2 != WorldMapID.field3503.value) {
 			throw new IllegalStateException("");
 		} else {
 			super.minPlane = var1.readUnsignedByte();
 			super.planes = var1.readUnsignedByte();
-			super.regionXLow = var1.readUnsignedShort() * 4096;
+			super.regionXLow = var1.readUnsignedShort() * 64;
 			super.regionYLow = var1.readUnsignedShort() * 4096;
 			this.chunkXLow = var1.readUnsignedByte();
 			this.chunkYLow = var1.readUnsignedByte();
@@ -67,21 +67,21 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 		}
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1467436394"
+		descriptor = "(Lxa;I)V",
+		garbageValue = "-1502866197"
 	)
 	@Export("readGeography")
 	void readGeography(Buffer var1) {
 		super.planes = Math.min(super.planes, 4);
 		super.floorUnderlayIds = new short[1][64][64];
 		super.floorOverlayIds = new short[super.planes][64][64];
-		super.field3273 = new byte[super.planes][64][64];
-		super.field3274 = new byte[super.planes][64][64];
+		super.field3468 = new byte[super.planes][64][64];
+		super.field3466 = new byte[super.planes][64][64];
 		super.decorations = new WorldMapDecoration[super.planes][64][64][];
 		int var2 = var1.readUnsignedByte();
-		if (var2 != class300.field3302.value) {
+		if (var2 != class309.field3497.value) {
 			throw new IllegalStateException("");
 		} else {
 			int var3 = var1.readUnsignedByte();
@@ -101,44 +101,48 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 		}
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-1107641553"
+		garbageValue = "-1347220241"
 	)
 	@Export("getChunkXLow")
 	int getChunkXLow() {
 		return this.chunkXLow;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "38"
+		descriptor = "(I)I",
+		garbageValue = "-1428879079"
 	)
 	@Export("getChunkYLow")
 	int getChunkYLow() {
 		return this.chunkYLow;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "77"
+		garbageValue = "115"
 	)
 	@Export("getChunkX")
 	int getChunkX() {
 		return this.chunkX;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-63164875"
+		garbageValue = "2119072615"
 	)
 	@Export("getChunkY")
 	int getChunkY() {
 		return this.chunkY;
+	}
+
+	public int hashCode() {
+		return super.regionX | super.regionY << 8 | this.chunkX << 16 | this.chunkY << 24;
 	}
 
 	public boolean equals(Object var1) {
@@ -146,58 +150,40 @@ public class WorldMapData_1 extends AbstractWorldMapData {
 			return false;
 		} else {
 			WorldMapData_1 var2 = (WorldMapData_1)var1;
-			if (super.regionX == var2.regionX && super.regionY == var2.regionY) {
-				return this.chunkX == var2.chunkX && var2.chunkY == this.chunkY;
+			if (var2.regionX == super.regionX && var2.regionY == super.regionY) {
+				return var2.chunkX == this.chunkX && var2.chunkY == this.chunkY;
 			} else {
 				return false;
 			}
 		}
 	}
 
-	public int hashCode() {
-		return super.regionX | super.regionY << 8 | this.chunkX << 16 | this.chunkY << 24;
-	}
-
-	@ObfuscatedName("ac")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "1"
+		descriptor = "(II)I",
+		garbageValue = "57654654"
 	)
-	@Export("Messages_getHistorySize")
-	static int Messages_getHistorySize(int var0) {
-		ChatChannel var1 = (ChatChannel)Messages.Messages_channels.get(var0);
-		return var1 == null ? 0 : var1.size();
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(Ltp;IIB)V",
-		garbageValue = "79"
-	)
-	public static void method6492(class509 var0, int var1, int var2) {
-		class573.method10775(var0);
-		if (var1 >= 0 && var2 >= 0 && var1 < var0.method9937() && var2 < var0.method9937()) {
-			if (var2 != var1) {
-				if (var0.field5288 == class563.field5600) {
-					int[] var3 = var0.method9965();
-					int var8 = var3[var1];
-					var3[var1] = var3[var2];
-					var3[var2] = var8;
-				} else if (var0.field5288 == class563.field5594) {
-					long[] var9 = var0.method9973();
-					long var6 = var9[var1];
-					var9[var1] = var9[var2];
-					var9[var2] = var6;
-				} else {
-					Object[] var10 = var0.method9936();
-					Object var4 = var10[var1];
-					var10[var1] = var10[var2];
-					var10[var2] = var4;
-				}
+	@Export("getVarbit")
+	public static int getVarbit(int var0) {
+		VarbitComposition var2 = (VarbitComposition)VarbitComposition.VarbitDefinition_cached.get((long)var0);
+		VarbitComposition var1;
+		if (var2 != null) {
+			var1 = var2;
+		} else {
+			byte[] var3 = VarbitComposition.VarbitDefinition_archive.takeFile(14, var0);
+			var2 = new VarbitComposition();
+			if (var3 != null) {
+				var2.decode(new Buffer(var3));
 			}
 
-		} else {
-			throw new RuntimeException();
+			VarbitComposition.VarbitDefinition_cached.put(var2, (long)var0);
+			var1 = var2;
 		}
+
+		int var7 = var1.baseVar;
+		int var4 = var1.startBit;
+		int var5 = var1.endBit;
+		int var6 = Varps.Varps_masks[var5 - var4];
+		return Varps.Varps_main[var7] >> var4 & var6;
 	}
 }

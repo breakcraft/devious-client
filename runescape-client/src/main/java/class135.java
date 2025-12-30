@@ -1,67 +1,52 @@
-import java.util.concurrent.Callable;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fu")
-public class class135 implements Callable {
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "Lfg;"
-	)
-	final class136 field1589;
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Lfi;"
-	)
-	final class137 field1587;
+@ObfuscatedName("fh")
+public class class135 {
 	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Lfx;"
-	)
-	final class138 field1588;
-	@ObfuscatedName("ai")
+	public static final float field1605;
+	@ObfuscatedName("ae")
+	public static final float field1609;
+	@ObfuscatedName("ii")
 	@ObfuscatedGetter(
-		intValue = 621118179
+		longValue = 6337075287727686201L
 	)
-	final int field1591;
-	// $FF: synthetic field
-	@ObfuscatedSignature(
-		descriptor = "Lfj;"
-	)
-	final class143 this$0;
+	static long field1607;
 
-	@ObfuscatedSignature(
-		descriptor = "(Lfj;Lfg;Lfi;Lfx;I)V"
-	)
-	class135(class143 var1, class136 var2, class137 var3, class138 var4, int var5) {
-		this.this$0 = var1;
-		this.field1589 = var2;
-		this.field1587 = var3;
-		this.field1588 = var4;
-		this.field1591 = var5;
+	static {
+		field1605 = Math.ulp(1.0F);
+		field1609 = field1605 * 2.0F;
 	}
 
-	public Object call() {
-		this.field1589.method3528();
-		class136[][] var1;
-		if (this.field1587 == class137.field1621) {
-			var1 = this.this$0.field1673;
-		} else {
-			var1 = this.this$0.field1667;
+	@ObfuscatedName("mh")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;Lof;I)Ljava/lang/String;",
+		garbageValue = "2108391709"
+	)
+	static String method3779(String var0, Widget var1) {
+		if (var0.indexOf("%") != -1) {
+			for (int var2 = 1; var2 <= 5; ++var2) {
+				while (true) {
+					int var3 = var0.indexOf("%" + var2);
+					if (var3 == -1) {
+						break;
+					}
+
+					String var4 = var0.substring(0, var3);
+					int var6 = class147.method3943(var1, var2 - 1);
+					String var5;
+					if (var6 < 999999999) {
+						var5 = Integer.toString(var6);
+					} else {
+						var5 = "*";
+					}
+
+					var0 = var4 + var5 + var0.substring(var3 + 2);
+				}
+			}
 		}
 
-		var1[this.field1591][this.field1588.method3571()] = this.field1589;
-		return null;
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(Lps;Lps;I)V",
-		garbageValue = "309025478"
-	)
-	public static void method3525(AbstractArchive var0, AbstractArchive var1) {
-		HealthBarDefinition.HealthBarDefinition_archive = var0;
-		HealthBarDefinition.field1966 = var1;
+		return var0;
 	}
 }

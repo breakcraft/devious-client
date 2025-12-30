@@ -2,155 +2,76 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ce")
+@ObfuscatedName("cy")
 public class class70 {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ar")
+	@Export("ByteArrayPool_altSizeArrayCounts")
+	public static int[] ByteArrayPool_altSizeArrayCounts;
+	@ObfuscatedName("dl")
 	@ObfuscatedSignature(
-		descriptor = "Lce;"
+		descriptor = "Lxm;"
 	)
-	static final class70 field973;
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field978;
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field963;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field979;
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field965;
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field966;
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field977;
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field968;
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field969;
+	@Export("worldSelectLeftSprite")
+	static IndexedSprite worldSelectLeftSprite;
+
 	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field970;
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field971;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field972;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field967;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field974;
-	@ObfuscatedName("ak")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field975;
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field961;
-	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field962;
-	@ObfuscatedName("at")
-	@ObfuscatedSignature(
-		descriptor = "Lce;"
-	)
-	static final class70 field964;
-
-	static {
-		field973 = new class70();
-		field978 = new class70();
-		field963 = new class70();
-		field979 = new class70();
-		field965 = new class70();
-		field966 = new class70();
-		field977 = new class70();
-		field968 = new class70();
-		field969 = new class70();
-		field970 = new class70();
-		field971 = new class70();
-		field972 = new class70();
-		field967 = new class70();
-		field974 = new class70();
-		field975 = new class70();
-		field961 = new class70();
-		field962 = new class70();
-		field964 = new class70();
-	}
-
-	class70() {
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(B)[Lfo;",
+		descriptor = "(IIB)Lbu;",
 		garbageValue = "1"
 	)
-	static class134[] method2209() {
-		return new class134[]{class134.field1581, class134.field1580, class134.field1577, class134.field1578, class134.field1579};
+	@Export("Messages_getByChannelAndID")
+	static Message Messages_getByChannelAndID(int var0, int var1) {
+		ChatChannel var2 = (ChatChannel)Messages.Messages_channels.get(var0);
+		return var2.getMessage(var1);
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("mz")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lre;",
-		garbageValue = "1510366248"
+		descriptor = "(Lof;IIZI)V",
+		garbageValue = "1910838794"
 	)
-	public static class445 method2210() {
-		synchronized(class445.field4963) {
-			if (GrandExchangeOfferNameComparator.field4812 == 0) {
-				return new class445();
-			} else {
-				class445.field4963[--GrandExchangeOfferNameComparator.field4812].method8690();
-				return class445.field4963[GrandExchangeOfferNameComparator.field4812];
-			}
+	@Export("alignWidgetSize")
+	static void alignWidgetSize(Widget var0, int var1, int var2, boolean var3) {
+		int var4 = var0.width * -1946208531;
+		int var5 = var0.height * -905446999;
+		if (var0.widthAlignment == 0) {
+			var0.width = var0.rawWidth * 1190762213;
+		} else if (var0.widthAlignment == 1) {
+			var0.width = (var1 - var0.rawWidth) * 1190762213;
+		} else if (var0.widthAlignment == 2) {
+			var0.width = (var0.rawWidth * var1 >> 14) * 1190762213;
 		}
-	}
 
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "(I)Lbg;",
-		garbageValue = "-880809566"
-	)
-	@Export("getNextWorldListWorld")
-	static World getNextWorldListWorld() {
-		return World.World_listCount < World.World_count ? class547.World_worlds[++World.World_listCount - 1] : null;
+		if (var0.heightAlignment == 0) {
+			var0.height = var0.rawHeight * -1551910247;
+		} else if (var0.heightAlignment == 1) {
+			var0.height = (var2 - var0.rawHeight) * -1551910247;
+		} else if (var0.heightAlignment == 2) {
+			var0.height = (var2 * var0.rawHeight >> 14) * -1551910247;
+		}
+
+		if (var0.widthAlignment == 4) {
+			var0.width = var0.height * var0.field4231 * -905446999 / var0.field4232 * 1190762213;
+		}
+
+		if (var0.heightAlignment == 4) {
+			var0.height = var0.field4232 * var0.width * -1946208531 / var0.field4231 * -1551910247;
+		}
+
+		if (var0.contentType == 1337) {
+			Client.viewportWidget = var0;
+		}
+
+		if (var0.type == 12) {
+			var0.method8194().method7880(var0.width * -1946208531, var0.height * -905446999);
+		}
+
+		if (var3 && var0.onResize != null && (var4 != var0.width * -1946208531 || var5 != var0.height * -905446999)) {
+			ScriptEvent var6 = new ScriptEvent();
+			var6.widget = var0;
+			var6.args = var0.onResize;
+			Client.scriptEvents.addFirst(var6);
+		}
+
 	}
 }

@@ -3,32 +3,73 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dt")
+@ObfuscatedName("dx")
 @Implements("SoundEffect")
 public class SoundEffect {
-	@ObfuscatedName("aj")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "[Ley;"
+		descriptor = "Lem;"
+	)
+	static class114 field1291;
+	@ObfuscatedName("av")
+	int field1286;
+	@ObfuscatedName("at")
+	int field1285;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Les;"
+	)
+	class108 field1288;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "[Leg;"
 	)
 	@Export("instruments")
 	final Instrument[] instruments;
-	@ObfuscatedName("an")
+	@ObfuscatedName("aj")
 	@Export("start")
 	int start;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ak")
 	@Export("end")
 	int end;
 
+	static {
+		field1291 = new class114();
+	}
+
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;)V"
+		descriptor = "(Lxa;ILes;)V"
 	)
-	SoundEffect(Buffer var1) {
+	SoundEffect(Buffer var1, int var2, class108 var3) {
 		this.instruments = new Instrument[10];
+		this.field1285 = var2;
+		this.field1288 = var3;
+		if (var2 == 0) {
+			this.method3114(var1);
+		} else {
+			if (var2 != 1) {
+				throw new RuntimeException("Invalid fileId for SFX");
+			}
+
+			var3.method3496(var1);
+			this.field1286 = var3.method3493();
+			this.start = var3.method3492();
+			this.end = var3.method3495();
+		}
+
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(Lxa;)V"
+	)
+	void method3114(Buffer var1) {
+		this.field1286 = 22050;
 
 		for (int var2 = 0; var2 < 10; ++var2) {
 			int var3 = var1.readUnsignedByte();
 			if (var3 != 0) {
-				--var1.offset;
+				var1.offset -= 1741769013;
 				this.instruments[var2] = new Instrument();
 				this.instruments[var2].decode(var1);
 			}
@@ -38,26 +79,34 @@ public class SoundEffect {
 		this.end = var1.readUnsignedShort();
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Z)Lds;"
+		descriptor = "(Z)Ldq;"
 	)
-	public RawSound method2874(boolean var1) {
+	public RawSound method3130(boolean var1) {
 		short[] var2 = this.mix(var1);
-		RawSound var3 = new RawSound(22050, var2, this.start * 22050 / 1000, this.end * 22050 / 1000, false, var1);
+		RawSound var3 = new RawSound(this.field1286, var2, this.field1286 * this.start / 1000, this.field1286 * this.end / 1000, false, var1);
 		return var3;
 	}
 
 	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "()Lds;"
+		descriptor = "()Ldq;"
 	)
 	@Export("toRawSound")
 	public RawSound toRawSound() {
-		return this.method2874(false);
+		return this.field1285 == 0 ? this.method3130(false) : this.field1288.method3506();
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(Z)Ldq;"
+	)
+	public RawSound method3115(boolean var1) {
+		return this.field1285 == 0 ? this.method3130(var1) : this.field1288.method3506();
+	}
+
+	@ObfuscatedName("aj")
 	@Export("calculateDelay")
 	public final int calculateDelay() {
 		int var1 = 9999999;
@@ -92,7 +141,7 @@ public class SoundEffect {
 		}
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ak")
 	@Export("mix")
 	final short[] mix(boolean var1) {
 		int var2 = 0;
@@ -107,28 +156,27 @@ public class SoundEffect {
 		if (var2 == 0) {
 			return new short[0];
 		} else {
-			var3 = var2 * 22050 / 1000;
+			var3 = var2 * this.field1286 / 1000;
 			short[] var4 = new short[var3];
 
 			for (int var5 = 0; var5 < 10; ++var5) {
 				if (this.instruments[var5] != null) {
-					int var6 = this.instruments[var5].duration * 22050 / 1000;
-					int var7 = this.instruments[var5].offset * 22050 / 1000;
-					int[] var8 = this.instruments[var5].synthesize(var6, this.instruments[var5].duration);
+					int var6 = this.instruments[var5].duration * this.field1286 / 1000;
+					int var7 = this.instruments[var5].offset * this.field1286 / 1000;
+					int[] var8 = this.instruments[var5].method3601(var6, this.instruments[var5].duration, this.field1286);
 					int var9;
 					int var10;
-					int var11;
 					if (var1) {
 						for (var9 = 0; var9 < var6; ++var9) {
 							var10 = (var8[var9] >> 8) + var4[var9 + var7];
-							var11 = Math.max(-128, Math.min(var10, 127));
-							var4[var9 + var7] = (short)((byte)var11);
+							var10 = class470.method9686(-128, 127, var10);
+							var4[var9 + var7] = (short)((byte)var10);
 						}
 					} else {
 						for (var9 = 0; var9 < var6; ++var9) {
 							var10 = var8[var9] + var4[var9 + var7];
-							var11 = Math.max(-32768, Math.min(var10, 32767));
-							var4[var9 + var7] = (short)var11;
+							var10 = class470.method9686(-32768, 32767, var10);
+							var4[var9 + var7] = (short)var10;
 						}
 					}
 				}
@@ -138,13 +186,35 @@ public class SoundEffect {
 		}
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lps;II)Ldt;"
+		descriptor = "(Lqm;II)Ldx;"
 	)
 	@Export("readSoundEffect")
 	public static SoundEffect readSoundEffect(AbstractArchive var0, int var1, int var2) {
-		byte[] var3 = var0.takeFile(var1, var2);
-		return var3 == null ? null : new SoundEffect(new Buffer(var3));
+		class108 var3 = new class108(field1291);
+		byte[] var4 = var0.takeFile(var1, var2);
+		if (var4 == null) {
+			return null;
+		} else {
+			Buffer var5 = new Buffer(var4);
+			if (var2 == 1) {
+				if (var4.length < 4) {
+					return null;
+				}
+
+				int var6 = var5.readInt();
+				var3.method3499(var4, 4);
+				var5.offset = (var6 + 4) * 1741769013;
+			} else {
+				if (var2 != 0) {
+					return null;
+				}
+
+				var5 = new Buffer(var4);
+			}
+
+			return new SoundEffect(var5, var2, var3);
+		}
 	}
 }

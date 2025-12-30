@@ -1,95 +1,89 @@
 import net.runelite.mapping.Export;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ia")
-public class class209 {
-	@ObfuscatedName("aw")
+@ObfuscatedName("if")
+public class class209 extends DualNode {
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lda;"
+		descriptor = "Lmc;"
 	)
-	@Export("soundSystem")
-	static SoundSystem soundSystem;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 389269371
-	)
-	public int field2206;
-	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = 415853017
-	)
-	public int field2205;
+	@Export("field2136")
+	public static EvictingDualNodeHashTable field2136;
 	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = -1933155739
+	@ObfuscatedSignature(
+		descriptor = "Lqm;"
 	)
-	public int field2207;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = 1411426351
-	)
-	public int field2211;
-	@ObfuscatedName("al")
-	@ObfuscatedGetter(
-		intValue = 1449960993
-	)
-	public int field2209;
+	@Export("WorldMapElement_archive")
+	static AbstractArchive WorldMapElement_archive;
 
-	class209(int var1, int var2, int var3, int var4, int var5) {
-		this.field2206 = 0;
-		this.field2205 = 1;
-		this.field2207 = 0;
-		this.field2211 = 0;
-		this.field2209 = 0;
-		this.field2206 = var1;
-		this.field2205 = var2;
-		this.field2207 = var3;
-		this.field2211 = var4;
-		this.field2209 = var5;
+	static {
+		field2136 = new EvictingDualNodeHashTable(64);
 	}
 
-	@ObfuscatedName("hs")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "103"
+		descriptor = "(III)I",
+		garbageValue = "1148857744"
 	)
-	static boolean method4400() {
-		if (Client.archiveLoaders != null && Client.archiveLoadersDone < Client.archiveLoaders.size()) {
-			while (Client.archiveLoadersDone < Client.archiveLoaders.size()) {
-				ArchiveLoader var0 = (ArchiveLoader)Client.archiveLoaders.get(Client.archiveLoadersDone);
-				if (!var0.isLoaded()) {
-					return false;
-				}
-
-				++Client.archiveLoadersDone;
-			}
-
-			return true;
+	@Export("ItemContainer_getCount")
+	static int ItemContainer_getCount(int var0, int var1) {
+		ItemContainer var2 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
+		if (var2 == null) {
+			return 0;
 		} else {
-			return true;
+			return var1 >= 0 && var1 < var2.quantities.length ? var2.quantities[var1] : 0;
 		}
 	}
 
-	@ObfuscatedName("ov")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "(III)V",
-		garbageValue = "-357909587"
+		descriptor = "(B)Lxm;",
+		garbageValue = "35"
 	)
-	static final void method4399(int var0, int var1) {
-		ClanChannel var2 = var0 >= 0 ? Client.currentClanChannels[var0] : PendingSpawn.guestClanChannel;
-		if (var2 != null && var1 >= 0 && var1 < var2.method3878()) {
-			ClanChannelMember var3 = (ClanChannelMember)var2.members.get(var1);
-			if (var3.rank == -1) {
-				String var4 = var3.username.getName();
-				PacketBufferNode var5 = class139.getPacketBufferNode(ClientPacket.CLAN_CHANNEL_KICK_USER, Client.packetWriter.isaacCipher);
-				var5.packetBuffer.writeByte(3 + FriendsChat.stringCp1252NullTerminatedByteSize(var4));
-				var5.packetBuffer.writeByte(var0);
-				var5.packetBuffer.writeShort(var1);
-				var5.packetBuffer.writeStringCp1252NullTerminated(var4);
-				Client.packetWriter.addNode(var5);
-			}
+	static IndexedSprite method4666() {
+		IndexedSprite var0 = new IndexedSprite();
+		var0.width = class208.SpriteBuffer_spriteWidth;
+		var0.height = class144.SpriteBuffer_spriteHeight;
+		var0.xOffset = class615.SpriteBuffer_xOffsets[0];
+		var0.yOffset = class615.SpriteBuffer_yOffsets[0];
+		var0.subWidth = IntHashTable.SpriteBuffer_spriteWidths[0];
+		var0.subHeight = class615.SpriteBuffer_spriteHeights[0] * 449044205;
+		var0.palette = BufferedSource.SpriteBuffer_spritePalette;
+		var0.pixels = class320.SpriteBuffer_pixels[0];
+		class615.SpriteBuffer_xOffsets = null;
+		class615.SpriteBuffer_yOffsets = null;
+		IntHashTable.SpriteBuffer_spriteWidths = null;
+		class615.SpriteBuffer_spriteHeights = null;
+		BufferedSource.SpriteBuffer_spritePalette = null;
+		class320.SpriteBuffer_pixels = null;
+		return var0;
+	}
+
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "(IB)I",
+		garbageValue = "-4"
+	)
+	public static int method4664(int var0) {
+		if (var0 > 0) {
+			return 1;
+		} else {
+			return var0 < 0 ? -1 : 0;
+		}
+	}
+
+	@ObfuscatedName("co")
+	@ObfuscatedSignature(
+		descriptor = "(ILcu;ZB)I",
+		garbageValue = "99"
+	)
+	static int method4665(int var0, Script var1, boolean var2) {
+		if (var0 == 13337) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = Interpreter.field615;
+			return 1;
+		} else {
+			return 2;
 		}
 	}
 }

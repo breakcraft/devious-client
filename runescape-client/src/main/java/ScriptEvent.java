@@ -4,72 +4,72 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cs")
+@ObfuscatedName("cg")
 @Implements("ScriptEvent")
 public class ScriptEvent extends Node {
-	@ObfuscatedName("ap")
-	boolean field896;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
+	boolean field862;
+	@ObfuscatedName("at")
 	@Export("args")
 	Object[] args;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lov;"
+		descriptor = "Lof;"
 	)
 	@Export("widget")
 	Widget widget;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = -792067793
+		intValue = -1567081689
 	)
 	@Export("mouseX")
 	int mouseX;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = 1365531889
+		intValue = -1332622121
 	)
 	@Export("mouseY")
 	int mouseY;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 490787829
+		intValue = 2029362027
 	)
 	@Export("opIndex")
 	int opIndex;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 604536963
+		intValue = 715272521
 	)
-	int field895;
-	@ObfuscatedName("am")
+	int field852;
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "Lov;"
+		descriptor = "Lof;"
 	)
 	@Export("dragTarget")
 	Widget dragTarget;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 974216707
+		intValue = 1798396775
 	)
 	@Export("keyTyped")
 	int keyTyped;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -457551845
+		intValue = 837595959
 	)
 	@Export("keyPressed")
 	int keyPressed;
 	@ObfuscatedName("au")
 	@Export("targetName")
 	String targetName;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = -1271371653
+		intValue = -1784233687
 	)
-	int field901;
+	int field857;
 	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = -2110735437
+		intValue = -1166617615
 	)
 	@Export("type")
 	int type;
@@ -78,124 +78,32 @@ public class ScriptEvent extends Node {
 		this.type = 76;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "([Ljava/lang/Object;B)V",
-		garbageValue = "124"
+		descriptor = "([Ljava/lang/Object;I)V",
+		garbageValue = "-1276808227"
 	)
 	@Export("setArgs")
 	public void setArgs(Object[] var1) {
 		this.args = var1;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(IB)V",
-		garbageValue = "-81"
+		garbageValue = "-83"
 	)
 	@Export("setType")
 	public void setType(int var1) {
 		this.type = var1;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lov;I)V",
-		garbageValue = "-1876854781"
+		descriptor = "(Lof;S)V",
+		garbageValue = "5200"
 	)
-	public void method2109(Widget var1) {
+	public void method2184(Widget var1) {
 		this.widget = var1;
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Lqt;I)I",
-		garbageValue = "255327322"
-	)
-	@Export("compareStrings")
-	public static int compareStrings(CharSequence var0, CharSequence var1, Language var2) {
-		int var3 = var0.length();
-		int var4 = var1.length();
-		int var5 = 0;
-		int var6 = 0;
-		char var7 = 0;
-		char var8 = 0;
-
-		while (var5 - var7 < var3 || var6 - var8 < var4) {
-			if (var5 - var7 >= var3) {
-				return -1;
-			}
-
-			if (var6 - var8 >= var4) {
-				return 1;
-			}
-
-			char var9;
-			if (var7 != 0) {
-				var9 = var7;
-				boolean var14 = false;
-			} else {
-				var9 = var0.charAt(var5++);
-			}
-
-			char var10;
-			if (var8 != 0) {
-				var10 = var8;
-				boolean var15 = false;
-			} else {
-				var10 = var1.charAt(var6++);
-			}
-
-			var7 = Timer.method8004(var9);
-			var8 = Timer.method8004(var10);
-			var9 = class6.standardizeChar(var9, var2);
-			var10 = class6.standardizeChar(var10, var2);
-			if (var9 != var10 && Character.toUpperCase(var9) != Character.toUpperCase(var10)) {
-				var9 = Character.toLowerCase(var9);
-				var10 = Character.toLowerCase(var10);
-				if (var10 != var9) {
-					return class398.lowercaseChar(var9, var2) - class398.lowercaseChar(var10, var2);
-				}
-			}
-		}
-
-		int var16 = Math.min(var3, var4);
-
-		char var12;
-		int var17;
-		for (var17 = 0; var17 < var16; ++var17) {
-			if (var2 == Language.Language_FR) {
-				var5 = var3 - 1 - var17;
-				var6 = var4 - 1 - var17;
-			} else {
-				var6 = var17;
-				var5 = var17;
-			}
-
-			char var11 = var0.charAt(var5);
-			var12 = var1.charAt(var6);
-			if (var12 != var11 && Character.toUpperCase(var11) != Character.toUpperCase(var12)) {
-				var11 = Character.toLowerCase(var11);
-				var12 = Character.toLowerCase(var12);
-				if (var11 != var12) {
-					return class398.lowercaseChar(var11, var2) - class398.lowercaseChar(var12, var2);
-				}
-			}
-		}
-
-		var17 = var3 - var4;
-		if (var17 != 0) {
-			return var17;
-		} else {
-			for (int var18 = 0; var18 < var16; ++var18) {
-				var12 = var0.charAt(var18);
-				char var13 = var1.charAt(var18);
-				if (var12 != var13) {
-					return class398.lowercaseChar(var12, var2) - class398.lowercaseChar(var13, var2);
-				}
-			}
-
-			return 0;
-		}
 	}
 }

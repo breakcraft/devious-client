@@ -1,109 +1,87 @@
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("aw")
+@ObfuscatedName("ab")
 @Implements("RestClientThreadFactory")
 public class RestClientThreadFactory implements ThreadFactory {
+	@ObfuscatedName("av")
+	final ThreadGroup field60;
 	@ObfuscatedName("at")
-	@ObfuscatedGetter(
-		intValue = 628496281
-	)
-	static int field73;
-	@ObfuscatedName("ap")
-	final ThreadGroup field71;
-	@ObfuscatedName("aj")
-	final AtomicInteger field70;
+	final AtomicInteger field61;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lak;"
+		descriptor = "Las;"
 	)
 	final AsyncRestClient this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lak;)V"
+		descriptor = "(Las;)V"
 	)
 	RestClientThreadFactory(AsyncRestClient var1) {
 		this.this$0 = var1;
-		this.field70 = new AtomicInteger(1);
+		this.field61 = new AtomicInteger(1);
 		SecurityManager var2 = System.getSecurityManager();
-		this.field71 = var2 != null ? var2.getThreadGroup() : Thread.currentThread().getThreadGroup();
+		this.field60 = var2 != null ? var2.getThreadGroup() : Thread.currentThread().getThreadGroup();
 	}
 
 	public Thread newThread(Runnable var1) {
-		Thread var2 = new Thread(this.field71, var1, this.this$0.threadNamePrefix + "-rest-request-" + this.field70.getAndIncrement(), 0L);
+		Thread var2 = new Thread(this.field60, var1, this.this$0.threadNamePrefix + "-rest-request-" + this.field61.getAndIncrement(), 0L);
 		var2.setDaemon(true);
 		var2.setPriority(5);
 		return var2;
 	}
 
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(I)[Ltz;",
-		garbageValue = "1678663593"
-	)
-	public static class508[] method218() {
-		return new class508[]{class508.field5285, class508.field5283, class508.field5284};
-	}
-
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "653081562"
-	)
-	static final boolean method212(char var0) {
-		return var0 == 160 || var0 == ' ' || var0 == '_' || var0 == '-';
-	}
-
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "2"
-	)
-	public static void method219() {
-		NPCComposition.NpcDefinition_cached.clear();
-		NPCComposition.NpcDefinition_cachedModels.clear();
-	}
-
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Ltp;Ljava/lang/String;I)Ljava/lang/String;",
-		garbageValue = "818276252"
+		descriptor = "(Ljava/lang/Throwable;Ljava/lang/String;)Lyg;"
 	)
-	public static String method217(class509 var0, String var1) {
-		class563 var2 = class563.field5595;
-		DelayFadeTask.method9245(var0, var2, false);
-		int var3 = var0.method9937();
-		String[] var4 = (String[])((String[])var0.method9936());
-		if (var3 == 0) {
-			return "";
-		} else if (var3 == 1) {
-			return var4[0];
+	@Export("newRunException")
+	public static RunException newRunException(Throwable var0, String var1) {
+		RunException var2;
+		if (var0 instanceof RunException) {
+			var2 = (RunException)var0;
+			var2.message = var2.message + ' ' + var1;
 		} else {
-			int var5 = var1.length();
-			int var6 = var5 * (var3 - 1);
+			var2 = new RunException(var0, var1);
+		}
 
-			for (int var7 = 0; var7 < var3; ++var7) {
-				var6 += var4[var7].length();
-			}
+		return var2;
+	}
 
-			char[] var10 = new char[var6];
-			int var8 = 0;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(I)V",
+		garbageValue = "-1383100471"
+	)
+	static void method206() {
+		class57.soundEffectCount = 0;
+	}
 
-			for (int var9 = 0; var9 < var3; ++var9) {
-				if (var9 > 0) {
-					var1.getChars(0, var5, var10, var8);
-					var8 += var5;
-				}
-
-				var4[var9].getChars(0, var4[var9].length(), var10, var8);
-				var8 += var4[var9].length();
-			}
-
-			return new String(var10);
+	@ObfuscatedName("bp")
+	@ObfuscatedSignature(
+		descriptor = "(ILcu;ZI)I",
+		garbageValue = "-616650646"
+	)
+	static int method208(int var0, Script var1, boolean var2) {
+		int var3;
+		if (var0 == 3500) {
+			var3 = Interpreter.Interpreter_intStack[--class408.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = Client.indexCheck.isValidIndexInRange(var3) ? 1 : 0;
+			return 1;
+		} else if (var0 == 3501) {
+			var3 = Interpreter.Interpreter_intStack[--class408.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = Client.indexCheck.method6311(var3) ? 1 : 0;
+			return 1;
+		} else if (var0 == 3502) {
+			var3 = Interpreter.Interpreter_intStack[--class408.Interpreter_intStackSize];
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = Client.indexCheck.method6299(var3) ? 1 : 0;
+			return 1;
+		} else {
+			return 2;
 		}
 	}
 }

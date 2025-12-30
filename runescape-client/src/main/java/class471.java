@@ -1,37 +1,29 @@
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
+import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("sf")
+@ObfuscatedName("sc")
 public class class471 {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = -90947853
+		intValue = -1432123415
 	)
-	int field5101;
-	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = 621640811
-	)
-	int field5102;
-	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = 2139039183
-	)
-	int field5100;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = 1879063073
-	)
-	int field5103;
+	int field5320;
 
-	public String toString() {
-		boolean var1 = true;
-		int var2 = 10 - Integer.toString(this.field5101).length();
-		int var3 = 10 - Integer.toString(this.field5100).length();
-		int var4 = 10 - Integer.toString(this.field5102).length();
-		String var5 = "          ".substring(10 - var2);
-		String var6 = "          ".substring(10 - var3);
-		String var7 = "          ".substring(10 - var4);
-		return "    Size: " + this.field5101 + var5 + "Created: " + this.field5102 + var7 + "Total used: " + this.field5100 + var6 + "Max-In-Use: " + this.field5103;
+	@ObfuscatedSignature(
+		descriptor = "(IZ)V",
+		garbageValue = "1"
+	)
+	class471(int var1, boolean var2) {
+		this.field5320 = var1;
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-87"
+	)
+	public int method9717() {
+		return this.field5320;
 	}
 }

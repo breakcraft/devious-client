@@ -1,80 +1,44 @@
-import java.util.Iterator;
-import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lh")
-public abstract class class311 implements class313 {
-	@ObfuscatedName("fv")
-	static boolean field3348;
-	@ObfuscatedName("ap")
-	@ObfuscatedGetter(
-		intValue = 1850309007
-	)
-	protected int field3347;
-
+@ObfuscatedName("lx")
+public class class311 {
+	@ObfuscatedName("cs")
 	@ObfuscatedSignature(
-		descriptor = "(Lon;Lqt;I)V"
+		descriptor = "Lxm;"
 	)
-	protected class311(StudioGame var1, Language var2, int var3) {
-		this.field3347 = var3;
+	static IndexedSprite field3509;
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(FI)I",
+		garbageValue = "-143527022"
+	)
+	public static int method7022(float var0) {
+		return (int)((double)var0 / 6.283185307179586D * 2048.0D) & 2047;
 	}
 
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "(Ltp;I)I",
-		garbageValue = "1841229055"
-	)
-	public static int method6762(class509 var0) {
-		class377.method7917(var0);
-		byte var1 = 0;
-		int var2 = var0.method9937();
-		int var3 = -1;
-		int var8;
-		if (var0.field5288 == class563.field5600) {
-			int[] var4 = var0.method9965();
-
-			for (var8 = var1; var8 < var2; ++var8) {
-				if (var3 == -1 || var4[var8] > var4[var3]) {
-					var3 = var8;
-				}
-			}
-		} else if (var0.field5288 == class563.field5594) {
-			long[] var9 = var0.method9973();
-
-			for (var8 = var1; var8 < var2; ++var8) {
-				if (var3 == -1 || var9[var8] > var9[var3]) {
-					var3 = var8;
-				}
-			}
-		} else if (var0.field5288 == class563.field5595) {
-			String var10 = null;
-			Object[] var5 = var0.method9936();
-
-			for (int var6 = var1; var6 < var2; ++var6) {
-				String var7 = (String)var5[var6];
-				if (var3 == -1 || var7 != null && var7.compareTo(var10) > 0) {
-					var3 = var6;
-					var10 = var7;
-				}
-			}
+	@ObfuscatedName("aj")
+	public static int method7028(long var0) {
+		int var2 = (int)(var0 >>> 52 & 4095L);
+		if ((long)var2 == 4095L) {
+			var2 = -1;
 		}
 
-		return var3;
+		return var2;
 	}
 
-	@ObfuscatedName("kv")
+	@ObfuscatedName("cg")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1534634605"
+		descriptor = "(ILoj;ZB)V",
+		garbageValue = "-67"
 	)
-	static final void method6763() {
-		Iterator var0 = Client.worldViewManager.iterator();
-
-		while (var0.hasNext()) {
-			WorldView var1 = (WorldView)var0.next();
-			class525.method10146(var1);
-		}
-
+	static void method7030(int var0, Coord var1, boolean var2) {
+		WorldMapArea var3 = class455.getWorldMap().getMapArea(var0);
+		int var4 = class330.localPlayer.plane;
+		int var5 = (class330.localPlayer.x >> 7) + Occluder.topLevelWorldView.baseX;
+		int var6 = (class330.localPlayer.y >> 7) + Occluder.topLevelWorldView.baseY;
+		Coord var7 = new Coord(var4, var5, var6);
+		class455.getWorldMap().method11111(var3, var7, var1, var2);
 	}
 }

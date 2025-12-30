@@ -1,59 +1,87 @@
-import java.util.concurrent.Callable;
 import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fl")
-class class140 implements Callable {
-	// $FF: synthetic field
+@ObfuscatedName("fq")
+public class class140 implements Enum {
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lfj;"
+		descriptor = "Lfq;"
 	)
-	final class143 this$0;
-	// $FF: synthetic field
+	static final class140 field1678;
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lwt;"
+		descriptor = "Lfq;"
 	)
-	final Buffer val$p;
-	// $FF: synthetic field
-	final int val$version;
-
-	@ObfuscatedSignature(
-		descriptor = "(Lfj;Lwt;I)V"
-	)
-	class140(class143 var1, Buffer var2, int var3) {
-		this.this$0 = var1;
-		this.val$p = var2;
-		this.val$version = var3;
-	}
-
-	public Object call() {
-		this.this$0.method3608(this.val$p, this.val$version);
-		return null;
-	}
-
+	static final class140 field1673;
 	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "798264099"
+		descriptor = "Lfq;"
 	)
-	static final boolean method3589() {
-		return ViewportMouse.ViewportMouse_isInViewport;
+	static final class140 field1674;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "Lfq;"
+	)
+	static final class140 field1672;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lfq;"
+	)
+	static final class140 field1675;
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "Lfq;"
+	)
+	static final class140 field1676;
+	@ObfuscatedName("ak")
+	@ObfuscatedGetter(
+		intValue = -997953055
+	)
+	final int field1677;
+	@ObfuscatedName("aw")
+	@ObfuscatedGetter(
+		intValue = 1796020541
+	)
+	final int field1679;
+	@ObfuscatedName("ap")
+	@ObfuscatedGetter(
+		intValue = -1142185869
+	)
+	final int field1671;
+
+	static {
+		field1678 = new class140(0, 0, (String)null, 0);
+		field1673 = new class140(1, 1, (String)null, 9);
+		field1674 = new class140(2, 2, (String)null, 3);
+		field1672 = new class140(3, 3, (String)null, 6);
+		field1675 = new class140(4, 4, (String)null, 1);
+		field1676 = new class140(5, 5, (String)null, 3);
 	}
 
-	@ObfuscatedName("ad")
+	class140(int var1, int var2, String var3, int var4) {
+		this.field1677 = var1;
+		this.field1679 = var2;
+		this.field1671 = var4;
+	}
+
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "-929572055"
+		descriptor = "(B)I",
+		garbageValue = "20"
 	)
-	@Export("isCharPrintable")
-	public static boolean isCharPrintable(char var0) {
-		if (var0 >= ' ' && var0 <= '~') {
-			return true;
-		} else if (var0 >= 160 && var0 <= 255) {
-			return true;
-		} else {
-			return var0 == 8364 || var0 == 338 || var0 == 8212 || var0 == 339 || var0 == 376;
-		}
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field1679;
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-72"
+	)
+	int method3864() {
+		return this.field1671;
 	}
 }

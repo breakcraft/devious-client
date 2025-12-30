@@ -3,27 +3,27 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("wj")
+@ObfuscatedName("xe")
 @Implements("NPCOverheadIcons")
 public class NPCOverheadIcons {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@Export("overheadArchiveIds")
 	int[] overheadArchiveIds;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("overheadSpriteIds")
 	short[] overheadSpriteIds;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lhd;)V"
+		descriptor = "(Lhu;)V"
 	)
 	public NPCOverheadIcons(NPCComposition var1) {
 		this.overheadArchiveIds = new int[8];
 		this.overheadSpriteIds = new short[8];
 		int var2 = 0;
-		if (var1.method4190()) {
-			var2 = var1.method4161().length;
-			System.arraycopy(var1.method4161(), 0, this.overheadArchiveIds, 0, var2);
-			System.arraycopy(var1.method4204(), 0, this.overheadSpriteIds, 0, var2);
+		if (var1.method4476()) {
+			var2 = var1.method4477().length;
+			System.arraycopy(var1.method4477(), 0, this.overheadArchiveIds, 0, var2);
+			System.arraycopy(var1.method4487(), 0, this.overheadSpriteIds, 0, var2);
 		}
 
 		for (int var3 = var2; var3 < 8; ++var3) {
@@ -33,40 +33,40 @@ public class NPCOverheadIcons {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(B)[I",
-		garbageValue = "47"
+		descriptor = "(I)[I",
+		garbageValue = "-2118783808"
 	)
-	public int[] method11114() {
+	public int[] method11905() {
 		return this.overheadArchiveIds;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(B)[S",
-		garbageValue = "-107"
+		descriptor = "(S)[S",
+		garbageValue = "32657"
 	)
-	public short[] method11107() {
+	public short[] method11912() {
 		return this.overheadSpriteIds;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(IISI)V",
-		garbageValue = "818588856"
+		descriptor = "(IISB)V",
+		garbageValue = "67"
 	)
-	public void method11108(int var1, int var2, short var3) {
+	public void method11911(int var1, int var2, short var3) {
 		this.overheadArchiveIds[var1] = var2;
 		this.overheadSpriteIds[var1] = var3;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
 		descriptor = "([I[SI)V",
-		garbageValue = "1315554978"
+		garbageValue = "-1410112335"
 	)
-	public void method11109(int[] var1, short[] var2) {
+	public void method11907(int[] var1, short[] var2) {
 		this.overheadArchiveIds = var1;
 		this.overheadSpriteIds = var2;
 	}

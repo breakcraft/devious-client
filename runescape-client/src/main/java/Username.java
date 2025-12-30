@@ -3,62 +3,68 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("xm")
+@ObfuscatedName("xv")
 @Implements("Username")
 public class Username implements Comparable {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lqm;"
+	)
+	@Export("NpcDefinition_archive")
+	public static AbstractArchive NpcDefinition_archive;
+	@ObfuscatedName("av")
 	@Export("name")
 	String name;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("cleanName")
 	String cleanName;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Lvf;)V"
+		descriptor = "(Ljava/lang/String;Lwc;)V"
 	)
 	public Username(String var1, LoginType var2) {
 		this.name = var1;
-		this.cleanName = HealthBarConfig.method2568(var1, var2);
+		this.cleanName = PlatformInfo.method10936(var1, var2);
 	}
 
 	public Username(String var1) {
 		this.name = var1;
-		this.cleanName = HealthBarConfig.method2568(var1, LoginType.oldscape);
+		this.cleanName = PlatformInfo.method10936(var1, LoginType.oldscape);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "1318195369"
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "7"
 	)
 	@Export("getName")
 	public String getName() {
 		return this.name;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-1085399342"
+		garbageValue = "-846306720"
 	)
-	public String method11543() {
+	public String method12340() {
 		return this.cleanName;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1746631352"
+		garbageValue = "-698146178"
 	)
 	@Export("hasCleanName")
 	public boolean hasCleanName() {
 		return this.cleanName != null;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lxm;I)I",
-		garbageValue = "-1272671100"
+		descriptor = "(Lxv;I)I",
+		garbageValue = "-1203169992"
 	)
 	@Export("compareToTyped")
 	public int compareToTyped(Username var1) {
@@ -88,20 +94,11 @@ public class Username implements Comparable {
 		return this.cleanName == null ? 0 : this.cleanName.hashCode();
 	}
 
-	public int compareTo(Object var1) {
-		return this.compareToTyped((Username)var1);
-	}
-
 	public String toString() {
 		return this.getName();
 	}
 
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(B)[Loa;",
-		garbageValue = "-14"
-	)
-	public static GameBuild[] method11563() {
-		return new GameBuild[]{GameBuild.LIVE, GameBuild.BUILDLIVE, GameBuild.WIP, GameBuild.RC};
+	public int compareTo(Object var1) {
+		return this.compareToTyped((Username)var1);
 	}
 }

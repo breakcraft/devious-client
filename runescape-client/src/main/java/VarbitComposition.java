@@ -4,67 +4,66 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hn")
+@ObfuscatedName("ii")
 @Implements("VarbitComposition")
 public class VarbitComposition extends DualNode {
-	@ObfuscatedName("ap")
-	static final int[] field2164;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
+	static final int[] field2273;
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
+		descriptor = "Lqm;"
 	)
 	@Export("VarbitDefinition_archive")
 	public static AbstractArchive VarbitDefinition_archive;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("VarbitDefinition_cached")
 	public static EvictingDualNodeHashTable VarbitDefinition_cached;
-	@ObfuscatedName("pk")
-	@Export("regionMapArchives")
-	static byte[][] regionMapArchives;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("vm")
+	@ObfuscatedSignature(
+		descriptor = "Lqy;"
+	)
+	static JagNetThread field2279;
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 513673625
+		intValue = 1051846737
 	)
 	@Export("baseVar")
 	public int baseVar;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = -1071189655
+		intValue = 1628144867
 	)
 	@Export("startBit")
 	public int startBit;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1701175277
+		intValue = -1525413401
 	)
 	@Export("endBit")
 	public int endBit;
 
 	static {
-		field2164 = new int[32];
+		field2273 = new int[32];
 		VarbitDefinition_cached = new EvictingDualNodeHashTable(64);
 		int var0 = 2;
 
 		for (int var1 = 0; var1 < 32; ++var1) {
-			field2164[var1] = var0 - 1;
+			field2273[var1] = var0 - 1;
 			var0 += var0;
 		}
 
 	}
 
-	VarbitComposition() {
-	}
-
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1073178354"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "64"
 	)
 	@Export("decode")
-	void decode(Buffer var1) {
+	public void decode(Buffer var1) {
 		while (true) {
 			int var2 = var1.readUnsignedByte();
 			if (var2 == 0) {
@@ -75,10 +74,10 @@ public class VarbitComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;II)V",
-		garbageValue = "291208249"
+		descriptor = "(Lxa;IB)V",
+		garbageValue = "101"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -90,149 +89,86 @@ public class VarbitComposition extends DualNode {
 
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(II)I",
-		garbageValue = "1968824318"
+		descriptor = "(Ljava/lang/CharSequence;I)J",
+		garbageValue = "16711680"
 	)
-	public static int method4309(int var0) {
-		if (var0 > 0) {
-			return 1;
-		} else {
-			return var0 < 0 ? -1 : 0;
+	public static long method4681(CharSequence var0) {
+		long var1 = 0L;
+		int var3 = var0.length();
+
+		for (int var4 = 0; var4 < var3; ++var4) {
+			var1 *= 37L;
+			char var5 = var0.charAt(var4);
+			if (var5 >= 'A' && var5 <= 'Z') {
+				var1 += (long)(var5 + 1 - 65);
+			} else if (var5 >= 'a' && var5 <= 'z') {
+				var1 += (long)(var5 + 1 - 97);
+			} else if (var5 >= '0' && var5 <= '9') {
+				var1 += (long)(var5 + 27 - 48);
+			}
+
+			if (var1 >= 177917621779460413L) {
+				break;
+			}
 		}
+
+		while (0L == var1 % 37L && var1 != 0L) {
+			var1 /= 37L;
+		}
+
+		return var1;
 	}
 
-	@ObfuscatedName("lw")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IIIILjava/lang/String;I)V",
-		garbageValue = "1537085852"
+		descriptor = "(III)V",
+		garbageValue = "-1953320624"
 	)
-	@Export("widgetDefaultMenuAction")
-	static void widgetDefaultMenuAction(int var0, int var1, int var2, int var3, String var4) {
-		int var5 = var0 >>> 16;
-		int var6 = var0 & 65535;
-		Widget var7 = ClientPreferences.widgetDefinition.getWidgetChild(var1, var2);
-		if (var7 != null) {
-			if (var7.onOp != null) {
-				ScriptEvent var8 = new ScriptEvent();
-				var8.widget = var7;
-				var8.opIndex = var6;
-				var8.field895 = var5;
-				var8.targetName = var4;
-				var8.args = var7.onOp;
-				ModeWhere.runScriptEvent(var8);
+	public static void method4678(int var0, int var1) {
+		VarbitComposition var3 = (VarbitComposition)VarbitDefinition_cached.get((long)var0);
+		VarbitComposition var2;
+		if (var3 != null) {
+			var2 = var3;
+		} else {
+			byte[] var4 = VarbitDefinition_archive.takeFile(14, var0);
+			var3 = new VarbitComposition();
+			if (var4 != null) {
+				var3.decode(new Buffer(var4));
 			}
 
-			boolean var10 = true;
-			if (var7.contentType > 0) {
-				var10 = HttpMethod.method75(var7);
-			}
-
-			if (var10) {
-				if (class138.method3579(GrandExchangeOfferOwnWorldComparator.getWidgetFlags2(var7), var6 - 1)) {
-					PacketBufferNode var9;
-					if (class574.field5666 <= 230) {
-						if (var0 == 1) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON1, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 2) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON2, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 3) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON3, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 4) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON4, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 5) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON5, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 6) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON6, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 7) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON7, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 8) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON8, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 9) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON9, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-
-						if (var0 == 10) {
-							var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTON10, Client.packetWriter.isaacCipher);
-							var9.packetBuffer.writeInt(var1);
-							var9.packetBuffer.writeShort(var2);
-							var9.packetBuffer.writeShort(var3);
-							Client.packetWriter.addNode(var9);
-						}
-					} else if (var5 == 0) {
-						var9 = class139.getPacketBufferNode(ClientPacket.IF_BUTTONX, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeInt(var1);
-						var9.packetBuffer.writeShort(var2);
-						var9.packetBuffer.writeShort(var3);
-						var9.packetBuffer.writeByte(var6);
-						Client.packetWriter.addNode(var9);
-					}
-
-					if (var5 != 0) {
-						var9 = class139.getPacketBufferNode(ClientPacket.IF_SUBOP, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeInt(var1);
-						var9.packetBuffer.writeShort(var2);
-						var9.packetBuffer.writeShort(var3);
-						var9.packetBuffer.writeByte(var6);
-						var9.packetBuffer.writeByte(var5 - 1);
-						Client.packetWriter.addNode(var9);
-					}
-
-				}
-			}
+			VarbitDefinition_cached.put(var3, (long)var0);
+			var2 = var3;
 		}
+
+		int var8 = var2.baseVar;
+		int var5 = var2.startBit;
+		int var6 = var2.endBit;
+		int var7 = Varps.Varps_masks[var6 - var5];
+		if (var1 < 0 || var1 > var7) {
+			var1 = 0;
+		}
+
+		var7 <<= var5;
+		Varps.Varps_main[var8] = Varps.Varps_main[var8] & ~var7 | var1 << var5 & var7;
+	}
+
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(IB)I",
+		garbageValue = "110"
+	)
+	public static int method4673(int var0) {
+		return var0 >> 1 & 3;
+	}
+
+	@ObfuscatedName("pj")
+	@ObfuscatedSignature(
+		descriptor = "(ZB)V",
+		garbageValue = "-62"
+	)
+	static void method4668(boolean var0) {
+		Client.leftClickOpensMenu = var0;
 	}
 }

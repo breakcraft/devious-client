@@ -4,40 +4,34 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("px")
+@ObfuscatedName("qf")
 @Implements("ArchiveDiskActionHandler")
 public class ArchiveDiskActionHandler implements Runnable {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lqk;"
+		descriptor = "Lrt;"
 	)
 	@Export("ArchiveDiskActionHandler_requestQueue")
 	public static final NodeDeque ArchiveDiskActionHandler_requestQueue;
-	@ObfuscatedName("aj")
-	static final Object field4691;
-	@ObfuscatedName("al")
+	@ObfuscatedName("at")
+	static final Object field4962;
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lqk;"
+		descriptor = "Lrt;"
 	)
 	@Export("ArchiveDiskActionHandler_responseQueue")
 	public static NodeDeque ArchiveDiskActionHandler_responseQueue;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1733720249
+		intValue = -412991015
 	)
-	static int field4695;
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "Lwz;"
-	)
-	@Export("rasterProvider")
-	public static AbstractRasterProvider rasterProvider;
+	static int field4966;
 
 	static {
 		ArchiveDiskActionHandler_requestQueue = new NodeDeque();
-		field4691 = new Object();
+		field4962 = new Object();
 		ArchiveDiskActionHandler_responseQueue = new NodeDeque();
-		field4695 = 0;
+		field4966 = 0;
 	}
 
 	ArchiveDiskActionHandler() {
@@ -64,30 +58,63 @@ public class ArchiveDiskActionHandler implements Runnable {
 						}
 					}
 
-					synchronized(field4691) {
-						if (field4695 <= 1) {
-							field4695 = 0;
-							field4691.notifyAll();
+					synchronized(field4962) {
+						if (field4966 <= 1) {
+							field4966 = 0;
+							field4962.notifyAll();
 							return;
 						}
 
-						field4695 = 600;
+						field4966 = 600;
 					}
 				} else {
-					UserComparator8.method3393(100L);
-					synchronized(field4691) {
-						if (field4695 <= 1) {
-							field4695 = 0;
-							field4691.notifyAll();
+					LoginState.method841(100L);
+					synchronized(field4962) {
+						if (field4966 <= 1) {
+							field4966 = 0;
+							field4962.notifyAll();
 							return;
 						}
 
-						--field4695;
+						--field4966;
 					}
 				}
 			}
 		} catch (Exception var13) {
-			class569.RunException_sendStackTrace((String)null, var13);
+			PlayerType.RunException_sendStackTrace((String)null, var13);
 		}
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "([FIFB)F",
+		garbageValue = "-63"
+	)
+	static float method8528(float[] var0, int var1, float var2) {
+		float var3 = var0[var1];
+
+		for (int var4 = var1 - 1; var4 >= 0; --var4) {
+			var3 = var0[var4] + var3 * var2;
+		}
+
+		return var3;
+	}
+
+	@ObfuscatedName("aq")
+	@ObfuscatedSignature(
+		descriptor = "(Lut;Lwh;I)V",
+		garbageValue = "1876499627"
+	)
+	static void method8530(DynamicArray var0, class586 var1) {
+		class461.method9375(var0, var1, true);
+	}
+
+	@ObfuscatedName("cc")
+	@ObfuscatedSignature(
+		descriptor = "(ILcu;ZI)I",
+		garbageValue = "-1929398799"
+	)
+	static int method8529(int var0, Script var1, boolean var2) {
+		return 2;
 	}
 }

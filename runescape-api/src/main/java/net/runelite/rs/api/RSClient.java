@@ -28,6 +28,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Map;
 import net.runelite.api.Client;
+import net.runelite.api.Model;
 import net.runelite.api.ModelData;
 import net.runelite.api.SpritePixels;
 import net.runelite.api.WidgetNode;
@@ -375,7 +376,7 @@ public interface RSClient extends RSGameEngine, Client
 	RSItemComposition getRSItemDefinition(int itemId);
 
 	@Import("getItemSprite")
-	RSSpritePixels createRSItemSprite(int itemId, int quantity, int thickness, int borderColor, int stackable, boolean noted);
+	RSSpritePixels createRSItemSprite(int itemId, int quantity, int thickness, int borderColor, int stackable, boolean noted, int var6, int var7);
 
 	@Import("menuAction")
 	void sendMenuAction(int n2, int n3, int n4, int n5, int itemId, int worldViewId, String string, String string2, int n6, int n7);
@@ -678,11 +679,8 @@ public interface RSClient extends RSGameEngine, Client
 	@Override
 	Object[] getObjectStack();
 
-	@Import("Interpreter_arrayLengths")
-	int[] getArraySizes();
-
-	@Import("Interpreter_arrays")
-	int[][] getArrays();
+	@Import("Interpreter_objectLocals")
+	Object[] getObjectLocals();
 
 	@Import("friendSystem")
 	RSFriendSystem getFriendManager();
@@ -808,41 +806,44 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("runScriptLogic")
 	void runScriptLogic(RSScriptEvent ev, RSScript s, int ex, int var2);
 
-	@Import("hintArrowType")
-	void setHintArrowTargetType(int value);
+	@Import("hintArrow")
+	RSHintArrow getHintArrow();
 
-	@Import("hintArrowType")
-	int getHintArrowTargetType();
+	//@Import("hintArrowType")
+	//void setHintArrowTargetType(int value);
 
-	@Import("hintArrowX")
-	void setHintArrowX(int value);
+	//@Import("hintArrowType")
+	//int getHintArrowTargetType();
 
-	@Import("hintArrowX")
-	int getHintArrowX();
+	//@Import("hintArrowX")
+	//void setHintArrowX(int value);
 
-	@Import("hintArrowY")
-	void setHintArrowY(int value);
+	//@Import("hintArrowX")
+	//int getHintArrowX();
 
-	@Import("hintArrowY")
-	int getHintArrowY();
+	//@Import("hintArrowY")
+	//void setHintArrowY(int value);
 
-	@Import("hintArrowSubX")
-	void setHintArrowOffsetX(int value);
+	//@Import("hintArrowY")
+	//int getHintArrowY();
 
-	@Import("hintArrowSubY")
-	void setHintArrowOffsetY(int value);
+	//@Import("hintArrowSubX")
+	//void setHintArrowOffsetX(int value);
 
-	@Import("hintArrowNpcIndex")
-	void setHintArrowNpcTargetIdx(int value);
+	//@Import("hintArrowSubY")
+	//void setHintArrowOffsetY(int value);
 
-	@Import("hintArrowNpcIndex")
-	int getHintArrowNpcTargetIdx();
+	//@Import("hintArrowNpcIndex")
+	//void setHintArrowNpcTargetIdx(int value);
 
-	@Import("hintArrowPlayerIndex")
-	void setHintArrowPlayerTargetIdx(int value);
+	//@Import("hintArrowNpcIndex")
+	//int getHintArrowNpcTargetIdx();
 
-	@Import("hintArrowPlayerIndex")
-	int getHintArrowPlayerTargetIdx();
+	//@Import("hintArrowPlayerIndex")
+	//void setHintArrowPlayerTargetIdx(int value);
+
+	//@Import("hintArrowPlayerIndex")
+	//int getHintArrowPlayerTargetIdx();
 
 	@Import("isInInstance")
 	@Override
@@ -1079,8 +1080,8 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("soundEffectsArchive")
 	RSArchive getSoundEffectsIndexCache();
 
-	@Import("decimator")
-	RSDecimator getSoundEffectResampler();
+	//@Import("decimator")
+	//RSDecimator getSoundEffectResampler();
 
 	void playMusicTrack(int var0, RSAbstractArchive var1, int var2, int var3, int var4, boolean var5);
 
@@ -1121,6 +1122,9 @@ public interface RSClient extends RSGameEngine, Client
 	@Import("selectedSpellWidget")
 	@Override
 	void setSelectedSpellWidget(int widgetID);
+
+	@Import("widgetFocusInputManager")
+	RSWidgetFocusInputManager getWidgetFocusedInputManager();
 
 	@Import("Sprite_drawScaled")
 	@Override
@@ -1355,6 +1359,7 @@ public interface RSClient extends RSGameEngine, Client
 	RSBuffer createBuffer(byte[] bytes);
 
 	@Construct
+	@Override
 	RSSceneTilePaint createSceneTilePaint(int swColor, int seColor, int neColor, int nwColor, int texture, int rgb, boolean isFlat);
 
 	@Import("crossWorldMessageIds")
@@ -1411,6 +1416,15 @@ public interface RSClient extends RSGameEngine, Client
 
 	void posToCameraAngle(int var0, int var1);
 
+	@Import("cameraViewMode")
+	RSCameraViewMode getCameraViewMode();
+
+	@Import("cameraWorldViewId")
+	int getCameraWorldViewId();
+
+	@Import("cameraTargetIndex")
+	int getCameraTargetIndex();
+
 	@Override
 	default RSNodeDeque getAmbientSoundEffects()
 	{
@@ -1462,14 +1476,23 @@ public interface RSClient extends RSGameEngine, Client
 	@Construct
 	RSProjectile newProjectile(int sourceLevel, int sourceX, int sourceY, int startHeight, int sourceIndex, int targetLevel, int targetX, int targetY, int endHeight, int targetIndex, int id, int cycleStart, int cycleEnd, int slope, int var15);
 
+	@Import("modelDataArray")
+	RSModelData[] getModelDataArray();
+
 	@Construct
-	RSModelData newModelData(ModelData[] var1, int var2);
+	RSModelData newModelData(ModelData[] models, int length);
+
+	@Construct
+	RSModel newModel(Model[] models, int length);
 
 	@Construct
 	RSEvictingDualNodeHashTable newEvictingDualNodeHashTable(int var1);
 
 	@Import("getDbTable")
 	RSDbTable getDbTable(int var0);
+
+	@Import("getDbTable2")
+	RSDbTable getDbTable2(int var0);
 
 	@Import("getDbTableType")
 	RSDbTableType getDbTableType(int var0);
@@ -1485,9 +1508,6 @@ public interface RSClient extends RSGameEngine, Client
 
 	@Import("clips")
 	RSClips getClips();
-
-	@Import("modelDataArray")
-	RSModelData[] getModelDataArray();
 
 	@Import("validRootWidgets")
 	boolean[] getValidRootWidgets();
@@ -1683,6 +1703,12 @@ public interface RSClient extends RSGameEngine, Client
 	/**
 	 * Cached random.dat
 	 */
+
+	@Import("randomDatData")
+	byte[] getRSRandomDat();
+
+	@Import("randomDatData")
+	void setRSRandomDat(byte[] data);
 
 	byte[] getCachedRandomDatData(String username);
 	void writeCachedRandomDatData(String username, byte[] data);

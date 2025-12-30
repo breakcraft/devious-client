@@ -1,68 +1,48 @@
-import java.util.PriorityQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.atomic.AtomicBoolean;
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("nt")
-class class342 implements Callable {
-	// $FF: synthetic field
-	@ObfuscatedSignature(
-		descriptor = "Lmt;"
-	)
-	final MidiPcmStream this$0;
-	// $FF: synthetic field
-	final AtomicBoolean val$cancelled;
+@ObfuscatedName("nj")
+public class class342 {
+	@ObfuscatedName("av")
+	static int[] field3880;
 
-	@ObfuscatedSignature(
-		descriptor = "(Lmt;Ljava/util/concurrent/atomic/AtomicBoolean;)V"
-	)
-	class342(MidiPcmStream var1, AtomicBoolean var2) {
-		this.this$0 = var1;
-		this.val$cancelled = var2;
-	}
+	static {
+		new Object();
+		field3880 = new int[33];
+		field3880[0] = 0;
+		int var0 = 2;
 
-	public Object call() {
-		PriorityQueue var1 = this.this$0.priorityQueue;
-
-		while (true) {
-			class339 var2 = null;
-			synchronized(var1) {
-				if (var1.isEmpty() || this.val$cancelled.get()) {
-					return null;
-				}
-
-				var2 = (class339)var1.remove();
-			}
-
-			var2.field3760.method3227();
+		for (int var1 = 1; var1 < 33; ++var1) {
+			field3880[var1] = var0 - 1;
+			var0 += var0;
 		}
+
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;BII)I",
-		garbageValue = "-2130424302"
+		descriptor = "(Lqm;I)V",
+		garbageValue = "-833282750"
 	)
-	public static int method7116(Buffer var0, byte var1, int var2) {
-		int var3 = var1 >> var2 & 3;
-		if (var3 == 3) {
-			return var0.readInt();
-		} else if (var3 == 2) {
-			return var0.readShort();
+	public static void method7324(AbstractArchive var0) {
+		VarcInt.VarcInt_archive = var0;
+	}
+
+	@ObfuscatedName("cs")
+	@ObfuscatedSignature(
+		descriptor = "(ILcu;ZB)I",
+		garbageValue = "-91"
+	)
+	static int method7323(int var0, Script var1, boolean var2) {
+		if (var0 == 7900) {
+			int var3 = Interpreter.Interpreter_intStack[--class408.Interpreter_intStackSize];
+			Client.field348 = Math.max(var3, 0);
+			return 1;
+		} else if (var0 == 7901) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = Client.field348;
+			return 1;
 		} else {
-			return var3 == 1 ? var0.readByte() : 0;
+			return 2;
 		}
-	}
-
-	@ObfuscatedName("ms")
-	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "1"
-	)
-	@Export("getTapToDrop")
-	static boolean getTapToDrop() {
-		return Client.tapToDrop;
 	}
 }

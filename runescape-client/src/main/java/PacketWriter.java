@@ -5,92 +5,92 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("dn")
+@ObfuscatedName("dl")
 @Implements("PacketWriter")
 public class PacketWriter {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lqh;"
+		descriptor = "Lrm;"
 	)
 	@Export("packetBufferNodes")
 	IterableNodeDeque packetBufferNodes;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 520261313
+		intValue = -630103807
 	)
 	@Export("bufferSize")
 	int bufferSize;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lwt;"
+		descriptor = "Lxa;"
 	)
 	@Export("buffer")
 	Buffer buffer;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lwo;"
+		descriptor = "Lxo;"
 	)
 	@Export("isaacCipher")
 	public IsaacCipher isaacCipher;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lwx;"
+		descriptor = "Lxj;"
 	)
 	@Export("packetBuffer")
 	PacketBuffer packetBuffer;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "Lmv;"
+		descriptor = "Lmz;"
 	)
 	@Export("serverPacket")
 	ServerPacket serverPacket;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -59638065
+		intValue = 253081433
 	)
 	@Export("serverPacketLength")
 	int serverPacketLength;
-	@ObfuscatedName("am")
-	boolean field1271;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("aw")
+	boolean field1269;
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = 1420789563
+		intValue = 1585880345
 	)
 	int field1270;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = 991669831
+		intValue = -1338760881
 	)
 	@Export("pendingWrites")
 	int pendingWrites;
 	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = -755942415
+		intValue = -8070575
 	)
-	int field1272;
-	@ObfuscatedName("ar")
+	int field1262;
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 584269303
+		intValue = -1178225279
 	)
 	int field1273;
 	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "Lmv;"
+		descriptor = "Lmz;"
 	)
-	ServerPacket field1262;
-	@ObfuscatedName("af")
+	ServerPacket field1272;
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "Lmv;"
+		descriptor = "Lmz;"
 	)
-	ServerPacket field1266;
-	@ObfuscatedName("ak")
+	ServerPacket field1275;
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "Lmv;"
+		descriptor = "Lmz;"
 	)
-	ServerPacket field1276;
-	@ObfuscatedName("az")
+	ServerPacket field1267;
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "Ltg;"
+		descriptor = "Ltd;"
 	)
 	@Export("socket")
 	AbstractSocket socket;
@@ -102,16 +102,16 @@ public class PacketWriter {
 		this.packetBuffer = new PacketBuffer(40000);
 		this.serverPacket = null;
 		this.serverPacketLength = 0;
-		this.field1271 = true;
+		this.field1269 = true;
 		this.field1270 = 0;
 		this.pendingWrites = 0;
-		this.field1272 = 0;
+		this.field1262 = 0;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "115"
+		garbageValue = "19"
 	)
 	@Export("clearBuffer")
 	final void clearBuffer() {
@@ -119,10 +119,10 @@ public class PacketWriter {
 		this.bufferSize = 0;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1835646424"
+		garbageValue = "-489061727"
 	)
 	@Export("flush")
 	final void flush() throws IOException {
@@ -131,8 +131,8 @@ public class PacketWriter {
 
 			while (true) {
 				PacketBufferNode var1 = (PacketBufferNode)this.packetBufferNodes.last();
-				if (var1 == null || var1.index > this.buffer.array.length - this.buffer.offset) {
-					this.socket.write(this.buffer.array, 0, this.buffer.offset);
+				if (var1 == null || var1.index > this.buffer.array.length - this.buffer.offset * 2108391709) {
+					this.socket.write(this.buffer.array, 0, this.buffer.offset * 2108391709);
 					this.pendingWrites = 0;
 					break;
 				}
@@ -147,23 +147,23 @@ public class PacketWriter {
 
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lmk;B)V",
-		garbageValue = "-128"
+		descriptor = "(Lmj;I)V",
+		garbageValue = "-1771370198"
 	)
 	@Export("addNode")
 	public final void addNode(PacketBufferNode var1) {
 		this.packetBufferNodes.addFirst(var1);
-		var1.index = var1.packetBuffer.offset;
+		var1.index = var1.packetBuffer.offset * 2108391709;
 		var1.packetBuffer.offset = 0;
 		this.bufferSize += var1.index;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-661682300"
+		descriptor = "(B)V",
+		garbageValue = "26"
 	)
 	@Export("close")
 	void close() {
@@ -174,85 +174,62 @@ public class PacketWriter {
 
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1652318382"
+		garbageValue = "1703255159"
 	)
 	@Export("removeSocket")
 	void removeSocket() {
 		this.socket = null;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ltg;",
-		garbageValue = "28"
+		descriptor = "(I)Ltd;",
+		garbageValue = "-918483669"
 	)
 	@Export("getSocket")
 	AbstractSocket getSocket() {
 		return this.socket;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Ltg;B)V",
-		garbageValue = "1"
+		descriptor = "(Ltd;I)V",
+		garbageValue = "1600971785"
 	)
 	@Export("setSocket")
 	void setSocket(AbstractSocket var1) {
 		this.socket = var1;
 	}
 
-	@ObfuscatedName("lp")
+	@ObfuscatedName("lg")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;I)V",
-		garbageValue = "-2138041936"
+		descriptor = "(Ldd;Lci;IILlz;B)V",
+		garbageValue = "51"
 	)
-	static void method2834(int var0, String var1) {
-		int var2 = Client.playerUpdateManager.playerCount;
-		int[] var3 = Client.playerUpdateManager.playerIndices;
-		boolean var4 = false;
-		Username var5 = new Username(var1, AbstractUserComparator.loginType);
-		WorldView var6 = class152.localPlayer.getWorldView();
-		if (var6 == null) {
-			GrandExchangeOfferWorldComparator.addGameMessage(4, "", "Unable to find " + var1 + ", current world null.");
-		} else {
-			for (int var7 = 0; var7 < var2; ++var7) {
-				Player var8 = (Player)var6.players.get((long)var3[var7]);
-				if (var8 != null && var8 != class152.localPlayer && var8.username != null && var8.username.equals(var5)) {
-					PacketBufferNode var9;
-					if (var0 == 1) {
-						var9 = class139.getPacketBufferNode(ClientPacket.OPPLAYER1, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeShortAddLE(var3[var7]);
-						var9.packetBuffer.writeByteNeg(0);
-						Client.packetWriter.addNode(var9);
-					} else if (var0 == 4) {
-						var9 = class139.getPacketBufferNode(ClientPacket.OPPLAYER4, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeShortAdd(var3[var7]);
-						var9.packetBuffer.writeByte(0);
-						Client.packetWriter.addNode(var9);
-					} else if (var0 == 6) {
-						var9 = class139.getPacketBufferNode(ClientPacket.OPPLAYER6, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeShortAddLE(var3[var7]);
-						var9.packetBuffer.writeByteNeg(0);
-						Client.packetWriter.addNode(var9);
-					} else if (var0 == 7) {
-						var9 = class139.getPacketBufferNode(ClientPacket.OPPLAYER7, Client.packetWriter.isaacCipher);
-						var9.packetBuffer.writeShortAddLE(var3[var7]);
-						var9.packetBuffer.writeByte(0);
-						Client.packetWriter.addNode(var9);
+	static final void method3054(WorldView var0, Player var1, int var2, int var3, MoveSpeed var4) {
+		int var5 = var1.pathX[0];
+		int var6 = var1.pathY[0];
+		int var7 = var1.size * -548859904;
+		CollisionMap var8 = var0.collisionMaps[var0.plane];
+		if (var5 >= var7 && var5 < var8.method6330() - var7 && var6 >= var7 && var6 < var8.method6331() - var7) {
+			if (var2 >= var7 && var2 < var8.method6330() - var7 && var3 >= var7 && var3 < var8.method6331() - var7) {
+				class288 var9 = Client.field516;
+				Client.field287.approxDestinationX = var2;
+				Client.field287.approxDestinationY = var3;
+				Client.field287.approxDestinationSizeY = 1;
+				Client.field287.approxDestinationSizeX = 1;
+				ApproximateRouteStrategy var13 = Client.field287;
+				int var14 = var9.method6534(var5, var6, var7, var13, var8, true, Client.field488, Client.field557);
+				if (var14 >= 1) {
+					for (int var15 = 0; var15 < var14 - 1; ++var15) {
+						var1.method2557(Client.field488[var15], Client.field557[var15], var4);
 					}
 
-					var4 = true;
-					break;
 				}
 			}
-
-			if (!var4) {
-				GrandExchangeOfferWorldComparator.addGameMessage(4, "", "Unable to find " + var1);
-			}
-
 		}
 	}
 }

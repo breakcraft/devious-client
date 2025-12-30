@@ -13,87 +13,82 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("au")
 @Implements("HttpRequest")
 public class HttpRequest {
-	@ObfuscatedName("lw")
-	@ObfuscatedGetter(
-		intValue = -1967414437
-	)
-	static int field52;
-	@ObfuscatedName("pv")
-	static int[] field53;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ai")
+	static byte[][][] field49;
+	@ObfuscatedName("av")
 	@Export("connection")
 	final HttpsURLConnection connection;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lsx;"
+		descriptor = "Ltx;"
 	)
 	@Export("httpHeaders")
 	final HttpHeaders httpHeaders;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lay;"
+	)
+	final HttpMethod field42;
 	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
-	)
-	final HttpMethod field47;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lue;"
+		descriptor = "Luu;"
 	)
 	@Export("httpPayload")
 	HttpPayload httpPayload;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("requestInitialized")
 	boolean requestInitialized;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@Export("followRedirects")
 	boolean followRedirects;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = -1967490067
+		intValue = -1487914785
 	)
 	@Export("connectionTimeout")
 	int connectionTimeout;
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/net/URL;Lag;Lsx;Z)V"
+		descriptor = "(Ljava/net/URL;Lay;Ltx;Z)V"
 	)
 	public HttpRequest(URL var1, HttpMethod var2, HttpHeaders var3, boolean var4) throws IOException {
 		this.requestInitialized = false;
 		this.followRedirects = false;
 		this.connectionTimeout = 300000;
-		if (!var2.method81()) {
+		if (!var2.method69()) {
 			throw new UnsupportedEncodingException("Unsupported request method used " + var2.getName());
 		} else {
 			this.connection = (HttpsURLConnection)var1.openConnection();
 			if (!var4) {
-				this.connection.setSSLSocketFactory(SecureRandomSSLSocketFactory.method185());
+				this.connection.setSSLSocketFactory(SecureRandomSSLSocketFactory.method194());
 			}
 
-			this.field47 = var2;
+			this.field42 = var2;
 			this.httpHeaders = var3 != null ? var3 : new HttpHeaders();
 		}
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/net/URL;Lag;Z)V"
+		descriptor = "(Ljava/net/URL;Lay;Z)V"
 	)
 	public HttpRequest(URL var1, HttpMethod var2, boolean var3) throws IOException {
 		this(var1, var2, new HttpHeaders(), var3);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lsx;",
-		garbageValue = "-1779212623"
+		descriptor = "(I)Ltx;",
+		garbageValue = "-256610648"
 	)
 	@Export("getHeaders")
 	public HttpHeaders getHeaders() {
 		return this.httpHeaders;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lue;I)V",
-		garbageValue = "398577248"
+		descriptor = "(Luu;I)V",
+		garbageValue = "480751495"
 	)
 	@Export("setPayload")
 	public void setPayload(HttpPayload var1) {
@@ -113,17 +108,17 @@ public class HttpRequest {
 		}
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-239176657"
+		garbageValue = "1861658277"
 	)
 	@Export("initializeRequest")
 	void initializeRequest() throws ProtocolException {
 		if (!this.requestInitialized) {
-			this.connection.setRequestMethod(this.field47.getName());
+			this.connection.setRequestMethod(this.field42.getName());
 			this.httpHeaders.setRequestProperties(this.connection);
-			if (this.field47.method69() && this.httpPayload != null) {
+			if (this.field42.method71() && this.httpPayload != null) {
 				this.connection.setDoOutput(true);
 				ByteArrayOutputStream var1 = new ByteArrayOutputStream();
 
@@ -148,10 +143,10 @@ public class HttpRequest {
 		}
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "354357555"
+		descriptor = "(B)Z",
+		garbageValue = "-52"
 	)
 	@Export("connect")
 	boolean connect() throws IOException {
@@ -163,10 +158,10 @@ public class HttpRequest {
 		return this.connection.getResponseCode() == -1;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lao;",
-		garbageValue = "7"
+		descriptor = "(B)Lal;",
+		garbageValue = "40"
 	)
 	@Export("getResponse")
 	HttpResponse getResponse() {
@@ -192,25 +187,67 @@ public class HttpRequest {
 		return var3;
 	}
 
-	@ObfuscatedName("ap")
-	public static double method99(double var0, double var2, double var4) {
-		double var8 = (var0 - var2) / var4;
-		double var6 = Math.exp(-var8 * var8 / 2.0D) / Math.sqrt(6.283185307179586D);
-		return var6 / var4;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Lqm;I)I",
+		garbageValue = "947212816"
+	)
+	static int method102(AbstractArchive var0) {
+		int var1 = Login.field712.length + Login.field701.length;
+		String[] var2 = Login.field714;
+
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			String var4 = var2[var3];
+			if (var0.getGroupId(var4) != -1) {
+				++var1;
+			}
+		}
+
+		return var1;
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("hx")
 	@ObfuscatedSignature(
-		descriptor = "(Lov;IIIB)V",
-		garbageValue = "48"
+		descriptor = "(B)Lkn;",
+		garbageValue = "1"
 	)
-	@Export("Widget_setKeyRate")
-	static final void Widget_setKeyRate(Widget var0, int var1, int var2, int var3) {
-		if (var0.field4060 == null) {
-			throw new RuntimeException();
-		} else {
-			var0.field4060[var1] = var2;
-			var0.field4031[var1] = var3;
+	public static IndexCheck method107() {
+		return Client.indexCheck;
+	}
+
+	@ObfuscatedName("ln")
+	@ObfuscatedSignature(
+		descriptor = "(Ldd;IIIIIIII[Ljava/lang/String;IIB)V",
+		garbageValue = "1"
+	)
+	static void method89(WorldView var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, String[] var9, int var10, int var11) {
+		NodeDeque var12 = var0.pendingSpawns;
+		PendingSpawn var13 = null;
+
+		for (PendingSpawn var14 = (PendingSpawn)var12.last(); var14 != null; var14 = (PendingSpawn)var12.previous()) {
+			if (var14.plane == var1 && var2 == var14.x && var3 == var14.y && var4 == var14.type) {
+				var13 = var14;
+				break;
+			}
 		}
+
+		if (var13 == null) {
+			var13 = new PendingSpawn();
+			var13.plane = var1;
+			var13.type = var4;
+			var13.x = var2;
+			var13.y = var3;
+			var13.field1001 = -1;
+			WorldMapLabelSize.method6578(var0, var13);
+			var12.addFirst(var13);
+		}
+
+		var13.field998 = var5;
+		var13.field1000 = var6;
+		var13.field999 = var7;
+		var13.delay = var10;
+		var13.hitpoints = var11;
+		var13.method2456(var8);
+		var13.method2457(var9);
 	}
 }

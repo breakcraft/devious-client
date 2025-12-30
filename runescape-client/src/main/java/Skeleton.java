@@ -4,32 +4,31 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jx")
+@ObfuscatedName("jc")
 @Implements("Skeleton")
 public class Skeleton extends Node {
-	@ObfuscatedName("dy")
+	@ObfuscatedName("kw")
 	@ObfuscatedSignature(
-		descriptor = "[Lwd;"
+		descriptor = "Lqn;"
 	)
-	@Export("worldSelectBackSprites")
-	static SpritePixels[] worldSelectBackSprites;
-	@ObfuscatedName("ac")
+	static Archive field2836;
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1997181401
+		intValue = 1593543125
 	)
 	@Export("count")
 	int count;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@Export("transformTypes")
 	int[] transformTypes;
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@Export("labels")
 	int[][] labels;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "Ljp;"
+		descriptor = "Ljq;"
 	)
-	class242 field2684;
+	class251 field2831;
 
 	public Skeleton(int var1, byte[] var2) {
 		Buffer var3 = new Buffer(var2);
@@ -52,55 +51,30 @@ public class Skeleton extends Node {
 			}
 		}
 
-		if (var3.offset < var3.array.length) {
+		if (var3.offset * 2108391709 < var3.array.length) {
 			var4 = var3.readUnsignedShort();
 			if (var4 > 0) {
-				this.field2684 = new class242(var3, var4);
+				this.field2831 = new class251(var3, var4);
 			}
 		}
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "654571513"
+		descriptor = "(B)I",
+		garbageValue = "-10"
 	)
-	public int method5172() {
+	public int method5544() {
 		return this.count;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljp;",
-		garbageValue = "-1523283031"
+		descriptor = "(I)Ljq;",
+		garbageValue = "-510419997"
 	)
-	public class242 method5173() {
-		return this.field2684;
-	}
-
-	@ObfuscatedName("lg")
-	@ObfuscatedSignature(
-		descriptor = "(Ldk;I)V",
-		garbageValue = "-1728643350"
-	)
-	static void method5174(NPC var0) {
-		var0.size = var0.definition.size;
-		var0.field1079 = var0.definition.rotation;
-		var0.walkSequence = var0.definition.walkSequence;
-		var0.walkBackSequence = var0.definition.walkBackSequence;
-		var0.walkLeftSequence = var0.definition.walkLeftSequence;
-		var0.walkRightSequence = var0.definition.walkRightSequence;
-		var0.idleSequence = var0.definition.idleSequence;
-		var0.turnLeftSequence = var0.definition.turnLeftSequence;
-		var0.turnRightSequence = var0.definition.turnRightSequence;
-		var0.runSequence = var0.definition.field2047;
-		var0.field1043 = var0.definition.field2042;
-		var0.field1052 = var0.definition.field2043;
-		var0.field1045 = var0.definition.field2044;
-		var0.field1046 = var0.definition.field2049;
-		var0.field1047 = var0.definition.field2046;
-		var0.field1074 = var0.definition.field2029;
-		var0.field1038 = var0.definition.field2048;
+	public class251 method5545() {
+		return this.field2831;
 	}
 }

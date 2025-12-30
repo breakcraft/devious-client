@@ -1,27 +1,12 @@
-import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ny")
-public class class351 {
-	@ObfuscatedName("ap")
+@ObfuscatedName("ne")
+public interface class351 {
+	@ObfuscatedName("qy")
 	@ObfuscatedSignature(
-		descriptor = "Lna;"
+		descriptor = "(IIB)V",
+		garbageValue = "8"
 	)
-	@Export("huffman")
-	static Huffman huffman;
-	@ObfuscatedName("ag")
-	@Export("Interpreter_intLocals")
-	static int[] Interpreter_intLocals;
-
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-58633690"
-	)
-	public static void method7188() {
-		SequenceDefinition.SequenceDefinition_cached.clear();
-		SequenceDefinition.SequenceDefinition_cachedFrames.clear();
-		SequenceDefinition.SequenceDefinition_cachedModel.clear();
-	}
+	void vmethod7564(int var1, int var2);
 }

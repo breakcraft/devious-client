@@ -1,32 +1,64 @@
+import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("vg")
-final class class560 implements class558 {
+@ObfuscatedName("vl")
+public abstract class class560 {
+	@ObfuscatedName("co")
+	@ObfuscatedSignature(
+		descriptor = "Lxt;"
+	)
+	@Export("leftTitleSprite")
+	static SpritePixels leftTitleSprite;
 	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;Lwt;I)V",
-		garbageValue = "872276318"
+	@ObfuscatedGetter(
+		intValue = -793170329
 	)
-	public void vmethod10652(Object var1, Buffer var2) {
-		this.method10615((class509)var1, var2);
+	int field5758;
+	@ObfuscatedName("ay")
+	@ObfuscatedGetter(
+		intValue = -2038307183
+	)
+	int field5755;
+	@ObfuscatedName("au")
+	double field5757;
+	@ObfuscatedName("az")
+	@ObfuscatedGetter(
+		intValue = 1633079139
+	)
+	int field5756;
+
+	class560(int var1, int var2) {
+		this.field5758 = 0;
+		this.field5755 = 0;
+		this.field5757 = 0.0D;
+		this.field5756 = 0;
+		this.field5758 = var1;
+		this.field5755 = 0;
+		this.field5756 = var2 >= 0 && var2 <= 27 ? var2 : 0;
+		this.field5757 = LoginScreenAnimation.method2635((long)this.field5755, (long)this.field5758, class358.method7617(this.field5756));
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;B)Ljava/lang/Object;",
-		garbageValue = "-108"
+		descriptor = "(I)V",
+		garbageValue = "85737980"
 	)
-	public Object vmethod10657(Buffer var1) {
-		return WorldViewManager.method2276(var1);
+	public void method10986() {
+		if (this.field5755 < this.field5758) {
+			++this.field5755;
+			this.field5757 = LoginScreenAnimation.method2635((long)this.field5755, (long)this.field5758, class358.method7617(this.field5756));
+		}
+
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
-		descriptor = "(Ltp;Lwt;I)V",
-		garbageValue = "978114081"
+		descriptor = "(B)D",
+		garbageValue = "-30"
 	)
-	void method10615(class509 var1, Buffer var2) {
-		var1.method9945(var2);
+	double method10984() {
+		return this.field5757;
 	}
 }

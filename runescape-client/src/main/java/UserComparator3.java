@@ -4,15 +4,21 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ej")
+@ObfuscatedName("ed")
 @Implements("UserComparator3")
 public class UserComparator3 extends AbstractUserComparator {
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = 2085681499
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "Lof;"
 	)
-	public static int field1521;
-	@ObfuscatedName("ap")
+	@Export("scriptDotWidget")
+	static Widget scriptDotWidget;
+	@ObfuscatedName("sv")
+	@ObfuscatedGetter(
+		intValue = -2105059237
+	)
+	static int field1560;
+	@ObfuscatedName("av")
 	@Export("reversed")
 	final boolean reversed;
 
@@ -20,10 +26,10 @@ public class UserComparator3 extends AbstractUserComparator {
 		this.reversed = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lsl;Lsl;I)I",
-		garbageValue = "101208195"
+		descriptor = "(Ltm;Ltm;I)I",
+		garbageValue = "-791236030"
 	)
 	@Export("compareBuddy")
 	int compareBuddy(Buddy var1, Buddy var2) {
@@ -38,63 +44,82 @@ public class UserComparator3 extends AbstractUserComparator {
 		return this.compareBuddy((Buddy)var1, (Buddy)var2);
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lhd;",
-		garbageValue = "97"
+		descriptor = "([BI)Lcu;",
+		garbageValue = "-128596119"
 	)
-	@Export("getNpcDefinition")
-	public static NPCComposition getNpcDefinition(int var0) {
-		NPCComposition var1 = (NPCComposition)NPCComposition.NpcDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = NPCComposition.NpcDefinition_archive.takeFile(9, var0);
-			var1 = new NPCComposition();
-			var1.id = var0;
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
+	@Export("newScript")
+	static Script newScript(byte[] var0) {
+		Script var1 = new Script();
+		Buffer var2 = new Buffer(var0);
+		var2.offset = (var2.array.length - 2) * 1741769013;
+		int var3 = var2.readUnsignedShort();
+		int var4 = var2.array.length - 2 - var3 - 12;
+		var2.offset = var4 * 1741769013;
+		int var5 = var2.readInt();
+		var1.localIntCount = var2.readUnsignedShort();
+		var1.localStringCount = var2.readUnsignedShort();
+		var1.intArgumentCount = var2.readUnsignedShort();
+		var1.stringArgumentCount = var2.readUnsignedShort();
+		int var6 = var2.readUnsignedByte();
+		int var7;
+		int var8;
+		if (var6 > 0) {
+			var1.switches = var1.newIterableNodeHashTable(var6);
+
+			for (var7 = 0; var7 < var6; ++var7) {
+				var8 = var2.readUnsignedShort();
+				IterableNodeHashTable var9 = new IterableNodeHashTable(var8 > 0 ? class161.method4040(var8) : 1);
+				var1.switches[var7] = var9;
+
+				while (var8-- > 0) {
+					int var10 = var2.readInt();
+					int var11 = var2.readInt();
+					var9.put(new IntegerNode(var11), (long)var10);
+				}
 			}
-
-			var1.postDecode();
-			NPCComposition.NpcDefinition_cached.put(var1, (long)var0);
-			return var1;
 		}
-	}
 
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "1499375175"
-	)
-	@Export("clearItemContainer")
-	static void clearItemContainer(int var0) {
-		ItemContainer var1 = (ItemContainer)ItemContainer.itemContainers.get((long)var0);
-		if (var1 != null) {
-			for (int var2 = 0; var2 < var1.ids.length; ++var2) {
-				var1.ids[var2] = -1;
-				var1.quantities[var2] = 0;
+		var2.offset = 0;
+		var1.field754 = var2.readStringCp1252NullTerminatedOrNull();
+		var1.opcodes = new int[var5];
+		var1.intOperands = new int[var5];
+		var1.stringOperands = new String[var5];
+
+		for (var7 = 0; var2.offset * 2108391709 < var4; var1.opcodes[var7++] = var8) {
+			var8 = var2.readUnsignedShort();
+			switch(var8) {
+			case 3:
+				var1.stringOperands[var7] = var2.readStringCp1252NullTerminated();
+				break;
+			case 21:
+			case 38:
+			case 39:
+			case 63:
+				var1.intOperands[var7] = var2.readUnsignedByte();
+				break;
+			default:
+				if (var8 <= 99) {
+					var1.intOperands[var7] = var2.readInt();
+				} else {
+					var1.intOperands[var7] = var2.readUnsignedByte();
+				}
 			}
-
 		}
+
+		return var1;
 	}
 
-	@ObfuscatedName("ja")
-	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "895126381"
-	)
-	static boolean method3412() {
-		return (Client.drawPlayerNames & 1) != 0;
-	}
+	@ObfuscatedName("nm")
+	static final void method3718(double var0) {
+		Rasterizer3D.buildPalette(var0);
+		((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).setBrightness(var0);
+		if (Skills.worldMap != null) {
+			Skills.worldMap.method11024();
+		}
 
-	@ObfuscatedName("lm")
-	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Ljava/lang/String;IIIII)I",
-		garbageValue = "-1913197673"
-	)
-	@Export("insertMenuItemNoShift")
-	public static final int insertMenuItemNoShift(String var0, String var1, int var2, int var3, int var4, int var5) {
-		return GrandExchangeOfferOwnWorldComparator.insertMenuItem(var0, var1, var2, var3, var4, var5, -1, false, -1);
+		ItemComposition.ItemDefinition_cachedSprites.clear();
+		class468.clientPreferences.updateBrightness(var0);
 	}
 }

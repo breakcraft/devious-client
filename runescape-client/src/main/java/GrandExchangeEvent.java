@@ -4,36 +4,36 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pf")
+@ObfuscatedName("qk")
 @Implements("GrandExchangeEvent")
 public class GrandExchangeEvent {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = 1449538329
+		intValue = -1787296361
 	)
 	@Export("world")
 	public final int world;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		longValue = -749291582553735905L
+		longValue = 8132046234609306567L
 	)
 	@Export("age")
 	public final long age;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lpa;"
+		descriptor = "Lqg;"
 	)
 	@Export("grandExchangeOffer")
 	public final GrandExchangeOffer grandExchangeOffer;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@Export("offerName")
 	String offerName;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("previousOfferName")
 	String previousOfferName;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;BI)V"
+		descriptor = "(Lxa;BI)V"
 	)
 	GrandExchangeEvent(Buffer var1, byte var2, int var3) {
 		this.offerName = var1.readStringCp1252NullTerminated();
@@ -43,8 +43,8 @@ public class GrandExchangeEvent {
 		int var4 = var1.readInt();
 		int var5 = var1.readInt();
 		this.grandExchangeOffer = new GrandExchangeOffer();
-		this.grandExchangeOffer.method8243(2);
-		this.grandExchangeOffer.method8247(var2);
+		this.grandExchangeOffer.method8778(2);
+		this.grandExchangeOffer.method8780(var2);
 		this.grandExchangeOffer.unitPrice = var4;
 		this.grandExchangeOffer.totalQuantity = var5;
 		this.grandExchangeOffer.currentQuantity = 0;
@@ -52,75 +52,43 @@ public class GrandExchangeEvent {
 		this.grandExchangeOffer.id = var3;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-1151408813"
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "-8"
 	)
 	@Export("getOfferName")
 	public String getOfferName() {
 		return this.offerName;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(B)Ljava/lang/String;",
-		garbageValue = "-112"
+		garbageValue = "65"
 	)
 	@Export("getPreviousOfferName")
 	public String getPreviousOfferName() {
 		return this.previousOfferName;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lrw;",
-		garbageValue = "-2092466163"
+		descriptor = "(Lut;II)Ljava/lang/Object;",
+		garbageValue = "-2055203679"
 	)
-	public static class446 method8240() {
-		synchronized(class446.field4979) {
-			if (class446.field4978 == 0) {
-				return new class446();
-			} else {
-				class446.field4979[--class446.field4978].method8744();
-				return class446.field4979[class446.field4978];
+	public static Object method8775(DynamicArray var0, int var1) {
+		class461.method9375(var0, (class586)null, true);
+		if (var1 >= 0 && var1 < var0.size * 1583568339) {
+			Object var2 = var0.method10673(var1);
+			if (var1 < var0.size * 1583568339 - 1) {
+				HttpResponse.method296(var0, var1 + 1, var0, var1, var0.size * 1583568339 - (var1 + 1));
 			}
-		}
-	}
 
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "(Ltp;Ltp;IIIB)V",
-		garbageValue = "-20"
-	)
-	public static void method8241(class509 var0, class509 var1, int var2, int var3, int var4) {
-		class377.method7917(var0);
-		class563 var5 = var0.field5288;
-		DelayFadeTask.method9245(var1, var5, true);
-		int var6 = var0.method9937();
-		int var7 = var1.method9937();
-		if (var4 == -1) {
-			var4 = var0.method9937() - var2;
+			var0.method10649(var0.size * 1583568339 - 1);
+			return var2;
+		} else {
+			throw new RuntimeException();
 		}
-
-		if (var4 != 0 && (var1 != var0 || var3 != var2)) {
-			if (var2 >= 0 && var2 + var4 <= var6 && var3 >= 0 && var3 + var4 <= var7) {
-				ClanChannel.method3879(var0, var2, var1, var3, var4);
-			} else {
-				throw new RuntimeException();
-			}
-		}
-	}
-
-	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "(IIS)I",
-		garbageValue = "228"
-	)
-	static final int method8235(int var0, int var1) {
-		int var2 = var1 * 57 + var0;
-		var2 ^= var2 << 13;
-		int var3 = (var2 * var2 * 15731 + 789221) * var2 + 1376312589 & Integer.MAX_VALUE;
-		return var3 >> 19 & 255;
 	}
 }

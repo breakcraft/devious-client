@@ -1,343 +1,107 @@
-import java.util.Arrays;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("aa")
+@ObfuscatedName("ak")
 public enum class6 implements Enum {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Laa;"
+		descriptor = "Lak;"
 	)
-	field16(0, 0);
+	field14(0, 0);
 
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = -599765903
+	)
+	public final int field9;
 	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Leo;"
-	)
-	@Export("World_request")
-	static UrlRequest World_request;
-	@ObfuscatedName("ig")
 	@ObfuscatedGetter(
-		longValue = -8488376298118017843L
+		intValue = -397915809
 	)
-	static long field12;
-	@ObfuscatedName("lh")
-	@ObfuscatedGetter(
-		intValue = 1902216119
-	)
-	@Export("cameraX")
-	static int cameraX;
-	@ObfuscatedName("ny")
-	@ObfuscatedSignature(
-		descriptor = "Lel;"
-	)
-	@Export("decimator")
-	static Decimator decimator;
-	@ObfuscatedName("aj")
-	@ObfuscatedGetter(
-		intValue = -1177345123
-	)
-	public final int field13;
-	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = -97929993
-	)
-	final int field14;
+	final int field10;
 
 	class6(int var3, int var4) {
-		this.field13 = var3;
-		this.field14 = var4;
+		this.field9 = var3;
+		this.field10 = var4;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "26"
+		garbageValue = "20"
 	)
 	@Export("rsOrdinal")
 	public int rsOrdinal() {
-		return this.field14;
+		return this.field10;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "578249264"
+		descriptor = "(II)F",
+		garbageValue = "-819950547"
 	)
-	public static void method33() {
-		synchronized(MouseHandler.MouseHandler_instance) {
-			MouseHandler.MouseHandler_currentButton = MouseHandler.MouseHandler_currentButtonVolatile;
-			MouseHandler.MouseHandler_x = MouseHandler.MouseHandler_xVolatile;
-			MouseHandler.MouseHandler_y = MouseHandler.MouseHandler_yVolatile;
-			MouseHandler.MouseHandler_millis = MouseHandler.MouseHandler_lastMovedVolatile;
-			MouseHandler.MouseHandler_lastButton = MouseHandler.MouseHandler_lastButtonVolatile;
-			MouseHandler.MouseHandler_lastPressedX = MouseHandler.MouseHandler_lastPressedXVolatile;
-			MouseHandler.MouseHandler_lastPressedY = MouseHandler.MouseHandler_lastPressedYVolatile;
-			MouseHandler.MouseHandler_lastPressedTimeMillis = MouseHandler.MouseHandler_lastPressedTimeMillisVolatile;
-			MouseHandler.MouseHandler_lastButtonVolatile = 0;
-		}
+	public static float method44(int var0) {
+		var0 &= 2047;
+		return (float)((double)((float)var0 / 2048.0F) * 6.283185307179586D);
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(CLqt;I)C",
-		garbageValue = "-888727155"
+		descriptor = "(Ldd;IIILoz;B)V",
+		garbageValue = "-7"
 	)
-	@Export("standardizeChar")
-	static char standardizeChar(char var0, Language var1) {
-		if (var0 >= 192 && var0 <= 255) {
-			if (var0 >= 192 && var0 <= 198) {
-				return 'A';
-			}
-
-			if (var0 == 199) {
-				return 'C';
-			}
-
-			if (var0 >= 200 && var0 <= 203) {
-				return 'E';
-			}
-
-			if (var0 >= 204 && var0 <= 207) {
-				return 'I';
-			}
-
-			if (var0 == 209 && var1 != Language.Language_ES) {
-				return 'N';
-			}
-
-			if (var0 >= 210 && var0 <= 214) {
-				return 'O';
-			}
-
-			if (var0 >= 217 && var0 <= 220) {
-				return 'U';
-			}
-
-			if (var0 == 221) {
-				return 'Y';
-			}
-
-			if (var0 == 223) {
-				return 's';
-			}
-
-			if (var0 >= 224 && var0 <= 230) {
-				return 'a';
-			}
-
-			if (var0 == 231) {
-				return 'c';
-			}
-
-			if (var0 >= 232 && var0 <= 235) {
-				return 'e';
-			}
-
-			if (var0 >= 236 && var0 <= 239) {
-				return 'i';
-			}
-
-			if (var0 == 241 && var1 != Language.Language_ES) {
-				return 'n';
-			}
-
-			if (var0 >= 242 && var0 <= 246) {
-				return 'o';
-			}
-
-			if (var0 >= 249 && var0 <= 252) {
-				return 'u';
-			}
-
-			if (var0 == 253 || var0 == 255) {
-				return 'y';
-			}
-		}
-
-		if (var0 == 338) {
-			return 'O';
-		} else if (var0 == 339) {
-			return 'o';
-		} else if (var0 == 376) {
-			return 'Y';
-		} else {
-			return var0;
-		}
-	}
-
-	@ObfuscatedName("hd")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1551218912"
-	)
-	static void method40() {
-		Client.mouseLastLastPressedTimeMillis = 1L;
-		if (class328.mouseRecorder != null) {
-			class328.mouseRecorder.index = 0;
-		}
-
-		GameEngine.hasFocus = true;
-		Client.hadFocus = true;
-		Client.field435 = -1L;
-		ObjectSound.method1583();
-		Client.packetWriter.clearBuffer();
-		Client.packetWriter.field1272 = 0;
-		Client.packetWriter.packetBuffer.offset = 0;
-		Client.packetWriter.serverPacket = null;
-		Client.packetWriter.field1262 = null;
-		Client.packetWriter.field1266 = null;
-		Client.packetWriter.field1276 = null;
-		Client.packetWriter.serverPacketLength = 0;
-		Client.packetWriter.field1270 = 0;
-		Client.rebootTimer = 0;
-		Client.logoutTimer = 0;
-		Client.hintArrowType = 0;
-		Client.menu.menuOptionsCount = 0;
-		Client.isMenuOpen = false;
-		class47.method1767(0);
-		Messages.Messages_channels.clear();
-		Messages.Messages_hashTable.clear();
-		Messages.Messages_queue.clear();
-		Messages.Messages_count = 0;
-		Client.isItemSelected = 0;
-		Client.isSpellSelected = false;
-		class58.soundEffectCount = 0;
-		Client.camAngleY = 0;
-		Client.oculusOrbState = 0;
-		class448.field5001 = null;
-		Client.minimapState = 0;
-		Client.field347 = -1;
-		Client.destinationX = 0;
-		Client.destinationY = 0;
-		Client.playerAttackOption = AttackOption.AttackOption_hidden;
-		Client.npcAttackOption = AttackOption.AttackOption_hidden;
-		Client.worldViewManager.clear();
-		Client.field337 = -1;
-		Client.projectiles.clear();
-		Client.playerUpdateManager.clear();
-		Actor.friendSystem.method1523();
-		if (VarpDefinition.field1910 > 5000) {
-		}
-
-		int var0;
-		if (Client.field444) {
-			Arrays.fill(Varps.Varps_temp, 0);
-			Arrays.fill(Varps.Varps_main, 0);
-		} else {
-			for (var0 = 0; var0 < VarpDefinition.field1910; ++var0) {
-				VarpDefinition var1 = FriendSystem.VarpDefinition_get(var0);
-				if (var1 != null) {
-					Varps.Varps_temp[var0] = 0;
-					Varps.Varps_main[var0] = 0;
+	static void method41(WorldView var0, int var1, int var2, int var3, SpriteMask var4) {
+		for (int var5 = 0; var5 < var0.sizeX; ++var5) {
+			for (int var6 = 0; var6 < var0.sizeY; ++var6) {
+				NodeDeque var7 = var0.groundItems[var0.plane][var5][var6];
+				if (var7 != null) {
+					int var9;
+					if (var0.method2791()) {
+						int var13 = var5 * 4 + 2 - Client.field468 / 32;
+						var9 = var6 * 4 + 2 - Client.field512 / 32;
+						SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var13, var9, var3, class579.field5923[0], var4);
+					} else {
+						ProjectionCoord var8 = class86.method2932(var0, Coord.method7702(var5), Coord.method7702(var6));
+						var9 = (int)var8.x;
+						int var10 = (int)var8.y;
+						var8.release();
+						int var11 = var9 / 32 - Client.field468 / 32;
+						int var12 = var10 / 32 - Client.field512 / 32;
+						SecureRandomFuture.drawSpriteOnMinimap(var1, var2, var11, var12, var3, class579.field5923[0], var4);
+					}
 				}
 			}
 		}
 
-		if (class339.varcs != null) {
-			class339.varcs.clearTransient();
-		}
-
-		Client.followerIndex = -1;
-		if (Client.rootInterface != -1) {
-			ClientPreferences.widgetDefinition.method7289(Client.rootInterface);
-		}
-
-		for (InterfaceParent var2 = (InterfaceParent)Client.interfaceParents.first(); var2 != null; var2 = (InterfaceParent)Client.interfaceParents.next()) {
-			ApproximateRouteStrategy.closeInterface(var2, true);
-		}
-
-		Client.rootInterface = -1;
-		Client.interfaceParents = new NodeHashTable(8);
-		Client.meslayerContinueWidget = null;
-		Client.menu.menuOptionsCount = 0;
-		Client.isMenuOpen = false;
-		Client.playerAppearance.method7318((int[])null, (int[])null, new int[]{0, 0, 0, 0, 0}, 0, -1);
-
-		for (var0 = 0; var0 < 8; ++var0) {
-			Client.playerMenuActions[var0] = null;
-			Client.playerOptionsPriorities[var0] = false;
-		}
-
-		ItemContainer.itemContainers = new NodeHashTable(32);
-		Client.isLoading = true;
-
-		for (var0 = 0; var0 < 100; ++var0) {
-			Client.validRootWidgets[var0] = true;
-		}
-
-		UserComparator10.method3440();
-		class187.friendsChat = null;
-		HorizontalAlignment.guestClanSettings = null;
-		Arrays.fill(Client.currentClanSettings, (Object)null);
-		PendingSpawn.guestClanChannel = null;
-		Arrays.fill(Client.currentClanChannels, (Object)null);
-
-		for (var0 = 0; var0 < 8; ++var0) {
-			Client.grandExchangeOffers[var0] = new GrandExchangeOffer();
-		}
-
-		class143.grandExchangeEvents = null;
-		Client.viewportOffsetX = 0;
-		Client.viewportOffsetY = 0;
-		Client.viewportWidth = 0;
-		Client.viewportHeight = 0;
 	}
 
-	@ObfuscatedName("jv")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(Ldl;Lcn;IB)V",
-		garbageValue = "0"
+		descriptor = "(Lut;I)J",
+		garbageValue = "764544479"
 	)
-	static void method44(WorldView var0, Actor var1, int var2) {
-		Coord var3 = var1.method2308(var0);
-		int var5 = var1.x;
-		int var6 = var1.size * -5369856 - 1;
-		int var4 = var5 + (var6 << 6);
-		int var9 = var1.y;
-		int var10 = var1.size * -5369856 - 1;
-		int var8 = var9 + (var10 << 6);
-		GraphicsObject.worldToScreen(var0, var3.x, var3.y, var4, var8, var2);
+	public static long method43(DynamicArray var0) {
+		ProjectionCoord.method9359(var0, class586.field5937);
+		int[] var1 = var0.method10650();
+		int var2 = var0.method10652();
+		long var3 = 0L;
+
+		for (int var5 = 0; var5 < var2; ++var5) {
+			var3 += (long)var1[var5];
+		}
+
+		return var3;
 	}
 
-	@ObfuscatedName("le")
+	@ObfuscatedName("hf")
 	@ObfuscatedSignature(
-		descriptor = "(Ldl;ZLwx;I)V",
-		garbageValue = "501417068"
+		descriptor = "(I)J",
+		garbageValue = "756246269"
 	)
-	@Export("updateNpcs")
-	static final void updateNpcs(WorldView var0, boolean var1, PacketBuffer var2) {
-		Client.field506 = 0;
-		Client.npcCount = 0;
-		class228.method4794(var0, var2);
-		ClanSettings.method3799(var0, var1, var2);
-		FloorUnderlayDefinition.method4251(var0, var2);
-
-		for (int var3 = 0; var3 < Client.field506; ++var3) {
-			int var4 = Client.field507[var3];
-			NPC var5 = (NPC)var0.npcs.get((long)var4);
-			if (var5.field1168) {
-				var5.definition = null;
-				var5.detach();
-			}
-		}
-
-		if (var2.offset != Client.packetWriter.serverPacketLength) {
-			throw new RuntimeException(var2.offset + "," + Client.packetWriter.serverPacketLength);
-		}
-	}
-
-	@ObfuscatedName("nv")
-	static final void method35(double var0) {
-		Rasterizer3D.buildPalette(var0);
-		((TextureProvider)Rasterizer3D.clips.Rasterizer3D_textureLoader).setBrightness(var0);
-		if (class338.worldMap != null) {
-			class338.worldMap.method10408();
-		}
-
-		ItemComposition.ItemDefinition_cachedSprites.clear();
-		ClientPacket.clientPreferences.updateBrightness(var0);
+	@Export("getUserId")
+	static long getUserId() {
+		return Client.userId;
 	}
 }

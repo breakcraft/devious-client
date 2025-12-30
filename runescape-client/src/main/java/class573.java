@@ -1,18 +1,16 @@
-import java.io.File;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("wl")
+@ObfuscatedName("wg")
 public class class573 {
-	@ObfuscatedName("aw")
-	static File field5665;
-
-	@ObfuscatedName("aq")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Ltp;B)V",
-		garbageValue = "-16"
+		descriptor = "Lqm;"
 	)
-	static void method10775(class509 var0) {
-		DelayFadeTask.method9245(var0, (class563)null, true);
-	}
+	static AbstractArchive field5890;
+	@ObfuscatedName("om")
+	@ObfuscatedSignature(
+		descriptor = "Ljp;"
+	)
+	static Task field5888;
 }

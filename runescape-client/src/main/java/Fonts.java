@@ -4,29 +4,27 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uo")
+@ObfuscatedName("vj")
 @Implements("Fonts")
 public class Fonts {
-	@ObfuscatedName("pu")
-	static byte[][] field5525;
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
+		descriptor = "Lqm;"
 	)
 	@Export("spritesArchive")
 	AbstractArchive spritesArchive;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
+		descriptor = "Lqm;"
 	)
 	@Export("fontsArchive")
 	AbstractArchive fontsArchive;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@Export("map")
 	HashMap map;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lps;Lps;)V"
+		descriptor = "(Lqm;Lqm;)V"
 	)
 	public Fonts(AbstractArchive var1, AbstractArchive var2) {
 		this.spritesArchive = var1;
@@ -34,10 +32,10 @@ public class Fonts {
 		this.map = new HashMap();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "([Lvz;I)Ljava/util/HashMap;",
-		garbageValue = "1975308889"
+		descriptor = "([Lvy;I)Ljava/util/HashMap;",
+		garbageValue = "1097748137"
 	)
 	@Export("createMap")
 	public HashMap createMap(FontName[] var1) {
@@ -49,18 +47,7 @@ public class Fonts {
 			if (this.map.containsKey(var5)) {
 				var2.put(var5, this.map.get(var5));
 			} else {
-				AbstractArchive var7 = this.spritesArchive;
-				AbstractArchive var8 = this.fontsArchive;
-				String var9 = var5.name;
-				Font var6;
-				if (!var7.isValidFileName(var9, "")) {
-					var6 = null;
-				} else {
-					int var10 = var7.getGroupId(var9);
-					int var11 = var7.getFileId(var10, "");
-					var6 = class384.method7944(var7, var8, var10, var11);
-				}
-
+				Font var6 = class147.method3944(this.spritesArchive, this.fontsArchive, var5.name, "");
 				if (var6 != null) {
 					this.map.put(var5, var6);
 					var2.put(var5, var6);
@@ -69,5 +56,55 @@ public class Fonts {
 		}
 
 		return var2;
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(Lts;Lxj;B)V",
+		garbageValue = "2"
+	)
+	static void method11262(WorldEntity var0, PacketBuffer var1) {
+		int var2 = var1.readUnsignedByte();
+		if ((var2 & 1) != 0) {
+			int var3 = var1.readUnsignedShort();
+			int var4 = var1.readUnsignedByte();
+			if (var3 == 65535) {
+				byte var7 = -1;
+				var0.field5537.setSequence(var7);
+				var0.field5537.method9872();
+				var0.field5523 = var4;
+			} else {
+				label37: {
+					SequenceDefinition var5 = var0.field5537.getSequenceDefinition();
+					if (var5 != null) {
+						if (var3 == var0.method10503()) {
+							int var6 = var5.restartMode;
+							if (var6 == 1) {
+								var0.field5537.method9872();
+								var0.field5523 = var4;
+							}
+
+							if (var6 == 2) {
+								var0.field5537.method9890();
+							}
+							break label37;
+						}
+
+						if (ClientPacket.SequenceDefinition_get(var3).field2512 < var5.field2512) {
+							break label37;
+						}
+					}
+
+					var0.field5537.setSequence(var3);
+					var0.field5537.method9872();
+					var0.field5523 = var4;
+				}
+			}
+		}
+
+		if ((var2 & 2) != 0) {
+			var0.method10498(var1.readUnsignedByte());
+		}
+
 	}
 }

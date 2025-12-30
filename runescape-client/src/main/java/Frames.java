@@ -3,26 +3,22 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jk")
+@ObfuscatedName("jt")
 @Implements("Frames")
 public class Frames extends DualNode {
-	@ObfuscatedName("pa")
+	@ObfuscatedName("fs")
+	static boolean field2971;
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "[Lwd;"
-	)
-	@Export("headIconPkSprites")
-	static SpritePixels[] headIconPkSprites;
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "[Ljf;"
+		descriptor = "[Lju;"
 	)
 	@Export("frames")
 	Animation[] frames;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lps;Lps;I)V"
+		descriptor = "(Lqm;Lqm;I)V"
 	)
-	public Frames(AbstractArchive var1, AbstractArchive var2, int var3) {
+	Frames(AbstractArchive var1, AbstractArchive var2, int var3) {
 		int var4 = var1.getGroupFileCount(var3);
 		this.frames = new Animation[var4];
 		Skeleton var5 = null;
@@ -41,28 +37,13 @@ public class Frames extends DualNode {
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(IB)Z",
-		garbageValue = "-119"
+		garbageValue = "63"
 	)
 	@Export("hasAlphaTransform")
 	public boolean hasAlphaTransform(int var1) {
 		return this.frames[var1].hasAlphaTransform;
-	}
-
-	@ObfuscatedName("hv")
-	@ObfuscatedSignature(
-		descriptor = "(IZZZZI)Lpu;",
-		garbageValue = "-534466592"
-	)
-	@Export("newArchive")
-	static Archive newArchive(int var0, boolean var1, boolean var2, boolean var3, boolean var4) {
-		ArchiveDisk var5 = null;
-		if (JagexCache.JagexCache_dat2File != null) {
-			var5 = new ArchiveDisk(var0, JagexCache.JagexCache_dat2File, JagexCache.JagexCache_idxFiles[var0], 1000000);
-		}
-
-		return new Archive(var5, Varps.masterDisk, class330.field3669, var0, var1, var2, var3, var4, false);
 	}
 }

@@ -1,64 +1,56 @@
+import java.io.File;
+import java.io.IOException;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ag")
+@ObfuscatedName("ay")
 @Implements("HttpMethod")
 public class HttpMethod implements Enum {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
+		descriptor = "Lay;"
 	)
 	@Export("POST")
 	public static final HttpMethod POST;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
+		descriptor = "Lay;"
 	)
 	@Export("GET")
 	public static final HttpMethod GET;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
+		descriptor = "Lay;"
 	)
 	@Export("PUT")
 	static final HttpMethod PUT;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
+		descriptor = "Lay;"
 	)
 	@Export("PATCH")
 	static final HttpMethod PATCH;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "Lag;"
+		descriptor = "Lay;"
 	)
 	@Export("DELETE")
 	static final HttpMethod DELETE;
-	@ObfuscatedName("dp")
-	@ObfuscatedSignature(
-		descriptor = "Lwy;"
-	)
-	static IndexedSprite field43;
-	@ObfuscatedName("iz")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = 1559372579
+		intValue = -1731089793
 	)
-	static int field42;
-	@ObfuscatedName("ac")
-	@ObfuscatedGetter(
-		intValue = 968537279
-	)
-	int field32;
-	@ObfuscatedName("aa")
+	int field35;
+	@ObfuscatedName("ak")
 	@Export("name")
 	String name;
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	boolean field39;
-	@ObfuscatedName("ah")
-	boolean field40;
+	@ObfuscatedName("ap")
+	boolean field37;
 
 	static {
 		POST = new HttpMethod(0, "POST", true, true);
@@ -69,127 +61,145 @@ public class HttpMethod implements Enum {
 	}
 
 	HttpMethod(int var1, String var2, boolean var3, boolean var4) {
-		this.field32 = var1;
+		this.field35 = var1;
 		this.name = var2;
 		this.field39 = var3;
-		this.field40 = var4;
+		this.field37 = var4;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)Z",
-		garbageValue = "77197743"
+		descriptor = "(B)I",
+		garbageValue = "20"
 	)
-	boolean method81() {
+	@Export("rsOrdinal")
+	public int rsOrdinal() {
+		return this.field35;
+	}
+
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(B)Z",
+		garbageValue = "-1"
+	)
+	boolean method69() {
 		return this.field39;
 	}
 
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "26"
-	)
-	@Export("rsOrdinal")
-	public int rsOrdinal() {
-		return this.field32;
-	}
-
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "1238252449"
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "-52"
 	)
 	@Export("getName")
 	public String getName() {
 		return this.name;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "1334592352"
+		garbageValue = "1232894927"
 	)
-	boolean method69() {
-		return this.field40;
+	boolean method71() {
+		return this.field37;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Ldl;[BIIIII)V",
-		garbageValue = "-1862927163"
+		descriptor = "(IS)Ljava/lang/String;",
+		garbageValue = "-11554"
 	)
-	static final void method80(WorldView var0, byte[] var1, int var2, int var3, int var4, int var5) {
-		int var8;
-		int var9;
-		if (var0.collisionMaps != null) {
-			for (int var6 = 0; var6 < 4; ++var6) {
-				CollisionMap var13 = var0.collisionMaps[var6];
-
-				for (var8 = var2; var8 < var2 + 64; ++var8) {
-					for (var9 = var3; var9 < var3 + 64; ++var9) {
-						if (var13.method5960(var8, var9)) {
-							var13.method5933(var8, var9, 1073741824);
-						}
-					}
-				}
-			}
-		}
-
-		Buffer var12 = new Buffer(var1);
-
-		for (int var7 = 0; var7 < 4; ++var7) {
-			for (var8 = 0; var8 < 64; ++var8) {
-				for (var9 = 0; var9 < 64; ++var9) {
-					int var10 = var8 + var2;
-					int var11 = var3 + var9;
-					FriendSystem.loadTerrain(var0, var12, var7, var10, var11, var10 + var4, var5 + var11, 0);
-				}
-			}
-		}
-
-	}
-
-	@ObfuscatedName("nd")
-	@ObfuscatedSignature(
-		descriptor = "(Lov;I)Z",
-		garbageValue = "-2019078946"
-	)
-	static final boolean method75(Widget var0) {
-		int var1 = var0.contentType;
-		if (var1 == 205) {
-			Client.logoutTimer = 250;
-			return true;
+	static final String method74(int var0) {
+		if (var0 < 100000) {
+			return "<col=ffff00>" + var0 + "</col>";
 		} else {
-			int var2;
-			int var3;
-			if (var1 >= 300 && var1 <= 313) {
-				var2 = (var1 - 300) / 2;
-				var3 = var1 & 1;
-				Client.playerAppearance.changeAppearance(var2, var3 == 1);
-			}
+			return var0 < 10000000 ? "<col=ffffff>" + var0 / 1000 + "K" + "</col>" : "<col=00ff80>" + var0 / 1000000 + "M" + "</col>";
+		}
+	}
 
-			if (var1 >= 314 && var1 <= 323) {
-				var2 = (var1 - 314) / 2;
-				var3 = var1 & 1;
-				Client.playerAppearance.method7321(var2, var3 == 1);
-			}
-
-			if (var1 == 324) {
-				Client.playerAppearance.method7322(0);
-			}
-
-			if (var1 == 325) {
-				Client.playerAppearance.method7322(1);
-			}
-
-			if (var1 == 326) {
-				PacketBufferNode var4 = class139.getPacketBufferNode(ClientPacket.UPDATE_PLAYER_MODEL, Client.packetWriter.isaacCipher);
-				Client.playerAppearance.write(var4.packetBuffer);
-				Client.packetWriter.addNode(var4);
-				return true;
-			} else {
-				return false;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;Ljava/lang/String;ZB)Lwn;",
+		garbageValue = "61"
+	)
+	@Export("getPreferencesFile")
+	public static AccessFile getPreferencesFile(String var0, String var1, boolean var2) {
+		File var3 = new File(class452.cacheDir, "preferences" + var0 + ".dat");
+		if (var3.exists()) {
+			try {
+				AccessFile var10 = new AccessFile(var3, "rw", 10000L);
+				return var10;
+			} catch (IOException var9) {
 			}
 		}
+
+		String var4 = "";
+		if (class224.cacheGamebuild == 33) {
+			var4 = "_rc";
+		} else if (class224.cacheGamebuild == 34) {
+			var4 = "_wip";
+		}
+
+		File var5 = new File(JagexCache.userHomeDirectory, "jagex_" + var1 + "_preferences" + var0 + var4 + ".dat");
+		AccessFile var6;
+		if (!var2 && var5.exists()) {
+			try {
+				var6 = new AccessFile(var5, "rw", 10000L);
+				return var6;
+			} catch (IOException var8) {
+			}
+		}
+
+		try {
+			var6 = new AccessFile(var3, "rw", 10000L);
+			return var6;
+		} catch (IOException var7) {
+			throw new RuntimeException();
+		}
+	}
+
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(I)I",
+		garbageValue = "1649667460"
+	)
+	static final int method85() {
+		return ViewportMouse.ViewportMouse_y;
+	}
+
+	@ObfuscatedName("jp")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;ZI)V",
+		garbageValue = "-1099797848"
+	)
+	@Export("drawLoadingMessage")
+	static final void drawLoadingMessage(String var0, boolean var1) {
+		if (Client.showLoadingMessages) {
+			byte var2 = 4;
+			int var3 = var2 + 6;
+			int var4 = var2 + 6;
+			int var5 = UserComparator5.fontPlain12.lineWidth(var0, 250);
+			int var6 = UserComparator5.fontPlain12.lineCount(var0, 250) * 13;
+			Rasterizer2D.Rasterizer2D_fillRectangle(var3 - var2, var4 - var2, var2 + var2 + var5, var6 + var2 + var2, 0);
+			Rasterizer2D.Rasterizer2D_drawRectangle(var3 - var2, var4 - var2, var2 + var2 + var5, var2 + var6 + var2, 16777215);
+			UserComparator5.fontPlain12.drawLines(var0, var3, var4, var5, var6, 16777215, -1, 1, 1, 0);
+			class31.method489(var3 - var2, var4 - var2, var2 + var2 + var5, var2 + var6 + var2);
+			if (var1) {
+				GameEngine.rasterProvider.drawFull(0, 0);
+			} else {
+				class408.method8493(var3, var4, var5, var6);
+			}
+
+		}
+	}
+
+	@ObfuscatedName("kq")
+	@ObfuscatedSignature(
+		descriptor = "(IIIIIB)V",
+		garbageValue = "-14"
+	)
+	static void method83(int var0, int var1, int var2, int var3, int var4) {
+		class1.method10(AsyncHttpResponse.worldView, var0, var1, var2, var3, var4);
 	}
 }

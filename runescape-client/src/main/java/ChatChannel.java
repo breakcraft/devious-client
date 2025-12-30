@@ -1,29 +1,21 @@
-import java.security.SecureRandom;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cd")
+@ObfuscatedName("cm")
 @Implements("ChatChannel")
 public class ChatChannel {
-	@ObfuscatedName("ot")
-	static SecureRandom field831;
-	@ObfuscatedName("vn")
-	@ObfuscatedGetter(
-		intValue = -487327443
-	)
-	static int field830;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "[Lbd;"
+		descriptor = "[Lbu;"
 	)
 	@Export("messages")
 	Message[] messages;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -1886364519
+		intValue = 1784084401
 	)
 	@Export("count")
 	int count;
@@ -32,10 +24,10 @@ public class ChatChannel {
 		this.messages = new Message[100];
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;B)Lbd;",
-		garbageValue = "105"
+		descriptor = "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;B)Lbu;",
+		garbageValue = "-77"
 	)
 	@Export("addMessage")
 	Message addMessage(int var1, String var2, String var3, String var4) {
@@ -63,45 +55,83 @@ public class ChatChannel {
 		return var5;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(IB)Lbd;",
-		garbageValue = "21"
+		descriptor = "(II)Lbu;",
+		garbageValue = "-1671591810"
 	)
 	@Export("getMessage")
 	Message getMessage(int var1) {
 		return var1 >= 0 && var1 < this.count ? this.messages[var1] : null;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "-35"
+		descriptor = "(I)I",
+		garbageValue = "1853998737"
 	)
 	@Export("size")
 	int size() {
 		return this.count;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1523037483"
+		descriptor = "(II)Lwe;",
+		garbageValue = "-1689231098"
 	)
-	public static void method1995() {
-		FloorUnderlayDefinition.FloorUnderlayDefinition_cached.clear();
+	@Export("getDbTableType")
+	public static DbTableType getDbTableType(int var0) {
+		DbTableType var1 = (DbTableType)DbTableType.DBTableType_cache.get((long)var0);
+		if (var1 != null) {
+			return var1;
+		} else {
+			byte[] var2 = class458.field5233.takeFile(39, var0);
+			var1 = new DbTableType();
+			if (var2 != null) {
+				var1.method11469(new Buffer(var2));
+			}
+
+			var1.method11471();
+			DbTableType.DBTableType_cache.put(var1, (long)var0);
+			return var1;
+		}
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "([Ljava/lang/String;I)Ltp;",
-		garbageValue = "954628671"
+		descriptor = "([J[JIIB)V",
+		garbageValue = "-30"
 	)
-	public static class509 method2005(String[] var0) {
-		class509 var1 = new class509(class563.field5595, false);
-		var1.field5295 = var0;
-		var1.field5287 = var0.length * 1090132113;
-		var1.field5291 = var0.length;
-		return var1;
+	public static void method2061(long[] var0, long[] var1, int var2, int var3) {
+		if (var2 < var3) {
+			int var4 = (var3 + var2) / 2;
+			int var5 = var2;
+			long var6 = var0[var4];
+			var0[var4] = var0[var3];
+			var0[var3] = var6;
+			long var8 = var1[var4];
+			var1[var4] = var1[var3];
+			var1[var3] = var8;
+			long var10 = var6 == Long.MAX_VALUE ? 0L : 1L;
+
+			for (int var12 = var2; var12 < var3; ++var12) {
+				if (var0[var12] < var6 + ((long)var12 & var10)) {
+					long var13 = var0[var12];
+					var0[var12] = var0[var5];
+					var0[var5] = var13;
+					long var15 = var1[var12];
+					var1[var12] = var1[var5];
+					var1[var5++] = var15;
+				}
+			}
+
+			var0[var3] = var0[var5];
+			var0[var5] = var6;
+			var1[var3] = var1[var5];
+			var1[var5] = var8;
+			method2061(var0, var1, var2, var5 - 1);
+			method2061(var0, var1, var5 + 1, var3);
+		}
 	}
 }

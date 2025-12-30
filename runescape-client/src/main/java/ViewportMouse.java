@@ -4,85 +4,73 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("je")
+@ObfuscatedName("kv")
 @Implements("ViewportMouse")
 public class ViewportMouse {
-	@ObfuscatedName("bx")
+	@ObfuscatedName("bg")
 	@ObfuscatedSignature(
-		descriptor = "Lre;"
+		descriptor = "Lrx;"
 	)
-	static final class445 field2951;
-	@ObfuscatedName("bl")
+	static final ProjectionCoord field3109;
+	@ObfuscatedName("bs")
 	@Export("ViewportMouse_isInViewport")
-	static boolean ViewportMouse_isInViewport;
-	@ObfuscatedName("bi")
+	public static boolean ViewportMouse_isInViewport;
+	@ObfuscatedName("bz")
 	@ObfuscatedGetter(
-		intValue = 317529445
+		intValue = 770621097
 	)
 	@Export("ViewportMouse_x")
-	static int ViewportMouse_x;
-	@ObfuscatedName("bv")
+	public static int ViewportMouse_x;
+	@ObfuscatedName("bk")
 	@ObfuscatedGetter(
-		intValue = 1184550409
+		intValue = -459009589
 	)
 	@Export("ViewportMouse_y")
-	static int ViewportMouse_y;
-	@ObfuscatedName("bq")
+	public static int ViewportMouse_y;
+	@ObfuscatedName("bb")
 	@Export("ViewportMouse_false0")
-	static boolean ViewportMouse_false0;
-	@ObfuscatedName("bn")
+	public static boolean ViewportMouse_false0;
+	@ObfuscatedName("bf")
 	@ObfuscatedGetter(
-		intValue = -1755695005
+		intValue = -1556503267
 	)
 	@Export("ViewportMouse_entityCount")
 	public static int ViewportMouse_entityCount;
-	@ObfuscatedName("bc")
+	@ObfuscatedName("bn")
 	@Export("ViewportMouse_entityTags")
 	public static long[] ViewportMouse_entityTags;
+	@ObfuscatedName("bd")
+	public static int[] field3116;
 
 	static {
-		field2951 = new class445();
+		field3109 = new ProjectionCoord();
 		ViewportMouse_isInViewport = false;
 		ViewportMouse_x = 0;
 		ViewportMouse_y = 0;
 		ViewportMouse_false0 = false;
 		ViewportMouse_entityCount = 0;
 		ViewportMouse_entityTags = new long[1000];
+		field3116 = new int[1000];
 	}
 
-	@ObfuscatedName("mb")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "([Lov;IIIIIIZB)V",
-		garbageValue = "94"
+		descriptor = "(Ljava/lang/CharSequence;I)Z",
+		garbageValue = "-605717746"
 	)
-	@Export("resizeInterface")
-	static void resizeInterface(Widget[] var0, int var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
-		for (int var8 = var1; var8 <= var2; ++var8) {
-			Widget var9 = var0[var8];
-			if (var9 != null && var3 == var9.parentId && var4 == var9.field4127) {
-				Occluder.alignWidgetSize(var9, var5, var6, var7);
-				class228.alignWidgetPosition(var9, var5, var6);
-				if (var9.scrollX > var9.scrollWidth - var9.width * -1805166981) {
-					var9.scrollX = var9.scrollWidth - var9.width * -1805166981;
-				}
+	@Export("isNumber")
+	public static boolean isNumber(CharSequence var0) {
+		return class114.method3585(var0, 10, true);
+	}
 
-				if (var9.scrollX < 0) {
-					var9.scrollX = 0;
-				}
-
-				if (var9.scrollY > var9.scrollHeight - var9.height * -2133353239) {
-					var9.scrollY = var9.scrollHeight - var9.height * -2133353239;
-				}
-
-				if (var9.scrollY < 0) {
-					var9.scrollY = 0;
-				}
-
-				if (var9.type == 0) {
-					ClanSettings.revalidateWidgetScroll(var0, var9, var7);
-				}
-			}
-		}
-
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(Lrx;FI)Lrx;",
+		garbageValue = "-197067365"
+	)
+	public static final ProjectionCoord method6107(ProjectionCoord var0, float var1) {
+		ProjectionCoord var2 = class30.method486(var0);
+		var2.method9334(var1);
+		return var2;
 	}
 }

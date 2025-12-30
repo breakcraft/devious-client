@@ -7,39 +7,45 @@ import net.runelite.mapping.ObfuscatedSignature;
 @ObfuscatedName("lo")
 @Implements("WorldMapIcon_0")
 public class WorldMapIcon_0 extends AbstractWorldMapIcon {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("aa")
+	@ObfuscatedSignature(
+		descriptor = "Lqm;"
+	)
+	@Export("SpotAnimationDefinition_archive")
+	static AbstractArchive SpotAnimationDefinition_archive;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		intValue = -1554100419
+		intValue = -879570211
 	)
 	@Export("element")
 	final int element;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Llp;"
+		descriptor = "Llv;"
 	)
 	@Export("label")
 	final WorldMapLabel label;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -1573211953
+		intValue = -402581373
 	)
 	@Export("subWidth")
 	final int subWidth;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = -584619463
+		intValue = -231451761
 	)
 	@Export("subHeight")
 	final int subHeight;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lnp;Lnp;ILlp;)V"
+		descriptor = "(Loj;Loj;ILlv;)V"
 	)
 	WorldMapIcon_0(Coord var1, Coord var2, int var3, WorldMapLabel var4) {
 		super(var1, var2);
 		this.element = var3;
 		this.label = var4;
-		WorldMapElement var5 = InvDefinition.WorldMapElement_get(this.getElement());
+		WorldMapElement var5 = class463.WorldMapElement_get(this.getElement());
 		SpritePixels var6 = var5.getSpriteBool(false);
 		if (var6 != null) {
 			this.subWidth = var6.subWidth;
@@ -51,64 +57,67 @@ public class WorldMapIcon_0 extends AbstractWorldMapIcon {
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-2005636344"
+		garbageValue = "-1022817339"
 	)
 	@Export("getElement")
 	public int getElement() {
 		return this.element;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(I)Llp;",
-		garbageValue = "111016802"
+		descriptor = "(B)Llv;",
+		garbageValue = "118"
 	)
 	@Export("getLabel")
 	WorldMapLabel getLabel() {
 		return this.label;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-963913416"
+		garbageValue = "1815290607"
 	)
 	@Export("getSubWidth")
 	int getSubWidth() {
 		return this.subWidth;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-341446402"
+		garbageValue = "-184663833"
 	)
 	@Export("getSubHeight")
 	int getSubHeight() {
 		return this.subHeight;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(III)I",
-		garbageValue = "1658243407"
+		descriptor = "(Loe;IS)Loe;",
+		garbageValue = "11712"
 	)
-	public static int method6537(int var0, int var1) {
-		return (-3 - var0 << 8) + var1;
+	public static WidgetConfigNode method6921(WidgetConfigNode var0, int var1) {
+		for (WidgetConfigNode var2 = var0; var2 != null; var2 = var2.nextWidgetConfigNode) {
+			if (var1 >= var2.start && var1 <= var2.end) {
+				return var2;
+			}
+		}
+
+		return null;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ku")
 	@ObfuscatedSignature(
-		descriptor = "(IIIB)I",
-		garbageValue = "-60"
+		descriptor = "(IIIIIII)V",
+		garbageValue = "1706559695"
 	)
-	public static int method6523(int var0, int var1, int var2) {
-		int var3 = Skills.method7913(var2 - var1 + 1);
-		var3 <<= var1;
-		var0 |= var3;
-		return var0;
+	static void method6932(int var0, int var1, int var2, int var3, int var4, int var5) {
+		SpriteMask.method7659(AsyncHttpResponse.worldView, var0, var1, var2, var3, var4, var5);
 	}
 }

@@ -3,210 +3,129 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("jq")
+@ObfuscatedName("jf")
 @Implements("Texture")
 public class Texture extends Node {
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("Texture_animatedPixels")
 	static int[] Texture_animatedPixels;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
+	@Export("fileId")
+	int fileId;
+	@ObfuscatedName("ak")
 	@Export("averageRGB")
 	int averageRGB;
-	@ObfuscatedName("aa")
-	boolean field2593;
-	@ObfuscatedName("am")
-	@Export("fileIds")
-	int[] fileIds;
-	@ObfuscatedName("ah")
-	int[] field2595;
-	@ObfuscatedName("ag")
-	int[] field2596;
-	@ObfuscatedName("au")
-	int[] field2597;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("aw")
+	@Export("isLowDetail")
+	boolean isLowDetail;
+	@ObfuscatedName("ap")
 	@Export("animationDirection")
 	int animationDirection;
-	@ObfuscatedName("ad")
+	@ObfuscatedName("ay")
 	@Export("animationSpeed")
 	int animationSpeed;
-	@ObfuscatedName("af")
+	@ObfuscatedName("au")
 	@Export("pixels")
 	int[] pixels;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("az")
 	@Export("isLoaded")
 	boolean isLoaded;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;)V"
+		descriptor = "(Lxa;)V"
 	)
 	Texture(Buffer var1) {
 		this.isLoaded = false;
+		this.fileId = var1.readUnsignedShort();
 		this.averageRGB = var1.readUnsignedShort();
-		this.field2593 = var1.readUnsignedByte() == 1;
-		int var2 = var1.readUnsignedByte();
-		if (var2 >= 1 && var2 <= 4) {
-			this.fileIds = new int[var2];
-
-			int var3;
-			for (var3 = 0; var3 < var2; ++var3) {
-				this.fileIds[var3] = var1.readUnsignedShort();
-			}
-
-			if (var2 > 1) {
-				this.field2595 = new int[var2 - 1];
-
-				for (var3 = 0; var3 < var2 - 1; ++var3) {
-					this.field2595[var3] = var1.readUnsignedByte();
-				}
-			}
-
-			if (var2 > 1) {
-				this.field2596 = new int[var2 - 1];
-
-				for (var3 = 0; var3 < var2 - 1; ++var3) {
-					this.field2596[var3] = var1.readUnsignedByte();
-				}
-			}
-
-			this.field2597 = new int[var2];
-
-			for (var3 = 0; var3 < var2; ++var3) {
-				this.field2597[var3] = var1.readInt();
-			}
-
-			this.animationDirection = var1.readUnsignedByte();
-			this.animationSpeed = var1.readUnsignedByte();
-			this.pixels = null;
-		} else {
-			throw new RuntimeException();
-		}
+		this.isLowDetail = var1.readUnsignedByte() == 1;
+		this.animationDirection = var1.readUnsignedByte();
+		this.animationSpeed = var1.readUnsignedByte();
+		this.pixels = null;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(DILps;)Z"
+		descriptor = "(DILqm;)Z"
 	)
 	@Export("load")
 	boolean load(double var1, int var3, AbstractArchive var4) {
-		int var5;
-		for (var5 = 0; var5 < this.fileIds.length; ++var5) {
-			if (var4.getFileFlat(this.fileIds[var5]) == null) {
-				return false;
-			}
-		}
+		if (var4.getFileFlat(this.fileId) == null) {
+			return false;
+		} else {
+			int var5 = var3 * var3;
+			this.pixels = new int[var5];
+			IndexedSprite var6 = class204.method4557(var4, this.fileId);
+			var6.normalize();
+			int[] var7 = var6.palette;
 
-		var5 = var3 * var3;
-		this.pixels = new int[var5];
-
-		for (int var6 = 0; var6 < this.fileIds.length; ++var6) {
-			IndexedSprite var7 = WorldMapAreaData.method6715(var4, this.fileIds[var6]);
-			var7.normalize();
-			byte[] var8 = var7.pixels;
-			int[] var9 = var7.palette;
-			int var10 = this.field2597[var6];
-			if ((var10 & -16777216) == 16777216) {
+			for (int var8 = 0; var8 < var7.length; ++var8) {
+				var7[var8] = Rasterizer3D.Rasterizer3D_brighten(var7[var8], var1);
 			}
 
-			if ((var10 & -16777216) == 33554432) {
-			}
-
-			int var11;
-			int var12;
-			int var13;
-			int var14;
-			if ((var10 & -16777216) == 50331648) {
-				var11 = var10 & 16711935;
-				var12 = var10 >> 8 & 255;
-
-				for (var13 = 0; var13 < var9.length; ++var13) {
-					var14 = var9[var13];
-					if (var14 >> 8 == (var14 & 65535)) {
-						var14 &= 255;
-						var9[var13] = var11 * var14 >> 8 & 16711935 | var12 * var14 & 65280;
-					}
+			byte[] var12 = var6.pixels;
+			int var9;
+			if (var3 == var6.subWidth) {
+				for (var9 = 0; var9 < var5; ++var9) {
+					this.pixels[var9] = var7[var12[var9] & 255];
 				}
-			}
-
-			for (var11 = 0; var11 < var9.length; ++var11) {
-				var9[var11] = Rasterizer3D.Rasterizer3D_brighten(var9[var11], var1);
-			}
-
-			if (var6 == 0) {
-				var11 = 0;
 			} else {
-				var11 = this.field2595[var6 - 1];
-			}
+				int var10;
+				int var11;
+				if (var6.subWidth == 64 && var3 == 128) {
+					var9 = 0;
 
-			if (var11 == 0) {
-				if (var3 == var7.subWidth) {
-					for (var12 = 0; var12 < var5; ++var12) {
-						this.pixels[var12] = var9[var8[var12] & 255];
-					}
-				} else if (var7.subWidth == 64 && var3 == 128) {
-					var12 = 0;
-
-					for (var13 = 0; var13 < var3; ++var13) {
-						for (var14 = 0; var14 < var3; ++var14) {
-							this.pixels[var12++] = var9[var8[(var13 >> 1 << 6) + (var14 >> 1)] & 255];
+					for (var10 = 0; var10 < var3; ++var10) {
+						for (var11 = 0; var11 < var3; ++var11) {
+							this.pixels[var9++] = var7[var12[(var10 >> 1 << 6) + (var11 >> 1)] & 255];
 						}
 					}
 				} else {
-					if (var7.subWidth != 128 || var3 != 64) {
+					if (var6.subWidth != 128 || var3 != 64) {
 						throw new RuntimeException();
 					}
 
-					var12 = 0;
+					var9 = 0;
 
-					for (var13 = 0; var13 < var3; ++var13) {
-						for (var14 = 0; var14 < var3; ++var14) {
-							this.pixels[var12++] = var9[var8[(var14 << 1) + (var13 << 1 << 7)] & 255];
+					for (var10 = 0; var10 < var3; ++var10) {
+						for (var11 = 0; var11 < var3; ++var11) {
+							this.pixels[var9++] = var7[var12[(var11 << 1) + (var10 << 1 << 7)] & 255];
 						}
 					}
 				}
 			}
 
-			if (var11 == 1) {
-			}
-
-			if (var11 == 2) {
-			}
-
-			if (var11 == 3) {
-			}
+			return true;
 		}
-
-		return true;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("reset")
 	void reset() {
 		this.pixels = null;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@Export("animate")
 	void animate(int var1) {
-		if (this.pixels != null) {
+		if (this.pixels != null && this.animationDirection >= 1 && this.animationDirection <= 4) {
+			if (Texture_animatedPixels == null || Texture_animatedPixels.length < this.pixels.length) {
+				Texture_animatedPixels = new int[this.pixels.length];
+			}
+
 			short var2;
-			int var3;
+			if (this.pixels.length == 4096) {
+				var2 = 64;
+			} else {
+				var2 = 128;
+			}
+
+			int var3 = this.pixels.length;
 			int var4;
 			int var5;
 			int var6;
 			int var7;
-			int[] var10;
-			if (this.animationDirection == 1 || this.animationDirection == 3) {
-				if (Texture_animatedPixels == null || Texture_animatedPixels.length < this.pixels.length) {
-					Texture_animatedPixels = new int[this.pixels.length];
-				}
-
-				if (this.pixels.length == 4096) {
-					var2 = 64;
-				} else {
-					var2 = 128;
-				}
-
-				var3 = this.pixels.length;
+			if (this.animationDirection == 1 || this.animationDirection == 2) {
 				var4 = var2 * this.animationSpeed * var1;
 				var5 = var3 - 1;
 				if (this.animationDirection == 1) {
@@ -217,27 +136,12 @@ public class Texture extends Node {
 					var7 = var6 + var4 & var5;
 					Texture_animatedPixels[var6] = this.pixels[var7];
 				}
-
-				var10 = this.pixels;
-				this.pixels = Texture_animatedPixels;
-				Texture_animatedPixels = var10;
 			}
 
-			if (this.animationDirection == 2 || this.animationDirection == 4) {
-				if (Texture_animatedPixels == null || Texture_animatedPixels.length < this.pixels.length) {
-					Texture_animatedPixels = new int[this.pixels.length];
-				}
-
-				if (this.pixels.length == 4096) {
-					var2 = 64;
-				} else {
-					var2 = 128;
-				}
-
-				var3 = this.pixels.length;
+			if (this.animationDirection == 3 || this.animationDirection == 4) {
 				var4 = this.animationSpeed * var1;
 				var5 = var2 - 1;
-				if (this.animationDirection == 2) {
+				if (this.animationDirection == 3) {
 					var4 = -var4;
 				}
 
@@ -248,12 +152,11 @@ public class Texture extends Node {
 						Texture_animatedPixels[var8] = this.pixels[var9];
 					}
 				}
-
-				var10 = this.pixels;
-				this.pixels = Texture_animatedPixels;
-				Texture_animatedPixels = var10;
 			}
 
+			int[] var10 = this.pixels;
+			this.pixels = Texture_animatedPixels;
+			Texture_animatedPixels = var10;
 		}
 	}
 }

@@ -3,167 +3,170 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("ww")
+@ObfuscatedName("xh")
 @Implements("BZip2State")
 public final class BZip2State {
-	@ObfuscatedName("aj")
-	final int field5714;
+	@ObfuscatedName("av")
+	@Export("BZip2Decompressor_block")
+	static int[] BZip2Decompressor_block;
+	@ObfuscatedName("at")
+	final int field6056;
+	@ObfuscatedName("ag")
+	final int field6025;
 	@ObfuscatedName("an")
-	final int field5700;
-	@ObfuscatedName("ai")
-	final int field5701;
-	@ObfuscatedName("al")
-	final int field5702;
-	@ObfuscatedName("ac")
-	final int field5703;
-	@ObfuscatedName("aa")
-	final int field5710;
-	@ObfuscatedName("am")
+	final int field6043;
+	@ObfuscatedName("ae")
+	final int field6027;
+	@ObfuscatedName("aj")
+	final int field6028;
+	@ObfuscatedName("ak")
+	final int field6029;
+	@ObfuscatedName("aw")
 	@Export("selector")
 	byte[] selector;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@Export("selectorMtf")
 	byte[] selectorMtf;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@Export("inputArray")
 	byte[] inputArray;
 	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		intValue = -790991921
+		intValue = 2024289487
 	)
 	@Export("nextByte")
 	int nextByte;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 2043220229
+		intValue = 898939947
 	)
 	@Export("nextBit_unused")
 	int nextBit_unused;
 	@ObfuscatedName("ad")
 	@Export("outputArray")
 	byte[] outputArray;
-	@ObfuscatedName("af")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 1875866145
+		intValue = -702324125
 	)
 	@Export("next_out")
 	int next_out;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -254103253
+		intValue = -1270918355
 	)
 	@Export("outputLength")
 	int outputLength;
-	@ObfuscatedName("az")
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = 1587641581
+		intValue = 1116340389
 	)
-	int field5713;
-	@ObfuscatedName("aw")
+	int field6038;
+	@ObfuscatedName("ab")
 	@Export("out_char")
 	byte out_char;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = 1507386997
+		intValue = -433006017
 	)
 	@Export("su_rNToGo")
 	int su_rNToGo;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = 117419719
+		intValue = 1565757723
 	)
 	@Export("bsBuff")
 	int bsBuff;
-	@ObfuscatedName("av")
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -947735461
+		intValue = 1065960537
 	)
 	@Export("bsLive")
 	int bsLive;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		intValue = 725193728
+		intValue = 1799746560
 	)
 	@Export("blockSize100k")
 	int blockSize100k;
-	@ObfuscatedName("as")
+	@ObfuscatedName("af")
 	@ObfuscatedGetter(
-		intValue = 1150979189
+		intValue = -1770922585
 	)
 	@Export("originalPointer")
 	int originalPointer;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("am")
 	@ObfuscatedGetter(
-		intValue = 693151097
+		intValue = 1873987455
 	)
-	int field5725;
-	@ObfuscatedName("ab")
+	int field6045;
+	@ObfuscatedName("ao")
 	@ObfuscatedGetter(
-		intValue = -2001244009
+		intValue = -849818967
 	)
 	@Export("su_ch2")
 	int su_ch2;
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aa")
 	@Export("unzftab")
 	int[] unzftab;
-	@ObfuscatedName("ay")
+	@ObfuscatedName("aq")
 	@ObfuscatedGetter(
-		intValue = 1915266697
+		intValue = 981823545
 	)
 	@Export("nblocks_used")
 	int nblocks_used;
-	@ObfuscatedName("ba")
+	@ObfuscatedName("be")
 	@Export("cftab")
 	int[] cftab;
-	@ObfuscatedName("bx")
+	@ObfuscatedName("bo")
 	@ObfuscatedGetter(
-		intValue = 1663515821
+		intValue = 1542765527
 	)
 	@Export("nInUse")
 	int nInUse;
-	@ObfuscatedName("bl")
+	@ObfuscatedName("bg")
 	@Export("inUse")
 	boolean[] inUse;
-	@ObfuscatedName("bi")
+	@ObfuscatedName("bs")
 	@Export("inUse16")
 	boolean[] inUse16;
-	@ObfuscatedName("bv")
+	@ObfuscatedName("bz")
 	@Export("seqToUnseq")
 	byte[] seqToUnseq;
-	@ObfuscatedName("bq")
+	@ObfuscatedName("bk")
 	@Export("ll8")
 	byte[] ll8;
-	@ObfuscatedName("bm")
+	@ObfuscatedName("bb")
 	@Export("getAndMoveToFrontDecode_yy")
 	int[] getAndMoveToFrontDecode_yy;
-	@ObfuscatedName("be")
+	@ObfuscatedName("bj")
 	@Export("temp_charArray2d")
 	byte[][] temp_charArray2d;
-	@ObfuscatedName("bo")
+	@ObfuscatedName("bm")
 	@Export("limit")
 	int[][] limit;
-	@ObfuscatedName("bw")
+	@ObfuscatedName("bp")
 	@Export("base")
 	int[][] base;
-	@ObfuscatedName("bf")
+	@ObfuscatedName("bt")
 	@Export("perm")
 	int[][] perm;
-	@ObfuscatedName("bj")
+	@ObfuscatedName("bu")
 	@Export("minLens")
 	int[] minLens;
-	@ObfuscatedName("bt")
+	@ObfuscatedName("ba")
 	@ObfuscatedGetter(
-		intValue = -1634285651
+		intValue = 1735634051
 	)
-	int field5724;
+	int field6061;
 
 	BZip2State() {
-		this.field5714 = 4096;
-		this.field5700 = 16;
-		this.field5701 = 258;
-		this.field5702 = 6;
-		this.field5703 = 50;
-		this.field5710 = 18002;
+		this.field6056 = 4096;
+		this.field6025 = 16;
+		this.field6043 = 258;
+		this.field6027 = 6;
+		this.field6028 = 50;
+		this.field6029 = 18002;
 		this.selector = new byte[18002];
 		this.selectorMtf = new byte[18002];
 		this.nextByte = 0;

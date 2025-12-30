@@ -8,124 +8,126 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@ObfuscatedName("bw")
+@ObfuscatedName("bp")
 @Implements("MouseHandler")
 public class MouseHandler implements MouseListener, MouseMotionListener, FocusListener {
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = -1444120391
+		intValue = -233863237
 	)
 	@Export("MouseHandler_currentButton")
 	public static int MouseHandler_currentButton;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedGetter(
-		intValue = -41687009
+		intValue = 1856325427
 	)
 	@Export("MouseHandler_x")
 	public static int MouseHandler_x;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -1952176513
+		intValue = -1427762751
 	)
 	@Export("MouseHandler_y")
 	public static int MouseHandler_y;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		longValue = -6000464207886188825L
+		longValue = -3445429405105067917L
 	)
 	@Export("MouseHandler_millis")
 	public static long MouseHandler_millis;
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@ObfuscatedGetter(
-		intValue = 795827763
+		intValue = 1721626731
 	)
 	@Export("MouseHandler_lastButton")
 	public static int MouseHandler_lastButton;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedGetter(
-		intValue = -1116192787
+		intValue = -1018773713
 	)
 	@Export("MouseHandler_lastPressedX")
 	public static int MouseHandler_lastPressedX;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -2083547213
+		intValue = -261967643
 	)
 	@Export("MouseHandler_lastPressedY")
 	public static int MouseHandler_lastPressedY;
 	@ObfuscatedName("au")
 	@ObfuscatedGetter(
-		longValue = -6451793251839322579L
+		longValue = -458198379578361685L
 	)
 	@Export("MouseHandler_lastPressedTimeMillis")
 	public static long MouseHandler_lastPressedTimeMillis;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Lbw;"
+		descriptor = "Lbp;"
 	)
 	@Export("MouseHandler_instance")
 	public static MouseHandler MouseHandler_instance;
 	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = 1137337605
+		intValue = 651496335
 	)
 	@Export("MouseHandler_idleCycles")
 	public static volatile int MouseHandler_idleCycles;
-	@ObfuscatedName("af")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 1205295435
+		intValue = 80613605
 	)
 	@Export("MouseHandler_currentButtonVolatile")
-	static volatile int MouseHandler_currentButtonVolatile;
-	@ObfuscatedName("ak")
+	public static volatile int MouseHandler_currentButtonVolatile;
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = -241385397
+		intValue = -404586045
 	)
 	@Export("MouseHandler_xVolatile")
-	static volatile int MouseHandler_xVolatile;
-	@ObfuscatedName("az")
+	public static volatile int MouseHandler_xVolatile;
+	@ObfuscatedName("ac")
 	@ObfuscatedGetter(
-		intValue = -1669100459
+		intValue = 1896515477
 	)
 	@Export("MouseHandler_yVolatile")
-	static volatile int MouseHandler_yVolatile;
-	@ObfuscatedName("aw")
+	public static volatile int MouseHandler_yVolatile;
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		longValue = 8820212074249144311L
+		longValue = -636943713526166011L
 	)
 	@Export("MouseHandler_lastMovedVolatile")
-	static volatile long MouseHandler_lastMovedVolatile;
-	@ObfuscatedName("at")
+	public static volatile long MouseHandler_lastMovedVolatile;
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = 560166427
+		intValue = 1157010823
 	)
 	@Export("MouseHandler_lastButtonVolatile")
-	static volatile int MouseHandler_lastButtonVolatile;
-	@ObfuscatedName("ae")
+	public static volatile int MouseHandler_lastButtonVolatile;
+	@ObfuscatedName("ar")
 	@ObfuscatedGetter(
-		intValue = -1195633007
+		intValue = -97741091
 	)
 	@Export("MouseHandler_lastPressedXVolatile")
-	static volatile int MouseHandler_lastPressedXVolatile;
-	@ObfuscatedName("av")
+	public static volatile int MouseHandler_lastPressedXVolatile;
+	@ObfuscatedName("ah")
 	@ObfuscatedGetter(
-		intValue = -633123169
+		intValue = 91655167
 	)
 	@Export("MouseHandler_lastPressedYVolatile")
-	static volatile int MouseHandler_lastPressedYVolatile;
-	@ObfuscatedName("ao")
+	public static volatile int MouseHandler_lastPressedYVolatile;
+	@ObfuscatedName("al")
 	@ObfuscatedGetter(
-		longValue = 8488725944337585033L
+		longValue = 2421848316951208745L
 	)
 	@Export("MouseHandler_lastPressedTimeMillisVolatile")
-	static volatile long MouseHandler_lastPressedTimeMillisVolatile;
-	@ObfuscatedName("pt")
-	@ObfuscatedSignature(
-		descriptor = "[Lwd;"
+	public static volatile long MouseHandler_lastPressedTimeMillisVolatile;
+	@ObfuscatedName("oe")
+	@ObfuscatedGetter(
+		longValue = 7101070388861289055L
 	)
-	@Export("headIconPrayerSprites")
-	static SpritePixels[] headIconPrayerSprites;
+	static long field200;
 
 	static {
 		MouseHandler_currentButton = 0;
@@ -151,10 +153,10 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
 	MouseHandler() {
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/awt/event/MouseEvent;I)I",
-		garbageValue = "-1921088431"
+		garbageValue = "131071"
 	)
 	@Export("getButton")
 	final int getButton(MouseEvent var1) {
@@ -181,13 +183,41 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
 			MouseHandler_idleCycles = 0;
 			MouseHandler_lastPressedXVolatile = var1.getX();
 			MouseHandler_lastPressedYVolatile = var1.getY();
-			MouseHandler_lastPressedTimeMillisVolatile = class180.method3973();
+			MouseHandler_lastPressedTimeMillisVolatile = ParamComposition.method4708();
 			MouseHandler_lastButtonVolatile = this.getButton(var1);
 			if (MouseHandler_lastButtonVolatile != 0) {
 				MouseHandler_currentButtonVolatile = MouseHandler_lastButtonVolatile;
 			}
 		}
 
+		if (var1.isPopupTrigger()) {
+			var1.consume();
+		}
+
+	}
+
+	public final synchronized void focusLost(FocusEvent var1) {
+		if (MouseHandler_instance != null) {
+			MouseHandler_currentButtonVolatile = 0;
+		}
+
+	}
+
+	public final synchronized void mouseEntered(MouseEvent var1) {
+		this.mouseMoved(var1);
+	}
+
+	public final synchronized void mouseExited(MouseEvent var1) {
+		if (MouseHandler_instance != null) {
+			MouseHandler_idleCycles = 0;
+			MouseHandler_xVolatile = -1;
+			MouseHandler_yVolatile = -1;
+			MouseHandler_lastMovedVolatile = var1.getWhen();
+		}
+
+	}
+
+	public final void mouseClicked(MouseEvent var1) {
 		if (var1.isPopupTrigger()) {
 			var1.consume();
 		}
@@ -206,53 +236,112 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
 
 	}
 
-	public final void mouseClicked(MouseEvent var1) {
-		if (var1.isPopupTrigger()) {
-			var1.consume();
-		}
-
-	}
-
-	public final synchronized void mouseExited(MouseEvent var1) {
-		if (MouseHandler_instance != null) {
-			MouseHandler_idleCycles = 0;
-			MouseHandler_xVolatile = -1;
-			MouseHandler_yVolatile = -1;
-			MouseHandler_lastMovedVolatile = var1.getWhen();
-		}
-
+	public final void focusGained(FocusEvent var1) {
 	}
 
 	public final synchronized void mouseDragged(MouseEvent var1) {
 		this.mouseMoved(var1);
 	}
 
-	public final void focusGained(FocusEvent var1) {
-	}
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(Lorg/json/JSONObject;Ljava/lang/String;S)[F",
+		garbageValue = "-3275"
+	)
+	static float[] method703(JSONObject var0, String var1) throws JSONException {
+		float[] var2 = new float[4];
 
-	public final synchronized void focusLost(FocusEvent var1) {
-		if (MouseHandler_instance != null) {
-			MouseHandler_currentButtonVolatile = 0;
+		try {
+			JSONArray var3 = var0.getJSONArray(var1);
+			var2[0] = (float)var3.optDouble(0, 0.0D);
+			var2[1] = (float)var3.optDouble(1, 0.0D);
+			var2[2] = (float)var3.optDouble(2, 1.0D);
+			var2[3] = (float)var3.optDouble(3, 1.0D);
+		} catch (JSONException var4) {
+			var2[0] = 0.0F;
+			var2[1] = 0.0F;
+			var2[2] = 1.0F;
+			var2[3] = 1.0F;
 		}
 
+		return var2;
 	}
 
-	public final synchronized void mouseEntered(MouseEvent var1) {
-		this.mouseMoved(var1);
-	}
-
-	@ObfuscatedName("ph")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "-1410406466"
+		descriptor = "(Lbn;Lbn;IZIZI)I",
+		garbageValue = "93619784"
 	)
-	static void method677(int var0) {
-		SequenceDefinition var1 = VarpDefinition.SequenceDefinition_get(var0);
-		if (var1.isCachedModelIdSet()) {
-			if (class36.method700(var1.SequenceDefinition_cachedModelId) == 2) {
-				Client.field593.add(var1.SequenceDefinition_cachedModelId);
+	static int method744(World var0, World var1, int var2, boolean var3, int var4, boolean var5) {
+		int var6 = class107.compareWorlds(var0, var1, var2, var3);
+		if (var6 != 0) {
+			return var3 ? -var6 : var6;
+		} else if (var4 == -1) {
+			return 0;
+		} else {
+			int var7 = class107.compareWorlds(var0, var1, var4, var5);
+			return var5 ? -var7 : var7;
+		}
+	}
+
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "(Lof;I[B[BS)V",
+		garbageValue = "512"
+	)
+	@Export("Widget_setKey")
+	static final void Widget_setKey(Widget var0, int var1, byte[] var2, byte[] var3) {
+		if (var0.field4263 == null) {
+			if (var2 == null) {
+				return;
 			}
 
+			var0.field4263 = new byte[11][];
+			var0.field4293 = new byte[11][];
+			var0.field4294 = new int[11];
+			var0.field4295 = new int[11];
 		}
+
+		var0.field4263[var1] = var2;
+		if (var2 != null) {
+			var0.field4291 = true;
+		} else {
+			var0.field4291 = false;
+
+			for (int var4 = 0; var4 < var0.field4263.length; ++var4) {
+				if (var0.field4263[var4] != null) {
+					var0.field4291 = true;
+					break;
+				}
+			}
+		}
+
+		var0.field4293[var1] = var3;
+	}
+
+	@ObfuscatedName("il")
+	@ObfuscatedSignature(
+		descriptor = "(II)V",
+		garbageValue = "-1333322062"
+	)
+	@Export("setWindowedMode")
+	static void setWindowedMode(int var0) {
+		Client.field323 = 0L;
+		if (var0 >= 2) {
+			Client.isResizable = true;
+		} else {
+			Client.isResizable = false;
+		}
+
+		if (class182.getWindowedMode() == 1) {
+			SecureUrlRequester.client.setMaxCanvasSize(765, 503);
+		} else {
+			SecureUrlRequester.client.setMaxCanvasSize(7680, 2160);
+		}
+
+		if (Client.gameState >= 25) {
+			class439.method8922();
+		}
+
 	}
 }

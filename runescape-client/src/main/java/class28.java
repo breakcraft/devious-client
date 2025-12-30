@@ -1,44 +1,215 @@
+import java.util.Arrays;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bl")
+@ObfuscatedName("bg")
 public class class28 {
-	@ObfuscatedName("ao")
+	@ObfuscatedName("cu")
 	@ObfuscatedGetter(
-		intValue = 2142261841
+		intValue = -56379655
 	)
-	@Export("cacheGamebuild")
-	static int cacheGamebuild;
-	@ObfuscatedName("dy")
-	@Export("KeyHandler_keyCodes")
-	static int[] KeyHandler_keyCodes;
-	@ObfuscatedName("jf")
-	@ObfuscatedSignature(
-		descriptor = "Lqt;"
+	@Export("otpMedium")
+	static int otpMedium;
+	@ObfuscatedName("um")
+	@ObfuscatedGetter(
+		intValue = 1039921429
 	)
-	@Export("clientLanguage")
-	static Language clientLanguage;
+	static int field124;
+	@ObfuscatedName("ak")
+	int[] field123;
+	@ObfuscatedName("aw")
+	int[] field122;
 
-	static {
-		KeyHandler_keyCodes = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, 85, 80, 84, -1, 91, -1, -1, -1, 81, 82, 86, -1, -1, -1, -1, -1, -1, -1, -1, 13, -1, -1, -1, -1, 83, 104, 105, 103, 102, 96, 98, 97, 99, -1, -1, -1, -1, -1, -1, -1, 25, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1, -1, -1, -1, -1, -1, -1, 48, 68, 66, 50, 34, 51, 52, 53, 39, 54, 55, 56, 70, 69, 40, 41, 32, 35, 49, 36, 38, 67, 33, 65, 37, 64, -1, -1, -1, -1, -1, 228, 231, 227, 233, 224, 219, 225, 230, 226, 232, 89, 87, -1, 88, 229, 90, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, -1, -1, -1, 101, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 100, -1, 87, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+	public class28() {
+		this.field123 = new int[112];
+		this.field122 = new int[192];
+		Arrays.fill(this.field123, 3);
+		Arrays.fill(this.field122, 3);
 	}
 
-	@ObfuscatedName("jp")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Ldl;IIB)V",
-		garbageValue = "-11"
+		descriptor = "(III)V",
+		garbageValue = "-1772320261"
 	)
-	static final void method437(WorldView var0, int var1, int var2) {
-		if (Client.hintArrowType == 2) {
-			int var3 = Client.hintArrowSubX * 4096 + (Client.hintArrowX - var0.baseX << 7);
-			int var4 = Client.hintArrowSubY * 64 + (Client.hintArrowY - var0.baseY << 7);
-			GraphicsObject.worldToScreen(var0, var3, var4, var3, var4, Client.hintArrowHeight * 4);
-			if (Client.viewportTempX > -1 && Client.cycle % 20 < 10) {
-				Varps.headIconHintSprites[0].drawTransBgAt(Client.viewportTempX + var1 - 12, var2 + Client.viewportTempY - 28);
-			}
+	public void method424(int var1, int var2) {
+		if (this.method432(var1) && this.method434(var2)) {
+			this.field123[var1] = var2;
+		}
 
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(CII)V",
+		garbageValue = "-371900800"
+	)
+	public void method460(char var1, int var2) {
+		if (this.method435(var1) && this.method434(var2)) {
+			this.field122[var1] = var2;
+		}
+
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(IB)I",
+		garbageValue = "12"
+	)
+	public int method452(int var1) {
+		return this.method432(var1) ? this.field123[var1] : 0;
+	}
+
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "(CI)I",
+		garbageValue = "1833692068"
+	)
+	public int method427(char var1) {
+		return this.method435(var1) ? this.field122[var1] : 0;
+	}
+
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "(II)Z",
+		garbageValue = "292724588"
+	)
+	public boolean method428(int var1) {
+		return this.method432(var1) && (this.field123[var1] == 1 || this.field123[var1] == 3);
+	}
+
+	@ObfuscatedName("aj")
+	@ObfuscatedSignature(
+		descriptor = "(CI)Z",
+		garbageValue = "-565327984"
+	)
+	public boolean method431(char var1) {
+		return this.method435(var1) && (this.field122[var1] == 1 || this.field122[var1] == 3);
+	}
+
+	@ObfuscatedName("ak")
+	@ObfuscatedSignature(
+		descriptor = "(II)Z",
+		garbageValue = "-379544307"
+	)
+	public boolean method433(int var1) {
+		return this.method432(var1) && (this.field123[var1] == 2 || this.field123[var1] == 3);
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(CI)Z",
+		garbageValue = "931181298"
+	)
+	public boolean method436(char var1) {
+		return this.method435(var1) && (this.field122[var1] == 2 || this.field122[var1] == 3);
+	}
+
+	@ObfuscatedName("ap")
+	@ObfuscatedSignature(
+		descriptor = "(II)Z",
+		garbageValue = "-896834913"
+	)
+	boolean method432(int var1) {
+		if (var1 >= 0 && var1 < 112) {
+			return true;
+		} else {
+			System.out.println("Invalid keycode: " + var1);
+			return false;
+		}
+	}
+
+	@ObfuscatedName("ay")
+	@ObfuscatedSignature(
+		descriptor = "(CI)Z",
+		garbageValue = "-1005624215"
+	)
+	boolean method435(char var1) {
+		if (var1 >= 0 && var1 < 192) {
+			return true;
+		} else {
+			System.out.println("Invalid keychar: " + var1);
+			return false;
+		}
+	}
+
+	@ObfuscatedName("au")
+	@ObfuscatedSignature(
+		descriptor = "(IB)Z",
+		garbageValue = "116"
+	)
+	boolean method434(int var1) {
+		if (var1 >= 0 && var1 < 4) {
+			return true;
+		} else {
+			System.out.println("Invalid mode: " + var1);
+			return false;
+		}
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(Lqm;Lqm;I)I",
+		garbageValue = "-1660319825"
+	)
+	static int method429(AbstractArchive var0, AbstractArchive var1) {
+		int var2 = 0;
+		String[] var3 = Login.field712;
+
+		int var4;
+		String var5;
+		for (var4 = 0; var4 < var3.length; ++var4) {
+			var5 = var3[var4];
+			if (var0.tryLoadFileByNames(var5, "")) {
+				++var2;
+			}
+		}
+
+		var3 = Login.field701;
+
+		for (var4 = 0; var4 < var3.length; ++var4) {
+			var5 = var3[var4];
+			if (var1.tryLoadFileByNames(var5, "")) {
+				++var2;
+			}
+		}
+
+		var3 = Login.field714;
+
+		for (var4 = 0; var4 < var3.length; ++var4) {
+			var5 = var3[var4];
+			if (var1.getGroupId(var5) != -1 && var1.tryLoadFileByNames(var5, "")) {
+				++var2;
+			}
+		}
+
+		return var2;
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "([Ljava/lang/String;[IB)V",
+		garbageValue = "115"
+	)
+	public static void method466(String[] var0, int[] var1) {
+		WorldMapID.quicksortStringsWithCorrespondingIntegers(var0, var1, 0, var0.length - 1);
+	}
+
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "(Lof;B)I",
+		garbageValue = "-77"
+	)
+	static int method465(Widget var0) {
+		if (var0.type != 11) {
+			Interpreter.Interpreter_objectStack[SecureRandomFuture.Interpreter_objectStackSize - 1] = "";
+			return 1;
+		} else {
+			String var1 = (String)Interpreter.Interpreter_objectStack[--SecureRandomFuture.Interpreter_objectStackSize];
+			Interpreter.Interpreter_objectStack[++SecureRandomFuture.Interpreter_objectStackSize - 1] = var0.method8185(var1);
+			return 1;
 		}
 	}
 }

@@ -372,7 +372,7 @@ public interface Widget extends Interactable, Identifiable
 	 * Gets the sprite ID displayed in the widget.
 	 *
 	 * @return the sprite ID
-	 * @see net.runelite.api.SpriteID
+	 * @see net.runelite.api.gameval.SpriteID
 	 */
 	int getSpriteId();
 
@@ -390,7 +390,7 @@ public interface Widget extends Interactable, Identifiable
 	 * Sets the sprite ID displayed in the widget.
 	 *
 	 * @param spriteId the sprite ID
-	 * @see net.runelite.api.SpriteID
+	 * @see net.runelite.api.gameval.SpriteID
 	 */
 	Widget setSpriteId(int spriteId);
 
@@ -824,6 +824,30 @@ public interface Widget extends Interactable, Identifiable
 	 * @see #getBorderType
 	 */
 	void setBorderType(int thickness);
+
+	/**
+	 * Get if this graphic flipped vertically
+	 * @return
+	 */
+	boolean isFlippedVertically();
+
+	/**
+	 * Set if this graphic is flipped vertically
+	 * @param flip
+	 */
+	void setFlippedVertically(boolean flip);
+
+	/**
+	 * Get if this graphic flipped horizontally
+	 * @return
+	 */
+	boolean isFlippedHorizontally();
+
+	/**
+	 * Set if this graphic is flipped horizontally
+	 * @param flip
+	 */
+	void setFlippedHorizontally(boolean flip);
 
 	/**
 	 * Returns if text is shadowed

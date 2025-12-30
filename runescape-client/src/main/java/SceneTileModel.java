@@ -2,84 +2,84 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("jn")
+@ObfuscatedName("kr")
 @Implements("SceneTileModel")
 public final class SceneTileModel {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@Export("triangleTextureIndices")
 	static final int[][] triangleTextureIndices;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@Export("faceIndices")
 	static final int[][] faceIndices;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@Export("verticesX")
-	static int[] verticesX;
-	@ObfuscatedName("ai")
+	static float[] verticesX;
+	@ObfuscatedName("an")
 	@Export("verticesY")
-	static int[] verticesY;
-	@ObfuscatedName("al")
+	static float[] verticesY;
+	@ObfuscatedName("ae")
 	@Export("verticesZ")
 	static float[] verticesZ;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@Export("triangleTexturesX")
 	static int[] triangleTexturesX;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@Export("triangleTexturesY")
 	static int[] triangleTexturesY;
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@Export("triangleTexturesZ")
 	static int[] triangleTexturesZ;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@Export("vertexX")
 	int[] vertexX;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@Export("vertexY")
 	int[] vertexY;
 	@ObfuscatedName("au")
 	@Export("vertexZ")
 	int[] vertexZ;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("az")
 	@Export("triangleColorA")
 	int[] triangleColorA;
 	@ObfuscatedName("ad")
 	@Export("triangleColorB")
 	int[] triangleColorB;
-	@ObfuscatedName("af")
+	@ObfuscatedName("ai")
 	@Export("triangleColorC")
 	int[] triangleColorC;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("as")
 	@Export("faceX")
 	int[] faceX;
-	@ObfuscatedName("az")
+	@ObfuscatedName("ac")
 	@Export("faceY")
 	int[] faceY;
-	@ObfuscatedName("aw")
+	@ObfuscatedName("ab")
 	@Export("faceZ")
 	int[] faceZ;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ax")
 	@Export("triangleTextureId")
 	int[] triangleTextureId;
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@Export("isFlat")
 	boolean isFlat;
-	@ObfuscatedName("av")
+	@ObfuscatedName("ah")
 	@Export("shape")
 	int shape;
-	@ObfuscatedName("ao")
+	@ObfuscatedName("al")
 	@Export("rotation")
 	int rotation;
-	@ObfuscatedName("as")
+	@ObfuscatedName("af")
 	@Export("underlayRgb")
 	int underlayRgb;
-	@ObfuscatedName("ax")
+	@ObfuscatedName("am")
 	@Export("overlayRgb")
 	int overlayRgb;
 
 	static {
 		triangleTextureIndices = new int[][]{{1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 6}, {1, 3, 5, 7, 2, 6}, {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 2, 8}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 11, 12}, {1, 3, 5, 7, 13, 14}};
 		faceIndices = new int[][]{{0, 1, 2, 3, 0, 0, 1, 3}, {1, 1, 2, 3, 1, 0, 1, 3}, {0, 1, 2, 3, 1, 0, 1, 3}, {0, 0, 1, 2, 0, 0, 2, 4, 1, 0, 4, 3}, {0, 0, 1, 4, 0, 0, 4, 3, 1, 1, 2, 4}, {0, 0, 4, 3, 1, 0, 1, 2, 1, 0, 2, 4}, {0, 1, 2, 4, 1, 0, 1, 4, 1, 0, 4, 3}, {0, 4, 1, 2, 0, 4, 2, 5, 1, 0, 4, 5, 1, 0, 5, 3}, {0, 4, 1, 2, 0, 4, 2, 3, 0, 4, 3, 5, 1, 0, 4, 5}, {0, 0, 4, 5, 1, 4, 1, 2, 1, 4, 2, 3, 1, 4, 3, 5}, {0, 0, 1, 5, 0, 1, 4, 5, 0, 1, 2, 4, 1, 0, 5, 3, 1, 5, 4, 3, 1, 4, 2, 3}, {1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3}, {1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5}};
-		verticesX = new int[6];
-		verticesY = new int[6];
+		verticesX = new float[6];
+		verticesY = new float[6];
 		verticesZ = new float[6];
 		triangleTexturesX = new int[6];
 		triangleTexturesY = new int[6];

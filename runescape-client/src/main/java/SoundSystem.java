@@ -3,12 +3,12 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("da")
+@ObfuscatedName("dg")
 @Implements("SoundSystem")
 public class SoundSystem implements Runnable {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "[Ldc;"
+		descriptor = "[Ldm;"
 	)
 	@Export("players")
 	volatile PcmPlayer[] players;
@@ -26,60 +26,38 @@ public class SoundSystem implements Runnable {
 				}
 			}
 		} catch (Exception var4) {
-			class569.RunException_sendStackTrace((String)null, var4);
+			PlayerType.RunException_sendStackTrace((String)null, var4);
 		}
 
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "807833514"
+		descriptor = "(II)Ljava/lang/String;",
+		garbageValue = "2127187032"
 	)
-	static int method2980() {
-		return ++Messages.Messages_count - 1;
+	static String method3226(int var0) {
+		return "<img=" + var0 + ">";
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)[Loh;",
-		garbageValue = "-2065050190"
+		descriptor = "(I)V",
+		garbageValue = "-1151648316"
 	)
-	public static class389[] method2977() {
-		return new class389[]{class389.field4605, class389.field4601, class389.TOKEN};
-	}
-
-	@ObfuscatedName("mj")
-	@ObfuscatedSignature(
-		descriptor = "(Lov;I)Z",
-		garbageValue = "-336178722"
-	)
-	@Export("runCs1")
-	static final boolean runCs1(Widget var0) {
-		if (var0.cs1Comparisons == null) {
-			return false;
-		} else {
-			for (int var1 = 0; var1 < var0.cs1Comparisons.length; ++var1) {
-				int var2 = class71.method2212(var0, var1);
-				int var3 = var0.cs1ComparisonValues[var1];
-				if (var0.cs1Comparisons[var1] == 2) {
-					if (var2 >= var3) {
-						return false;
-					}
-				} else if (var0.cs1Comparisons[var1] == 3) {
-					if (var2 <= var3) {
-						return false;
-					}
-				} else if (var0.cs1Comparisons[var1] == 4) {
-					if (var2 == var3) {
-						return false;
-					}
-				} else if (var2 != var3) {
-					return false;
-				}
-			}
-
-			return true;
-		}
+	static void method3227() {
+		Tiles.Tiles_minPlane = 99;
+		class33.Tiles_underlays = new short[4][104][104];
+		class623.Tiles_overlays = new short[4][104][104];
+		class200.Tiles_shapes = new byte[4][104][104];
+		HttpRequest.field49 = new byte[4][104][104];
+		class148.field1747 = new int[4][105][105];
+		Tiles.Tiles_underlays2 = new byte[4][105][105];
+		MouseRecorder.field868 = new int[105][105];
+		WorldMapSectionType.Tiles_hue = new int[104];
+		class565.Tiles_saturation = new int[104];
+		class67.Tiles_lightness = new int[104];
+		class161.Tiles_hueMultiplier = new int[104];
+		class154.field1785 = new int[104];
 	}
 }

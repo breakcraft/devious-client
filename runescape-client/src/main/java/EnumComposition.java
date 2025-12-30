@@ -3,67 +3,68 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
+import net.runelite.rs.ScriptOpcodes;
 
-@ObfuscatedName("hy")
+@ObfuscatedName("hb")
 @Implements("EnumComposition")
 public class EnumComposition extends DualNode {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
+		descriptor = "Lqm;"
 	)
 	@Export("EnumDefinition_archive")
 	public static AbstractArchive EnumDefinition_archive;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("EnumDefinition_cached")
 	static EvictingDualNodeHashTable EnumDefinition_cached;
-	@ObfuscatedName("bj")
-	@ObfuscatedGetter(
-		intValue = -1618932575
-	)
-	static int field1991;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ai")
+	public static int field2063;
+	@ObfuscatedName("as")
+	@Export("osName")
+	static String osName;
+	@ObfuscatedName("ag")
 	@Export("inputType")
 	public char inputType;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@Export("outputType")
 	public char outputType;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("defaultStr")
 	public String defaultStr;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedGetter(
-		intValue = -311000709
+		intValue = 1780171489
 	)
 	@Export("defaultInt")
 	public int defaultInt;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 1232725907
+		intValue = -132553189
 	)
 	@Export("outputCount")
 	public int outputCount;
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@Export("keys")
 	public int[] keys;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@Export("intVals")
 	public int[] intVals;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@Export("strVals")
 	public String[] strVals;
 	@ObfuscatedName("au")
 	@ObfuscatedSignature(
-		descriptor = "Ltp;"
+		descriptor = "Lut;"
 	)
-	class509 field1998;
-	@ObfuscatedName("ar")
+	DynamicArray field2069;
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "Ltp;"
+		descriptor = "Lut;"
 	)
-	class509 field1988;
+	DynamicArray field2073;
 
 	static {
 		EnumDefinition_cached = new EvictingDualNodeHashTable(64);
@@ -74,10 +75,10 @@ public class EnumComposition extends DualNode {
 		this.outputCount = 0;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1088034478"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "85"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -91,10 +92,10 @@ public class EnumComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;II)V",
-		garbageValue = "436526466"
+		descriptor = "(Lxa;IB)V",
+		garbageValue = "46"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -131,69 +132,201 @@ public class EnumComposition extends DualNode {
 
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "599549872"
+		garbageValue = "89055037"
 	)
 	@Export("size")
 	public int size() {
 		return this.outputCount;
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ltp;",
-		garbageValue = "-1741019282"
+		descriptor = "(I)Lut;",
+		garbageValue = "1579342349"
 	)
-	public class509 method4107() {
-		if (this.field1998 == null) {
+	public DynamicArray method4427() {
+		if (this.field2069 == null) {
 			int[] var2 = this.keys;
-			class509 var3 = new class509(class563.field5600, false);
-			var3.field5294 = var2;
-			var3.field5287 = var2.length * 1090132113;
-			var3.field5291 = var2.length;
-			this.field1998 = var3;
+			DynamicArray var3 = new DynamicArray(class586.field5937, false);
+			var3.array = var2;
+			var3.size = var2.length * -1205286309;
+			var3.field5587 = var2.length;
+			this.field2069 = var3;
 		}
 
-		return this.field1998;
+		return this.field2069;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ltp;",
-		garbageValue = "-957403934"
+		descriptor = "(I)Lut;",
+		garbageValue = "-1693502457"
 	)
-	public class509 method4112() {
-		if (this.field1988 == null) {
+	public DynamicArray method4428() {
+		if (this.field2073 == null) {
+			DynamicArray var3;
 			if (this.outputType == 's') {
-				this.field1988 = ChatChannel.method2005(this.strVals);
+				String[] var2 = this.strVals;
+				var3 = new DynamicArray(class586.field5939, false);
+				var3.field5586 = var2;
+				var3.size = var2.length * -1205286309;
+				var3.field5587 = var2.length;
+				this.field2073 = var3;
 			} else {
-				int[] var2 = this.intVals;
-				class509 var3 = new class509(class563.field5600, false);
-				var3.field5294 = var2;
-				var3.field5287 = var2.length * 1090132113;
-				var3.field5291 = var2.length;
-				this.field1988 = var3;
+				int[] var4 = this.intVals;
+				var3 = new DynamicArray(class586.field5937, false);
+				var3.array = var4;
+				var3.size = var4.length * -1205286309;
+				var3.field5587 = var4.length;
+				this.field2073 = var3;
 			}
 		}
 
-		return this.field1988;
+		return this.field2073;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lps;Lps;II)Z",
-		garbageValue = "-714407408"
+		descriptor = "(III)Lcu;",
+		garbageValue = "1410068873"
 	)
-	public static boolean method4121(AbstractArchive var0, AbstractArchive var1, int var2) {
-		byte[] var3 = var0.getFile(var2 >> 16 & 65535, var2 & 65535);
-		if (var3 == null) {
-			return false;
+	@Export("getScript")
+	static Script getScript(int var0, int var1) {
+		Script var2 = (Script)Script.Script_cached.get((long)(var0 << 16));
+		if (var2 != null) {
+			return var2;
 		} else {
-			int var4 = (var3[1] & 255) << 8 | var3[2] & 255;
-			byte[] var5 = var1.getFile(var4, 0);
-			return var5 != null;
+			String var3 = String.valueOf(var0);
+			int var4 = WorldMapRectangle.archive12.getGroupId(var3);
+			if (var4 == -1) {
+				return null;
+			} else {
+				byte[] var5 = WorldMapRectangle.archive12.takeFileFlat(var4);
+				if (var5 != null) {
+					if (var5.length <= 1) {
+						return null;
+					}
+
+					var2 = UserComparator3.newScript(var5);
+					if (var2 != null) {
+						Script.Script_cached.put(var2, (long)(var0 << 16));
+						return var2;
+					}
+				}
+
+				return null;
+			}
 		}
+	}
+
+	@ObfuscatedName("ah")
+	@ObfuscatedSignature(
+		descriptor = "(ILcu;ZB)I",
+		garbageValue = "0"
+	)
+	static int method4440(int var0, Script var1, boolean var2) {
+		Widget var3 = var2 ? UserComparator3.scriptDotWidget : class222.scriptActiveWidget;
+		if (var0 == ScriptOpcodes.CC_GETX) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var3.x;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETY) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var3.y;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETWIDTH) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var3.width * -1946208531;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETHEIGHT) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var3.height * -905446999;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETHIDE) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var3.isHidden ? 1 : 0;
+			return 1;
+		} else if (var0 == ScriptOpcodes.CC_GETLAYER) {
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var3.parentId;
+			return 1;
+		} else if (var0 != 1506) {
+			return 2;
+		} else {
+			int var4 = var3.parentId;
+			if (var4 == -1) {
+				for (InterfaceParent var5 = (InterfaceParent)Client.interfaceParents.first(); var5 != null; var5 = (InterfaceParent)Client.interfaceParents.next()) {
+					if (var3.id >> 16 == var5.group) {
+						var4 = (int)var5.key;
+						break;
+					}
+				}
+			}
+
+			Interpreter.Interpreter_intStack[++class408.Interpreter_intStackSize - 1] = var4;
+			return 1;
+		}
+	}
+
+	@ObfuscatedName("al")
+	@ObfuscatedSignature(
+		descriptor = "(Lbn;I)V",
+		garbageValue = "-1579678277"
+	)
+	@Export("changeWorld")
+	static void changeWorld(World var0) {
+		if (var0.isMembersOnly() != Client.isMembersWorld) {
+			Client.isMembersWorld = var0.isMembersOnly();
+			class189.method4412(var0.isMembersOnly());
+		}
+
+		if (var0.properties != Client.worldProperties) {
+			Archive var1 = class147.archive8;
+			int var2 = var0.properties;
+			if ((var2 & class594.field5995.rsOrdinal()) != 0) {
+				class50.logoSprite = HttpRequestTask.SpriteBuffer_getIndexedSpriteByName(var1, "logo_deadman_mode", "");
+			} else if ((var2 & class594.field5996.rsOrdinal()) != 0) {
+				class50.logoSprite = HttpRequestTask.SpriteBuffer_getIndexedSpriteByName(var1, "logo_seasonal_mode", "");
+			} else if ((var2 & class594.field5986.rsOrdinal()) != 0) {
+				class50.logoSprite = HttpRequestTask.SpriteBuffer_getIndexedSpriteByName(var1, "logo_speedrunning", "");
+			} else if ((var2 & class594.field5976.rsOrdinal()) != 0) {
+				class50.logoSprite = HttpRequestTask.SpriteBuffer_getIndexedSpriteByName(var1, "logo_ugc_world", "");
+			} else {
+				class50.logoSprite = HttpRequestTask.SpriteBuffer_getIndexedSpriteByName(var1, "logo", "");
+			}
+		}
+
+		DynamicArray.worldHost = var0.host;
+		Client.worldId = var0.id;
+		Client.worldProperties = var0.properties;
+		class365.field4083 = var0.field590;
+		WorldMapLabel.worldPort = Client.gameBuild == 0 ? 43594 : var0.id + 40000;
+		class532.js5Port = Client.gameBuild == 0 ? 443 : var0.id + 50000;
+		class46.currentPort = WorldMapLabel.worldPort;
+	}
+
+	@ObfuscatedName("ox")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/lang/String;ZI)Ljava/lang/String;",
+		garbageValue = "712653874"
+	)
+	static String method4451(String var0, boolean var1) {
+		String var2 = var1 ? "https://" : "http://";
+		if (Client.gameBuild == 1) {
+			var0 = var0 + "-wtrc";
+		} else if (Client.gameBuild == 2) {
+			var0 = var0 + "-wtqa";
+		} else if (Client.gameBuild == 3) {
+			var0 = var0 + "-wtwip";
+		} else if (Client.gameBuild == 5) {
+			var0 = var0 + "-wti";
+		} else if (Client.gameBuild == 4) {
+			var0 = "local";
+		}
+
+		String var3 = "";
+		if (class39.field241 != null) {
+			var3 = "/p=" + class39.field241;
+		}
+
+		String var4 = "runescape.com";
+		return var2 + var0 + "." + var4 + "/l=" + class352.clientLanguage + "/a=" + class570.field5884 + var3 + "/";
 	}
 }

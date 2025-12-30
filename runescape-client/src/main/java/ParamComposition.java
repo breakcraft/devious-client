@@ -4,34 +4,33 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("hl")
+@ObfuscatedName("ip")
 @Implements("ParamComposition")
 public class ParamComposition extends DualNode {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lps;"
-	)
-	@Export("ParamDefinition_archive")
-	static AbstractArchive ParamDefinition_archive;
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lmc;"
 	)
 	@Export("ParamDefinition_cached")
 	public static EvictingDualNodeHashTable ParamDefinition_cached;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ku")
+	@ObfuscatedSignature(
+		descriptor = "Lqn;"
+	)
+	static Archive field2290;
+	@ObfuscatedName("ag")
 	@Export("type")
 	char type;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 116433547
+		intValue = -822826545
 	)
 	@Export("defaultInt")
 	public int defaultInt;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("defaultStr")
 	public String defaultStr;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@Export("autoDisable")
 	boolean autoDisable;
 
@@ -43,19 +42,19 @@ public class ParamComposition extends DualNode {
 		this.autoDisable = true;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-1060451547"
+		garbageValue = "653356064"
 	)
 	@Export("postDecode")
 	void postDecode() {
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-522712173"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "-1"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
@@ -69,31 +68,15 @@ public class ParamComposition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;II)V",
-		garbageValue = "-1016018465"
+		descriptor = "(Lxa;II)V",
+		garbageValue = "-1884940292"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
 		if (var2 == 1) {
-			byte var4 = var1.readByte();
-			int var5 = var4 & 255;
-			if (var5 == 0) {
-				throw new IllegalArgumentException("" + Integer.toString(var5, 16));
-			}
-
-			if (var5 >= 128 && var5 < 160) {
-				char var6 = class436.cp1252AsciiExtension[var5 - 128];
-				if (var6 == 0) {
-					var6 = '?';
-				}
-
-				var5 = var6;
-			}
-
-			char var3 = (char)var5;
-			this.type = var3;
+			this.type = GrandExchangeOfferUnitPriceComparator.method8810(var1.readByte());
 		} else if (var2 == 2) {
 			this.defaultInt = var1.readInt();
 		} else if (var2 == 4) {
@@ -104,13 +87,28 @@ public class ParamComposition extends DualNode {
 
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1089998298"
+		garbageValue = "-667029158"
 	)
 	@Export("isString")
 	public boolean isString() {
 		return this.type == 's';
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(B)J",
+		garbageValue = "15"
+	)
+	public static final synchronized long method4708() {
+		long var0 = System.currentTimeMillis();
+		if (var0 < class340.field3876) {
+			class182.field1969 += class340.field3876 - var0;
+		}
+
+		class340.field3876 = var0;
+		return class182.field1969 + var0;
 	}
 }

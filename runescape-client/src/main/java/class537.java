@@ -1,12 +1,5 @@
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uz")
+@ObfuscatedName("un")
 public interface class537 {
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(I)Luf;",
-		garbageValue = "-1702265326"
-	)
-	PlatformInfo get();
 }

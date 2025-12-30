@@ -5,198 +5,198 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pm")
+@ObfuscatedName("qy")
 @Implements("JagNetThread")
 public class JagNetThread {
-	@ObfuscatedName("aa")
-	@ObfuscatedGetter(
-		intValue = 2135729601
-	)
-	public int field4783;
-	@ObfuscatedName("am")
-	@ObfuscatedGetter(
-		intValue = -1497446533
-	)
-	public int field4774;
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "Ltg;"
-	)
-	AbstractSocket field4778;
-	@ObfuscatedName("ag")
-	@ObfuscatedGetter(
-		intValue = 120578065
-	)
-	int field4779;
-	@ObfuscatedName("au")
-	@ObfuscatedGetter(
-		longValue = -3444609004346570039L
-	)
-	long field4780;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Lqq;"
-	)
-	NodeHashTable field4773;
-	@ObfuscatedName("ad")
-	@ObfuscatedGetter(
-		intValue = -1143012625
-	)
-	int field4782;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lqq;"
-	)
-	NodeHashTable field4791;
 	@ObfuscatedName("ak")
 	@ObfuscatedGetter(
-		intValue = 2041838861
+		intValue = 806043863
 	)
-	int field4777;
-	@ObfuscatedName("az")
-	@ObfuscatedSignature(
-		descriptor = "Lqz;"
-	)
-	DualNodeDeque field4785;
+	public int field5044;
 	@ObfuscatedName("aw")
-	@ObfuscatedSignature(
-		descriptor = "Lqq;"
-	)
-	NodeHashTable field4786;
-	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 2004348249
+		intValue = -670632807
 	)
-	int field4772;
-	@ObfuscatedName("ae")
-	@ObfuscatedSignature(
-		descriptor = "Lqq;"
-	)
-	NodeHashTable field4788;
-	@ObfuscatedName("av")
-	@ObfuscatedGetter(
-		intValue = 1167804307
-	)
-	int field4789;
-	@ObfuscatedName("ao")
-	boolean field4790;
-	@ObfuscatedName("as")
-	@ObfuscatedSignature(
-		descriptor = "Lpg;"
-	)
-	class404 field4787;
-	@ObfuscatedName("ax")
-	@ObfuscatedSignature(
-		descriptor = "Lwt;"
-	)
-	Buffer field4792;
-	@ObfuscatedName("ab")
-	@ObfuscatedSignature(
-		descriptor = "Lwt;"
-	)
-	Buffer field4784;
-	@ObfuscatedName("aq")
-	@ObfuscatedGetter(
-		intValue = 940967045
-	)
-	int field4794;
-	@ObfuscatedName("ay")
-	CRC32 field4795;
-	@ObfuscatedName("ba")
-	@ObfuscatedSignature(
-		descriptor = "Lwt;"
-	)
-	Buffer field4796;
-	@ObfuscatedName("bx")
-	@ObfuscatedSignature(
-		descriptor = "[Lpu;"
-	)
-	Archive[] field4797;
-	@ObfuscatedName("bl")
-	@ObfuscatedGetter(
-		intValue = -1111991185
-	)
-	int field4798;
-	@ObfuscatedName("bi")
-	@ObfuscatedGetter(
-		intValue = 1641887113
-	)
-	int field4781;
-	@ObfuscatedName("bv")
-	byte field4799;
-
-	public JagNetThread() {
-		this.field4783 = 0;
-		this.field4774 = 0;
-		this.field4779 = 0;
-		this.field4773 = new NodeHashTable(4096);
-		this.field4782 = 0;
-		this.field4791 = new NodeHashTable(32);
-		this.field4777 = 0;
-		this.field4785 = new DualNodeDeque();
-		this.field4786 = new NodeHashTable(4096);
-		this.field4772 = 0;
-		this.field4788 = new NodeHashTable(4096);
-		this.field4789 = 0;
-		this.field4792 = new Buffer(8);
-		this.field4794 = 0;
-		this.field4795 = new CRC32();
-		this.field4797 = new Archive[256];
-		this.field4798 = -1;
-		this.field4781 = 255;
-		this.field4799 = 0;
-	}
-
+	public int field5045;
 	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "-81"
+		descriptor = "Ltd;"
 	)
-	public boolean method8166() {
-		long var1 = class180.method3973();
-		int var3 = (int)(var1 - this.field4780);
-		this.field4780 = var1;
+	AbstractSocket field5046;
+	@ObfuscatedName("ay")
+	@ObfuscatedGetter(
+		intValue = -695875905
+	)
+	int field5068;
+	@ObfuscatedName("au")
+	@ObfuscatedGetter(
+		longValue = 7245199905198616269L
+	)
+	long field5063;
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "Lqi;"
+	)
+	NodeHashTable field5049;
+	@ObfuscatedName("ad")
+	@ObfuscatedGetter(
+		intValue = 1350052665
+	)
+	int field5050;
+	@ObfuscatedName("ai")
+	@ObfuscatedSignature(
+		descriptor = "Lqi;"
+	)
+	NodeHashTable field5051;
+	@ObfuscatedName("as")
+	@ObfuscatedGetter(
+		intValue = 2050000033
+	)
+	int field5052;
+	@ObfuscatedName("ac")
+	@ObfuscatedSignature(
+		descriptor = "Lru;"
+	)
+	DualNodeDeque field5048;
+	@ObfuscatedName("ab")
+	@ObfuscatedSignature(
+		descriptor = "Lqi;"
+	)
+	NodeHashTable field5054;
+	@ObfuscatedName("ax")
+	@ObfuscatedGetter(
+		intValue = -1274357739
+	)
+	int field5055;
+	@ObfuscatedName("ar")
+	@ObfuscatedSignature(
+		descriptor = "Lqi;"
+	)
+	NodeHashTable field5056;
+	@ObfuscatedName("ah")
+	@ObfuscatedGetter(
+		intValue = 2003362371
+	)
+	int field5057;
+	@ObfuscatedName("al")
+	boolean field5047;
+	@ObfuscatedName("af")
+	@ObfuscatedSignature(
+		descriptor = "Lqs;"
+	)
+	class419 field5059;
+	@ObfuscatedName("am")
+	@ObfuscatedSignature(
+		descriptor = "Lxa;"
+	)
+	Buffer field5060;
+	@ObfuscatedName("ao")
+	@ObfuscatedSignature(
+		descriptor = "Lxa;"
+	)
+	Buffer field5061;
+	@ObfuscatedName("aa")
+	@ObfuscatedGetter(
+		intValue = -1218851699
+	)
+	int field5062;
+	@ObfuscatedName("aq")
+	CRC32 field5039;
+	@ObfuscatedName("be")
+	@ObfuscatedSignature(
+		descriptor = "Lxa;"
+	)
+	Buffer field5053;
+	@ObfuscatedName("bo")
+	@ObfuscatedSignature(
+		descriptor = "[Lqn;"
+	)
+	Archive[] field5065;
+	@ObfuscatedName("bg")
+	@ObfuscatedGetter(
+		intValue = 680976127
+	)
+	int field5058;
+	@ObfuscatedName("bs")
+	@ObfuscatedGetter(
+		intValue = -1854300211
+	)
+	int field5067;
+	@ObfuscatedName("bz")
+	byte field5040;
+
+	public JagNetThread() {
+		this.field5044 = 0;
+		this.field5045 = 0;
+		this.field5068 = 0;
+		this.field5049 = new NodeHashTable(4096);
+		this.field5050 = 0;
+		this.field5051 = new NodeHashTable(32);
+		this.field5052 = 0;
+		this.field5048 = new DualNodeDeque();
+		this.field5054 = new NodeHashTable(4096);
+		this.field5055 = 0;
+		this.field5056 = new NodeHashTable(4096);
+		this.field5057 = 0;
+		this.field5060 = new Buffer(8);
+		this.field5062 = 0;
+		this.field5039 = new CRC32();
+		this.field5065 = new Archive[256];
+		this.field5058 = -1;
+		this.field5067 = 255;
+		this.field5040 = 0;
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(I)Z",
+		garbageValue = "-2144995509"
+	)
+	public boolean method8711() {
+		long var1 = ParamComposition.method4708();
+		int var3 = (int)(var1 - this.field5063);
+		this.field5063 = var1;
 		if (var3 > 200) {
 			var3 = 200;
 		}
 
-		this.field4779 += var3;
-		if (this.field4789 == 0 && this.field4777 == 0 && this.field4772 == 0 && this.field4782 == 0) {
+		this.field5068 += var3;
+		if (this.field5057 == 0 && this.field5052 == 0 && this.field5055 == 0 && this.field5050 == 0) {
 			return true;
-		} else if (this.field4778 == null) {
+		} else if (this.field5046 == null) {
 			return false;
 		} else {
 			try {
-				if (this.field4779 > 30000) {
+				if (this.field5068 > 30000) {
 					throw new IOException();
 				} else {
-					class404 var4;
+					class419 var4;
 					Buffer var5;
-					while (this.field4777 < 200 && this.field4782 > 0) {
-						var4 = (class404)this.field4773.first();
+					while (this.field5052 < 200 && this.field5050 > 0) {
+						var4 = (class419)this.field5049.first();
 						var5 = new Buffer(4);
 						var5.writeByte(1);
 						var5.writeMedium((int)var4.key);
-						this.field4778.write(var5.array, 0, 4);
-						this.field4791.put(var4, var4.key);
-						--this.field4782;
-						++this.field4777;
+						this.field5046.write(var5.array, 0, 4);
+						this.field5051.put(var4, var4.key);
+						--this.field5050;
+						++this.field5052;
 					}
 
-					while (this.field4789 < 200 && this.field4772 > 0) {
-						var4 = (class404)this.field4785.removeLast();
+					while (this.field5057 < 200 && this.field5055 > 0) {
+						var4 = (class419)this.field5048.removeLast();
 						var5 = new Buffer(4);
 						var5.writeByte(0);
 						var5.writeMedium((int)var4.key);
-						this.field4778.write(var5.array, 0, 4);
+						this.field5046.write(var5.array, 0, 4);
 						var4.removeDual();
-						this.field4788.put(var4, var4.key);
-						--this.field4772;
-						++this.field4789;
+						this.field5056.put(var4, var4.key);
+						--this.field5055;
+						++this.field5057;
 					}
 
 					for (int var16 = 0; var16 < 100; ++var16) {
-						int var17 = this.field4778.available();
+						int var17 = this.field5046.available();
 						if (var17 < 0) {
 							throw new IOException();
 						}
@@ -205,11 +205,11 @@ public class JagNetThread {
 							break;
 						}
 
-						this.field4779 = 0;
+						this.field5068 = 0;
 						byte var6 = 0;
-						if (this.field4787 == null) {
+						if (this.field5059 == null) {
 							var6 = 8;
-						} else if (this.field4794 == 0) {
+						} else if (this.field5062 == 0) {
 							var6 = 1;
 						}
 
@@ -220,38 +220,38 @@ public class JagNetThread {
 						int var10001;
 						Buffer var22;
 						if (var6 > 0) {
-							var7 = var6 - this.field4792.offset;
+							var7 = var6 - this.field5060.offset * 2108391709;
 							if (var7 > var17) {
 								var7 = var17;
 							}
 
-							this.field4778.read(this.field4792.array, this.field4792.offset, var7);
-							if (this.field4799 != 0) {
+							this.field5046.read(this.field5060.array, this.field5060.offset * 2108391709, var7);
+							if (this.field5040 != 0) {
 								for (var8 = 0; var8 < var7; ++var8) {
-									var10000 = this.field4792.array;
-									var10001 = var8 + this.field4792.offset;
-									var10000[var10001] ^= this.field4799;
+									var10000 = this.field5060.array;
+									var10001 = var8 + this.field5060.offset * 2108391709;
+									var10000[var10001] ^= this.field5040;
 								}
 							}
 
-							var22 = this.field4792;
-							var22.offset += var7;
-							if (this.field4792.offset < var6) {
+							var22 = this.field5060;
+							var22.offset += 1741769013 * var7;
+							if (this.field5060.offset * 2108391709 < var6) {
 								break;
 							}
 
-							if (this.field4787 == null) {
-								this.field4792.offset = 0;
-								var8 = this.field4792.readUnsignedByte();
-								var9 = this.field4792.readUnsignedShort();
-								int var10 = this.field4792.readUnsignedByte();
-								int var11 = this.field4792.readInt();
+							if (this.field5059 == null) {
+								this.field5060.offset = 0;
+								var8 = this.field5060.readUnsignedByte();
+								var9 = this.field5060.readUnsignedShort();
+								int var10 = this.field5060.readUnsignedByte();
+								int var11 = this.field5060.readInt();
 								long var12 = (long)(var9 + (var8 << 16));
-								class404 var14 = (class404)this.field4791.get(var12);
-								this.field4790 = true;
+								class419 var14 = (class419)this.field5051.get(var12);
+								this.field5047 = true;
 								if (var14 == null) {
-									var14 = (class404)this.field4788.get(var12);
-									this.field4790 = false;
+									var14 = (class419)this.field5056.get(var12);
+									this.field5047 = false;
 								}
 
 								if (var14 == null) {
@@ -259,90 +259,90 @@ public class JagNetThread {
 								}
 
 								int var15 = var10 == 0 ? 5 : 9;
-								this.field4787 = var14;
-								this.field4784 = new Buffer(this.field4787.field4748 + var15 + var11);
-								this.field4784.writeByte(var10);
-								this.field4784.writeInt(var11);
-								this.field4794 = 8;
-								this.field4792.offset = 0;
-							} else if (this.field4794 == 0) {
-								if (this.field4792.array[0] == -1) {
-									this.field4794 = 1;
-									this.field4792.offset = 0;
+								this.field5059 = var14;
+								this.field5061 = new Buffer(this.field5059.field5014 + var15 + var11);
+								this.field5061.writeByte(var10);
+								this.field5061.writeInt(var11);
+								this.field5062 = 8;
+								this.field5060.offset = 0;
+							} else if (this.field5062 == 0) {
+								if (this.field5060.array[0] == -1) {
+									this.field5062 = 1;
+									this.field5060.offset = 0;
 								} else {
-									this.field4787 = null;
+									this.field5059 = null;
 								}
 							}
 						} else {
-							var7 = this.field4784.array.length - this.field4787.field4748;
-							var8 = 512 - this.field4794;
-							if (var8 > var7 - this.field4784.offset) {
-								var8 = var7 - this.field4784.offset;
+							var7 = this.field5061.array.length - this.field5059.field5014;
+							var8 = 512 - this.field5062;
+							if (var8 > var7 - this.field5061.offset * 2108391709) {
+								var8 = var7 - this.field5061.offset * 2108391709;
 							}
 
 							if (var8 > var17) {
 								var8 = var17;
 							}
 
-							this.field4778.read(this.field4784.array, this.field4784.offset, var8);
-							if (this.field4799 != 0) {
+							this.field5046.read(this.field5061.array, this.field5061.offset * 2108391709, var8);
+							if (this.field5040 != 0) {
 								for (var9 = 0; var9 < var8; ++var9) {
-									var10000 = this.field4784.array;
-									var10001 = var9 + this.field4784.offset;
-									var10000[var10001] ^= this.field4799;
+									var10000 = this.field5061.array;
+									var10001 = this.field5061.offset * 2108391709 + var9;
+									var10000[var10001] ^= this.field5040;
 								}
 							}
 
-							var22 = this.field4784;
-							var22.offset += var8;
-							this.field4794 += var8;
-							if (this.field4784.offset == var7) {
-								if (16711935L == this.field4787.key) {
-									this.field4796 = this.field4784;
+							var22 = this.field5061;
+							var22.offset += var8 * 1741769013;
+							this.field5062 += var8;
+							if (this.field5061.offset * 2108391709 == var7) {
+								if (this.field5059.key == 16711935L) {
+									this.field5053 = this.field5061;
 
 									for (var9 = 0; var9 < 256; ++var9) {
-										Archive var18 = this.field4797[var9];
+										Archive var18 = this.field5065[var9];
 										if (var18 != null) {
-											this.method8200(var18, var9);
+											this.method8688(var18, var9);
 										}
 									}
 								} else {
-									this.field4795.reset();
-									this.field4795.update(this.field4784.array, 0, var7);
-									var9 = (int)this.field4795.getValue();
-									if (this.field4787.field4747 != var9) {
+									this.field5039.reset();
+									this.field5039.update(this.field5061.array, 0, var7);
+									var9 = (int)this.field5039.getValue();
+									if (this.field5059.field5015 != var9) {
 										try {
-											this.field4778.close();
+											this.field5046.close();
 										} catch (Exception var20) {
 										}
 
-										++this.field4783;
-										this.field4778 = null;
-										this.field4799 = (byte)((int)(Math.random() * 255.0D + 1.0D));
+										++this.field5044;
+										this.field5046 = null;
+										this.field5040 = (byte)((int)(Math.random() * 255.0D + 1.0D));
 										return false;
 									}
 
-									this.field4783 = 0;
-									this.field4774 = 0;
-									this.field4787.field4750.write((int)(this.field4787.key & 65535L), this.field4784.array, (this.field4787.key & 16711680L) == 16711680L, this.field4790);
+									this.field5044 = 0;
+									this.field5045 = 0;
+									this.field5059.field5013.write((int)(this.field5059.key & 65535L), this.field5061.array, 16711680L == (this.field5059.key & 16711680L), this.field5047);
 								}
 
-								this.field4787.remove();
-								if (this.field4790) {
-									--this.field4777;
+								this.field5059.remove();
+								if (this.field5047) {
+									--this.field5052;
 								} else {
-									--this.field4789;
+									--this.field5057;
 								}
 
-								this.field4794 = 0;
-								this.field4787 = null;
-								this.field4784 = null;
+								this.field5062 = 0;
+								this.field5059 = null;
+								this.field5061 = null;
 							} else {
-								if (this.field4794 != 512) {
+								if (this.field5062 != 512) {
 									break;
 								}
 
-								this.field4794 = 0;
+								this.field5062 = 0;
 							}
 						}
 					}
@@ -351,158 +351,158 @@ public class JagNetThread {
 				}
 			} catch (IOException var21) {
 				try {
-					this.field4778.close();
+					this.field5046.close();
 				} catch (Exception var19) {
 				}
 
-				++this.field4774;
-				this.field4778 = null;
+				++this.field5045;
+				this.field5046 = null;
 				return false;
 			}
 		}
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(ZB)V",
-		garbageValue = "20"
+		descriptor = "(ZI)V",
+		garbageValue = "-993857280"
 	)
-	public void method8187(boolean var1) {
-		if (this.field4778 != null) {
+	public void method8679(boolean var1) {
+		if (this.field5046 != null) {
 			try {
 				Buffer var2 = new Buffer(4);
 				var2.writeByte(var1 ? 2 : 3);
 				var2.writeMedium(0);
-				this.field4778.write(var2.array, 0, 4);
+				this.field5046.write(var2.array, 0, 4);
 			} catch (IOException var5) {
 				try {
-					this.field4778.close();
+					this.field5046.close();
 				} catch (Exception var4) {
 				}
 
-				++this.field4774;
-				this.field4778 = null;
+				++this.field5045;
+				this.field5046 = null;
 			}
 
+		}
+	}
+
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "(Ltd;ZI)V",
+		garbageValue = "-896488872"
+	)
+	public void method8691(AbstractSocket var1, boolean var2) {
+		if (this.field5046 != null) {
+			try {
+				this.field5046.close();
+			} catch (Exception var7) {
+			}
+
+			this.field5046 = null;
+		}
+
+		this.field5046 = var1;
+		this.method8679(var2);
+		this.field5060.offset = 0;
+		this.field5059 = null;
+		this.field5061 = null;
+		this.field5062 = 0;
+
+		while (true) {
+			class419 var3 = (class419)this.field5051.first();
+			if (var3 == null) {
+				while (true) {
+					var3 = (class419)this.field5056.first();
+					if (var3 == null) {
+						if (this.field5040 != 0) {
+							try {
+								Buffer var8 = new Buffer(4);
+								var8.writeByte(4);
+								var8.writeByte(this.field5040);
+								var8.writeShort(0);
+								this.field5046.write(var8.array, 0, 4);
+							} catch (IOException var6) {
+								try {
+									this.field5046.close();
+								} catch (Exception var5) {
+								}
+
+								++this.field5045;
+								this.field5046 = null;
+							}
+						}
+
+						this.field5068 = 0;
+						this.field5063 = ParamComposition.method4708();
+						return;
+					}
+
+					this.field5048.method8946(var3);
+					this.field5054.put(var3, var3.key);
+					++this.field5055;
+					--this.field5057;
+				}
+			}
+
+			this.field5049.put(var3, var3.key);
+			++this.field5050;
+			--this.field5052;
 		}
 	}
 
 	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Ltg;ZI)V",
-		garbageValue = "-2142317007"
+		descriptor = "(Lqn;IB)V",
+		garbageValue = "0"
 	)
-	public void method8184(AbstractSocket var1, boolean var2) {
-		if (this.field4778 != null) {
-			try {
-				this.field4778.close();
-			} catch (Exception var7) {
-			}
-
-			this.field4778 = null;
-		}
-
-		this.field4778 = var1;
-		this.method8187(var2);
-		this.field4792.offset = 0;
-		this.field4787 = null;
-		this.field4784 = null;
-		this.field4794 = 0;
-
-		while (true) {
-			class404 var3 = (class404)this.field4791.first();
-			if (var3 == null) {
-				while (true) {
-					var3 = (class404)this.field4788.first();
-					if (var3 == null) {
-						if (this.field4799 != 0) {
-							try {
-								Buffer var8 = new Buffer(4);
-								var8.writeByte(4);
-								var8.writeByte(this.field4799);
-								var8.writeShort(0);
-								this.field4778.write(var8.array, 0, 4);
-							} catch (IOException var6) {
-								try {
-									this.field4778.close();
-								} catch (Exception var5) {
-								}
-
-								++this.field4774;
-								this.field4778 = null;
-							}
-						}
-
-						this.field4779 = 0;
-						this.field4780 = class180.method3973();
-						return;
-					}
-
-					this.field4785.method8400(var3);
-					this.field4786.put(var3, var3.key);
-					++this.field4772;
-					--this.field4789;
-				}
-			}
-
-			this.field4773.put(var3, var3.key);
-			++this.field4782;
-			--this.field4777;
-		}
-	}
-
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "(Lpu;IS)V",
-		garbageValue = "23898"
-	)
-	void method8182(Archive var1, int var2) {
-		if (var1.field4705) {
-			if (!var1.field4713) {
-				if (var2 <= this.field4798) {
+	void method8682(Archive var1, int var2) {
+		if (var1.field4974) {
+			if (!var1.field4983) {
+				if (var2 <= this.field5058) {
 					throw new RuntimeException("");
 				}
 
-				if (var2 < this.field4781) {
-					this.field4781 = var2;
+				if (var2 < this.field5067) {
+					this.field5067 = var2;
 				}
 			}
 		} else {
-			if (var2 >= this.field4781) {
+			if (var2 >= this.field5067) {
 				throw new RuntimeException("");
 			}
 
-			if (var2 > this.field4798) {
-				this.field4798 = var2;
+			if (var2 > this.field5058) {
+				this.field5058 = var2;
 			}
 		}
 
-		if (this.field4796 != null) {
-			this.method8200(var1, var2);
+		if (this.field5053 != null) {
+			this.method8688(var1, var2);
 		} else {
-			this.method8169((Archive)null, class403.field4734.field4743, 255, 0, (byte)0, true);
-			this.field4797[var2] = var1;
+			this.method8684((Archive)null, class418.field4996.field5012, 255, 0, (byte)0, true);
+			this.field5065[var2] = var1;
 		}
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(Lpu;IB)V",
-		garbageValue = "108"
+		descriptor = "(Lqn;IB)V",
+		garbageValue = "-1"
 	)
-	void method8200(Archive var1, int var2) {
+	void method8688(Archive var1, int var2) {
 		int var3 = var2 * 8 + 5;
 		int var4 = 0;
 		int var5 = 0;
-		if (var3 <= this.field4796.array.length - 8) {
-			this.field4796.offset = var3;
-			var4 = this.field4796.readInt();
-			var5 = this.field4796.readInt();
+		if (var3 <= this.field5053.array.length - 8) {
+			this.field5053.offset = var3 * 1741769013;
+			var4 = this.field5053.readInt();
+			var5 = this.field5053.readInt();
 		}
 
 		if (var4 == 0 && var5 == 0) {
-			if (var1.field4705) {
-				var1.method8025();
+			if (var1.field4974) {
+				var1.method8536();
 			} else {
 				throw new RuntimeException("");
 			}
@@ -511,45 +511,45 @@ public class JagNetThread {
 		}
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lpu;IIIBZI)V",
-		garbageValue = "-520162904"
+		descriptor = "(Lqn;IIIBZI)V",
+		garbageValue = "-1600943359"
 	)
-	void method8169(Archive var1, int var2, int var3, int var4, byte var5, boolean var6) {
+	void method8684(Archive var1, int var2, int var3, int var4, byte var5, boolean var6) {
 		long var7 = (long)(var3 + (var2 << 16));
-		class404 var9 = (class404)this.field4773.get(var7);
+		class419 var9 = (class419)this.field5049.get(var7);
 		if (var9 == null) {
-			var9 = (class404)this.field4791.get(var7);
+			var9 = (class419)this.field5051.get(var7);
 			if (var9 == null) {
-				var9 = (class404)this.field4786.get(var7);
+				var9 = (class419)this.field5054.get(var7);
 				if (var9 != null) {
 					if (var6) {
 						var9.removeDual();
-						this.field4773.put(var9, var7);
-						--this.field4772;
-						++this.field4782;
+						this.field5049.put(var9, var7);
+						--this.field5055;
+						++this.field5050;
 					}
 
 				} else {
 					if (!var6) {
-						var9 = (class404)this.field4788.get(var7);
+						var9 = (class419)this.field5056.get(var7);
 						if (var9 != null) {
 							return;
 						}
 					}
 
-					var9 = new class404();
-					var9.field4750 = var1;
-					var9.field4747 = var4;
-					var9.field4748 = var5;
+					var9 = new class419();
+					var9.field5013 = var1;
+					var9.field5015 = var4;
+					var9.field5014 = var5;
 					if (var6) {
-						this.field4773.put(var9, var7);
-						++this.field4782;
+						this.field5049.put(var9, var7);
+						++this.field5050;
 					} else {
-						this.field4785.method8391(var9);
-						this.field4786.put(var9, var7);
-						++this.field4772;
+						this.field5048.method8951(var9);
+						this.field5054.put(var9, var7);
+						++this.field5055;
 					}
 
 				}
@@ -557,59 +557,54 @@ public class JagNetThread {
 		}
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "83"
+		descriptor = "(III)V",
+		garbageValue = "762552045"
 	)
-	void method8171(int var1, int var2) {
+	void method8685(int var1, int var2) {
 		long var3 = (long)((var1 << 16) + var2);
-		class404 var5 = (class404)this.field4786.get(var3);
+		class419 var5 = (class419)this.field5054.get(var3);
 		if (var5 != null) {
-			this.field4785.method8400(var5);
+			this.field5048.method8946(var5);
 		}
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)I",
-		garbageValue = "-61"
+		descriptor = "(III)I",
+		garbageValue = "1916961151"
 	)
-	int method8172(int var1, int var2) {
+	int method8686(int var1, int var2) {
 		long var3 = (long)((var1 << 16) + var2);
-		return this.field4787 != null && var3 == this.field4787.key ? this.field4784.offset * 99 / (this.field4784.array.length - this.field4787.field4748) + 1 : 0;
+		return this.field5059 != null && this.field5059.key == var3 ? this.field5061.offset * -1722618313 / (this.field5061.array.length - this.field5059.field5014) + 1 : 0;
 	}
 
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
 		descriptor = "(ZZI)I",
-		garbageValue = "1765106447"
+		garbageValue = "1631254210"
 	)
-	public int method8170(boolean var1, boolean var2) {
+	public int method8687(boolean var1, boolean var2) {
 		byte var3 = 0;
-		int var4 = var3 + this.field4782 + this.field4777;
+		int var4 = var3 + this.field5052 + this.field5050;
 		return var4;
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "1611663291"
+		garbageValue = "402700537"
 	)
-	public void method8174() {
-		if (this.field4778 != null) {
+	public void method8715() {
+		if (this.field5046 != null) {
 			try {
-				this.field4778.close();
+				this.field5046.close();
 			} catch (Exception var2) {
 			}
 
-			this.field4778 = null;
+			this.field5046 = null;
 		}
 
-	}
-
-	@ObfuscatedName("ah")
-	static final void method8173(long var0) {
-		ViewportMouse.ViewportMouse_entityTags[++ViewportMouse.ViewportMouse_entityCount - 1] = var0;
 	}
 }

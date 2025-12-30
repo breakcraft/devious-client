@@ -8,45 +8,45 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uh")
+@ObfuscatedName("uz")
 @Implements("HttpQueryParams")
 public class HttpQueryParams implements HttpPayload {
-	@ObfuscatedName("ap")
-	final Map field5352;
+	@ObfuscatedName("av")
+	final Map field5652;
 
 	public HttpQueryParams(Map var1) {
-		this.field5352 = var1;
+		this.field5652 = var1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lup;",
-		garbageValue = "329585455"
+		descriptor = "(I)Lur;",
+		garbageValue = "1163055413"
 	)
 	@Export("getContentType")
 	public HttpContentType getContentType() {
 		return null;
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(I)[B",
-		garbageValue = "2037324047"
+		garbageValue = "-1948694789"
 	)
 	@Export("toBytes")
 	public byte[] toBytes() throws UnsupportedEncodingException {
 		return this.encode().getBytes("UTF-8");
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "421839214"
+		garbageValue = "-1936899827"
 	)
 	@Export("encode")
 	public String encode() throws UnsupportedEncodingException {
 		StringBuilder var1 = new StringBuilder();
-		Iterator var2 = this.field5352.entrySet().iterator();
+		Iterator var2 = this.field5652.entrySet().iterator();
 
 		while (var2.hasNext()) {
 			Entry var3 = (Entry)var2.next();
@@ -62,5 +62,27 @@ public class HttpQueryParams implements HttpPayload {
 			var1.insert(0, "?");
 			return var1.toString();
 		}
+	}
+
+	@ObfuscatedName("jc")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lrt;",
+		garbageValue = "-793948568"
+	)
+	public static NodeDeque method10865() {
+		return Client.scriptEvents;
+	}
+
+	@ObfuscatedName("pv")
+	@ObfuscatedSignature(
+		descriptor = "([BII)V",
+		garbageValue = "1348286119"
+	)
+	static void method10854(byte[] var0, int var1) {
+		if (Client.randomDatData == null) {
+			Client.randomDatData = new byte[24];
+		}
+
+		class488.writeRandomDat(var0, var1, Client.randomDatData, 0, 24);
 	}
 }

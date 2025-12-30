@@ -1,5 +1,5 @@
 import net.runelite.mapping.ObfuscatedName;
 
-@ObfuscatedName("de")
+@ObfuscatedName("df")
 public class class81 {
 }

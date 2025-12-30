@@ -8,91 +8,73 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cm")
+@ObfuscatedName("cl")
 @Implements("ClientPreferences")
 public class ClientPreferences {
-	@ObfuscatedName("fz")
-	@ObfuscatedSignature(
-		descriptor = "Lnn;"
-	)
-	@Export("widgetDefinition")
-	static WidgetDefinition widgetDefinition;
-	@ObfuscatedName("mx")
-	@ObfuscatedGetter(
-		intValue = 2037321977
-	)
-	@Export("cameraY")
-	static int cameraY;
-	@ObfuscatedName("vj")
-	@ObfuscatedSignature(
-		descriptor = "Ldc;"
-	)
-	@Export("pcmPlayer1")
-	static PcmPlayer pcmPlayer1;
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@Export("parameters")
 	final Map parameters;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@Export("roofsHidden")
 	boolean roofsHidden;
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@Export("hideUsername")
 	boolean hideUsername;
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@Export("titleMusicDisabled")
 	boolean titleMusicDisabled;
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@Export("displayFps")
 	boolean displayFps;
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedGetter(
-		intValue = -1923069265
+		intValue = -2030004077
 	)
-	int field1126;
+	int field1119;
 	@ObfuscatedName("au")
 	@Export("brightness")
 	double brightness;
-	@ObfuscatedName("ar")
+	@ObfuscatedName("az")
 	@ObfuscatedGetter(
-		intValue = 1155204527
+		intValue = -932662327
 	)
 	@Export("musicVolume")
 	int musicVolume;
 	@ObfuscatedName("ad")
 	@ObfuscatedGetter(
-		intValue = -842595355
+		intValue = -713426501
 	)
 	@Export("soundEffectsVolume")
 	int soundEffectsVolume;
-	@ObfuscatedName("af")
+	@ObfuscatedName("ai")
 	@ObfuscatedGetter(
-		intValue = 2013299677
+		intValue = -592093103
 	)
 	@Export("areaSoundEffectsVolume")
 	int areaSoundEffectsVolume;
-	@ObfuscatedName("ak")
+	@ObfuscatedName("as")
 	@ObfuscatedGetter(
-		intValue = 1953858913
+		intValue = -1477191509
 	)
 	@Export("eula")
 	int eula;
-	@ObfuscatedName("az")
+	@ObfuscatedName("ac")
 	@Export("rememberedUsername")
 	String rememberedUsername;
-	@ObfuscatedName("aw")
+	@ObfuscatedName("ab")
 	@ObfuscatedGetter(
-		intValue = -1611794279
+		intValue = -802617931
 	)
 	@Export("windowMode")
 	int windowMode;
-	@ObfuscatedName("at")
+	@ObfuscatedName("ax")
 	@ObfuscatedGetter(
-		intValue = -1395618775
+		intValue = -2135918997
 	)
 	@Export("drawDistance")
 	int drawDistance;
-	@ObfuscatedName("ae")
-	boolean field1121;
+	@ObfuscatedName("ar")
+	boolean field1128;
 
 	ClientPreferences() {
 		this.parameters = new LinkedHashMap();
@@ -106,12 +88,12 @@ public class ClientPreferences {
 		this.rememberedUsername = null;
 		this.windowMode = 1;
 		this.drawDistance = 25;
-		this.field1121 = true;
-		this.method2402(true);
+		this.field1128 = true;
+		this.method2638(true);
 	}
 
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;)V"
+		descriptor = "(Lxa;)V"
 	)
 	ClientPreferences(Buffer var1) {
 		this.parameters = new LinkedHashMap();
@@ -125,7 +107,7 @@ public class ClientPreferences {
 		this.rememberedUsername = null;
 		this.windowMode = 1;
 		this.drawDistance = 25;
-		this.field1121 = true;
+		this.field1128 = true;
 		if (var1 != null && var1.array != null) {
 			int var2 = var1.readUnsignedByte();
 			if (var2 >= 0 && var2 <= 12) {
@@ -175,7 +157,7 @@ public class ClientPreferences {
 				}
 
 				if (var2 > 9) {
-					this.field1126 = var1.readInt();
+					this.field1119 = var1.readInt();
 				}
 
 				if (var2 > 10) {
@@ -183,29 +165,29 @@ public class ClientPreferences {
 				}
 
 				if (var2 > 11) {
-					this.field1121 = var1.readUnsignedByte() == 1;
+					this.field1128 = var1.readUnsignedByte() == 1;
 				}
 			} else {
-				this.method2402(true);
+				this.method2638(true);
 			}
 		} else {
-			this.method2402(true);
+			this.method2638(true);
 		}
 
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(ZI)V",
-		garbageValue = "-354573289"
+		garbageValue = "1923244014"
 	)
-	void method2402(boolean var1) {
+	void method2638(boolean var1) {
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(B)Lwt;",
-		garbageValue = "-12"
+		descriptor = "(I)Lxa;",
+		garbageValue = "940084945"
 	)
 	@Export("toBuffer")
 	Buffer toBuffer() {
@@ -225,85 +207,85 @@ public class ClientPreferences {
 
 		var1.writeStringCp1252NullTerminated(this.rememberedUsername != null ? this.rememberedUsername : "");
 		var1.writeBoolean(this.hideUsername);
-		var1.writeByte((int)(this.brightness * 100.0D));
+		var1.writeByte((int)(100.0D * this.brightness));
 		var1.writeByte(this.musicVolume);
 		var1.writeByte(this.soundEffectsVolume);
 		var1.writeByte(this.areaSoundEffectsVolume);
 		var1.writeByte(this.eula);
 		var1.writeByte(this.displayFps ? 1 : 0);
-		var1.writeInt(this.field1126);
+		var1.writeInt(this.field1119);
 		var1.writeByte(this.drawDistance);
-		var1.writeByte(this.field1121 ? 1 : 0);
+		var1.writeByte(this.field1128 ? 1 : 0);
 		return var1;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1071324675"
+		garbageValue = "1047034109"
 	)
 	@Export("isRoofsHidden")
 	boolean isRoofsHidden() {
 		return this.roofsHidden;
 	}
 
-	@ObfuscatedName("al")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(ZI)V",
-		garbageValue = "-606366659"
+		descriptor = "(ZS)V",
+		garbageValue = "22284"
 	)
 	@Export("updateRoofsHidden")
 	void updateRoofsHidden(boolean var1) {
 		this.roofsHidden = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ac")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "24"
+		descriptor = "(I)Z",
+		garbageValue = "-1176718989"
 	)
 	@Export("isUsernameHidden")
 	boolean isUsernameHidden() {
 		return this.hideUsername;
 	}
 
-	@ObfuscatedName("aa")
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
 		descriptor = "(ZI)V",
-		garbageValue = "1940932682"
+		garbageValue = "1155517918"
 	)
 	@Export("updateHideUsername")
 	void updateHideUsername(boolean var1) {
 		this.hideUsername = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("am")
+	@ObfuscatedName("aw")
 	@ObfuscatedSignature(
-		descriptor = "(B)Z",
-		garbageValue = "83"
+		descriptor = "(I)Z",
+		garbageValue = "2002323805"
 	)
 	@Export("isTitleMusicDisabled")
 	boolean isTitleMusicDisabled() {
 		return this.titleMusicDisabled;
 	}
 
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(ZB)V",
-		garbageValue = "-93"
+		descriptor = "(ZI)V",
+		garbageValue = "164501916"
 	)
 	@Export("updateTitleMusicDisabled")
 	void updateTitleMusicDisabled(boolean var1) {
 		this.titleMusicDisabled = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ag")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
 		descriptor = "(I)V",
-		garbageValue = "-2047442229"
+		garbageValue = "-2028582431"
 	)
 	@Export("toggleDisplayFps")
 	void toggleDisplayFps() {
@@ -313,190 +295,190 @@ public class ClientPreferences {
 	@ObfuscatedName("au")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-169090307"
+		garbageValue = "756705879"
 	)
 	@Export("isDisplayingFps")
 	boolean isDisplayingFps() {
 		return this.displayFps;
 	}
 
-	@ObfuscatedName("ar")
+	@ObfuscatedName("az")
 	@ObfuscatedSignature(
-		descriptor = "(ZB)V",
-		garbageValue = "37"
+		descriptor = "(ZI)V",
+		garbageValue = "-682535269"
 	)
 	@Export("updateDisplayFps")
 	void updateDisplayFps(boolean var1) {
 		this.displayFps = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
 	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(B)I",
-		garbageValue = "-78"
+		descriptor = "(I)I",
+		garbageValue = "1306584676"
 	)
-	int method2413() {
-		return this.field1126;
+	int method2649() {
+		return this.field1119;
 	}
 
-	@ObfuscatedName("af")
+	@ObfuscatedName("ai")
 	@ObfuscatedSignature(
 		descriptor = "(IB)V",
-		garbageValue = "35"
+		garbageValue = "-12"
 	)
 	@Export("updateEULA")
 	void updateEULA(int var1) {
-		this.field1126 = var1;
-		Messages.savePreferences();
+		this.field1119 = var1;
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ak")
+	@ObfuscatedName("as")
 	@ObfuscatedSignature(
-		descriptor = "(B)D",
-		garbageValue = "37"
+		descriptor = "(I)D",
+		garbageValue = "882784362"
 	)
 	@Export("getBrightness")
 	double getBrightness() {
 		return this.brightness;
 	}
 
-	@ObfuscatedName("az")
+	@ObfuscatedName("ac")
 	@Export("updateBrightness")
 	void updateBrightness(double var1) {
 		this.brightness = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("aw")
+	@ObfuscatedName("ab")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-562665387"
+		descriptor = "(B)I",
+		garbageValue = "6"
 	)
 	@Export("getMusicVolume")
 	int getMusicVolume() {
 		return this.musicVolume;
 	}
 
-	@ObfuscatedName("at")
+	@ObfuscatedName("ax")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "-1445922129"
+		garbageValue = "1650207125"
 	)
 	@Export("updateMusicVolume")
 	void updateMusicVolume(int var1) {
 		this.musicVolume = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ae")
+	@ObfuscatedName("ar")
 	@ObfuscatedSignature(
 		descriptor = "(I)I",
-		garbageValue = "-352091872"
+		garbageValue = "-624572126"
 	)
 	@Export("getSoundEffectsVolume")
-	int getSoundEffectsVolume() {
+	public int getSoundEffectsVolume() {
 		return this.soundEffectsVolume;
 	}
 
-	@ObfuscatedName("av")
+	@ObfuscatedName("ah")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "1419284958"
+		garbageValue = "-1711294572"
 	)
 	@Export("updateSoundEffectVolume")
 	void updateSoundEffectVolume(int var1) {
 		this.soundEffectsVolume = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ao")
+	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "1854878187"
+		descriptor = "(B)I",
+		garbageValue = "0"
 	)
 	@Export("getAreaSoundEffectsVolume")
-	int getAreaSoundEffectsVolume() {
+	public int getAreaSoundEffectsVolume() {
 		return this.areaSoundEffectsVolume;
 	}
 
-	@ObfuscatedName("as")
+	@ObfuscatedName("af")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "-822849015"
+		garbageValue = "987938279"
 	)
 	@Export("updateAreaSoundEffectsVolume")
 	void updateAreaSoundEffectsVolume(int var1) {
 		this.areaSoundEffectsVolume = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ax")
+	@ObfuscatedName("am")
 	@ObfuscatedSignature(
 		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "-2009526998"
+		garbageValue = "566409831"
 	)
 	@Export("getRememberedUsername")
 	String getRememberedUsername() {
 		return this.rememberedUsername;
 	}
 
-	@ObfuscatedName("ab")
+	@ObfuscatedName("ao")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;B)V",
-		garbageValue = "0"
+		garbageValue = "1"
 	)
 	@Export("updateRememberedUsername")
 	void updateRememberedUsername(String var1) {
 		this.rememberedUsername = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("aa")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-1605891095"
+		descriptor = "(B)I",
+		garbageValue = "-66"
 	)
 	@Export("getEULA")
 	int getEULA() {
 		return this.eula;
 	}
 
-	@ObfuscatedName("ay")
+	@ObfuscatedName("aq")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "1171652884"
+		garbageValue = "2088135263"
 	)
-	void method2426(int var1) {
+	void method2662(int var1) {
 		this.eula = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("ba")
+	@ObfuscatedName("be")
 	@ObfuscatedSignature(
 		descriptor = "(B)I",
-		garbageValue = "-25"
+		garbageValue = "9"
 	)
 	@Export("getWindowMode")
 	int getWindowMode() {
 		return this.windowMode;
 	}
 
-	@ObfuscatedName("bx")
+	@ObfuscatedName("bo")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "-758514453"
+		garbageValue = "2136384070"
 	)
 	@Export("updateWindowMode")
 	void updateWindowMode(int var1) {
 		this.windowMode = var1;
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("bl")
+	@ObfuscatedName("bg")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;II)V",
-		garbageValue = "-1231077917"
+		garbageValue = "2019056222"
 	)
 	@Export("put")
 	void put(String var1, int var2) {
@@ -508,13 +490,13 @@ public class ClientPreferences {
 		}
 
 		this.parameters.put(var3, var2);
-		Messages.savePreferences();
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("bi")
+	@ObfuscatedName("bs")
 	@ObfuscatedSignature(
 		descriptor = "(Ljava/lang/String;B)Z",
-		garbageValue = "-3"
+		garbageValue = "-59"
 	)
 	@Export("containsKey")
 	boolean containsKey(String var1) {
@@ -522,10 +504,10 @@ public class ClientPreferences {
 		return this.parameters.containsKey(var2);
 	}
 
-	@ObfuscatedName("bv")
+	@ObfuscatedName("bz")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;I)I",
-		garbageValue = "1132807526"
+		descriptor = "(Ljava/lang/String;B)I",
+		garbageValue = "33"
 	)
 	@Export("getParameterValue")
 	int getParameterValue(String var1) {
@@ -533,10 +515,10 @@ public class ClientPreferences {
 		return !this.parameters.containsKey(var2) ? 0 : (Integer)this.parameters.get(var2);
 	}
 
-	@ObfuscatedName("bq")
+	@ObfuscatedName("bk")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;S)I",
-		garbageValue = "128"
+		descriptor = "(Ljava/lang/String;I)I",
+		garbageValue = "643266460"
 	)
 	@Export("getParameterKey")
 	int getParameterKey(String var1) {
@@ -551,99 +533,47 @@ public class ClientPreferences {
 		return var5;
 	}
 
-	@ObfuscatedName("bm")
+	@ObfuscatedName("bb")
 	@ObfuscatedSignature(
 		descriptor = "(II)V",
-		garbageValue = "-1808719243"
+		garbageValue = "-1881249788"
 	)
 	@Export("setDrawDistance")
 	void setDrawDistance(int var1) {
 		this.drawDistance = var1;
-		class203.method4300();
-		Messages.savePreferences();
+		if (Occluder.topLevelWorldView != null) {
+			Occluder.topLevelWorldView.scene.method5591(class468.clientPreferences.getDrawDistance());
+		}
+
+		Player.savePreferences();
 	}
 
-	@ObfuscatedName("be")
+	@ObfuscatedName("bj")
 	@ObfuscatedSignature(
-		descriptor = "(I)I",
-		garbageValue = "-819637604"
+		descriptor = "(B)I",
+		garbageValue = "-91"
 	)
 	@Export("getDrawDistance")
 	int getDrawDistance() {
 		return this.drawDistance;
 	}
 
-	@ObfuscatedName("bo")
+	@ObfuscatedName("bm")
 	@ObfuscatedSignature(
 		descriptor = "(I)Z",
-		garbageValue = "-1043862063"
+		garbageValue = "-1171752513"
 	)
-	boolean method2435() {
-		return this.field1121;
+	boolean method2671() {
+		return this.field1128;
 	}
 
-	@ObfuscatedName("bw")
+	@ObfuscatedName("bp")
 	@ObfuscatedSignature(
 		descriptor = "(ZI)V",
-		garbageValue = "1970740865"
+		garbageValue = "7643725"
 	)
-	void method2436(boolean var1) {
-		this.field1121 = var1;
-		Messages.savePreferences();
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(IB)Lih;",
-		garbageValue = "2"
-	)
-	public static HitSplatDefinition method2477(int var0) {
-		HitSplatDefinition var1 = (HitSplatDefinition)HitSplatDefinition.HitSplatDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = UserComparator5.HitSplatDefinition_archive.takeFile(32, var0);
-			var1 = new HitSplatDefinition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			HitSplatDefinition.HitSplatDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(B)[Lkt;",
-		garbageValue = "19"
-	)
-	public static MoveSpeed[] method2525() {
-		return new MoveSpeed[]{MoveSpeed.field3117, MoveSpeed.field3119, MoveSpeed.field3121, MoveSpeed.field3118};
-	}
-
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "(IB)D",
-		garbageValue = "53"
-	)
-	public static double method2527(int var0) {
-		return (double)VertexNormal.method5706(var0) / 65536.0D;
-	}
-
-	@ObfuscatedName("ck")
-	@ObfuscatedSignature(
-		descriptor = "(ILcr;ZI)I",
-		garbageValue = "-1413898369"
-	)
-	static int method2470(int var0, Script var1, boolean var2) {
-		if (var0 == 6809) {
-			int var3 = Interpreter.Interpreter_intStack[--Interpreter.Interpreter_intStackSize];
-			ObjectComposition var4 = HealthBarConfig.getObjectDefinition(var3);
-			Interpreter.Interpreter_objectStack[++class175.Interpreter_objectStackSize - 1] = var4 != null ? var4.name : "";
-			return 1;
-		} else {
-			return 2;
-		}
+	void method2746(boolean var1) {
+		this.field1128 = var1;
+		Player.savePreferences();
 	}
 }

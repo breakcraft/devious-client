@@ -2,74 +2,48 @@ import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("oc")
+@ObfuscatedName("op")
 public class class376 {
-	@ObfuscatedName("aj")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(IZB)[B",
-		garbageValue = "8"
+		descriptor = "Loo;"
 	)
-	@Export("ByteArrayPool_getArrayBool")
-	public static byte[] ByteArrayPool_getArrayBool(int var0, boolean var1) {
-		synchronized(ByteArrayPool.field5107) {
-			byte[] var3;
-			if ((var0 == 100 || var0 < 100 && var1) && ByteArrayPool.ByteArrayPool_smallCount > 0) {
-				var3 = ByteArrayPool.ByteArrayPool_small[--ByteArrayPool.ByteArrayPool_smallCount];
-				ByteArrayPool.ByteArrayPool_small[ByteArrayPool.ByteArrayPool_smallCount] = null;
-				return var3;
-			}
+	public class378 field4141;
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "Lom;"
+	)
+	class372 field4136;
+	@ObfuscatedName("ag")
+	@ObfuscatedSignature(
+		descriptor = "Lbg;"
+	)
+	class28 field4140;
+	@ObfuscatedName("an")
+	public Object[] field4138;
+	@ObfuscatedName("ae")
+	public Object[] field4139;
+	@ObfuscatedName("aj")
+	public Object[] field4135;
+	@ObfuscatedName("ak")
+	public Object[] field4137;
 
-			if ((var0 == 5000 || var0 < 5000 && var1) && ByteArrayPool.ByteArrayPool_mediumCount > 0) {
-				var3 = ByteArrayPool.ByteArrayPool_medium[--ByteArrayPool.ByteArrayPool_mediumCount];
-				ByteArrayPool.ByteArrayPool_medium[ByteArrayPool.ByteArrayPool_mediumCount] = null;
-				return var3;
-			}
-
-			if ((var0 == 10000 || var0 < 10000 && var1) && ByteArrayPool.ByteArrayPool_largeCount > 0) {
-				var3 = ByteArrayPool.ByteArrayPool_large[--ByteArrayPool.ByteArrayPool_largeCount];
-				ByteArrayPool.ByteArrayPool_large[ByteArrayPool.ByteArrayPool_largeCount] = null;
-				return var3;
-			}
-
-			if ((var0 == 30000 || var0 < 30000 && var1) && ByteArrayPool.field5111 > 0) {
-				var3 = ByteArrayPool.field5119[--ByteArrayPool.field5111];
-				ByteArrayPool.field5119[ByteArrayPool.field5111] = null;
-				return var3;
-			}
-
-			int var6;
-			if (PlayerUpdateManager.ByteArrayPool_arrays != null) {
-				for (var6 = 0; var6 < class63.ByteArrayPool_alternativeSizes.length; ++var6) {
-					if ((class63.ByteArrayPool_alternativeSizes[var6] == var0 || var0 < class63.ByteArrayPool_alternativeSizes[var6] && var1) && WorldMapDecoration.ByteArrayPool_altSizeArrayCounts[var6] > 0) {
-						byte[] var4 = PlayerUpdateManager.ByteArrayPool_arrays[var6][--WorldMapDecoration.ByteArrayPool_altSizeArrayCounts[var6]];
-						PlayerUpdateManager.ByteArrayPool_arrays[var6][WorldMapDecoration.ByteArrayPool_altSizeArrayCounts[var6]] = null;
-						return var4;
-					}
-				}
-			}
-
-			if (var1 && class63.ByteArrayPool_alternativeSizes != null) {
-				for (var6 = 0; var6 < class63.ByteArrayPool_alternativeSizes.length; ++var6) {
-					if (var0 <= class63.ByteArrayPool_alternativeSizes[var6] && WorldMapDecoration.ByteArrayPool_altSizeArrayCounts[var6] < PlayerUpdateManager.ByteArrayPool_arrays[var6].length) {
-						return new byte[class63.ByteArrayPool_alternativeSizes[var6]];
-					}
-				}
-			}
-		}
-
-		return new byte[var0];
+	class376() {
+		this.field4141 = new class378();
+		this.field4136 = new class372();
+		this.field4140 = new class28();
 	}
 
-	@ObfuscatedName("ch")
+	@ObfuscatedName("nk")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;Ljava/lang/String;I)Ltp;",
-		garbageValue = "1985635628"
+		descriptor = "(Lof;B)V",
+		garbageValue = "5"
 	)
-	static class509 method7915(Object var0, String var1) {
-		if (var0 == null) {
-			throw new RuntimeException();
-		} else {
-			return (class509)var0;
+	@Export("invalidateWidget")
+	public static void invalidateWidget(Widget var0) {
+		if (var0 != null && var0.cycle == Client.field490) {
+			Client.validRootWidgets[var0.rootIndex] = true;
 		}
+
 	}
 }

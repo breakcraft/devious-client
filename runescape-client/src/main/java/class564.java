@@ -1,58 +1,102 @@
-import java.util.Iterator;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("vb")
-final class class564 implements class558 {
-	@ObfuscatedName("iu")
-	static Iterator field5606;
-
-	@ObfuscatedName("ap")
+@ObfuscatedName("vt")
+public class class564 extends class565 {
+	@ObfuscatedName("av")
+	final int[][] field5838;
+	@ObfuscatedName("at")
+	final int[][] field5837;
+	@ObfuscatedName("ag")
+	final int[] field5839;
+	@ObfuscatedName("an")
+	final int[] field5842;
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/Object;Lwt;I)V",
-		garbageValue = "872276318"
+		descriptor = "[Lrl;"
 	)
-	public void vmethod10652(Object var1, Buffer var2) {
-		this.method10654((String)var1, var2);
-	}
-
+	final Bounds[] field5841;
 	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;B)Ljava/lang/Object;",
-		garbageValue = "-108"
+		descriptor = "[Lrl;"
 	)
-	public Object vmethod10657(Buffer var1) {
-		return var1.readStringCp1252NullTerminated();
-	}
-
-	@ObfuscatedName("ac")
+	final Bounds[] field5840;
+	@ObfuscatedName("ak")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/lang/String;Lwt;I)V",
-		garbageValue = "-991662182"
+		descriptor = "[Lrl;"
 	)
-	void method10654(String var1, Buffer var2) {
-		var2.writeStringCp1252NullTerminated(var1);
-	}
+	final Bounds[] field5843;
 
-	@ObfuscatedName("ly")
-	@ObfuscatedSignature(
-		descriptor = "(IIIII)V",
-		garbageValue = "-1878851311"
-	)
-	static void method10658(int var0, int var1, int var2, int var3) {
-		Widget var4 = ClientPreferences.widgetDefinition.getWidgetChild(var0, var1);
-		if (var4 != null && var4.onTargetEnter != null) {
-			ScriptEvent var5 = new ScriptEvent();
-			var5.widget = var4;
-			var5.args = var4.onTargetEnter;
-			ModeWhere.runScriptEvent(var5);
+	class564(int var1, int var2, int var3, int var4, int var5, int var6) {
+		super(var1, var2, var3, var4, var5, var6);
+		this.field5838 = new int[16][4];
+		this.field5837 = new int[16][4];
+		this.field5839 = new int[16];
+		this.field5842 = new int[16];
+		this.field5841 = new Bounds[16];
+		this.field5840 = new Bounds[16];
+		this.field5843 = new Bounds[16];
+
+		for (int var7 = 0; var7 < 16; ++var7) {
+			int var8 = var7 * 128;
+			int var9 = class544.field5668[var8 & 2047];
+			int var11 = class66.method2206(var8);
+			int var12 = -(var3 * var9 - var11 * var4 >> 16);
+			int var13 = var9 * var4 + var3 * var11 >> 16;
+			int var14 = var9 * super.field5851 - var11 * super.field5847 >> 16;
+			int var15 = var11 * super.field5851 + var9 * super.field5847 >> 16;
+			int var16 = var9 * super.field5851 + var11 * super.field5847 >> 16;
+			int var17 = var9 * super.field5847 - var11 * super.field5851 >> 16;
+			this.field5838[var7] = new int[4];
+			this.field5837[var7] = new int[4];
+			this.field5838[var7][0] = var12 - var14;
+			this.field5837[var7][0] = var13 + var15;
+			this.field5838[var7][1] = var16 + var12;
+			this.field5837[var7][1] = var13 + var17;
+			this.field5838[var7][2] = var12 + var14;
+			this.field5837[var7][2] = var13 - var15;
+			this.field5838[var7][3] = var12 - var16;
+			this.field5837[var7][3] = var13 - var17;
+			this.field5839[var7] = Math.abs(var11 * super.field5847) >> 16;
+			this.field5842[var7] = Math.abs(var9 * super.field5847) >> 16;
+			int var18 = Math.min(this.field5838[var7][0], Math.min(this.field5838[var7][1], Math.min(this.field5838[var7][2], this.field5838[var7][3])));
+			int var19 = Math.max(this.field5838[var7][0], Math.max(this.field5838[var7][1], Math.max(this.field5838[var7][2], this.field5838[var7][3])));
+			int var20 = Math.min(this.field5837[var7][0], Math.min(this.field5837[var7][1], Math.min(this.field5837[var7][2], this.field5837[var7][3])));
+			int var21 = Math.max(this.field5837[var7][0], Math.max(this.field5837[var7][1], Math.max(this.field5837[var7][2], this.field5837[var7][3])));
+			this.field5841[var7] = new Bounds(var18, var20, var19 - var18, var21 - var20);
+			var18 = Math.min(this.field5838[var7][2], Math.min(this.field5838[var7][3], var12));
+			var19 = Math.max(this.field5838[var7][2], Math.max(this.field5838[var7][3], var12));
+			var20 = Math.min(this.field5837[var7][2], Math.min(this.field5837[var7][3], var13));
+			var21 = Math.max(this.field5837[var7][2], Math.max(this.field5837[var7][3], var13));
+			this.field5840[var7] = new Bounds(var18, var20, var19 - var18, var21 - var20);
+			var18 = Math.min(this.field5838[var7][0], Math.min(this.field5838[var7][1], var12));
+			var19 = Math.max(this.field5838[var7][0], Math.max(this.field5838[var7][1], var12));
+			var20 = Math.min(this.field5837[var7][0], Math.min(this.field5837[var7][1], var13));
+			var21 = Math.max(this.field5837[var7][0], Math.max(this.field5837[var7][1], var13));
+			this.field5843[var7] = new Bounds(var18, var20, var19 - var18, var21 - var20);
 		}
 
-		Client.selectedSpellItemId = var3;
-		Client.isSpellSelected = true;
-		class394.selectedSpellWidget = var0;
-		Client.selectedSpellChildIndex = var1;
-		class448.selectedSpellFlags = var2;
-		ScriptFrame.invalidateWidget(var4);
+	}
+
+	public class564(int var1, int var2, int var3, int var4) {
+		this(var1, var2, var3, var4, 2359552, 0);
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(IIB)I",
+		garbageValue = "0"
+	)
+	int method11236(int var1, int var2) {
+		return this.field5838[var1][var2];
+	}
+
+	@ObfuscatedName("at")
+	@ObfuscatedSignature(
+		descriptor = "(IIB)I",
+		garbageValue = "13"
+	)
+	int method11235(int var1, int var2) {
+		return this.field5837[var1][var2];
 	}
 }

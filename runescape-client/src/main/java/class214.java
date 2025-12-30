@@ -1,103 +1,73 @@
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.concurrent.ThreadFactory;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("im")
-public class class214 {
-	@ObfuscatedName("ap")
+@ObfuscatedName("io")
+class class214 implements ThreadFactory {
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lim;"
+		descriptor = "Liw;"
 	)
-	static final class214 field2387;
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	static final class214 field2374;
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	static final class214 field2380;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2375;
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2376;
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2377;
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2378;
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2379;
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2373;
-	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2381;
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2382;
-	@ObfuscatedName("ar")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	public static final class214 field2383;
-	@ObfuscatedName("ad")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	static final class214 field2384;
-	@ObfuscatedName("af")
-	@ObfuscatedSignature(
-		descriptor = "Lim;"
-	)
-	static final class214 field2385;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		intValue = 1587448925
-	)
-	public final int field2372;
+	final SequenceDefinition this$0;
 
-	static {
-		field2387 = new class214(0);
-		field2374 = new class214(1);
-		field2380 = new class214(2);
-		field2375 = new class214(3);
-		field2376 = new class214(4);
-		field2377 = new class214(5);
-		field2378 = new class214(6);
-		field2379 = new class214(7);
-		field2373 = new class214(8);
-		field2381 = new class214(9);
-		field2382 = new class214(10);
-		field2383 = new class214(11);
-		field2384 = new class214(12);
-		field2385 = new class214(13);
+	@ObfuscatedSignature(
+		descriptor = "(Liw;)V"
+	)
+	class214(SequenceDefinition var1) {
+		this.this$0 = var1;
 	}
 
-	class214(int var1) {
-		this.field2372 = var1;
+	public Thread newThread(Runnable var1) {
+		return new Thread(var1, "OSRS Maya Anim Load");
+	}
+
+	@ObfuscatedName("az")
+	@ObfuscatedSignature(
+		descriptor = "(I)Lxt;",
+		garbageValue = "-1486769056"
+	)
+	static SpritePixels method4712() {
+		SpritePixels var0 = new SpritePixels();
+		var0.width = class208.SpriteBuffer_spriteWidth;
+		var0.height = class144.SpriteBuffer_spriteHeight;
+		var0.xOffset = class615.SpriteBuffer_xOffsets[0];
+		var0.yOffset = class615.SpriteBuffer_yOffsets[0];
+		var0.subWidth = IntHashTable.SpriteBuffer_spriteWidths[0];
+		var0.subHeight = class615.SpriteBuffer_spriteHeights[0];
+		int var1 = var0.subWidth * var0.subHeight;
+		byte[] var2 = class320.SpriteBuffer_pixels[0];
+		var0.pixels = new int[var1];
+
+		for (int var3 = 0; var3 < var1; ++var3) {
+			var0.pixels[var3] = BufferedSource.SpriteBuffer_spritePalette[var2[var3] & 255];
+		}
+
+		class615.SpriteBuffer_xOffsets = null;
+		class615.SpriteBuffer_yOffsets = null;
+		IntHashTable.SpriteBuffer_spriteWidths = null;
+		class615.SpriteBuffer_spriteHeights = null;
+		BufferedSource.SpriteBuffer_spritePalette = null;
+		class320.SpriteBuffer_pixels = null;
+		return var0;
+	}
+
+	@ObfuscatedName("of")
+	@ObfuscatedSignature(
+		descriptor = "(IIZI)V",
+		garbageValue = "1927981662"
+	)
+	static final void method4711(int var0, int var1, boolean var2) {
+		if (Client.currentClanChannels[var0] != null) {
+			if (var1 >= 0 && var1 < Client.currentClanChannels[var0].method4196()) {
+				ClanChannelMember var3 = (ClanChannelMember)Client.currentClanChannels[var0].members.get(var1);
+				PacketBufferNode var4 = ReflectionCheck.getPacketBufferNode(ClientPacket.CLAN_SETTINGS_SET_MUTED_FROM_CHANNEL, Client.packetWriter.isaacCipher);
+				var4.packetBuffer.writeByte(4 + AccessFile.stringCp1252NullTerminatedByteSize(var3.username.getName()));
+				var4.packetBuffer.writeByte(var0);
+				var4.packetBuffer.writeShort(var1);
+				var4.packetBuffer.writeBoolean(var2);
+				var4.packetBuffer.writeStringCp1252NullTerminated(var3.username.getName());
+				Client.packetWriter.addNode(var4);
+			}
+		}
 	}
 }

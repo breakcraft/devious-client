@@ -3,26 +3,26 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("uw")
+@ObfuscatedName("vc")
 @Implements("IndexedObjectNode")
 public class IndexedObjectNode extends DualNode {
-	@ObfuscatedName("ep")
+	@ObfuscatedName("ee")
 	@Export("idx")
 	public long idx;
-	@ObfuscatedName("eh")
+	@ObfuscatedName("eq")
 	@ObfuscatedSignature(
-		descriptor = "Luw;"
+		descriptor = "Lvc;"
 	)
 	@Export("nextNode")
 	public IndexedObjectNode nextNode;
-	@ObfuscatedName("em")
+	@ObfuscatedName("es")
 	@ObfuscatedSignature(
-		descriptor = "Luw;"
+		descriptor = "Lvc;"
 	)
 	@Export("previousNode")
 	public IndexedObjectNode previousNode;
 
-	@ObfuscatedName("ji")
+	@ObfuscatedName("kd")
 	@Export("detach")
 	public void detach() {
 		if (this.previousNode != null) {

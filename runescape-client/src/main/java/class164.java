@@ -1,99 +1,111 @@
-import java.io.File;
-import java.io.RandomAccessFile;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gw")
-public class class164 extends class149 {
-	@ObfuscatedName("ct")
+@ObfuscatedName("ga")
+public class class164 extends class167 {
+	@ObfuscatedName("dd")
+	@ObfuscatedGetter(
+		intValue = -1436734183
+	)
+	static int field1862;
+	@ObfuscatedName("la")
 	@ObfuscatedSignature(
-		descriptor = "Lwy;"
+		descriptor = "Lei;"
 	)
-	@Export("options_buttons_0Sprite")
-	static IndexedSprite options_buttons_0Sprite;
-	@ObfuscatedName("ap")
+	@Export("urlRequester")
+	static UrlRequester urlRequester;
+	@ObfuscatedName("av")
 	@ObfuscatedGetter(
-		longValue = 1847766597588277827L
+		intValue = -516555115
 	)
-	long field1826;
-	@ObfuscatedName("aj")
-	String field1824;
+	int field1859;
+	@ObfuscatedName("at")
+	byte field1864;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -506745563
+	)
+	int field1860;
 	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = -1713242295
-	)
-	int field1823;
+	String field1861;
 	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "Lfp;"
+		descriptor = "Lgt;"
 	)
-	final class152 this$0;
+	final class168 this$0;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lfp;)V"
+		descriptor = "(Lgt;)V"
 	)
-	class164(class152 var1) {
+	class164(class168 var1) {
 		this.this$0 = var1;
-		this.field1826 = -1L;
-		this.field1824 = null;
-		this.field1823 = 0;
+		this.field1859 = -1;
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1635342078"
+		descriptor = "(Lxa;B)V",
+		garbageValue = "23"
 	)
-	void vmethod3913(Buffer var1) {
-		if (var1.readUnsignedByte() != 255) {
-			--var1.offset;
-			this.field1826 = var1.readLong();
-		}
-
-		this.field1824 = var1.readStringCp1252NullTerminatedOrNull();
-		this.field1823 = var1.readUnsignedShort();
+	void vmethod4228(Buffer var1) {
+		var1.readUnsignedByte();
+		this.field1859 = var1.readUnsignedShort();
+		this.field1864 = var1.readByte();
+		this.field1860 = var1.readUnsignedShort();
+		var1.readLong();
+		this.field1861 = var1.readStringCp1252NullTerminated();
+		var1.readUnsignedByte();
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lgu;I)V",
-		garbageValue = "-1572789515"
+		descriptor = "(Lgz;B)V",
+		garbageValue = "-24"
 	)
-	void vmethod3914(ClanSettings var1) {
-		var1.method3747(this.field1826, this.field1824, this.field1823);
+	void vmethod4229(ClanChannel var1) {
+		ClanChannelMember var2 = (ClanChannelMember)var1.members.get(this.field1859);
+		var2.rank = this.field1864;
+		var2.world = this.field1860;
+		var2.username = new Username(this.field1861);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(IIII)J",
-		garbageValue = "871737452"
+		descriptor = "(I)[Luv;",
+		garbageValue = "1672752639"
 	)
-	static long method3844(int var0, int var1, int var2) {
-		return (long)(var2 << 16 | var0 << 8 | var1);
+	public static class526[] method4141() {
+		return new class526[]{class526.field5579, class526.field5582, class526.field5580};
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("ac")
 	@ObfuscatedSignature(
-		descriptor = "(Ljava/io/File;ZI)Z",
-		garbageValue = "-581170605"
+		descriptor = "(CB)Z",
+		garbageValue = "-42"
 	)
-	static boolean method3843(File var0, boolean var1) {
-		try {
-			RandomAccessFile var2 = new RandomAccessFile(var0, "rw");
-			int var3 = var2.read();
-			var2.seek(0L);
-			var2.write(var3);
-			var2.seek(0L);
-			var2.close();
-			if (var1) {
-				var0.delete();
-			}
-
+	@Export("isCharPrintable")
+	public static boolean isCharPrintable(char var0) {
+		if (var0 >= ' ' && var0 <= '~') {
 			return true;
-		} catch (Exception var4) {
-			return false;
+		} else if (var0 >= 160 && var0 <= 255) {
+			return true;
+		} else {
+			return var0 == 8364 || var0 == 338 || var0 == 8212 || var0 == 339 || var0 == 376;
 		}
+	}
+
+	@ObfuscatedName("jx")
+	@ObfuscatedSignature(
+		descriptor = "(Ldd;B)V",
+		garbageValue = "27"
+	)
+	static void method4140(WorldView var0) {
+		if (class166.field1882 != null && Client.field536 > 0) {
+			int var1 = Client.field377 * 128;
+			Clock.method5250(var0, var1, class166.field1882);
+		}
+
 	}
 }

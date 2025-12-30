@@ -4,28 +4,34 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("gf")
+@ObfuscatedName("hw")
 @Implements("VarpDefinition")
 public class VarpDefinition extends DualNode {
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -1537704075
+	)
+	public static int field1976;
 	@ObfuscatedName("an")
-	@ObfuscatedGetter(
-		intValue = 1189518373
-	)
-	public static int field1910;
-	@ObfuscatedName("ai")
-	@ObfuscatedGetter(
-		intValue = -483192749
-	)
-	public static int field1914;
-	@ObfuscatedName("al")
 	@ObfuscatedSignature(
-		descriptor = "Lmr;"
+		descriptor = "Lqm;"
+	)
+	@Export("VarpDefinition_archive")
+	static AbstractArchive VarpDefinition_archive;
+	@ObfuscatedName("ae")
+	@ObfuscatedSignature(
+		descriptor = "Lmc;"
 	)
 	@Export("VarpDefinition_cached")
 	public static EvictingDualNodeHashTable VarpDefinition_cached;
-	@ObfuscatedName("ac")
+	@ObfuscatedName("bu")
 	@ObfuscatedGetter(
-		intValue = 533587421
+		intValue = -840015355
+	)
+	static int field1979;
+	@ObfuscatedName("aj")
+	@ObfuscatedGetter(
+		intValue = 138999049
 	)
 	@Export("type")
 	public int type;
@@ -38,17 +44,17 @@ public class VarpDefinition extends DualNode {
 		this.type = 0;
 	}
 
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;B)V",
-		garbageValue = "-5"
+		descriptor = "(Lxa;S)V",
+		garbageValue = "-770"
 	)
 	@Export("decode")
 	void decode(Buffer var1) {
 		while (true) {
 			int var2 = var1.readUnsignedByte();
 			if (var2 == 0) {
-				this.method3978();
+				this.method4301();
 				return;
 			}
 
@@ -56,10 +62,10 @@ public class VarpDefinition extends DualNode {
 		}
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;II)V",
-		garbageValue = "1129575553"
+		descriptor = "(Lxa;II)V",
+		garbageValue = "-1778326048"
 	)
 	@Export("decodeNext")
 	void decodeNext(Buffer var1, int var2) {
@@ -69,78 +75,46 @@ public class VarpDefinition extends DualNode {
 
 	}
 
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "1160722520"
-	)
-	void method3978() {
-	}
-
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(II)Lip;",
-		garbageValue = "-1728911948"
-	)
-	@Export("SequenceDefinition_get")
-	public static SequenceDefinition SequenceDefinition_get(int var0) {
-		SequenceDefinition var1 = (SequenceDefinition)SequenceDefinition.SequenceDefinition_cached.get((long)var0);
-		if (var1 != null) {
-			return var1;
-		} else {
-			byte[] var2 = SequenceDefinition.SequenceDefinition_archive.takeFile(12, var0);
-			var1 = new SequenceDefinition();
-			if (var2 != null) {
-				var1.decode(new Buffer(var2));
-			}
-
-			var1.postDecode();
-			SequenceDefinition.SequenceDefinition_cached.put(var1, (long)var0);
-			return var1;
-		}
-	}
-
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "477485197"
-	)
-	public static void method3989() {
-		KitDefinition.KitDefinition_cached.clear();
-	}
-
-	@ObfuscatedName("ha")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
 		descriptor = "(B)V",
-		garbageValue = "0"
+		garbageValue = "65"
 	)
-	static final void method3991() {
-		if (Client.logoutTimer > 0) {
-			class378.logOut();
-		} else {
-			Client.timer.method7986();
-			HealthBarConfig.updateGameState(40);
-			ObjectSound.field653 = Client.packetWriter.getSocket();
-			Client.packetWriter.removeSocket();
-		}
+	void method4301() {
 	}
 
-	@ObfuscatedName("os")
+	@ObfuscatedName("ay")
 	@ObfuscatedSignature(
-		descriptor = "(IIZI)V",
-		garbageValue = "-1686072307"
+		descriptor = "(Lut;IB)V",
+		garbageValue = "30"
 	)
-	static final void method3992(int var0, int var1, boolean var2) {
-		if (Client.currentClanChannels[var0] != null) {
-			if (var1 >= 0 && var1 < Client.currentClanChannels[var0].method3878()) {
-				ClanChannelMember var3 = (ClanChannelMember)Client.currentClanChannels[var0].members.get(var1);
-				PacketBufferNode var4 = class139.getPacketBufferNode(ClientPacket.CLAN_SETTINGS_SET_MUTED_FROM_CHANNEL, Client.packetWriter.isaacCipher);
-				var4.packetBuffer.writeByte(4 + FriendsChat.stringCp1252NullTerminatedByteSize(var3.username.getName()));
-				var4.packetBuffer.writeByte(var0);
-				var4.packetBuffer.writeShort(var1);
-				var4.packetBuffer.writeBoolean(var2);
-				var4.packetBuffer.writeStringCp1252NullTerminated(var3.username.getName());
-				Client.packetWriter.addNode(var4);
+	public static void method4310(DynamicArray var0, int var1) {
+		class461.method9375(var0, (class586)null, true);
+		int var2 = var0.method10652();
+		if (var2 > 1) {
+			var1 %= var2;
+			if (var1 != 0) {
+				if (var1 < 0) {
+					var1 += var2;
+				}
+
+				if (var0.field5584 == class586.field5937) {
+					int[] var3 = var0.method10650();
+					LoginScreenAnimation.method2636(var3, 0, var2 - 1);
+					LoginScreenAnimation.method2636(var3, 0, var1 - 1);
+					LoginScreenAnimation.method2636(var3, var1, var2 - 1);
+				} else if (var0.field5584 == class586.field5942) {
+					long[] var4 = var0.method10651();
+					HttpResponse.method307(var4, 0, var2 - 1);
+					HttpResponse.method307(var4, 0, var1 - 1);
+					HttpResponse.method307(var4, var1, var2 - 1);
+				} else {
+					Object[] var5 = var0.method10681();
+					class151.method3977(var5, 0, var2 - 1);
+					class151.method3977(var5, 0, var1 - 1);
+					class151.method3977(var5, var1, var2 - 1);
+				}
+
 			}
 		}
 	}

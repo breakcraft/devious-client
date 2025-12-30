@@ -1,191 +1,107 @@
-import java.util.Arrays;
-import net.runelite.mapping.ObfuscatedGetter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("bx")
+@ObfuscatedName("bo")
 public class class27 {
-	@ObfuscatedName("bi")
-	@ObfuscatedSignature(
-		descriptor = "Lgd;"
-	)
-	static ClanChannel field127;
-	@ObfuscatedName("hk")
-	@ObfuscatedSignature(
-		descriptor = "Lvh;"
-	)
-	static class557 field129;
-	@ObfuscatedName("rc")
-	@ObfuscatedSignature(
-		descriptor = "Ljm;"
-	)
-	static Model field130;
-	@ObfuscatedName("vy")
-	@ObfuscatedGetter(
-		intValue = -1033918905
-	)
-	static int field131;
-	@ObfuscatedName("aa")
-	int[] field122;
-	@ObfuscatedName("am")
-	int[] field125;
+	@ObfuscatedName("dh")
+	@Export("KeyHandler_keyCodes")
+	static int[] KeyHandler_keyCodes;
 
-	public class27() {
-		this.field122 = new int[112];
-		this.field125 = new int[192];
-		Arrays.fill(this.field122, 3);
-		Arrays.fill(this.field125, 3);
+	static {
+		KeyHandler_keyCodes = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, 85, 80, 84, -1, 91, -1, -1, -1, 81, 82, 86, -1, -1, -1, -1, -1, -1, -1, -1, 13, -1, -1, -1, -1, 83, 104, 105, 103, 102, 96, 98, 97, 99, -1, -1, -1, -1, -1, -1, -1, 25, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1, -1, -1, -1, -1, -1, -1, 48, 68, 66, 50, 34, 51, 52, 53, 39, 54, 55, 56, 70, 69, 40, 41, 32, 35, 49, 36, 38, 67, 33, 65, 37, 64, -1, -1, -1, -1, -1, 228, 231, 227, 233, 224, 219, 225, 230, 226, 232, 89, 87, -1, 88, 229, 90, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, -1, -1, -1, 101, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 100, -1, 87, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "(IIB)V",
-		garbageValue = "57"
+		descriptor = "(B)V",
+		garbageValue = "7"
 	)
-	public void method424(int var1, int var2) {
-		if (this.method399(var1) && this.method431(var2)) {
-			this.field122[var1] = var2;
-		}
-
+	public static void method414() {
+		class117.reflectionChecks = new IterableNodeDeque();
 	}
 
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(CII)V",
-		garbageValue = "-673491557"
-	)
-	public void method429(char var1, int var2) {
-		if (this.method400(var1) && this.method431(var2)) {
-			this.field125[var1] = var2;
-		}
-
-	}
-
-	@ObfuscatedName("an")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
 		descriptor = "(II)I",
-		garbageValue = "1497564544"
+		garbageValue = "-275627793"
 	)
-	public int method428(int var1) {
-		return this.method399(var1) ? this.field122[var1] : 0;
+	static int method417(int var0) {
+		return -var0 - 1;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(CI)I",
-		garbageValue = "437049719"
+		descriptor = "(IIII)V",
+		garbageValue = "-1645689313"
 	)
-	public int method411(char var1) {
-		return this.method400(var1) ? this.field125[var1] : 0;
-	}
-
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "-107984970"
-	)
-	public boolean method395(int var1) {
-		return this.method399(var1) && (this.field122[var1] == 1 || this.field122[var1] == 3);
-	}
-
-	@ObfuscatedName("ac")
-	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "-1243263995"
-	)
-	public boolean method396(char var1) {
-		return this.method400(var1) && (this.field125[var1] == 1 || this.field125[var1] == 3);
-	}
-
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "(IB)Z",
-		garbageValue = "78"
-	)
-	public boolean method393(int var1) {
-		return this.method399(var1) && (this.field122[var1] == 2 || this.field122[var1] == 3);
-	}
-
-	@ObfuscatedName("am")
-	@ObfuscatedSignature(
-		descriptor = "(CI)Z",
-		garbageValue = "1282664652"
-	)
-	public boolean method398(char var1) {
-		return this.method400(var1) && (this.field125[var1] == 2 || this.field125[var1] == 3);
-	}
-
-	@ObfuscatedName("ah")
-	@ObfuscatedSignature(
-		descriptor = "(II)Z",
-		garbageValue = "-1184449529"
-	)
-	boolean method399(int var1) {
-		if (var1 >= 0 && var1 < 112) {
-			return true;
-		} else {
-			System.out.println("Invalid keycode: " + var1);
-			return false;
+	@Export("queueSoundEffect")
+	static void queueSoundEffect(int var0, int var1, int var2) {
+		if (class468.clientPreferences.getSoundEffectsVolume() != 0 && var1 != 0 && class57.soundEffectCount < 50) {
+			GrandExchangeOffer.method8796(-1, var0, 0, 0, 0, 0, var1, var2, false);
 		}
+
 	}
 
 	@ObfuscatedName("ag")
-	@ObfuscatedSignature(
-		descriptor = "(CB)Z",
-		garbageValue = "27"
-	)
-	boolean method400(char var1) {
-		if (var1 >= 0 && var1 < 192) {
-			return true;
-		} else {
-			System.out.println("Invalid keychar: " + var1);
-			return false;
-		}
-	}
-
-	@ObfuscatedName("au")
-	@ObfuscatedSignature(
-		descriptor = "(IB)Z",
-		garbageValue = "72"
-	)
-	boolean method431(int var1) {
-		if (var1 >= 0 && var1 < 4) {
-			return true;
-		} else {
-			System.out.println("Invalid mode: " + var1);
-			return false;
-		}
-	}
-
-	@ObfuscatedName("ib")
-	@ObfuscatedSignature(
-		descriptor = "(Lcn;I)V",
-		garbageValue = "-2037594825"
-	)
-	static final void method394(Actor var0) {
-		boolean var1 = var0.field1016 == Client.cycle || var0.sequence == -1 || var0.sequenceDelay != 0;
-		if (!var1) {
-			SequenceDefinition var2 = VarpDefinition.SequenceDefinition_get(var0.sequence);
-			if (var2 != null && !var2.isCachedModelIdSet()) {
-				var1 = var0.sequenceFrameCycle + 1 > var2.frameLengths[var0.sequenceFrame];
+	@Export("base37DecodeLong")
+	public static String base37DecodeLong(long var0) {
+		if (var0 > 0L && var0 < 6582952005840035281L) {
+			if (var0 % 37L == 0L) {
+				return null;
 			} else {
-				var1 = true;
+				int var2 = 0;
+
+				for (long var3 = var0; var3 != 0L; var3 /= 37L) {
+					++var2;
+				}
+
+				StringBuilder var5;
+				char var8;
+				for (var5 = new StringBuilder(var2); 0L != var0; var5.append(var8)) {
+					long var6 = var0;
+					var0 /= 37L;
+					var8 = class455.base37Table[(int)(var6 - var0 * 37L)];
+					if (var8 == '_') {
+						int var9 = var5.length() - 1;
+						var5.setCharAt(var9, Character.toUpperCase(var5.charAt(var9)));
+						var8 = 160;
+					}
+				}
+
+				var5.reverse();
+				var5.setCharAt(0, Character.toUpperCase(var5.charAt(0)));
+				return var5.toString();
+			}
+		} else {
+			return null;
+		}
+	}
+
+	@ObfuscatedName("aw")
+	@ObfuscatedSignature(
+		descriptor = "(Ljava/util/ArrayList;ZI)V",
+		garbageValue = "1123954122"
+	)
+	static void method423(ArrayList var0, boolean var1) {
+		if (!var1) {
+			class345.field3928.clear();
+		}
+
+		Iterator var2 = var0.iterator();
+
+		while (var2.hasNext()) {
+			MidiRequest var3 = (MidiRequest)var2.next();
+			if (var3.musicTrackGroupId != -1 && var3.musicTrackFileId != -1) {
+				if (!var1) {
+					class345.field3928.add(var3);
+				}
+
+				class345.field3933.add(var3);
 			}
 		}
 
-		if (var1) {
-			int var8 = var0.field1016 - var0.spotAnimation;
-			int var3 = Client.cycle - var0.spotAnimation;
-			int var4 = var0.size * -343670784 + var0.field1062 * 128;
-			int var5 = var0.size * -343670784 + var0.field1065 * 128;
-			int var6 = var0.size * -343670784 + var0.field1070 * 128;
-			int var7 = var0.size * -343670784 + var0.field1072 * 128;
-			var0.x = (var3 * var6 + var4 * (var8 - var3)) / var8;
-			var0.y = (var7 * var3 + var5 * (var8 - var3)) / var8;
-		}
-
-		var0.field1085 = 0;
-		var0.orientation = var0.field1012;
-		var0.rotation = var0.orientation;
 	}
 }

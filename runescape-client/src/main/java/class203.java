@@ -1,151 +1,103 @@
-import java.util.ArrayList;
-import java.util.Iterator;
 import net.runelite.mapping.Export;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("ha")
-public class class203 {
-	@ObfuscatedName("ap")
+@ObfuscatedName("ho")
+public class class203 extends DualNode {
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Lha;"
+		descriptor = "Lmc;"
 	)
-	static final class203 field2153;
-	@ObfuscatedName("aj")
+	@Export("field2022")
+	static EvictingDualNodeHashTable field2022;
+	@ObfuscatedName("jq")
 	@ObfuscatedSignature(
-		descriptor = "Lha;"
+		descriptor = "Ljp;"
 	)
-	static final class203 field2154;
-	@ObfuscatedName("an")
-	@ObfuscatedSignature(
-		descriptor = "Lha;"
-	)
-	static final class203 field2151;
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "Lha;"
-	)
-	static final class203 field2152;
-	@ObfuscatedName("al")
-	@ObfuscatedSignature(
-		descriptor = "Lha;"
-	)
-	static final class203 field2150;
+	@Export("js5SocketTask")
+	static Task js5SocketTask;
 
 	static {
-		field2153 = new class203(0);
-		field2154 = new class203(1);
-		field2151 = new class203(2);
-		field2152 = new class203(3);
-		field2150 = new class203(4);
+		field2022 = new EvictingDualNodeHashTable(64);
 	}
 
+	@ObfuscatedName("nx")
 	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "0"
+		descriptor = "([Lof;IIIII)V",
+		garbageValue = "789799005"
 	)
-	class203(int var1) {
-	}
-
-	@ObfuscatedName("ap")
-	@ObfuscatedSignature(
-		descriptor = "(Ldl;Lip;IIIZI)V",
-		garbageValue = "-1728566992"
-	)
-	static void method4299(WorldView var0, SequenceDefinition var1, int var2, int var3, int var4, boolean var5) {
-		if (class58.soundEffectCount < 50) {
-			if (var1.field2349 != null && var1.field2349.containsKey(var2)) {
-				ArrayList var6 = (ArrayList)var1.field2349.get(var2);
-				if (!var6.isEmpty()) {
-					int var7 = 0;
-					int var9;
-					if (var6.size() > 1) {
-						int var8 = 1 + (int)(Math.random() * 100.0D);
-						var9 = 0;
-
-						for (Iterator var10 = var6.iterator(); var10.hasNext(); ++var7) {
-							class209 var11 = (class209)var10.next();
-							int var12 = var9;
-							var9 += var11.field2205;
-							if (var12 <= var8 && var8 < var9) {
-								break;
-							}
-						}
-
-						if (var7 >= var6.size()) {
-							return;
-						}
+	@Export("drawModelComponents")
+	static final void drawModelComponents(Widget[] var0, int var1, int var2, int var3, int var4) {
+		for (int var5 = var1; var5 <= var2; ++var5) {
+			Widget var6 = var0[var5];
+			if (var6 != null && var3 == var6.parentId && var4 == var6.field4234 && (!var6.isIf3 || !class330.isComponentHidden(var6))) {
+				if (var6.type == 0) {
+					if (!var6.isIf3 && class330.isComponentHidden(var6) && var6 != class330.mousedOverWidgetIf1) {
+						continue;
 					}
 
-					class209 var16 = (class209)var6.get(var7);
-					var9 = var16.field2211 & 31;
-					if ((var9 <= 0 || ClientPacket.clientPreferences.getAreaSoundEffectsVolume() != 0) && (var9 != 0 || ClientPacket.clientPreferences.getSoundEffectsVolume() != 0)) {
-						if (var16 != null) {
-							if (var16.field2211 == 0) {
-								if (!var5) {
-									return;
-								}
+					drawModelComponents(var0, var6.field4236, var6.field4241, var6.id, var6.childIndex * 2077538819);
+					if (var6.children != null) {
+						drawModelComponents(var6.children, 0, var6.children.length - 1, var6.id, -1);
+					}
 
-								IntProjection.method5097(var0.id, var16.field2206, 0, 0, 0, var16.field2209, var16.field2207, 0, var1.field2357);
-							} else {
-								int var17 = var3 - 64;
-								int var18 = var17 >> 7;
-								int var14 = var4 - 64;
-								int var13 = var14 >> 7;
-								IntProjection.method5097(var0.id, var16.field2206, var18, var13, var16.field2211, var16.field2209, var16.field2207, 0, var1.field2357);
-							}
-
+					if (var6.childIndex * 2077538819 == -1) {
+						InterfaceParent var7 = (InterfaceParent)Client.interfaceParents.get((long)var6.id);
+						if (var7 != null) {
+							class497.method10123(var7.group);
 						}
 					}
 				}
+
+				if (var6.type == 6) {
+					int var8;
+					if (var6.sequenceId != -1 || var6.sequenceId2 != -1) {
+						boolean var11 = class556.runCs1(var6);
+						if (var11) {
+							var8 = var6.sequenceId2;
+						} else {
+							var8 = var6.sequenceId;
+						}
+
+						if (var8 != -1) {
+							SequenceDefinition var9 = ClientPacket.SequenceDefinition_get(var8);
+							if (!var9.isCachedModelIdSet()) {
+								for (var6.modelFrameCycle += Client.graphicsCycle; var6.modelFrameCycle > var9.frameLengths[var6.modelFrame]; class376.invalidateWidget(var6)) {
+									var6.modelFrameCycle -= var9.frameLengths[var6.modelFrame];
+									++var6.modelFrame;
+									if (var6.modelFrame >= var9.frameIds.length) {
+										var6.modelFrame -= var9.frameCount;
+										if (var6.modelFrame < 0 || var6.modelFrame >= var9.frameIds.length) {
+											var6.modelFrame = 0;
+										}
+									}
+								}
+							} else {
+								var6.modelFrame += Client.graphicsCycle;
+								int var10 = var9.getMayaAnimFrame();
+								if (var6.modelFrame >= var10) {
+									var6.modelFrame -= var9.frameCount;
+									if (var6.modelFrame < 0 || var6.modelFrame >= var10) {
+										var6.modelFrame = 0;
+									}
+								}
+
+								class376.invalidateWidget(var6);
+							}
+						}
+					}
+
+					if (var6.field4274 != 0 && !var6.isIf3) {
+						int var12 = var6.field4274 >> 16;
+						var8 = var6.field4274 << 16 >> 16;
+						var12 *= Client.graphicsCycle;
+						var8 *= Client.graphicsCycle;
+						var6.modelAngleX = var12 + var6.modelAngleX & 2047;
+						var6.modelAngleY = var8 + var6.modelAngleY & 2047;
+						class376.invalidateWidget(var6);
+					}
+				}
 			}
-		}
-	}
-
-	@ObfuscatedName("aa")
-	@ObfuscatedSignature(
-		descriptor = "(IB)I",
-		garbageValue = "97"
-	)
-	@Export("iLog")
-	public static int iLog(int var0) {
-		int var1 = 0;
-		if (var0 < 0 || var0 >= 65536) {
-			var0 >>>= 16;
-			var1 += 16;
-		}
-
-		if (var0 >= 256) {
-			var0 >>>= 8;
-			var1 += 8;
-		}
-
-		if (var0 >= 16) {
-			var0 >>>= 4;
-			var1 += 4;
-		}
-
-		if (var0 >= 4) {
-			var0 >>>= 2;
-			var1 += 2;
-		}
-
-		if (var0 >= 1) {
-			var0 >>>= 1;
-			++var1;
-		}
-
-		return var0 + var1;
-	}
-
-	@ObfuscatedName("hx")
-	@ObfuscatedSignature(
-		descriptor = "(I)V",
-		garbageValue = "-1324579474"
-	)
-	static void method4300() {
-		if (Sound.topLevelWorldView != null) {
-			Sound.topLevelWorldView.scene.method5219(ClientPacket.clientPreferences.getDrawDistance());
 		}
 
 	}

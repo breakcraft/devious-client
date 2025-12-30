@@ -3,21 +3,18 @@ import net.runelite.mapping.Implements;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("si")
+@ObfuscatedName("tz")
 @Implements("User")
 public class User implements Comparable {
-	@ObfuscatedName("ad")
-	@Export("Tiles_shapes")
-	static byte[][][] Tiles_shapes;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lxm;"
+		descriptor = "Lxv;"
 	)
 	@Export("username")
 	Username username;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "Lxm;"
+		descriptor = "Lxv;"
 	)
 	@Export("previousUsername")
 	Username previousUsername;
@@ -25,50 +22,50 @@ public class User implements Comparable {
 	User() {
 	}
 
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "(Lsi;B)I",
-		garbageValue = "-27"
+		descriptor = "(Ltz;I)I",
+		garbageValue = "327716789"
 	)
 	@Export("compareTo_user")
 	public int compareTo_user(User var1) {
 		return this.username.compareToTyped(var1.username);
 	}
 
-	@ObfuscatedName("aq")
+	@ObfuscatedName("bs")
 	@ObfuscatedSignature(
-		descriptor = "(I)Lxm;",
-		garbageValue = "-615704016"
+		descriptor = "(B)Lxv;",
+		garbageValue = "-72"
 	)
 	@Export("getUsername")
 	public Username getUsername() {
 		return this.username;
 	}
 
-	@ObfuscatedName("ay")
+	@ObfuscatedName("bz")
 	@ObfuscatedSignature(
-		descriptor = "(I)Ljava/lang/String;",
-		garbageValue = "1945780872"
+		descriptor = "(B)Ljava/lang/String;",
+		garbageValue = "44"
 	)
 	@Export("getName")
 	public String getName() {
 		return this.username == null ? "" : this.username.getName();
 	}
 
-	@ObfuscatedName("ba")
+	@ObfuscatedName("bk")
 	@ObfuscatedSignature(
-		descriptor = "(B)Ljava/lang/String;",
-		garbageValue = "0"
+		descriptor = "(I)Ljava/lang/String;",
+		garbageValue = "842131119"
 	)
 	@Export("getPreviousName")
 	public String getPreviousName() {
 		return this.previousUsername == null ? "" : this.previousUsername.getName();
 	}
 
-	@ObfuscatedName("bx")
+	@ObfuscatedName("bb")
 	@ObfuscatedSignature(
-		descriptor = "(Lxm;Lxm;B)V",
-		garbageValue = "62"
+		descriptor = "(Lxv;Lxv;I)V",
+		garbageValue = "865496014"
 	)
 	@Export("set")
 	void set(Username var1, Username var2) {
@@ -84,16 +81,13 @@ public class User implements Comparable {
 		return this.compareTo_user((User)var1);
 	}
 
-	@ObfuscatedName("ah")
+	@ObfuscatedName("ns")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIIIFFFI)F",
-		garbageValue = "1914902033"
+		descriptor = "(IB)V",
+		garbageValue = "1"
 	)
-	public static float method9601(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, float var8, float var9, float var10) {
-		float var11 = (float)((var6 - var7) * (var2 - var4) + (var5 - var7) * (var4 - var3));
-		float var12 = (float)((var6 - var7) * (var0 - var4) + (var1 - var7) * (var4 - var3)) / var11;
-		float var13 = (float)((var7 - var5) * (var0 - var4) + (var1 - var7) * (var2 - var4)) / var11;
-		float var14 = 1.0F - var12 - var13;
-		return var10 * var14 + var12 * var8 + var9 * var13;
+	static final void method10270(int var0) {
+		var0 = Math.min(Math.max(var0, 0), 127);
+		class468.clientPreferences.updateSoundEffectVolume(var0);
 	}
 }

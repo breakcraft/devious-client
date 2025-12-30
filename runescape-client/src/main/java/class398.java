@@ -1,26 +1,32 @@
-import net.runelite.mapping.Export;
+import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
-import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("pv")
+@ObfuscatedName("pg")
 public class class398 {
-	@ObfuscatedName("ai")
-	@ObfuscatedSignature(
-		descriptor = "(CLqt;I)I",
-		garbageValue = "-378022068"
+	@ObfuscatedName("at")
+	@ObfuscatedGetter(
+		intValue = -1723625747
 	)
-	@Export("lowercaseChar")
-	static int lowercaseChar(char var0, Language var1) {
-		int var2 = var0 << 4;
-		if (Character.isUpperCase(var0) || Character.isTitleCase(var0)) {
-			var0 = Character.toLowerCase(var0);
-			var2 = (var0 << 4) + 1;
-		}
+	static final int field4502;
+	@ObfuscatedName("ag")
+	@ObfuscatedGetter(
+		intValue = -1399174863
+	)
+	static final int field4509;
+	@ObfuscatedName("ar")
+	@ObfuscatedGetter(
+		intValue = -440120463
+	)
+	static final int field4519;
 
-		if (var0 == 241 && var1 == Language.Language_ES) {
-			var2 = 1762;
-		}
-
-		return var2;
+	static {
+		short var0 = 2048;
+		field4502 = var0;
+		var0 = 2048;
+		field4509 = var0;
+		int var1 = field4502;
+		var1 = field4509;
+		field4519 = Coord.method7676(100);
+		var1 = field4519;
 	}
 }

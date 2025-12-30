@@ -4,73 +4,79 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("lb")
+@ObfuscatedName("lf")
 @Implements("WorldMapID")
 public class WorldMapID {
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
-		descriptor = "Llb;"
+		descriptor = "Llf;"
 	)
-	static final WorldMapID field3307;
-	@ObfuscatedName("aj")
+	static final WorldMapID field3508;
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Llb;"
+		descriptor = "Llf;"
 	)
-	static final WorldMapID field3308;
-	@ObfuscatedName("ak")
-	@Export("osName")
-	static String osName;
-	@ObfuscatedName("an")
+	static final WorldMapID field3503;
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -1167897365
+		intValue = 1166744947
 	)
 	@Export("value")
 	final int value;
 
 	static {
-		field3307 = new WorldMapID(0);
-		field3308 = new WorldMapID(1);
+		field3508 = new WorldMapID(0);
+		field3503 = new WorldMapID(1);
 	}
 
 	WorldMapID(int var1) {
 		this.value = var1;
 	}
 
-	@ObfuscatedName("aj")
-	public static String method6627(long var0) {
-		if (var0 > 0L && var0 < 6582952005840035281L) {
-			if (var0 % 37L == 0L) {
-				return null;
-			} else {
-				int var2 = 0;
+	@ObfuscatedName("an")
+	@ObfuscatedSignature(
+		descriptor = "([Ljava/lang/String;[IIII)V",
+		garbageValue = "1060942896"
+	)
+	@Export("quicksortStringsWithCorrespondingIntegers")
+	public static void quicksortStringsWithCorrespondingIntegers(String[] var0, int[] var1, int var2, int var3) {
+		if (var2 < var3) {
+			int var4 = (var3 + var2) / 2;
+			int var5 = var2;
+			String var6 = var0[var4];
+			var0[var4] = var0[var3];
+			var0[var3] = var6;
+			int var7 = var1[var4];
+			var1[var4] = var1[var3];
+			var1[var3] = var7;
 
-				for (long var3 = var0; 0L != var3; var3 /= 37L) {
-					++var2;
+			for (int var8 = var2; var8 < var3; ++var8) {
+				if (var6 == null || var0[var8] != null && var0[var8].compareTo(var6) < (var8 & 1)) {
+					String var9 = var0[var8];
+					var0[var8] = var0[var5];
+					var0[var5] = var9;
+					int var10 = var1[var8];
+					var1[var8] = var1[var5];
+					var1[var5++] = var10;
 				}
-
-				StringBuilder var5 = new StringBuilder(var2);
-
-				while (var0 != 0L) {
-					long var6 = var0;
-					var0 /= 37L;
-					var5.append(class440.base37Table[(int)(var6 - 37L * var0)]);
-				}
-
-				return var5.reverse().toString();
 			}
-		} else {
-			return null;
+
+			var0[var3] = var0[var5];
+			var0[var5] = var6;
+			var1[var3] = var1[var5];
+			var1[var5] = var7;
+			quicksortStringsWithCorrespondingIntegers(var0, var1, var2, var5 - 1);
+			quicksortStringsWithCorrespondingIntegers(var0, var1, var5 + 1, var3);
 		}
+
 	}
 
-	@ObfuscatedName("ik")
+	@ObfuscatedName("ae")
 	@ObfuscatedSignature(
-		descriptor = "(II)V",
-		garbageValue = "1805360819"
+		descriptor = "(I)[Lfu;",
+		garbageValue = "-1895878343"
 	)
-	static void method6628(int var0) {
-		PacketBufferNode var1 = class139.getPacketBufferNode(ClientPacket.SET_HEADING, Client.packetWriter.isaacCipher);
-		var1.packetBuffer.writeByte(var0);
-		Client.packetWriter.addNode(var1);
+	static class147[] method7020() {
+		return new class147[]{class147.field1730, class147.field1728, class147.field1729, class147.field1734, class147.field1731, class147.field1732, class147.field1727, class147.field1735, class147.field1733};
 	}
 }

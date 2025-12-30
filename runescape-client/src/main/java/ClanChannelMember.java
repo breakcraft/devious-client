@@ -4,27 +4,27 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fm")
+@ObfuscatedName("fa")
 @Implements("ClanChannelMember")
 public class ClanChannelMember {
-	@ObfuscatedName("qj")
+	@ObfuscatedName("aj")
 	@ObfuscatedSignature(
-		descriptor = "[Lwy;"
+		descriptor = "Lqm;"
 	)
-	@Export("scrollBarSprites")
-	static IndexedSprite[] scrollBarSprites;
-	@ObfuscatedName("ap")
+	@Export("KitDefinition_modelsArchive")
+	public static AbstractArchive KitDefinition_modelsArchive;
+	@ObfuscatedName("av")
 	@Export("rank")
 	public byte rank;
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedGetter(
-		intValue = 691312845
+		intValue = -1379379925
 	)
 	@Export("world")
 	public int world;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedSignature(
-		descriptor = "Lxm;"
+		descriptor = "Lxv;"
 	)
 	@Export("username")
 	public Username username;
@@ -32,77 +32,99 @@ public class ClanChannelMember {
 	ClanChannelMember() {
 	}
 
-	@ObfuscatedName("ij")
+	@ObfuscatedName("ap")
 	@ObfuscatedSignature(
-		descriptor = "(B)V",
-		garbageValue = "-106"
+		descriptor = "([BIII)Z",
+		garbageValue = "-1623758005"
 	)
-	static void method3678() {
-		if (class338.worldMap != null) {
-			class338.worldMap.method10295(Sound.topLevelWorldView.plane, (Client.field527 >> 7) + Sound.topLevelWorldView.baseX, (Client.field387 >> 7) + Sound.topLevelWorldView.baseY, false);
-			class338.worldMap.loadCache();
-		}
+	static final boolean method3985(byte[] var0, int var1, int var2) {
+		boolean var3 = true;
+		Buffer var4 = new Buffer(var0);
+		int var5 = -1;
 
+		label69:
+		while (true) {
+			int var6 = var4.readIncrSmallSmart();
+			if (var6 == 0) {
+				return var3;
+			}
+
+			var5 += var6;
+			int var7 = 0;
+			boolean var8 = false;
+
+			while (true) {
+				int var9;
+				while (!var8) {
+					var9 = var4.readUShortSmart();
+					if (var9 == 0) {
+						continue label69;
+					}
+
+					var7 += var9 - 1;
+					int var10 = var7 & 63;
+					int var11 = var7 >> 6 & 63;
+					int var12 = var4.readUnsignedByte() >> 2;
+					int var13 = var11 + var1;
+					int var14 = var10 + var2;
+					if (var13 > 0 && var14 > 0 && var13 < 103 && var14 < 103) {
+						ObjectComposition var15 = AsyncHttpResponse.getObjectDefinition(var5);
+						if (var12 != 22 || !Client.isLowDetail || var15.int1 != 0 || var15.interactType == 1 || var15.boolean2) {
+							if (!var15.needsModelFiles()) {
+								++Client.field375;
+								var3 = false;
+							}
+
+							var8 = true;
+						}
+					}
+				}
+
+				var9 = var4.readUShortSmart();
+				if (var9 == 0) {
+					break;
+				}
+
+				var4.readUnsignedByte();
+			}
+		}
 	}
 
-	@ObfuscatedName("kq")
+	@ObfuscatedName("ad")
 	@ObfuscatedSignature(
-		descriptor = "(IIIIIIII)Z",
-		garbageValue = "-1325335667"
+		descriptor = "(Ljava/lang/String;I)Ljava/lang/String;",
+		garbageValue = "-9002405"
 	)
-	static boolean method3677(int var0, int var1, int var2, int var3, int var4, int var5, int var6) {
-		Scene var7 = class330.worldView.scene;
-		int var9;
-		if (var5 == class391.field4617.field4619) {
-			BoundaryObject var8 = var7.getBoundaryObject(var0, var1, var2);
-			if (var8 != null) {
-				var9 = DirectByteArrayCopier.Entity_unpackID(var8.tag);
-				if (var3 == WorldMapDecorationType.field4154.id) {
-					var8.renderable1 = new DynamicObject(class330.worldView, var9, 2, var4 + 4, var0, var1, var2, var6, false, var8.renderable1);
-					var8.renderable2 = new DynamicObject(class330.worldView, var9, 2, var4 + 1 & 3, var0, var1, var2, var6, false, var8.renderable2);
-				} else {
-					var8.renderable1 = new DynamicObject(class330.worldView, var9, var3, var4, var0, var1, var2, var6, false, var8.renderable1);
-				}
+	public static String method3986(String var0) {
+		int var1 = var0.length();
+		char[] var2 = new char[var1];
+		byte var3 = 2;
 
-				return true;
+		for (int var4 = 0; var4 < var1; ++var4) {
+			char var5 = var0.charAt(var4);
+			if (var3 == 0) {
+				var5 = Character.toLowerCase(var5);
+			} else if (var3 == 2 || Character.isUpperCase(var5)) {
+				var5 = class144.method3896(var5);
 			}
-		} else if (var5 == class391.field4614.field4619) {
-			WallDecoration var10 = var7.getWallDecoration(var0, var1, var2);
-			if (var10 != null) {
-				var9 = DirectByteArrayCopier.Entity_unpackID(var10.tag);
-				if (var3 != WorldMapDecorationType.field4157.id && var3 != WorldMapDecorationType.field4158.id) {
-					if (var3 == WorldMapDecorationType.field4159.id) {
-						var10.renderable1 = new DynamicObject(class330.worldView, var9, 4, var4 + 4, var0, var1, var2, var6, false, var10.renderable1);
-					} else if (var3 == WorldMapDecorationType.field4167.id) {
-						var10.renderable1 = new DynamicObject(class330.worldView, var9, 4, (var4 + 2 & 3) + 4, var0, var1, var2, var6, false, var10.renderable1);
-					} else if (var3 == WorldMapDecorationType.field4166.id) {
-						var10.renderable1 = new DynamicObject(class330.worldView, var9, 4, var4 + 4, var0, var1, var2, var6, false, var10.renderable1);
-						var10.renderable2 = new DynamicObject(class330.worldView, var9, 4, (var4 + 2 & 3) + 4, var0, var1, var2, var6, false, var10.renderable2);
+
+			if (Character.isLetter(var5)) {
+				var3 = 0;
+			} else if (var5 != '.' && var5 != '?' && var5 != '!') {
+				if (Character.isSpaceChar(var5)) {
+					if (var3 != 2) {
+						var3 = 1;
 					}
 				} else {
-					var10.renderable1 = new DynamicObject(class330.worldView, var9, 4, var4, var0, var1, var2, var6, false, var10.renderable1);
+					var3 = 1;
 				}
-
-				return true;
-			}
-		} else if (var5 == class391.field4613.field4619) {
-			GameObject var11 = var7.getGameObject(var0, var1, var2);
-			if (var3 == WorldMapDecorationType.field4161.id) {
-				var3 = WorldMapDecorationType.field4172.id;
+			} else {
+				var3 = 2;
 			}
 
-			if (var11 != null) {
-				var11.renderable = new DynamicObject(class330.worldView, DirectByteArrayCopier.Entity_unpackID(var11.tag), var3, var4, var0, var1, var2, var6, false, var11.renderable);
-				return true;
-			}
-		} else if (var5 == class391.field4616.field4619) {
-			FloorDecoration var12 = var7.getFloorDecoration(var0, var1, var2);
-			if (var12 != null) {
-				var12.renderable = new DynamicObject(class330.worldView, DirectByteArrayCopier.Entity_unpackID(var12.tag), 22, var4, var0, var1, var2, var6, false, var12.renderable);
-				return true;
-			}
+			var2[var4] = var5;
 		}
 
-		return false;
+		return new String(var2);
 	}
 }

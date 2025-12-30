@@ -3,112 +3,83 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("fp")
-public class class152 {
-	@ObfuscatedName("gx")
+@ObfuscatedName("fd")
+public class class152 extends class151 {
+	@ObfuscatedName("am")
 	@ObfuscatedSignature(
-		descriptor = "Lcp;"
+		descriptor = "Lqm;"
 	)
-	@Export("localPlayer")
-	static Player localPlayer;
-	@ObfuscatedName("qx")
+	@Export("SequenceDefinition_animationsArchive")
+	static AbstractArchive SequenceDefinition_animationsArchive;
+	@ObfuscatedName("av")
+	@ObfuscatedGetter(
+		intValue = -919298639
+	)
+	int field1762;
+	@ObfuscatedName("at")
+	boolean field1763;
+	// $FF: synthetic field
 	@ObfuscatedSignature(
-		descriptor = "[Lwd;"
+		descriptor = "Lfc;"
 	)
-	@Export("mapDotSprites")
-	static SpritePixels[] mapDotSprites;
-	@ObfuscatedName("az")
-	@ObfuscatedGetter(
-		longValue = -1794407483040936337L
+	final class154 this$0;
+
+	@ObfuscatedSignature(
+		descriptor = "(Lfc;)V"
 	)
-	long field1738;
-	@ObfuscatedName("aw")
-	@ObfuscatedGetter(
-		intValue = 761561711
+	class152(class154 var1) {
+		this.this$0 = var1;
+		this.field1762 = -1;
+	}
+
+	@ObfuscatedName("av")
+	@ObfuscatedSignature(
+		descriptor = "(Lxa;B)V",
+		garbageValue = "-11"
 	)
-	public int field1741;
+	void vmethod4235(Buffer var1) {
+		this.field1762 = var1.readUnsignedShort();
+		this.field1763 = var1.readUnsignedByte() == 1;
+	}
+
 	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lqh;"
+		descriptor = "(Lgs;B)V",
+		garbageValue = "-98"
 	)
-	IterableNodeDeque field1730;
-
-	@ObfuscatedSignature(
-		descriptor = "(Lwt;)V"
-	)
-	public class152(Buffer var1) {
-		this.field1741 = -1;
-		this.field1730 = new IterableNodeDeque();
-		this.method3687(var1);
+	void vmethod4241(ClanSettings var1) {
+		var1.method4100(this.field1762, this.field1763);
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("jz")
 	@ObfuscatedSignature(
-		descriptor = "(Lwt;I)V",
-		garbageValue = "-1984923073"
+		descriptor = "(Lci;B)Z",
+		garbageValue = "0"
 	)
-	void method3687(Buffer var1) {
-		this.field1738 = var1.readLong();
-		this.field1741 = var1.readInt();
-
-		for (int var2 = var1.readUnsignedByte(); var2 != 0; var2 = var1.readUnsignedByte()) {
-			Object var3;
-			if (var2 == 3) {
-				var3 = new class171(this);
-			} else if (var2 == 1) {
-				var3 = new LoginPacket(this);
-			} else if (var2 == 13) {
-				var3 = new class164(this);
-			} else if (var2 == 4) {
-				var3 = new Sound(this);
-			} else if (var2 == 6) {
-				var3 = new class163(this);
-			} else if (var2 == 5) {
-				var3 = new class148(this);
-			} else if (var2 == 2) {
-				var3 = new class153(this);
-			} else if (var2 == 7) {
-				var3 = new class146(this);
-			} else if (var2 == 14) {
-				var3 = new class150(this);
-			} else if (var2 == 8) {
-				var3 = new class167(this);
-			} else if (var2 == 9) {
-				var3 = new class173(this);
-			} else if (var2 == 10) {
-				var3 = new class159(this);
-			} else if (var2 == 11) {
-				var3 = new class154(this);
-			} else if (var2 == 12) {
-				var3 = new class158(this);
+	static boolean method3979(Player var0) {
+		if (Client.drawPlayerNames == 0) {
+			return false;
+		} else {
+			boolean var1;
+			if (class330.localPlayer == var0) {
+				var1 = (Client.drawPlayerNames & 8) != 0;
+				return var1;
 			} else {
-				if (var2 != 15) {
-					throw new RuntimeException("");
+				var1 = GameEngine.method676();
+				boolean var2;
+				if (!var1) {
+					var2 = (Client.drawPlayerNames & 1) != 0;
+					var1 = var2 && var0.isFriend();
 				}
 
-				var3 = new class168(this);
+				var2 = var1;
+				if (!var1) {
+					boolean var3 = (Client.drawPlayerNames & 2) != 0;
+					var2 = var3 && var0.isFriendsChatMember();
+				}
+
+				return var2;
 			}
-
-			((class149)var3).vmethod3913(var1);
-			this.field1730.addFirst((Node)var3);
-		}
-
-	}
-
-	@ObfuscatedName("aj")
-	@ObfuscatedSignature(
-		descriptor = "(Lgu;I)V",
-		garbageValue = "-1712455993"
-	)
-	public void method3681(ClanSettings var1) {
-		if (var1.field1784 == this.field1738 && this.field1741 == var1.field1785) {
-			for (class149 var2 = (class149)this.field1730.last(); var2 != null; var2 = (class149)this.field1730.previous()) {
-				var2.vmethod3914(var1);
-			}
-
-			++var1.field1785;
-		} else {
-			throw new RuntimeException("");
 		}
 	}
 }

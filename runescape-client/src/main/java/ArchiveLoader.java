@@ -4,30 +4,30 @@ import net.runelite.mapping.ObfuscatedGetter;
 import net.runelite.mapping.ObfuscatedName;
 import net.runelite.mapping.ObfuscatedSignature;
 
-@ObfuscatedName("cg")
+@ObfuscatedName("cs")
 @Implements("ArchiveLoader")
 public class ArchiveLoader {
-	@ObfuscatedName("aj")
+	@ObfuscatedName("at")
 	@ObfuscatedSignature(
-		descriptor = "Lpu;"
+		descriptor = "Lqn;"
 	)
 	@Export("archive")
 	final Archive archive;
-	@ObfuscatedName("an")
+	@ObfuscatedName("ag")
 	@ObfuscatedGetter(
-		intValue = -368061863
+		intValue = 1140033983
 	)
 	@Export("groupCount")
 	final int groupCount;
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedGetter(
-		intValue = 476993049
+		intValue = 1188087065
 	)
 	@Export("loadedCount")
 	int loadedCount;
 
 	@ObfuscatedSignature(
-		descriptor = "(Lpu;Ljava/lang/String;)V"
+		descriptor = "(Lqn;Ljava/lang/String;)V"
 	)
 	ArchiveLoader(Archive var1, String var2) {
 		this.loadedCount = 0;
@@ -35,17 +35,17 @@ public class ArchiveLoader {
 		this.groupCount = var1.getGroupCount();
 	}
 
-	@ObfuscatedName("ap")
+	@ObfuscatedName("av")
 	@ObfuscatedSignature(
 		descriptor = "(B)Z",
-		garbageValue = "-75"
+		garbageValue = "-33"
 	)
 	@Export("isLoaded")
 	boolean isLoaded() {
 		this.loadedCount = 0;
 
 		for (int var1 = 0; var1 < this.groupCount; ++var1) {
-			if (!this.archive.method8039(var1) || this.archive.method8040(var1)) {
+			if (!this.archive.method8542(var1) || this.archive.method8541(var1)) {
 				++this.loadedCount;
 			}
 		}
@@ -53,32 +53,32 @@ public class ArchiveLoader {
 		return this.loadedCount >= this.groupCount;
 	}
 
-	@ObfuscatedName("ai")
+	@ObfuscatedName("an")
 	@ObfuscatedSignature(
-		descriptor = "([BI)V",
-		garbageValue = "1196147180"
+		descriptor = "(IB)Lbu;",
+		garbageValue = "0"
 	)
-	@Export("ByteArrayPool_release")
-	public static void ByteArrayPool_release(byte[] var0) {
-		synchronized(ByteArrayPool.field5107) {
-			if (var0.length == 100 && ByteArrayPool.ByteArrayPool_smallCount < ByteArrayPool.field5109) {
-				ByteArrayPool.ByteArrayPool_small[++ByteArrayPool.ByteArrayPool_smallCount - 1] = var0;
-			} else if (var0.length == 5000 && ByteArrayPool.ByteArrayPool_mediumCount < ByteArrayPool.field5121) {
-				ByteArrayPool.ByteArrayPool_medium[++ByteArrayPool.ByteArrayPool_mediumCount - 1] = var0;
-			} else if (var0.length == 10000 && ByteArrayPool.ByteArrayPool_largeCount < ByteArrayPool.field5112) {
-				ByteArrayPool.ByteArrayPool_large[++ByteArrayPool.ByteArrayPool_largeCount - 1] = var0;
-			} else if (var0.length == 30000 && ByteArrayPool.field5111 < ByteArrayPool.field5115) {
-				ByteArrayPool.field5119[++ByteArrayPool.field5111 - 1] = var0;
-			} else {
-				if (PlayerUpdateManager.ByteArrayPool_arrays != null) {
-					for (int var2 = 0; var2 < class63.ByteArrayPool_alternativeSizes.length; ++var2) {
-						if (var0.length == class63.ByteArrayPool_alternativeSizes[var2] && WorldMapDecoration.ByteArrayPool_altSizeArrayCounts[var2] < PlayerUpdateManager.ByteArrayPool_arrays[var2].length) {
-							PlayerUpdateManager.ByteArrayPool_arrays[var2][WorldMapDecoration.ByteArrayPool_altSizeArrayCounts[var2]++] = var0;
-							return;
-						}
-					}
-				}
+	@Export("Messages_getMessage")
+	static Message Messages_getMessage(int var0) {
+		return (Message)Messages.Messages_hashTable.get((long)var0);
+	}
 
+	@ObfuscatedName("jq")
+	@ObfuscatedSignature(
+		descriptor = "(B)I",
+		garbageValue = "-25"
+	)
+	static final int method2155() {
+		if (class468.clientPreferences.isRoofsHidden()) {
+			return Occluder.topLevelWorldView.plane;
+		} else {
+			int var0 = SpriteBufferProperties.cameraX >> 7;
+			int var1 = class528.cameraZ >> 7;
+			if (var0 >= 0 && 104 > var0 && var1 >= 0 && 104 > var1) {
+				int var2 = NPCComposition.getTileHeight(Occluder.topLevelWorldView, SpriteBufferProperties.cameraX, class528.cameraZ, Occluder.topLevelWorldView.plane);
+				return var2 - ScriptFrame.cameraY < 800 && (Occluder.topLevelWorldView.tileSettings[Occluder.topLevelWorldView.plane][var0][var1] & 4) != 0 ? Occluder.topLevelWorldView.plane : 3;
+			} else {
+				return Occluder.topLevelWorldView.plane;
 			}
 		}
 	}
